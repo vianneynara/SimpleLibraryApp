@@ -322,14 +322,13 @@
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="-jenis-"/>
-                    <StringItem index="1" value="NIM"/>
-                    <StringItem index="2" value="NIP"/>
-                    <StringItem index="3" value="NIK"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="NIM"/>
+                    <StringItem index="1" value="NIP"/>
+                    <StringItem index="2" value="NIK"/>
                   </StringArray>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Jenis Nomor Identitas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpJenisIdActionPerformed"/>
@@ -383,6 +382,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="inpMaksPinjam">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnSimpanData">
               <Properties>
@@ -451,10 +455,10 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="inpTipeBuku" min="-2" max="-2" attributes="0"/>
                                           <Component id="inpPenerbit" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
+                                          <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
                                           <Component id="inpIsbnIssn" min="-2" pref="381" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -524,12 +528,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="l_judulBuku4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="inpTipeBuku" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="l_jmlHalaman" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -613,7 +617,7 @@
                 <Property name="text" type="java.lang.String" value="Tipe Koleksi"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="inpTipeBuku">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -625,10 +629,10 @@
                 <Property name="text" type="java.lang.String" value="Buku"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeBukuActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="inpTipeMajalah">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -639,10 +643,10 @@
                 <Property name="text" type="java.lang.String" value="Majalah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeMajalahActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="inpTipeDisk">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -653,7 +657,7 @@
                 <Property name="text" type="java.lang.String" value="Disk"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeDiskActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_isbnIssn">

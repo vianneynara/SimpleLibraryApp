@@ -5,8 +5,6 @@
 package pbol.gui.app;
 
 import java.awt.*;
-import java.io.IOException;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,10 +12,9 @@ import javax.swing.ImageIcon;
  */
 public class App extends javax.swing.JFrame {
 
-    private CardLayout formCards;
+    private final CardLayout formCards;
     /**
      * Creates new form App
-     * @throws java.io.IOException
      */
     public App() {
         initComponents();
@@ -62,9 +59,9 @@ public class App extends javax.swing.JFrame {
         l_penerbit = new javax.swing.JLabel();
         inpPenerbit = new java.awt.TextField();
         l_judulBuku4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        inpTipeBuku = new javax.swing.JRadioButton();
+        inpTipeMajalah = new javax.swing.JRadioButton();
+        inpTipeDisk = new javax.swing.JRadioButton();
         l_isbnIssn = new javax.swing.JLabel();
         inpIsbnIssn = new java.awt.TextField();
         l_jmlHalaman = new javax.swing.JLabel();
@@ -163,8 +160,8 @@ public class App extends javax.swing.JFrame {
         });
 
         inpJenisId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        inpJenisId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-jenis-", "NIM", "NIP", "NIK" }));
-        inpJenisId.setToolTipText("");
+        inpJenisId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIM", "NIP", "NIK" }));
+        inpJenisId.setToolTipText("Jenis Nomor Identitas");
         inpJenisId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inpJenisIdActionPerformed(evt);
@@ -193,6 +190,8 @@ public class App extends javax.swing.JFrame {
 
         l_maksPinjam.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_maksPinjam.setText("Maks. Pinjaman");
+
+        inpMaksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, 10, 1));
 
         btnSimpanData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSimpanData.setText("Simpan");
@@ -323,31 +322,31 @@ public class App extends javax.swing.JFrame {
         l_judulBuku4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_judulBuku4.setText("Tipe Koleksi");
 
-        inp_regTipeKoleksi.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Buku");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        inp_regTipeKoleksi.add(inpTipeBuku);
+        inpTipeBuku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpTipeBuku.setSelected(true);
+        inpTipeBuku.setText("Buku");
+        inpTipeBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                inpTipeBukuActionPerformed(evt);
             }
         });
 
-        inp_regTipeKoleksi.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton2.setText("Majalah");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        inp_regTipeKoleksi.add(inpTipeMajalah);
+        inpTipeMajalah.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpTipeMajalah.setText("Majalah");
+        inpTipeMajalah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                inpTipeMajalahActionPerformed(evt);
             }
         });
 
-        inp_regTipeKoleksi.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton3.setText("Disk");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        inp_regTipeKoleksi.add(inpTipeDisk);
+        inpTipeDisk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpTipeDisk.setText("Disk");
+        inpTipeDisk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                inpTipeDiskActionPerformed(evt);
             }
         });
 
@@ -431,10 +430,10 @@ public class App extends javax.swing.JFrame {
                                         .addComponent(l_isbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(inpTipeBuku)
                                     .addComponent(inpPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton3)
+                                    .addComponent(inpTipeMajalah)
+                                    .addComponent(inpTipeDisk)
                                     .addComponent(inpIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(156, 156, 156))
                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
@@ -485,11 +484,11 @@ public class App extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_judulBuku4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1))
+                    .addComponent(inpTipeBuku))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(inpTipeMajalah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(inpTipeDisk)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_jmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -552,17 +551,17 @@ public class App extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inpIsbnIssnActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void inpTipeDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeDiskActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_inpTipeDiskActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void inpTipeMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeMajalahActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_inpTipeMajalahActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void inpTipeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeBukuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_inpTipeBukuActionPerformed
 
     private void inpPenerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpPenerbitActionPerformed
         // TODO add your handling code here:
@@ -660,11 +659,11 @@ public class App extends javax.swing.JFrame {
     private java.awt.TextField inpPenerbit;
     private javax.swing.JSpinner inpSeri;
     private java.awt.TextField inpTelp;
+    private javax.swing.JRadioButton inpTipeBuku;
+    private javax.swing.JRadioButton inpTipeDisk;
+    private javax.swing.JRadioButton inpTipeMajalah;
     private javax.swing.JSpinner inpVolume;
     private javax.swing.ButtonGroup inp_regTipeKoleksi;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel l_Id;
     private javax.swing.JLabel l_alamat;
