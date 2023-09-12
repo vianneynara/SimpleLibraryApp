@@ -5,6 +5,7 @@
 package pbol.gui.app;
 
 import java.awt.*;
+import java.util.HashMap;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.awt.*;
 public class App extends javax.swing.JFrame {
 
     private final CardLayout formCards;
+    private HashMap<String, Component> components;
     /**
      * Creates new form App
      */
@@ -65,22 +67,21 @@ public class App extends javax.swing.JFrame {
         l_isbnIssn = new javax.swing.JLabel();
         inpIsbnIssn = new java.awt.TextField();
         l_jmlHalaman = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        inpJmlHalaman = new javax.swing.JSpinner();
         l_volume = new javax.swing.JLabel();
         inpVolume = new javax.swing.JSpinner();
-        inpSeri = new javax.swing.JSpinner();
         l_seri = new javax.swing.JLabel();
+        inpSeri = new javax.swing.JSpinner();
         l_format = new javax.swing.JLabel();
+        inpFormat = new java.awt.TextField();
         btnSimpanBuku = new javax.swing.JButton();
         btlKosongkan = new javax.swing.JButton();
-        inpFormat = new java.awt.TextField();
         menuBarMain = new javax.swing.JMenuBar();
         menuBar_info = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(960, 540));
-        setResizable(false);
 
         menuContainer.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -217,82 +218,97 @@ public class App extends javax.swing.JFrame {
             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                        .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
-                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(l_Id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(l_alamat, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
+                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_Id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inpAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(156, 156, 156))
+                            .addComponent(inpMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inpId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(inpJenisId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(36, 36, 36))))
-                    .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                                .addComponent(l_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inpNama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
-                                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
-                                .addGap(0, 0, 0)
                                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(inpTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inpMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(156, 156, 156))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(inpId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(inpAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(inpNama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inpJenisId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnKosongkanData, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(btnSimpanData, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addContainerGap())
         );
         registrasiPeminjamLayout.setVerticalGroup(
             registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                        .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(registrasiPeminjamLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(inpJenisId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15))
+                            .addGroup(registrasiPeminjamLayout.createSequentialGroup()
+                                .addComponent(inpNama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inpId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(11, 11, 11)))
+                        .addComponent(inpAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(l_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inpNama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(l_Id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inpId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(inpTelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
-                        .addComponent(inpJenisId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
+                    .addGroup(registrasiPeminjamLayout.createSequentialGroup()
+                        .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(l_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(l_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(l_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(l_alamat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpTelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(251, 251, 251)
+                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(inpMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                .addGap(255, 255, 255)
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpanData, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnKosongkanData, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94))
+                .addContainerGap())
         );
+
+        l_nama.getAccessibleContext().setAccessibleName("");
+        l_nama.getAccessibleContext().setAccessibleDescription("");
+        inpNama.getAccessibleContext().setAccessibleName("");
+        inpNama.getAccessibleContext().setAccessibleDescription("");
+        l_Id.getAccessibleContext().setAccessibleName("");
+        l_Id.getAccessibleContext().setAccessibleDescription("");
+        inpId.getAccessibleContext().setAccessibleName("");
+        inpId.getAccessibleContext().setAccessibleDescription("");
+        inpJenisId.getAccessibleContext().setAccessibleName("");
+        inpJenisId.getAccessibleContext().setAccessibleDescription("");
+        l_alamat.getAccessibleContext().setAccessibleName("");
+        l_alamat.getAccessibleContext().setAccessibleDescription("");
+        inpAlamat.getAccessibleContext().setAccessibleName("");
+        inpAlamat.getAccessibleContext().setAccessibleDescription("");
+        l_telp.getAccessibleContext().setAccessibleName("");
+        l_telp.getAccessibleContext().setAccessibleDescription("");
+        inpTelp.getAccessibleContext().setAccessibleName("");
+        inpTelp.getAccessibleContext().setAccessibleDescription("");
+        l_maksPinjam.getAccessibleContext().setAccessibleName("");
+        l_maksPinjam.getAccessibleContext().setAccessibleDescription("");
+        inpMaksPinjam.getAccessibleContext().setAccessibleName("");
+        inpMaksPinjam.getAccessibleContext().setAccessibleDescription("");
 
         formContainer.add(registrasiPeminjam, "card1");
 
@@ -363,20 +379,33 @@ public class App extends javax.swing.JFrame {
         l_jmlHalaman.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_jmlHalaman.setText("Jml. Halaman");
 
-        jSpinner1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpJmlHalaman.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         l_volume.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_volume.setText("Volume");
+        l_volume.setEnabled(false);
 
         inpVolume.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        inpSeri.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpVolume.setEnabled(false);
 
         l_seri.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_seri.setText("Seri");
+        l_seri.setEnabled(false);
+
+        inpSeri.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inpSeri.setEnabled(false);
 
         l_format.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_format.setText("Format");
+        l_format.setEnabled(false);
+
+        inpFormat.setEnabled(false);
+        inpFormat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inpFormat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inpFormatActionPerformed(evt);
+            }
+        });
 
         btnSimpanBuku.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSimpanBuku.setText("Simpan");
@@ -395,13 +424,6 @@ public class App extends javax.swing.JFrame {
             }
         });
 
-        inpFormat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        inpFormat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inpFormatActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout registrasiKoleksiLayout = new javax.swing.GroupLayout(registrasiKoleksi);
         registrasiKoleksi.setLayout(registrasiKoleksiLayout);
         registrasiKoleksiLayout.setHorizontalGroup(
@@ -410,59 +432,47 @@ public class App extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                        .addComponent(registKoleksiTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
-                        .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registrasiKoleksiLayout.createSequentialGroup()
-                                .addComponent(l_judulBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inpJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_penerbit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_judulBuku4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(30, 30, 30))
-                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_isbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inpTipeBuku)
-                                    .addComponent(inpPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inpTipeMajalah)
-                                    .addComponent(inpTipeDisk)
-                                    .addComponent(inpIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(156, 156, 156))
-                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
                         .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_format, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(inpFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_jmlHalaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(l_judulBuku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                                .addComponent(l_penerbit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(l_isbnIssn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(l_judulBuku4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(l_jmlHalaman, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
                                         .addComponent(l_volume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(inpVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
-                                        .addComponent(l_seri, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(inpSeri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(397, 397, 397))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btlKosongkan, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSimpanBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(17, 17, 17))))
+                                        .addGap(10, 10, 10)))
+                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(inpJudulBuku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(inpTipeBuku)
+                                            .addComponent(inpPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(inpTipeMajalah)
+                                            .addComponent(inpTipeDisk)
+                                            .addComponent(inpIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(inpJmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(inpVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                                .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(inpSeri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registKoleksiTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                                .addComponent(l_format, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inpFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(153, 153, 153))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
+                        .addComponent(btlKosongkan, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnSimpanBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         registrasiKoleksiLayout.setVerticalGroup(
             registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,45 +481,49 @@ public class App extends javax.swing.JFrame {
                 .addComponent(registKoleksiTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(l_judulBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpJudulBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(inpJudulBuku, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(l_judulBuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(l_penerbit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpPenerbit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(inpPenerbit, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(l_isbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpIsbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_judulBuku4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inpTipeBuku))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inpTipeMajalah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inpTipeDisk)
+                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inpIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_jmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(inpTipeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_judulBuku4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(inpTipeMajalah, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(inpTipeDisk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(inpJmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(l_jmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(inpVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(l_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inpVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inpSeri, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inpSeri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(l_format, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inpFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_format, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inpFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpanBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btlKosongkan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8))
+                .addContainerGap())
         );
 
         formContainer.add(registrasiKoleksi, "card2");
@@ -537,6 +551,7 @@ public class App extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_regPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regPeminjamActionPerformed
@@ -547,48 +562,12 @@ public class App extends javax.swing.JFrame {
         formCards.show(formContainer, "card2");
     }//GEN-LAST:event_btn_regKoleksiActionPerformed
 
-    private void inpIsbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpIsbnIssnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpIsbnIssnActionPerformed
-
-    private void inpTipeDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeDiskActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpTipeDiskActionPerformed
-
-    private void inpTipeMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeMajalahActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpTipeMajalahActionPerformed
-
-    private void inpTipeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeBukuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpTipeBukuActionPerformed
-
-    private void inpPenerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpPenerbitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpPenerbitActionPerformed
-
-    private void inpJudulBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpJudulBukuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpJudulBukuActionPerformed
-
-    private void btnSimpanBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSimpanBukuActionPerformed
-
-    private void btlKosongkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlKosongkanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btlKosongkanActionPerformed
-
-    private void inpFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpFormatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpFormatActionPerformed
-
     private void btnKosongkanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKosongkanDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnKosongkanDataActionPerformed
 
     private void btnSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanDataActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSimpanDataActionPerformed
 
     private void inpTelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTelpActionPerformed
@@ -610,6 +589,77 @@ public class App extends javax.swing.JFrame {
     private void inpNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inpNamaActionPerformed
+
+    private void btlKosongkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlKosongkanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btlKosongkanActionPerformed
+
+    private void btnSimpanBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimpanBukuActionPerformed
+
+    private void inpFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpFormatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inpFormatActionPerformed
+
+    private void inpIsbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpIsbnIssnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inpIsbnIssnActionPerformed
+
+    private void inpTipeDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeDiskActionPerformed
+        setFalseAllTipeKoleksi();
+
+        l_format.setEnabled(true);
+        inpFormat.setEnabled(true);
+    }//GEN-LAST:event_inpTipeDiskActionPerformed
+
+    private void inpTipeMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeMajalahActionPerformed
+        setFalseAllTipeKoleksi();
+
+        l_volume.setEnabled(true);
+        inpVolume.setEnabled(true);
+        l_seri.setEnabled(true);
+        inpSeri.setEnabled(true);
+    }//GEN-LAST:event_inpTipeMajalahActionPerformed
+
+    private void inpTipeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpTipeBukuActionPerformed
+        setFalseAllTipeKoleksi();
+
+        l_jmlHalaman.setEnabled(true);
+        inpJmlHalaman.setEnabled(true);
+    }//GEN-LAST:event_inpTipeBukuActionPerformed
+
+    private void inpPenerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpPenerbitActionPerformed
+    }//GEN-LAST:event_inpPenerbitActionPerformed
+
+    private void inpJudulBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpJudulBukuActionPerformed
+    }//GEN-LAST:event_inpJudulBukuActionPerformed
+
+    private void setFalseAllTipeKoleksi() {
+        l_jmlHalaman.setEnabled(false);
+        inpJmlHalaman.setEnabled(false);
+        l_volume.setEnabled(false);
+        inpVolume.setEnabled(false);
+        l_seri.setEnabled(false);
+        inpSeri.setEnabled(false);
+        l_format.setEnabled(false);
+        inpFormat.setEnabled(false);}
+
+    private void createComponentMap() {
+        components = new HashMap<String, Component>();
+        Component[] allComponents = formContainer.getComponents();
+        for (Component component : allComponents) {
+            components.put(component.getName(), component);
+        }
+    }
+
+    public Component getComponent(String name) {
+        if (components.containsKey(name)) {
+                return components.get(name);
+        } else {
+            return null;
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -653,6 +703,7 @@ public class App extends javax.swing.JFrame {
     private java.awt.TextField inpId;
     private java.awt.TextField inpIsbnIssn;
     private javax.swing.JComboBox<String> inpJenisId;
+    private javax.swing.JSpinner inpJmlHalaman;
     private java.awt.TextField inpJudulBuku;
     private javax.swing.JSpinner inpMaksPinjam;
     private java.awt.TextField inpNama;
@@ -664,7 +715,6 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JRadioButton inpTipeMajalah;
     private javax.swing.JSpinner inpVolume;
     private javax.swing.ButtonGroup inp_regTipeKoleksi;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel l_Id;
     private javax.swing.JLabel l_alamat;
     private javax.swing.JLabel l_format;

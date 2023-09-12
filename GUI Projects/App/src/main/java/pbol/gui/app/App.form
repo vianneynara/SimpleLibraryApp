@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="inp_regTipeKoleksi">
     </Component>
@@ -27,12 +27,11 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[960, 540]"/>
     </Property>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBarMain"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -163,59 +162,41 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="regisPeminjamTitle" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="regisPeminjamTitle" min="-2" pref="361" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="l_Id" max="32767" attributes="0"/>
-                                  <Component id="l_alamat" pref="147" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="l_telp" max="32767" attributes="0"/>
+                                  <Component id="l_alamat" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_Id" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="l_nama" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_maksPinjam" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="inpAlamat" min="-2" pref="381" max="-2" attributes="0"/>
-                                      <EmptySpace min="156" pref="156" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpId" min="-2" pref="381" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="inpJenisId" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="l_nama" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpNama" min="-2" pref="381" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="l_maksPinjam" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="l_telp" pref="157" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                                  <Component id="inpMaksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="inpTelp" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Component id="inpMaksPinjam" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="inpTelp" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="inpId" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                              <Component id="inpAlamat" min="-2" pref="381" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="inpNama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="inpJenisId" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="156" pref="156" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnKosongkanData" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="btnSimpanData" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -223,46 +204,49 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="regisPeminjamTitle" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="regisPeminjamTitle" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="l_nama" max="32767" attributes="0"/>
-                                  <Component id="inpNama" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="inpJenisId" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="inpNama" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="inpId" max="32767" attributes="0"/>
+                                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <Component id="inpAlamat" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="l_Id" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="inpId" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="inpTelp" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="inpJenisId" min="-2" pref="38" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="l_nama" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="l_Id" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <Component id="l_alamat" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="l_telp" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_alamat" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inpAlamat" alignment="0" max="32767" attributes="0"/>
+                          <Component id="l_maksPinjam" pref="25" max="32767" attributes="0"/>
+                          <Component id="inpMaksPinjam" pref="25" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_telp" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inpTelp" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_maksPinjam" alignment="3" max="32767" attributes="0"/>
-                          <Component id="inpMaksPinjam" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnSimpanData" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btnKosongkanData" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -283,6 +267,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.TextField" name="inpNama">
               <Properties>
@@ -294,6 +282,10 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpNamaActionPerformed"/>
               </Events>
@@ -305,6 +297,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nomor Identitas"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.TextField" name="inpId">
               <Properties>
@@ -312,6 +308,10 @@
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpIdActionPerformed"/>
               </Events>
@@ -330,6 +330,10 @@
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Jenis Nomor Identitas"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpJenisIdActionPerformed"/>
               </Events>
@@ -344,6 +348,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alamat"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.TextField" name="inpAlamat">
               <Properties>
@@ -351,6 +359,10 @@
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpAlamatActionPerformed"/>
               </Events>
@@ -362,6 +374,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nomor Telepon"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.TextField" name="inpTelp">
               <Properties>
@@ -369,6 +385,10 @@
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTelpActionPerformed"/>
               </Events>
@@ -380,6 +400,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Maks. Pinjaman"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="javax.swing.JSpinner" name="inpMaksPinjam">
               <Properties>
@@ -387,6 +411,10 @@
                   <SpinnerModel initial="1" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
             <Component class="javax.swing.JButton" name="btnSimpanData">
               <Properties>
@@ -416,6 +444,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="registrasiKoleksi">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="App_registrasiKoleksi"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="card2"/>
@@ -429,77 +460,60 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="registKoleksiTitle" min="-2" pref="361" max="-2" attributes="0"/>
-                              <EmptySpace min="333" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="l_judulBuku" alignment="0" pref="150" max="32767" attributes="0"/>
+                                                      <Component id="l_penerbit" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="l_isbnIssn" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="l_judulBuku4" max="32767" attributes="0"/>
+                                                  <Component id="l_jmlHalaman" pref="150" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="l_volume" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="inpJudulBuku" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="inpTipeBuku" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inpPenerbit" min="-2" pref="381" max="-2" attributes="0"/>
+                                                  <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inpIsbnIssn" min="-2" pref="381" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="inpJmlHalaman" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="inpVolume" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="l_seri" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="inpSeri" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="registKoleksiTitle" min="-2" pref="361" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="l_format" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="inpFormat" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="l_judulBuku" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpJudulBuku" min="-2" pref="381" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="l_penerbit" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="l_judulBuku4" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="l_isbnIssn" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="inpTipeBuku" min="-2" max="-2" attributes="0"/>
-                                          <Component id="inpPenerbit" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
-                                          <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
-                                          <Component id="inpIsbnIssn" min="-2" pref="381" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="156" pref="156" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="l_format" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="inpFormat" min="-2" pref="120" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="l_jmlHalaman" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="jSpinner1" min="-2" pref="120" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="l_volume" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="inpVolume" min="-2" pref="120" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="l_seri" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="inpSeri" min="-2" pref="120" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="397" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="374" max="-2" attributes="0"/>
-                                      <Component id="btlKosongkan" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnSimpanBuku" min="-2" pref="140" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="btlKosongkan" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Component id="btnSimpanBuku" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -512,54 +526,60 @@
                       <Component id="registKoleksiTitle" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_judulBuku" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inpJudulBuku" alignment="0" max="32767" attributes="0"/>
+                          <Component id="inpJudulBuku" pref="25" max="32767" attributes="0"/>
+                          <Component id="l_judulBuku" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_penerbit" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inpPenerbit" alignment="0" max="32767" attributes="0"/>
+                          <Component id="l_penerbit" max="32767" attributes="0"/>
+                          <Component id="inpPenerbit" pref="25" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_isbnIssn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inpIsbnIssn" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_judulBuku4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="inpTipeBuku" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_jmlHalaman" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="inpIsbnIssn" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="l_isbnIssn" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_volume" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="inpVolume" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="inpTipeBuku" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="l_judulBuku4" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="inpTipeMajalah" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="inpTipeDisk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="inpJmlHalaman" min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="l_jmlHalaman" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="inpVolume" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="l_volume" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_seri" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="inpSeri" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="l_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="inpSeri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_format" max="32767" attributes="0"/>
-                          <Component id="inpFormat" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="l_format" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="inpFormat" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnSimpanBuku" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btlKosongkan" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -686,7 +706,7 @@
                 <Property name="text" type="java.lang.String" value="Jml. Halaman"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner1">
+            <Component class="javax.swing.JSpinner" name="inpJmlHalaman">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -699,6 +719,7 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Volume"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="inpVolume">
@@ -706,13 +727,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="inpSeri">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="l_seri">
@@ -721,6 +736,15 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Seri"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="inpSeri">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="0"/>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="l_format">
@@ -729,7 +753,19 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Format"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+            </Component>
+            <Component class="java.awt.TextField" name="inpFormat">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="14" style="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpFormatActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSimpanBuku">
               <Properties>
@@ -754,16 +790,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btlKosongkanActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="java.awt.TextField" name="inpFormat">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="14" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpFormatActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
