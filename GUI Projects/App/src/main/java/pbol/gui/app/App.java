@@ -629,6 +629,9 @@ public class App extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_i_isnIssnActionPerformed
 
+    /**
+     * Mengaktifkan input field disk (label dan input: FORMAT)
+     * */
     private void i_jenisDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisDiskActionPerformed
         setFalseAllTipeKoleksi();
 
@@ -636,6 +639,9 @@ public class App extends javax.swing.JFrame {
         i_format.setEnabled(true);
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
+    /**
+     * Mengaktifkan input field majalah (label dan input: VOLUME, SERI).
+     * */
     private void i_jenisMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisMajalahActionPerformed
         setFalseAllTipeKoleksi();
 
@@ -645,6 +651,9 @@ public class App extends javax.swing.JFrame {
         i_seri.setEnabled(true);
     }//GEN-LAST:event_i_jenisMajalahActionPerformed
 
+    /**
+     * Mengaktifkan input field buku (label dan input: HALAMAN).
+     * */
     private void i_jenisBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisBukuActionPerformed
         setFalseAllTipeKoleksi();
 
@@ -660,6 +669,9 @@ public class App extends javax.swing.JFrame {
 
     /* Visibility functions */
 
+    /**
+     * Menyetel seluruh fields spesial dalam formulir registrasi koleksi ke mati (disabled).
+     * */
     private void setFalseAllTipeKoleksi() {
         l_jmlHalaman.setEnabled(false);
         i_jmlHalaman.setEnabled(false);
@@ -668,23 +680,9 @@ public class App extends javax.swing.JFrame {
         l_seri.setEnabled(false);
         i_seri.setEnabled(false);
         l_format.setEnabled(false);
-        i_format.setEnabled(false);}
-
-    private void createComponentMap() {
-        components = new HashMap<String, Component>();
-        Component[] allComponents = formContainer.getComponents();
-        for (Component component : allComponents) {
-            components.put(component.getName(), component);
-        }
+        i_format.setEnabled(false);
     }
 
-    public Component getComponent(String name) {
-        if (components.containsKey(name)) {
-                return components.get(name);
-        } else {
-            return null;
-        }
-    }
 
     /**
      * @param args the command line arguments
