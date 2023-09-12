@@ -21,11 +21,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Sistem Manajemen Data Perpustakaan"/>
     <Property name="maximizedBounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
       <Rectangle value="[0, 0, 1280, 720]"/>
-    </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 720]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[960, 540]"/>
@@ -187,28 +185,23 @@
                           <Component id="regisPeminjamTitle" min="-2" pref="361" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="l_telp" max="32767" attributes="0"/>
-                                  <Component id="l_noId" max="32767" attributes="0"/>
-                                  <Component id="l_alamat" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_telp" pref="150" max="32767" attributes="0"/>
+                                  <Component id="l_noId" pref="150" max="32767" attributes="0"/>
+                                  <Component id="l_alamat" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="l_maksPinjam" pref="150" max="32767" attributes="0"/>
-                                  <Component id="l_nama" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_nama" alignment="0" pref="150" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="i_noId" min="-2" pref="381" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="i_jenisNoId" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="i_maksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Component id="i_telp" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace pref="86" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="i_maksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                  <Component id="i_telp" min="-2" pref="381" max="-2" attributes="0"/>
+                                  <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -272,6 +265,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -302,6 +301,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nomor Identitas"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -353,6 +358,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alamat"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -379,6 +390,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nomor Telepon"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -405,6 +422,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Maks. Pinjaman"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -462,6 +485,14 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="registrasiKoleksi">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 25]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 25]"/>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="App_registrasiKoleksi"/>
           </AuxValues>
@@ -487,13 +518,13 @@
                                               <Component id="l_isbnIssn" alignment="0" pref="150" max="32767" attributes="0"/>
                                               <Component id="l_judulBuku4" pref="150" max="32767" attributes="0"/>
                                               <Component id="l_jmlHalaman" pref="150" max="32767" attributes="0"/>
-                                              <Component id="l_volume" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="l_judulKoleksi" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="l_volume" alignment="0" pref="150" max="32767" attributes="0"/>
+                                              <Component id="l_judulKoleksi" alignment="0" pref="150" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="l_seri" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                           <Component id="l_format" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                               <Component id="i_judulKoleksi" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
@@ -512,7 +543,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="333" pref="148" max="32767" attributes="0"/>
+                              <EmptySpace pref="148" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -605,6 +636,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Judul / Title"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="java.awt.TextField" name="i_judulKoleksi">
@@ -623,6 +660,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Penerbit"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="java.awt.TextField" name="i_penerbit">
@@ -641,6 +684,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tipe Koleksi"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="i_jenisBuku">
@@ -692,6 +741,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ISBN / ISSN"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="java.awt.TextField" name="i_isnIssn">
@@ -710,6 +765,12 @@
                   <Font name="Segoe UI" size="14" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Jml. Halaman"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="i_jmlHalaman">
@@ -726,6 +787,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Volume"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="i_volume">
@@ -743,6 +810,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Seri"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="i_seri">
@@ -760,6 +833,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Format"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="java.awt.TextField" name="i_format">

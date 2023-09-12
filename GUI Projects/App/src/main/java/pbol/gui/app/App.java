@@ -4,8 +4,10 @@
  */
 package pbol.gui.app;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  *
@@ -21,6 +23,12 @@ public class App extends javax.swing.JFrame {
     public App() {
         initComponents();
         setTitle("Sistem Manajemen Perpustakaan");
+        setIconImage(
+          new ImageIcon(
+            Objects.requireNonNull(
+              getClass().getResource("/images/bookIcon.png"))
+          ).getImage()
+        );
         formCards = (CardLayout) formContainer.getLayout();
     }
 
@@ -80,8 +88,8 @@ public class App extends javax.swing.JFrame {
         menuBar_info = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistem Manajemen Data Perpustakaan");
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1280, 720));
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(960, 540));
 
         menuContainer.setBackground(new java.awt.Color(153, 204, 255));
@@ -145,6 +153,8 @@ public class App extends javax.swing.JFrame {
 
         l_nama.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_nama.setText("Nama Lengkap");
+        l_nama.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_nama.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_nama.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         i_nama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -157,6 +167,8 @@ public class App extends javax.swing.JFrame {
 
         l_noId.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_noId.setText("Nomor Identitas");
+        l_noId.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_noId.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_noId.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_noId.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +188,8 @@ public class App extends javax.swing.JFrame {
 
         l_alamat.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_alamat.setText("Alamat");
+        l_alamat.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_alamat.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_alamat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_alamat.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +200,8 @@ public class App extends javax.swing.JFrame {
 
         l_telp.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_telp.setText("Nomor Telepon");
+        l_telp.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_telp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_telp.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +212,8 @@ public class App extends javax.swing.JFrame {
 
         l_maksPinjam.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_maksPinjam.setText("Maks. Pinjaman");
+        l_maksPinjam.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_maksPinjam.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, 10, 1));
 
@@ -236,24 +254,21 @@ public class App extends javax.swing.JFrame {
                     .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(l_noId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(l_alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(l_noId, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(l_alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                            .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                                 .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         registrasiPeminjamLayout.setVerticalGroup(
@@ -314,11 +329,16 @@ public class App extends javax.swing.JFrame {
 
         formContainer.add(registrasiPeminjam, "card1");
 
+        registrasiKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
+        registrasiKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
+
         registKoleksiTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         registKoleksiTitle.setText("Registrasi Data Koleksi");
 
         l_judulKoleksi.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_judulKoleksi.setText("Judul / Title");
+        l_judulKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_judulKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +349,8 @@ public class App extends javax.swing.JFrame {
 
         l_penerbit.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_penerbit.setText("Penerbit");
+        l_penerbit.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_penerbit.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_penerbit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_penerbit.addActionListener(new java.awt.event.ActionListener() {
@@ -339,6 +361,8 @@ public class App extends javax.swing.JFrame {
 
         l_judulBuku4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_judulBuku4.setText("Tipe Koleksi");
+        l_judulBuku4.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_judulBuku4.setMinimumSize(new java.awt.Dimension(150, 25));
 
         inp_regTipeKoleksi.add(i_jenisBuku);
         i_jenisBuku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -370,6 +394,8 @@ public class App extends javax.swing.JFrame {
 
         l_isbnIssn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_isbnIssn.setText("ISBN / ISSN");
+        l_isbnIssn.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_isnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_isnIssn.addActionListener(new java.awt.event.ActionListener() {
@@ -380,12 +406,16 @@ public class App extends javax.swing.JFrame {
 
         l_jmlHalaman.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_jmlHalaman.setText("Jml. Halaman");
+        l_jmlHalaman.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_jmlHalaman.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_jmlHalaman.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         l_volume.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_volume.setText("Volume");
         l_volume.setEnabled(false);
+        l_volume.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_volume.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_volume.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         i_volume.setEnabled(false);
@@ -393,6 +423,8 @@ public class App extends javax.swing.JFrame {
         l_seri.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_seri.setText("Seri");
         l_seri.setEnabled(false);
+        l_seri.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_seri.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_seri.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         i_seri.setEnabled(false);
@@ -400,6 +432,8 @@ public class App extends javax.swing.JFrame {
         l_format.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_format.setText("Format");
         l_format.setEnabled(false);
+        l_format.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_format.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_format.setEnabled(false);
         i_format.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -447,11 +481,11 @@ public class App extends javax.swing.JFrame {
                                         .addComponent(l_isbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                         .addComponent(l_judulBuku4, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                         .addComponent(l_jmlHalaman, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(l_volume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(l_judulKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(l_volume, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(l_judulKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                                     .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(l_format, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                                .addGap(15, 15, 15)
                                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(i_judulKoleksi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +499,7 @@ public class App extends javax.swing.JFrame {
                                     .addComponent(i_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(148, 148, Short.MAX_VALUE))
+                        .addContainerGap(148, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(b_kosongkanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
