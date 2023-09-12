@@ -279,7 +279,7 @@ public class App extends javax.swing.JFrame {
                         .addGap(10, 10, 10)))
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(inpMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(inpMaksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addGap(255, 255, 255)
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpanData, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -634,6 +634,8 @@ public class App extends javax.swing.JFrame {
 
     private void inpJudulBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpJudulBukuActionPerformed
     }//GEN-LAST:event_inpJudulBukuActionPerformed
+
+    /* Visibility functions */
 
     private void setFalseAllTipeKoleksi() {
         l_jmlHalaman.setEnabled(false);
