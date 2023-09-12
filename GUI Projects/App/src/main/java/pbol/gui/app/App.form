@@ -21,6 +21,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="maximizedBounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+      <Rectangle value="[0, 0, 1280, 720]"/>
+    </Property>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1280, 720]"/>
     </Property>
@@ -77,8 +80,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="menuTitle" pref="242" max="32767" attributes="0"/>
-                      <Component id="btn_regPeminjam" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_regKoleksi" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_regPeminjam" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_regKoleksi" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -90,9 +93,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="menuTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_regPeminjam" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="b_regPeminjam" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_regKoleksi" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="b_regKoleksi" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace pref="331" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -111,26 +114,38 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Sistem Manajemen&lt;br/&gt;Perpustakaan&lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_regPeminjam">
+        <Component class="javax.swing.JButton" name="b_regPeminjam">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registrasi Peminjam"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regPeminjamActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_regPeminjamActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_regKoleksi">
+        <Component class="javax.swing.JButton" name="b_regKoleksi">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registrasi Koleksi"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regKoleksiActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_regKoleksiActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -159,44 +174,45 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="b_kosongkanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="b_simpanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="regisPeminjamTitle" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                          <Component id="regisPeminjamTitle" min="-2" pref="361" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="l_telp" max="32767" attributes="0"/>
+                                  <Component id="l_noId" max="32767" attributes="0"/>
                                   <Component id="l_alamat" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="l_Id" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="l_maksPinjam" pref="150" max="32767" attributes="0"/>
                                   <Component id="l_nama" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="l_maksPinjam" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inpMaksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="i_noId" min="-2" pref="381" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="i_jenisNoId" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="inpTelp" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="inpId" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                              <Component id="inpAlamat" min="-2" pref="381" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="inpNama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Component id="i_maksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Component id="i_telp" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpJenisId" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="86" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnKosongkanData" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="btnSimpanData" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,47 +222,37 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="regisPeminjamTitle" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="inpJenisId" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="inpNama" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpId" max="32767" attributes="0"/>
-                                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="inpAlamat" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="inpTelp" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="l_nama" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="l_Id" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="l_alamat" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="l_telp" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_maksPinjam" pref="25" max="32767" attributes="0"/>
-                          <Component id="inpMaksPinjam" pref="25" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnSimpanData" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="btnKosongkanData" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="i_nama" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="l_nama" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="l_noId" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_jenisNoId" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_noId" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="l_alamat" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_alamat" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="l_telp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_telp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="l_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="252" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="b_kosongkanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -272,7 +278,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="java.awt.TextField" name="inpNama">
+            <Component class="java.awt.TextField" name="i_nama">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Text Cursor"/>
@@ -287,10 +293,10 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpNamaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_namaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="l_Id">
+            <Component class="javax.swing.JLabel" name="l_noId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="3"/>
@@ -302,7 +308,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="java.awt.TextField" name="inpId">
+            <Component class="java.awt.TextField" name="i_noId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -313,10 +319,10 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpIdActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_noIdActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="inpJenisId">
+            <Component class="javax.swing.JComboBox" name="i_jenisNoId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -335,7 +341,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpJenisIdActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_jenisNoIdActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -353,7 +359,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="java.awt.TextField" name="inpAlamat">
+            <Component class="java.awt.TextField" name="i_alamat">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -364,7 +370,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpAlamatActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_alamatActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_telp">
@@ -379,7 +385,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="java.awt.TextField" name="inpTelp">
+            <Component class="java.awt.TextField" name="i_telp">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -390,7 +396,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTelpActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_telpActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_maksPinjam">
@@ -405,7 +411,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="inpMaksPinjam">
+            <Component class="javax.swing.JSpinner" name="i_maksPinjam">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="10" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -416,21 +422,33 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSimpanData">
+            <Component class="javax.swing.JButton" name="b_simpanRegPeminjam">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="cc" red="33" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSimpanDataActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_simpanRegPeminjamActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnKosongkanData">
+            <Component class="javax.swing.JButton" name="b_kosongkanRegPeminjam">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kosongkan"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -438,7 +456,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKosongkanDataActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kosongkanRegPeminjamActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -461,59 +479,47 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="l_judulBuku" alignment="0" pref="150" max="32767" attributes="0"/>
-                                                      <Component id="l_penerbit" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="l_isbnIssn" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="l_judulBuku4" max="32767" attributes="0"/>
-                                                  <Component id="l_jmlHalaman" pref="150" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="l_volume" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="inpJudulBuku" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="inpTipeBuku" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="inpPenerbit" min="-2" pref="381" max="-2" attributes="0"/>
-                                                  <Component id="inpTipeMajalah" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="inpTipeDisk" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="inpIsbnIssn" min="-2" pref="381" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="inpJmlHalaman" min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="inpVolume" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="l_seri" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="inpSeri" min="-2" pref="120" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="registKoleksiTitle" min="-2" pref="361" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="l_format" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inpFormat" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="l_penerbit" alignment="0" pref="150" max="32767" attributes="0"/>
+                                              <Component id="l_isbnIssn" alignment="0" pref="150" max="32767" attributes="0"/>
+                                              <Component id="l_judulBuku4" pref="150" max="32767" attributes="0"/>
+                                              <Component id="l_jmlHalaman" pref="150" max="32767" attributes="0"/>
+                                              <Component id="l_volume" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="l_judulKoleksi" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="l_seri" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="l_format" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="i_judulKoleksi" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="i_jenisBuku" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="i_penerbit" min="-2" pref="381" max="-2" attributes="0"/>
+                                                  <Component id="i_jenisMajalah" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="i_jenisDisk" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="i_isnIssn" min="-2" pref="381" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="i_jmlHalaman" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="i_volume" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="i_seri" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="i_format" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                              <EmptySpace min="333" pref="148" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btlKosongkan" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnSimpanBuku" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="b_kosongkanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="b_simpanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -526,33 +532,33 @@
                       <Component id="registKoleksiTitle" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="inpJudulBuku" pref="25" max="32767" attributes="0"/>
-                          <Component id="l_judulBuku" max="32767" attributes="0"/>
+                          <Component id="i_judulKoleksi" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="l_judulKoleksi" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="l_penerbit" max="32767" attributes="0"/>
-                          <Component id="inpPenerbit" pref="25" max="32767" attributes="0"/>
+                          <Component id="l_penerbit" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_penerbit" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="inpIsbnIssn" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_isnIssn" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="l_isbnIssn" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="inpTipeBuku" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="l_judulBuku4" alignment="3" max="32767" attributes="0"/>
+                          <Component id="i_jenisBuku" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="l_judulBuku4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="inpTipeMajalah" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="i_jenisMajalah" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="inpTipeDisk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="i_jenisDisk" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="inpJmlHalaman" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="i_jmlHalaman" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <Component id="l_jmlHalaman" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
@@ -560,26 +566,26 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="inpVolume" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="i_volume" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <Component id="l_volume" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="l_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="inpSeri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="l_format" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="inpFormat" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_format" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnSimpanBuku" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="btlKosongkan" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="b_simpanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="b_kosongkanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -593,7 +599,7 @@
                 <Property name="text" type="java.lang.String" value="Registrasi Data Koleksi"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="l_judulBuku">
+            <Component class="javax.swing.JLabel" name="l_judulKoleksi">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="3"/>
@@ -601,14 +607,14 @@
                 <Property name="text" type="java.lang.String" value="Judul / Title"/>
               </Properties>
             </Component>
-            <Component class="java.awt.TextField" name="inpJudulBuku">
+            <Component class="java.awt.TextField" name="i_judulKoleksi">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpJudulBukuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_judulKoleksiActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_penerbit">
@@ -619,14 +625,14 @@
                 <Property name="text" type="java.lang.String" value="Penerbit"/>
               </Properties>
             </Component>
-            <Component class="java.awt.TextField" name="inpPenerbit">
+            <Component class="java.awt.TextField" name="i_penerbit">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpPenerbitActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_penerbitActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_judulBuku4">
@@ -637,7 +643,7 @@
                 <Property name="text" type="java.lang.String" value="Tipe Koleksi"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="inpTipeBuku">
+            <Component class="javax.swing.JRadioButton" name="i_jenisBuku">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -649,10 +655,10 @@
                 <Property name="text" type="java.lang.String" value="Buku"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeBukuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_jenisBukuActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="inpTipeMajalah">
+            <Component class="javax.swing.JRadioButton" name="i_jenisMajalah">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -663,10 +669,10 @@
                 <Property name="text" type="java.lang.String" value="Majalah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeMajalahActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_jenisMajalahActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="inpTipeDisk">
+            <Component class="javax.swing.JRadioButton" name="i_jenisDisk">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="inp_regTipeKoleksi"/>
@@ -677,7 +683,7 @@
                 <Property name="text" type="java.lang.String" value="Disk"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpTipeDiskActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_jenisDiskActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_isbnIssn">
@@ -688,14 +694,14 @@
                 <Property name="text" type="java.lang.String" value="ISBN / ISSN"/>
               </Properties>
             </Component>
-            <Component class="java.awt.TextField" name="inpIsbnIssn">
+            <Component class="java.awt.TextField" name="i_isnIssn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpIsbnIssnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_isnIssnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="l_jmlHalaman">
@@ -706,7 +712,7 @@
                 <Property name="text" type="java.lang.String" value="Jml. Halaman"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="inpJmlHalaman">
+            <Component class="javax.swing.JSpinner" name="i_jmlHalaman">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -722,7 +728,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="inpVolume">
+            <Component class="javax.swing.JSpinner" name="i_volume">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -739,7 +745,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="inpSeri">
+            <Component class="javax.swing.JSpinner" name="i_seri">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -756,7 +762,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="java.awt.TextField" name="inpFormat">
+            <Component class="java.awt.TextField" name="i_format">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -764,24 +770,36 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inpFormatActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_formatActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSimpanBuku">
+            <Component class="javax.swing.JButton" name="b_simpanRegKoleksi">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="cc" red="33" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSimpanBukuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_simpanRegKoleksiActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btlKosongkan">
+            <Component class="javax.swing.JButton" name="b_kosongkanRegKoleksi">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kosongkan"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -789,7 +807,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btlKosongkanActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kosongkanRegKoleksiActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
