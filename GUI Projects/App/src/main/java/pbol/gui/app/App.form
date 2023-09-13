@@ -215,9 +215,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="regisPeminjamTitle" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="i_nama" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="l_nama" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_nama" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
