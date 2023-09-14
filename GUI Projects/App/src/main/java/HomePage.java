@@ -122,6 +122,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         JFrame app = new App(this);
+
+        System.out.println("Logged as Admin");
+
         app.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_loginActionPerformed
