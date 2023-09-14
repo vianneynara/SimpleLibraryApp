@@ -1,16 +1,19 @@
 public class Peminjam {
-
+    /* atribut kelas */
     private String idPeminjam;
     private String nama;
     private String alamat;
     private int maksPinjam;
 
+    /* constructor utama */
     public Peminjam(String idPeminjam, String nama, String alamat, int maksPinjam) {
         this.idPeminjam = idPeminjam;
         this.nama = nama;
         this.alamat = alamat;
         this.maksPinjam = maksPinjam;
     }
+
+    /* getters and setters */
 
     public String getIdPeminjam() {
         return idPeminjam;
