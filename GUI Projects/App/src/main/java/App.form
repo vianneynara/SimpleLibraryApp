@@ -286,40 +286,49 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="b_kosongkanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="b_simpanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="regisPeminjamTitle" min="-2" pref="361" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="l_telp" pref="150" max="32767" attributes="0"/>
-                                  <Component id="l_noId" pref="150" max="32767" attributes="0"/>
-                                  <Component id="l_alamat" alignment="0" pref="150" max="32767" attributes="0"/>
-                                  <Component id="l_maksPinjam" pref="150" max="32767" attributes="0"/>
-                                  <Component id="l_nama" alignment="0" pref="150" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="i_noId" min="-2" pref="381" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="i_jenisNoId" min="-2" max="-2" attributes="0"/>
+                                  <Component id="regisPeminjamTitle" min="-2" pref="361" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="l_telp" pref="150" max="32767" attributes="0"/>
+                                          <Component id="l_noId" pref="150" max="32767" attributes="0"/>
+                                          <Component id="l_alamat" alignment="0" pref="150" max="32767" attributes="0"/>
+                                          <Component id="l_maksPinjam" pref="150" max="32767" attributes="0"/>
+                                          <Component id="l_nama" alignment="0" pref="150" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="i_noId" min="-2" pref="381" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="i_jenisNoId" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="i_maksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Component id="i_telp" min="-2" pref="381" max="-2" attributes="0"/>
+                                          <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="i_maksPinjam" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                  <Component id="i_telp" min="-2" pref="381" max="-2" attributes="0"/>
-                                  <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="91" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="l_simpanEmptyIndicator" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="b_kosongkanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="b_simpanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -354,7 +363,9 @@
                           <Component id="l_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="252" max="32767" attributes="0"/>
+                      <EmptySpace pref="230" max="32767" attributes="0"/>
+                      <Component id="l_simpanEmptyIndicator" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="b_kosongkanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -595,6 +606,21 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kosongkanRegPeminjamActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="l_simpanEmptyIndicator">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Terdapat data yang masih kosong!"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="l_simpanEmptyIndicator.setVisible(false);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

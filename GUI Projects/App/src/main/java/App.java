@@ -80,6 +80,7 @@ public class App extends javax.swing.JFrame {
         i_maksPinjam = new javax.swing.JSpinner();
         b_simpanRegPeminjam = new javax.swing.JButton();
         b_kosongkanRegPeminjam = new javax.swing.JButton();
+        l_simpanEmptyIndicator = new javax.swing.JLabel();
         registrasiKoleksi = new javax.swing.JPanel();
         registKoleksiTitle = new javax.swing.JLabel();
         l_judulKoleksi = new javax.swing.JLabel();
@@ -279,38 +280,49 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        l_simpanEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
+        l_simpanEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
+        l_simpanEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_simpanEmptyIndicator.setText("Terdapat data yang masih kosong!");
+        l_simpanEmptyIndicator.setVisible(false);
+
         javax.swing.GroupLayout registrasiPeminjamLayout = new javax.swing.GroupLayout(registrasiPeminjam);
         registrasiPeminjam.setLayout(registrasiPeminjamLayout);
         registrasiPeminjamLayout.setHorizontalGroup(
             registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(l_noId, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(l_alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(15, 15, 15)
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
-                                .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(l_telp, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(l_noId, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(l_alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addGap(15, 15, 15)
+                                .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(registrasiPeminjamLayout.createSequentialGroup()
+                                        .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
+                        .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(l_simpanEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(registrasiPeminjamLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))))
         );
         registrasiPeminjamLayout.setVerticalGroup(
             registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +350,9 @@ public class App extends javax.swing.JFrame {
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addComponent(l_simpanEmptyIndicator)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -721,16 +735,46 @@ public class App extends javax.swing.JFrame {
      * Mengosongkan dan mengatur nilai ke awal pada formulir registrasi data peminjam.
      * */
     private void b_kosongkanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanPeminjamActionPerformed
-        i_nama.setText("");
-        i_noId.setText("");
-        i_jenisNoId.setSelectedIndex(0);
-        i_alamat.setText("");
-        i_telp.setText("");
-        i_maksPinjam.setValue(1);
+        kosongkanRegPeminjam();
     }//GEN-LAST:event_b_kosongkanPeminjamActionPerformed
 
+    /**
+     * Mengimpan data dan menampilkan dialog dengan data yang dikirim.
+     * */
     private void b_simpanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_simpanPeminjamBaruActionPerformed
-        // TODO add your handling code here:
+        String nama = i_nama.getText();
+        String noId = i_noId.getText();
+        String jenisNoId = (String) i_jenisNoId.getSelectedItem();
+        String alamat = i_alamat.getText();
+        String noTelp = i_telp.getText();
+        int maksPinjam = (int) i_maksPinjam.getValue();
+
+        /* mengecek apakah terdapat field yang kosong setelah ditrim */
+        for (String field : new String[]{nama, noId, jenisNoId, alamat, noTelp}) {
+            if (checkIsEmpty(field)) {
+                l_simpanEmptyIndicator.setVisible(true);
+                return;
+            }
+        }
+        l_simpanEmptyIndicator.setVisible(false);
+
+        java.awt.EventQueue.invokeLater(
+          () -> new RegistrasiPeminjamBerhasil(this, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam).setVisible(true)
+        );
+        kosongkanRegPeminjam();
+
+
+        /* Print data */
+        System.out.printf("""
+          Saved peminjam baru {
+            nama: "%s",
+            noId: "%s",
+            jenisNoId: "%s",
+            alamat: "%s",
+            telp: "%s",
+            maksPinjam: %1d
+          }""",
+          nama, noId, jenisNoId, alamat, noTelp, maksPinjam);
     }//GEN-LAST:event_b_simpanPeminjamBaruActionPerformed
 
     private void i_telpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_telpActionPerformed
@@ -765,6 +809,8 @@ public class App extends javax.swing.JFrame {
         i_volume.setValue(1);
         i_seri.setValue(1);
         i_format.setText("");
+
+        l_simpanEmptyIndicator.setVisible(false);
     }//GEN-LAST:event_btlKosongkanActionPerformed
 
     private void b_simpanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
@@ -843,7 +889,7 @@ public class App extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutActionPerformed
 
-    /* Visibility functions */
+    /* Other functions */
 
     /**
      * Menyetel seluruh fields spesial dalam formulir registrasi koleksi ke mati (disabled).
@@ -857,6 +903,22 @@ public class App extends javax.swing.JFrame {
         i_seri.setEnabled(false);
         l_format.setEnabled(false);
         i_format.setEnabled(false);
+    }
+
+    private void kosongkanRegPeminjam() {
+        i_nama.setText("");
+        i_noId.setText("");
+        i_jenisNoId.setSelectedIndex(0);
+        i_alamat.setText("");
+        i_telp.setText("");
+        i_maksPinjam.setValue(1);
+    }
+
+    /**
+     * Mengecek apakah sebuah {@link String} kosong.
+     * */
+    private boolean checkIsEmpty(String str) {
+        return str.trim().equals("");
     }
 
     /**
@@ -922,6 +984,7 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JLabel l_noId;
     private javax.swing.JLabel l_penerbit;
     private javax.swing.JLabel l_seri;
+    private javax.swing.JLabel l_simpanEmptyIndicator;
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel l_volume;
     private javax.swing.JMenuItem logout;
