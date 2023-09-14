@@ -6,7 +6,6 @@
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -16,11 +15,29 @@ import java.util.Objects;
 public class App extends javax.swing.JFrame {
 
     private final CardLayout formCards;
-    private HashMap<String, Component> components;
+    private final HomePage homePage;
+    
     /**
-     * Creates new form App
+     * Default constructor tanpa home page (landing page).
      */
     public App() {
+        this.homePage = null;
+        initComponents();
+        setTitle("Sistem Manajemen Perpustakaan");
+        setIconImage(
+          new ImageIcon(
+            Objects.requireNonNull(
+              getClass().getResource("/images/bookIcon.png"))
+          ).getImage()
+        );
+        formCards = (CardLayout) formContainer.getLayout();
+    }
+    
+    /**
+     * Constructor dengan home page (landing page).
+     */
+    public App(HomePage homePage) {
+        this.homePage = homePage;
         initComponents();
         setTitle("Sistem Manajemen Perpustakaan");
         setIconImage(
@@ -46,6 +63,7 @@ public class App extends javax.swing.JFrame {
         menuTitle = new javax.swing.JLabel();
         b_regPeminjam = new javax.swing.JButton();
         b_regKoleksi = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         formContainer = new javax.swing.JPanel();
         registrasiPeminjam = new javax.swing.JPanel();
         regisPeminjamTitle = new javax.swing.JLabel();
@@ -85,7 +103,22 @@ public class App extends javax.swing.JFrame {
         b_simpanRegKoleksi = new javax.swing.JButton();
         b_kosongkanRegKoleksi = new javax.swing.JButton();
         menuBarMain = new javax.swing.JMenuBar();
-        menuBar_info = new javax.swing.JMenu();
+        menuBar_tambah = new javax.swing.JMenu();
+        tambahPeminjam = new javax.swing.JMenuItem();
+        tambahKoleksi = new javax.swing.JMenuItem();
+        menuBar_edit = new javax.swing.JMenu();
+        editPeminjam = new javax.swing.JMenuItem();
+        editKoleksi = new javax.swing.JMenuItem();
+        menuBar_transaksi = new javax.swing.JMenu();
+        transaksiPinjam = new javax.swing.JMenuItem();
+        transaksiKembali = new javax.swing.JMenuItem();
+        menuBar_koleksi = new javax.swing.JMenu();
+        koleksiBuku = new javax.swing.JMenuItem();
+        koleksiMajalah = new javax.swing.JMenuItem();
+        koleksiDisk = new javax.swing.JMenuItem();
+        menuBar_informasi = new javax.swing.JMenu();
+        menuBar_keluar = new javax.swing.JMenu();
+        logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistem Manajemen Data Perpustakaan");
@@ -119,6 +152,8 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoSanataDharma.png")).getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH)));
+
         javax.swing.GroupLayout menuContainerLayout = new javax.swing.GroupLayout(menuContainer);
         menuContainer.setLayout(menuContainerLayout);
         menuContainerLayout.setHorizontalGroup(
@@ -126,10 +161,14 @@ public class App extends javax.swing.JFrame {
             .addGroup(menuContainerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(menuTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                    .addComponent(menuTitle)
                     .addComponent(b_regPeminjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(b_regKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuContainerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         menuContainerLayout.setVerticalGroup(
             menuContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +179,9 @@ public class App extends javax.swing.JFrame {
                 .addComponent(b_regPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b_regKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         formContainer.setBackground(new java.awt.Color(255, 255, 255));
@@ -269,7 +310,7 @@ public class App extends javax.swing.JFrame {
                             .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         registrasiPeminjamLayout.setVerticalGroup(
             registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,7 +540,7 @@ public class App extends javax.swing.JFrame {
                                     .addComponent(i_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(148, Short.MAX_VALUE))
+                        .addContainerGap(177, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(b_kosongkanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -563,8 +604,83 @@ public class App extends javax.swing.JFrame {
 
         menuBarMain.setForeground(new java.awt.Color(153, 204, 255));
 
-        menuBar_info.setText("Informasi");
-        menuBarMain.add(menuBar_info);
+        menuBar_tambah.setText("Tambah");
+
+        tambahPeminjam.setText("Peminjam Baru");
+        tambahPeminjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahPeminjamActionPerformed(evt);
+            }
+        });
+        menuBar_tambah.add(tambahPeminjam);
+
+        tambahKoleksi.setText("Koleksi Baru");
+        tambahKoleksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahKoleksiActionPerformed(evt);
+            }
+        });
+        menuBar_tambah.add(tambahKoleksi);
+
+        menuBarMain.add(menuBar_tambah);
+
+        menuBar_edit.setText("Edit");
+
+        editPeminjam.setText("Peminjam");
+        editPeminjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPeminjamActionPerformed(evt);
+            }
+        });
+        menuBar_edit.add(editPeminjam);
+
+        editKoleksi.setText("Koleksi");
+        menuBar_edit.add(editKoleksi);
+
+        menuBarMain.add(menuBar_edit);
+
+        menuBar_transaksi.setText("Transaksi");
+
+        transaksiPinjam.setText("Pinjam");
+        menuBar_transaksi.add(transaksiPinjam);
+
+        transaksiKembali.setText("Kembali");
+        menuBar_transaksi.add(transaksiKembali);
+
+        menuBarMain.add(menuBar_transaksi);
+
+        menuBar_koleksi.setText("Koleksi");
+
+        koleksiBuku.setText("Buku");
+        menuBar_koleksi.add(koleksiBuku);
+
+        koleksiMajalah.setText("Majalah");
+        koleksiMajalah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                koleksiMajalahActionPerformed(evt);
+            }
+        });
+        menuBar_koleksi.add(koleksiMajalah);
+
+        koleksiDisk.setText("Disk");
+        menuBar_koleksi.add(koleksiDisk);
+
+        menuBarMain.add(menuBar_koleksi);
+
+        menuBar_informasi.setText("Informasi");
+        menuBarMain.add(menuBar_informasi);
+
+        menuBar_keluar.setText("Keluar");
+
+        logout.setText("Log out");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        menuBar_keluar.add(logout);
+
+        menuBarMain.add(menuBar_keluar);
 
         setJMenuBar(menuBarMain);
 
@@ -580,7 +696,7 @@ public class App extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(formContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(formContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
         );
 
         pack();
@@ -701,6 +817,32 @@ public class App extends javax.swing.JFrame {
     private void i_judulKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksiActionPerformed
     }//GEN-LAST:event_i_judulKoleksiActionPerformed
 
+    private void editPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPeminjamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editPeminjamActionPerformed
+
+    private void koleksiMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_koleksiMajalahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_koleksiMajalahActionPerformed
+
+    private void tambahPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahPeminjamActionPerformed
+        formCards.show(formContainer, "card1");
+    }//GEN-LAST:event_tambahPeminjamActionPerformed
+
+    private void tambahKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahKoleksiActionPerformed
+        formCards.show(formContainer, "card2");
+    }//GEN-LAST:event_tambahKoleksiActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        if (homePage != null) {
+            this.setVisible(false);
+            homePage.setVisible(true);
+        } else {
+            System.out.println("Home page tidak di inisialisasi.");
+            // belum ada
+        }
+    }//GEN-LAST:event_logoutActionPerformed
+
     /* Visibility functions */
 
     /**
@@ -745,6 +887,8 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JButton b_regPeminjam;
     private javax.swing.JButton b_simpanRegKoleksi;
     private javax.swing.JButton b_simpanRegPeminjam;
+    private javax.swing.JMenuItem editKoleksi;
+    private javax.swing.JMenuItem editPeminjam;
     private javax.swing.JPanel formContainer;
     private java.awt.TextField i_alamat;
     private java.awt.TextField i_format;
@@ -763,6 +907,10 @@ public class App extends javax.swing.JFrame {
     private java.awt.TextField i_telp;
     private javax.swing.JSpinner i_volume;
     private javax.swing.ButtonGroup inp_regTipeKoleksi;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem koleksiBuku;
+    private javax.swing.JMenuItem koleksiDisk;
+    private javax.swing.JMenuItem koleksiMajalah;
     private javax.swing.JLabel l_alamat;
     private javax.swing.JLabel l_format;
     private javax.swing.JLabel l_isbnIssn;
@@ -776,13 +924,23 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JLabel l_seri;
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel l_volume;
+    private javax.swing.JMenuItem logout;
     private javax.swing.JMenuBar menuBarMain;
-    private javax.swing.JMenu menuBar_info;
+    private javax.swing.JMenu menuBar_edit;
+    private javax.swing.JMenu menuBar_informasi;
+    private javax.swing.JMenu menuBar_keluar;
+    private javax.swing.JMenu menuBar_koleksi;
+    private javax.swing.JMenu menuBar_tambah;
+    private javax.swing.JMenu menuBar_transaksi;
     private javax.swing.JPanel menuContainer;
     private javax.swing.JLabel menuTitle;
     private javax.swing.JLabel regisPeminjamTitle;
     private javax.swing.JLabel registKoleksiTitle;
     private javax.swing.JPanel registrasiKoleksi;
     private javax.swing.JPanel registrasiPeminjam;
+    private javax.swing.JMenuItem tambahKoleksi;
+    private javax.swing.JMenuItem tambahPeminjam;
+    private javax.swing.JMenuItem transaksiKembali;
+    private javax.swing.JMenuItem transaksiPinjam;
     // End of variables declaration//GEN-END:variables
 }
