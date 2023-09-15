@@ -6,6 +6,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Enumeration;
 import java.util.Objects;
 
 /**
@@ -80,7 +81,7 @@ public class App extends javax.swing.JFrame {
         i_maksPinjam = new javax.swing.JSpinner();
         b_simpanRegPeminjam = new javax.swing.JButton();
         b_kosongkanRegPeminjam = new javax.swing.JButton();
-        l_simpanEmptyIndicator = new javax.swing.JLabel();
+        l_simpanPeminjamEmptyIndicator = new javax.swing.JLabel();
         registrasiKoleksi = new javax.swing.JPanel();
         registKoleksiTitle = new javax.swing.JLabel();
         l_judulKoleksi = new javax.swing.JLabel();
@@ -92,7 +93,7 @@ public class App extends javax.swing.JFrame {
         i_jenisMajalah = new javax.swing.JRadioButton();
         i_jenisDisk = new javax.swing.JRadioButton();
         l_isbnIssn = new javax.swing.JLabel();
-        i_isnIssn = new java.awt.TextField();
+        i_isbnIssn = new java.awt.TextField();
         l_jmlHalaman = new javax.swing.JLabel();
         i_jmlHalaman = new javax.swing.JSpinner();
         l_volume = new javax.swing.JLabel();
@@ -100,9 +101,10 @@ public class App extends javax.swing.JFrame {
         l_seri = new javax.swing.JLabel();
         i_seri = new javax.swing.JSpinner();
         l_format = new javax.swing.JLabel();
-        i_format = new java.awt.TextField();
+        i_format = new javax.swing.JComboBox<>();
         b_simpanRegKoleksi = new javax.swing.JButton();
         b_kosongkanRegKoleksi = new javax.swing.JButton();
+        l_simpanKoleksiEmptyIndicator = new javax.swing.JLabel();
         menuBarMain = new javax.swing.JMenuBar();
         menuBar_tambah = new javax.swing.JMenu();
         tambahPeminjam = new javax.swing.JMenuItem();
@@ -280,11 +282,11 @@ public class App extends javax.swing.JFrame {
             }
         });
 
-        l_simpanEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
-        l_simpanEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
-        l_simpanEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_simpanEmptyIndicator.setText("Terdapat data yang masih kosong!");
-        l_simpanEmptyIndicator.setVisible(false);
+        l_simpanPeminjamEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
+        l_simpanPeminjamEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
+        l_simpanPeminjamEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_simpanPeminjamEmptyIndicator.setText("Terdapat data yang masih kosong!");
+        l_simpanPeminjamEmptyIndicator.setVisible(false);
 
         javax.swing.GroupLayout registrasiPeminjamLayout = new javax.swing.GroupLayout(registrasiPeminjam);
         registrasiPeminjam.setLayout(registrasiPeminjamLayout);
@@ -313,10 +315,10 @@ public class App extends javax.swing.JFrame {
                                     .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(91, Short.MAX_VALUE))
+                        .addContainerGap(97, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(l_simpanEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_simpanPeminjamEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(registrasiPeminjamLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,7 +353,7 @@ public class App extends javax.swing.JFrame {
                     .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
-                .addComponent(l_simpanEmptyIndicator)
+                .addComponent(l_simpanPeminjamEmptyIndicator)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -452,10 +454,10 @@ public class App extends javax.swing.JFrame {
         l_isbnIssn.setMaximumSize(new java.awt.Dimension(150, 25));
         l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_isnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_isnIssn.addActionListener(new java.awt.event.ActionListener() {
+        i_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_isnIssnActionPerformed(evt);
+                i_isbnIssnActionPerformed(evt);
             }
         });
 
@@ -465,6 +467,7 @@ public class App extends javax.swing.JFrame {
         l_jmlHalaman.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_jmlHalaman.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_jmlHalaman.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         l_volume.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_volume.setText("Volume");
@@ -473,6 +476,7 @@ public class App extends javax.swing.JFrame {
         l_volume.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_volume.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_volume.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         i_volume.setEnabled(false);
 
         l_seri.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -482,6 +486,7 @@ public class App extends javax.swing.JFrame {
         l_seri.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_seri.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_seri.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         i_seri.setEnabled(false);
 
         l_format.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -490,8 +495,8 @@ public class App extends javax.swing.JFrame {
         l_format.setMaximumSize(new java.awt.Dimension(150, 25));
         l_format.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_format.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audio", "Video", "Multimedia" }));
         i_format.setEnabled(false);
-        i_format.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_format.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_formatActionPerformed(evt);
@@ -519,6 +524,12 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        l_simpanKoleksiEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
+        l_simpanKoleksiEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
+        l_simpanKoleksiEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_simpanKoleksiEmptyIndicator.setText("Terdapat data yang masih kosong!");
+        l_simpanKoleksiEmptyIndicator.setVisible(false);
+
         javax.swing.GroupLayout registrasiKoleksiLayout = new javax.swing.GroupLayout(registrasiKoleksi);
         registrasiKoleksi.setLayout(registrasiKoleksiLayout);
         registrasiKoleksiLayout.setHorizontalGroup(
@@ -540,26 +551,33 @@ public class App extends javax.swing.JFrame {
                                         .addComponent(l_judulKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                                     .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(l_format, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(15, 15, 15)
                                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(i_judulKoleksi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
                                         .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(i_jenisBuku)
-                                            .addComponent(i_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(i_jenisMajalah)
-                                            .addComponent(i_jenisDisk)
-                                            .addComponent(i_isnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(i_jmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(177, Short.MAX_VALUE))
+                                            .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(i_judulKoleksi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(i_jenisBuku)
+                                                    .addComponent(i_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(i_jenisMajalah)
+                                                    .addComponent(i_jenisDisk)
+                                                    .addComponent(i_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(i_jmlHalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(i_volume, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(i_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(183, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(b_kosongkanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(b_simpanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(registrasiKoleksiLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(b_kosongkanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(b_simpanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(10, 10, 10))))
         );
         registrasiKoleksiLayout.setVerticalGroup(
@@ -577,7 +595,7 @@ public class App extends javax.swing.JFrame {
                     .addComponent(i_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(i_isnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(i_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -604,10 +622,12 @@ public class App extends javax.swing.JFrame {
                     .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_format, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                    .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_simpanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_kosongkanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -736,6 +756,8 @@ public class App extends javax.swing.JFrame {
      * */
     private void b_kosongkanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanPeminjamActionPerformed
         kosongkanRegPeminjam();
+        
+        l_simpanPeminjamEmptyIndicator.setVisible(false);
     }//GEN-LAST:event_b_kosongkanPeminjamActionPerformed
 
     /**
@@ -752,28 +774,28 @@ public class App extends javax.swing.JFrame {
         /* mengecek apakah terdapat field yang kosong setelah ditrim */
         for (String field : new String[]{nama, noId, jenisNoId, alamat, noTelp}) {
             if (checkIsEmpty(field)) {
-                l_simpanEmptyIndicator.setVisible(true);
+                l_simpanPeminjamEmptyIndicator.setVisible(true);
                 return;
             }
         }
-        l_simpanEmptyIndicator.setVisible(false);
+        l_simpanPeminjamEmptyIndicator.setVisible(false);
 
         java.awt.EventQueue.invokeLater(
           () -> new RegistrasiPeminjamBerhasil(this, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam).setVisible(true)
         );
         kosongkanRegPeminjam();
 
-
         /* Print data */
         System.out.printf("""
-          Saved peminjam baru {
+          Saved peminjam baru: {
             nama: "%s",
             noId: "%s",
             jenisNoId: "%s",
             alamat: "%s",
             telp: "%s",
             maksPinjam: %1d
-          }""",
+          }
+          """,
           nama, noId, jenisNoId, alamat, noTelp, maksPinjam);
     }//GEN-LAST:event_b_simpanPeminjamBaruActionPerformed
 
@@ -801,29 +823,81 @@ public class App extends javax.swing.JFrame {
      * Mengosongkan dan mengatur nilai ke awal pada formulir registrasi data koleksi.
      * */
     private void b_kosongkanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlKosongkanActionPerformed
-        i_judulKoleksi.setText("");
-        i_penerbit.setText("");
-        i_isnIssn.setText("");
-        inp_regTipeKoleksi.setSelected(i_jenisBuku.getModel(), true);
-        i_jmlHalaman.setValue(1);
-        i_volume.setValue(1);
-        i_seri.setValue(1);
-        i_format.setText("");
+        kosongkanRegKoleksi();
 
-        l_simpanEmptyIndicator.setVisible(false);
+        l_simpanKoleksiEmptyIndicator.setVisible(false);
     }//GEN-LAST:event_btlKosongkanActionPerformed
 
     private void b_simpanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
-        // TODO add your handling code here:
+        String judul = i_judulKoleksi.getText();
+        String penerbit = i_penerbit.getText();
+        String isbnIssn = i_isbnIssn.getText();
+
+        String tipeKoleksi = "";
+        /* Melakukan iterasi setiap button pada button group, mencari button yang dipilih. */
+        for (Enumeration<AbstractButton> bg = inp_regTipeKoleksi.getElements(); bg.hasMoreElements();) {
+            AbstractButton b = bg.nextElement();
+
+            if (b.isSelected()) {
+                tipeKoleksi = b.getText();
+                break;
+            }
+        };
+
+        int jmlHalaman = (int) i_jmlHalaman.getValue();
+        int volume = (int) i_volume.getValue();
+        int seri = (int) i_seri.getValue();
+        String format = (String) i_format.getSelectedItem();
+
+        /* mengecek apakah terdapat field yang kosong setelah ditrim */
+        for (String field : new String[]{judul, penerbit, isbnIssn}) {
+            if (checkIsEmpty(field)) {
+                l_simpanKoleksiEmptyIndicator.setVisible(true);
+                return;
+            }
+        }
+        l_simpanKoleksiEmptyIndicator.setVisible(false);
+
+        final String finalTipeKoleksi = tipeKoleksi;
+        switch (tipeKoleksi) {
+            case "Buku" -> EventQueue.invokeLater(
+              () -> new RegistrasiKoleksiBerhasil(this, true)
+                .isiField(finalTipeKoleksi, judul, penerbit, isbnIssn, jmlHalaman)
+                .setVisible(true)
+            );
+            case "Majalah" -> EventQueue.invokeLater(
+              () -> new RegistrasiKoleksiBerhasil(this, true)
+                .isiField(finalTipeKoleksi, judul, penerbit, isbnIssn, volume, seri)
+                .setVisible(true)
+            );
+            default -> EventQueue.invokeLater(
+              () -> new RegistrasiKoleksiBerhasil(this, true)
+                .isiField(finalTipeKoleksi, judul, penerbit, isbnIssn, format)
+                .setVisible(true)
+            );
+        }
+        kosongkanRegKoleksi();
+
+        /* Print data */
+        System.out.printf("""
+          Saved koleksi baru: {
+            judul: "%s",
+            penerbit: "%s",
+            isbnIssn: "%s",
+            tipeKoleksi: "%s",
+            jmlHalaman: %1d,
+            volume: %1d,
+            seri: %1d,
+            format: "%s"
+          }
+          """,
+          judul, penerbit, isbnIssn, tipeKoleksi, jmlHalaman, volume, seri, format);
+
     }//GEN-LAST:event_btnSimpanBukuActionPerformed
 
-    private void i_formatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_formatActionPerformed
+    private void i_isbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_isbnIssnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_formatActionPerformed
-
-    private void i_isnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_isnIssnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_i_isnIssnActionPerformed
+    }//GEN-LAST:event_i_isbnIssnActionPerformed
 
     /**
      * Mengaktifkan input field disk (label dan input: FORMAT)
@@ -889,6 +963,10 @@ public class App extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutActionPerformed
 
+    private void i_formatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_formatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_formatActionPerformed
+
     /* Other functions */
 
     /**
@@ -905,6 +983,7 @@ public class App extends javax.swing.JFrame {
         i_format.setEnabled(false);
     }
 
+    /** Mengosongkan/mengatur seluruh field registrasi peminjam dengan nilai awal. */
     private void kosongkanRegPeminjam() {
         i_nama.setText("");
         i_noId.setText("");
@@ -912,6 +991,18 @@ public class App extends javax.swing.JFrame {
         i_alamat.setText("");
         i_telp.setText("");
         i_maksPinjam.setValue(1);
+    }
+
+    /** Mengosongkan/mengatur seluruh field registrasi koleksi dengan nilai awal. */
+    private void kosongkanRegKoleksi() {
+        i_judulKoleksi.setText("");
+        i_penerbit.setText("");
+        i_isbnIssn.setText("");
+        inp_regTipeKoleksi.setSelected(i_jenisBuku.getModel(), true);
+        i_jmlHalaman.setValue(1);
+        i_volume.setValue(1);
+        i_seri.setValue(1);
+        i_format.setSelectedIndex(0);
     }
 
     /**
@@ -953,8 +1044,8 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JMenuItem editPeminjam;
     private javax.swing.JPanel formContainer;
     private java.awt.TextField i_alamat;
-    private java.awt.TextField i_format;
-    private java.awt.TextField i_isnIssn;
+    private javax.swing.JComboBox<String> i_format;
+    private java.awt.TextField i_isbnIssn;
     private javax.swing.JRadioButton i_jenisBuku;
     private javax.swing.JRadioButton i_jenisDisk;
     private javax.swing.JRadioButton i_jenisMajalah;
@@ -984,7 +1075,8 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JLabel l_noId;
     private javax.swing.JLabel l_penerbit;
     private javax.swing.JLabel l_seri;
-    private javax.swing.JLabel l_simpanEmptyIndicator;
+    private javax.swing.JLabel l_simpanKoleksiEmptyIndicator;
+    private javax.swing.JLabel l_simpanPeminjamEmptyIndicator;
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel l_volume;
     private javax.swing.JMenuItem logout;
