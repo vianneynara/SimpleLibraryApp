@@ -29,7 +29,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     private void initComponents() {
 
         dialog_regPeminjamBerhasil = new javax.swing.JDialog();
-        l_regPeminjamBerhasil = new javax.swing.JLabel();
+        l_frameTitle = new javax.swing.JLabel();
         b_regBerhasilOk = new javax.swing.JButton();
         l_savedJudul = new javax.swing.JLabel();
         f_savedJudul = new javax.swing.JLabel();
@@ -61,8 +61,8 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         setPreferredSize(new java.awt.Dimension(661, 180));
         setResizable(false);
 
-        l_regPeminjamBerhasil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_regPeminjamBerhasil.setText("Registrasi Koleksi Berhasil");
+        l_frameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_frameTitle.setText("Registrasi Koleksi Berhasil");
 
         b_regBerhasilOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_regBerhasilOk.setText("Ok");
@@ -100,20 +100,20 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         f_specific1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         l_specific1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_specific1.setText("Volume");
+        l_specific1.setText("specific1");
 
         f_specific2.setText("n");
         f_specific2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         l_specific2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_specific2.setText("Volume");
+        l_specific2.setText("specific2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +127,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
                         .addComponent(l_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(f_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(l_regPeminjamBerhasil, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(b_regBerhasilOk, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,13 +143,13 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
                         .addComponent(l_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(f_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(l_regPeminjamBerhasil, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,6 +185,51 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_b_regBerhasilOkActionPerformed
 
+    /** Mengatur field tipeKoleksi Buku. */
+    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman) {
+        l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
+
+        f_savedJudul.setText(judul);
+        f_savedPenerbit.setText(penerbit);
+        l_savedIsbnIssn.setText("ISBN");
+        f_savedIsbnIssn.setText(isbn);
+        l_specific1.setText("Jml. Halaman");
+        f_specific1.setText(String.valueOf(jmlHalaman));
+        l_specific2.setVisible(false);
+        f_specific2.setVisible(false);
+        return this;
+    }
+
+    /** Mengatur field tipeKoleksi Majalah. */
+    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri) {
+        l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
+
+        f_savedJudul.setText(judul);
+        f_savedPenerbit.setText(penerbit);
+        l_savedIsbnIssn.setText("ISBN");
+        f_savedIsbnIssn.setText(isbn);
+        l_specific1.setText("Volume");
+        f_specific1.setText(String.valueOf(volume));
+        l_specific2.setText("Seri");
+        f_specific2.setText(String.valueOf(seri));
+        return this;
+    }
+    /** Mengatur field tipeKoleksi Dsik. */
+    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
+        l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
+
+        f_savedJudul.setText(judul);
+        f_savedPenerbit.setText(penerbit);
+        l_savedIsbnIssn.setText("ISBN");
+        f_savedIsbnIssn.setText(isbn);
+        l_specific1.setText("Format");
+        f_specific1.setText(format);
+
+        l_specific2.setVisible(false);
+        f_specific2.setVisible(false);
+        return this;
+    }
+      
     /**
      * @param args the command line arguments
      */
@@ -227,7 +272,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     private javax.swing.JLabel f_specific1;
     private javax.swing.JLabel f_specific2;
     private javax.swing.JLabel f_tipeKoleksi;
-    private javax.swing.JLabel l_regPeminjamBerhasil;
+    private javax.swing.JLabel l_frameTitle;
     private javax.swing.JLabel l_savedIsbnIssn;
     private javax.swing.JLabel l_savedJudul;
     private javax.swing.JLabel l_savedPenerbit;
