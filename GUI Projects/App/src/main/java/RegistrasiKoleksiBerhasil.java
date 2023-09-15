@@ -195,6 +195,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         f_savedIsbnIssn.setText(isbn);
         l_specific1.setText("Jml. Halaman");
         f_specific1.setText(String.valueOf(jmlHalaman));
+
         l_specific2.setVisible(false);
         f_specific2.setVisible(false);
         return this;
@@ -212,6 +213,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         f_specific1.setText(String.valueOf(volume));
         l_specific2.setText("Seri");
         f_specific2.setText(String.valueOf(seri));
+
         return this;
     }
     /** Mengatur field tipeKoleksi Dsik. */
