@@ -5,6 +5,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 /**
  *
@@ -40,7 +41,7 @@ public class HomePage extends javax.swing.JFrame {
 
         loginPage.setBackground(new java.awt.Color(153, 204, 255));
 
-        logoSanataDharma.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoSanataDharma.png")).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
+        logoSanataDharma.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/logoSanataDharma.png"))).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
 
         btn_login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_login.setText("Login");
@@ -76,7 +77,6 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(i_password)
                         .addComponent(i_username, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPageLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)))
                 .addGap(53, 53, 53)
@@ -120,12 +120,15 @@ public class HomePage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Masuk ke aplikasi utama dengan cara membuat {@link App}. Untuk menyimpan objek {@link HomePage} ini, menggunakan argumen {@code this}.
+     * */
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        JFrame app = new App(this);
+        JFrame app = new App(this);                 // buat objek App
 
         System.out.println("Logged as Admin");
 
-        app.setVisible(true);
+        app.setVisible(true);                                   
         this.setVisible(false);
     }//GEN-LAST:event_btn_loginActionPerformed
 

@@ -22,15 +22,18 @@ public class App extends javax.swing.JFrame {
      * Default constructor tanpa home page (landing page).
      */
     public App() {
+        /* Untuk tes: (tidak memiliki referensi HomePage) */
         this.homePage = null;
         initComponents();
         setTitle("Sistem Manajemen Perpustakaan");
+        /* Mengatur icon/gambar judul pada window frame */
         setIconImage(
           new ImageIcon(
             Objects.requireNonNull(
               getClass().getResource("/images/bookIcon.png"))
           ).getImage()
         );
+        /* Menyimpan format CardLayout untuk berpindah card panel */
         formCards = (CardLayout) formContainer.getLayout();
     }
     
@@ -38,15 +41,18 @@ public class App extends javax.swing.JFrame {
      * Constructor dengan home page (landing page).
      */
     public App(HomePage homePage) {
+        /* Referensi HomePage untuk melakukan log out */
         this.homePage = homePage;
         initComponents();
         setTitle("Sistem Manajemen Perpustakaan");
+        /* Mengatur icon/gambar judul pada window frame */
         setIconImage(
           new ImageIcon(
             Objects.requireNonNull(
               getClass().getResource("/images/bookIcon.png"))
           ).getImage()
         );
+        /* Menyimpan format CardLayout untuk berpindah card panel */
         formCards = (CardLayout) formContainer.getLayout();
     }
 
@@ -640,7 +646,7 @@ public class App extends javax.swing.JFrame {
 
         menuBar_tambah.setText("Tambah");
 
-        tambahPeminjam.setText("Peminjam Baru");
+        tambahPeminjam.setText("Peminjam baru");
         tambahPeminjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahPeminjamActionPerformed(evt);
@@ -648,7 +654,7 @@ public class App extends javax.swing.JFrame {
         });
         menuBar_tambah.add(tambahPeminjam);
 
-        tambahKoleksi.setText("Koleksi Baru");
+        tambahKoleksi.setText("Koleksi baru");
         tambahKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahKoleksiActionPerformed(evt);
