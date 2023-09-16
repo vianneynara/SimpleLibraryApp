@@ -61,6 +61,7 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrasi Peminjam Berhasil");
         setBounds(new java.awt.Rectangle(0, 0, 578, 188));
+        setMinimumSize(new java.awt.Dimension(578, 188));
         setPreferredSize(new java.awt.Dimension(578, 188));
         setSize(new java.awt.Dimension(578, 188));
 
@@ -176,7 +177,7 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(b_regBerhasilOk)
                 .addGap(10, 10, 10))
         );
@@ -192,7 +193,7 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
             .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(592, 257));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
