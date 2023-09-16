@@ -6,6 +6,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 import java.util.Objects;
 
@@ -133,6 +134,7 @@ public class App extends javax.swing.JFrame {
         setTitle("Sistem Manajemen Data Perpustakaan");
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1280, 720));
         setMinimumSize(new java.awt.Dimension(960, 540));
+        setResizable(false);
 
         menuContainer.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -207,6 +209,7 @@ public class App extends javax.swing.JFrame {
         l_nama.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_nama.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        i_nama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_nama.setName(""); // NOI18N
         i_nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +222,7 @@ public class App extends javax.swing.JFrame {
         l_noId.setMaximumSize(new java.awt.Dimension(150, 25));
         l_noId.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_noId.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_noId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_noIdActionPerformed(evt);
@@ -239,6 +243,7 @@ public class App extends javax.swing.JFrame {
         l_alamat.setMaximumSize(new java.awt.Dimension(150, 25));
         l_alamat.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_alamat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_alamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_alamatActionPerformed(evt);
@@ -250,6 +255,7 @@ public class App extends javax.swing.JFrame {
         l_telp.setMaximumSize(new java.awt.Dimension(150, 25));
         l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_telp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_telp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_telpActionPerformed(evt);
@@ -317,7 +323,7 @@ public class App extends javax.swing.JFrame {
                                     .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(100, Short.MAX_VALUE))
+                        .addContainerGap(91, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(l_simpanPeminjamEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -399,6 +405,7 @@ public class App extends javax.swing.JFrame {
         l_judulKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
         l_judulKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_judulKoleksiActionPerformed(evt);
@@ -410,6 +417,7 @@ public class App extends javax.swing.JFrame {
         l_penerbit.setMaximumSize(new java.awt.Dimension(150, 25));
         l_penerbit.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_penerbit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_penerbit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_penerbitActionPerformed(evt);
@@ -454,6 +462,7 @@ public class App extends javax.swing.JFrame {
         l_isbnIssn.setMaximumSize(new java.awt.Dimension(150, 25));
         l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
+        i_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_isbnIssnActionPerformed(evt);
@@ -568,7 +577,7 @@ public class App extends javax.swing.JFrame {
                                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(186, Short.MAX_VALUE))
+                        .addContainerGap(177, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
                         .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -779,8 +788,10 @@ public class App extends javax.swing.JFrame {
         }
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
+        /* mengeksekusi pembuatan dialog data dengan antrian event tasks */
         java.awt.EventQueue.invokeLater(
-          () -> new RegistrasiPeminjamBerhasil(this, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam).setVisible(true)
+          () -> new RegistrasiPeminjamBerhasil(this, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam)
+            .setVisible(true)
         );
         kosongkanRegPeminjam();
 
@@ -997,7 +1008,13 @@ public class App extends javax.swing.JFrame {
         i_judulKoleksi.setText("");
         i_penerbit.setText("");
         i_isbnIssn.setText("");
+
+        /* Memilih pilihan "Buku" dan mematikan kolom input spesifik lain kecuali jumlah halaman */
         inp_regTipeKoleksi.setSelected(i_jenisBuku.getModel(), true);
+        setFalseAllTipeKoleksi();
+        l_jmlHalaman.setEnabled(true);
+        i_jmlHalaman.setEnabled(true);
+
         i_jmlHalaman.setValue(1);
         i_volume.setValue(1);
         i_seri.setValue(1);
