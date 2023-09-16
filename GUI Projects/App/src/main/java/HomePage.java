@@ -124,12 +124,12 @@ public class HomePage extends javax.swing.JFrame {
      * Masuk ke aplikasi utama dengan cara membuat {@link App}. Untuk menyimpan objek {@link HomePage} ini, menggunakan argumen {@code this}.
      * */
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        JFrame app = new App(this);                 // buat objek App
+        JFrame app = new App(this);                         // buat objek App ke app
 
-        System.out.println("Logged as Admin");
+        System.out.println("Logged as Admin");              // mencetak di terminal
 
-        app.setVisible(true);                                   
-        this.setVisible(false);
+        app.setVisible(true);                               // mengatur app menjadi terlihat
+        this.setVisible(false);                             // mengatur home page mmenjadi tidak terlihat
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_passwordActionPerformed
