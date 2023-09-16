@@ -5,4 +5,4 @@
 target/
 
 # exclude .form files for NetBeans GUI builder
-**/*.form
+#**/*.form
