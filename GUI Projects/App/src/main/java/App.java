@@ -70,7 +70,7 @@ public class App extends javax.swing.JFrame {
         menuTitle = new javax.swing.JLabel();
         b_regPeminjam = new javax.swing.JButton();
         b_regKoleksi = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        l_logoSadhar = new javax.swing.JLabel();
         formContainer = new javax.swing.JPanel();
         registrasiPeminjam = new javax.swing.JPanel();
         regisPeminjamTitle = new javax.swing.JLabel();
@@ -161,7 +161,7 @@ public class App extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoSanataDharma.png")).getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH)));
+        l_logoSadhar.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoSanataDharma.png")).getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH)));
 
         javax.swing.GroupLayout menuContainerLayout = new javax.swing.GroupLayout(menuContainer);
         menuContainer.setLayout(menuContainerLayout);
@@ -176,7 +176,7 @@ public class App extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(l_logoSadhar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         menuContainerLayout.setVerticalGroup(
@@ -189,8 +189,8 @@ public class App extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b_regKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addComponent(l_logoSadhar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         formContainer.setBackground(new java.awt.Color(255, 255, 255));
@@ -207,7 +207,6 @@ public class App extends javax.swing.JFrame {
         l_nama.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_nama.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        i_nama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_nama.setName(""); // NOI18N
         i_nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,7 +219,6 @@ public class App extends javax.swing.JFrame {
         l_noId.setMaximumSize(new java.awt.Dimension(150, 25));
         l_noId.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_noId.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_noId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_noIdActionPerformed(evt);
@@ -241,7 +239,6 @@ public class App extends javax.swing.JFrame {
         l_alamat.setMaximumSize(new java.awt.Dimension(150, 25));
         l_alamat.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_alamat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_alamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_alamatActionPerformed(evt);
@@ -253,7 +250,6 @@ public class App extends javax.swing.JFrame {
         l_telp.setMaximumSize(new java.awt.Dimension(150, 25));
         l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_telp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_telp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_telpActionPerformed(evt);
@@ -321,7 +317,7 @@ public class App extends javax.swing.JFrame {
                                     .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(97, Short.MAX_VALUE))
+                        .addContainerGap(100, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiPeminjamLayout.createSequentialGroup()
                         .addGroup(registrasiPeminjamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(l_simpanPeminjamEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -403,7 +399,6 @@ public class App extends javax.swing.JFrame {
         l_judulKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
         l_judulKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_judulKoleksiActionPerformed(evt);
@@ -415,7 +410,6 @@ public class App extends javax.swing.JFrame {
         l_penerbit.setMaximumSize(new java.awt.Dimension(150, 25));
         l_penerbit.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_penerbit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_penerbit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_penerbitActionPerformed(evt);
@@ -460,7 +454,6 @@ public class App extends javax.swing.JFrame {
         l_isbnIssn.setMaximumSize(new java.awt.Dimension(150, 25));
         l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         i_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_isbnIssnActionPerformed(evt);
@@ -575,7 +568,7 @@ public class App extends javax.swing.JFrame {
                                     .addGroup(registrasiKoleksiLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(i_format, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(183, Short.MAX_VALUE))
+                        .addContainerGap(186, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registrasiKoleksiLayout.createSequentialGroup()
                         .addGroup(registrasiKoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -856,7 +849,7 @@ public class App extends javax.swing.JFrame {
         String format = (String) i_format.getSelectedItem();
 
         /* mengecek apakah terdapat field yang kosong setelah ditrim */
-        for (String field : new String[]{judul, penerbit, isbnIssn}) {
+        for (String field : new String[] {judul, penerbit, isbnIssn}) {
             if (checkIsEmpty(field)) {
                 l_simpanKoleksiEmptyIndicator.setVisible(true);
                 return;
@@ -1066,7 +1059,6 @@ public class App extends javax.swing.JFrame {
     private java.awt.TextField i_telp;
     private javax.swing.JSpinner i_volume;
     private javax.swing.ButtonGroup inp_regTipeKoleksi;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem koleksiBuku;
     private javax.swing.JMenuItem koleksiDisk;
     private javax.swing.JMenuItem koleksiMajalah;
@@ -1076,6 +1068,7 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JLabel l_jmlHalaman;
     private javax.swing.JLabel l_judulBuku4;
     private javax.swing.JLabel l_judulKoleksi;
+    private javax.swing.JLabel l_logoSadhar;
     private javax.swing.JLabel l_maksPinjam;
     private javax.swing.JLabel l_nama;
     private javax.swing.JLabel l_noId;
