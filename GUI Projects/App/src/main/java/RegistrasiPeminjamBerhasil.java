@@ -42,50 +42,34 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialog_regPeminjamBerhasil = new javax.swing.JDialog();
-        l_frameTitle = new javax.swing.JLabel();
-        b_regBerhasilOk = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
         l_savedNama = new javax.swing.JLabel();
+        f_savedJenisNoId1 = new javax.swing.JLabel();
         f_savedNama = new javax.swing.JLabel();
         l_savedNoIdJenisNoId = new javax.swing.JLabel();
         f_savedNoId = new javax.swing.JLabel();
         f_savedJenisNoId = new javax.swing.JLabel();
-        f_savedAlamat = new javax.swing.JLabel();
         l_savedAlamat = new javax.swing.JLabel();
-        f_savedNoTelp = new javax.swing.JLabel();
+        f_savedAlamat = new javax.swing.JLabel();
         l_savedNoTelp = new javax.swing.JLabel();
+        f_savedNoTelp = new javax.swing.JLabel();
+        l_frameTitle = new javax.swing.JLabel();
         l_savedMaksPinjam = new javax.swing.JLabel();
         f_savedMaksPinjam = new javax.swing.JLabel();
-        f_savedJenisNoId1 = new javax.swing.JLabel();
-
-        dialog_regPeminjamBerhasil.setTitle("Registrasi berhasil");
-        dialog_regPeminjamBerhasil.setResizable(false);
-
-        javax.swing.GroupLayout dialog_regPeminjamBerhasilLayout = new javax.swing.GroupLayout(dialog_regPeminjamBerhasil.getContentPane());
-        dialog_regPeminjamBerhasil.getContentPane().setLayout(dialog_regPeminjamBerhasilLayout);
-        dialog_regPeminjamBerhasilLayout.setHorizontalGroup(
-            dialog_regPeminjamBerhasilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
-        dialog_regPeminjamBerhasilLayout.setVerticalGroup(
-            dialog_regPeminjamBerhasilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
+        b_regBerhasilOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrasi Peminjam Berhasil");
+        setBounds(new java.awt.Rectangle(0, 0, 578, 188));
+        setPreferredSize(new java.awt.Dimension(578, 188));
+        setSize(new java.awt.Dimension(578, 188));
 
-        l_frameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_frameTitle.setText("Registrasi Peminjam Berhasil");
-
-        b_regBerhasilOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        b_regBerhasilOk.setText("Ok");
-        b_regBerhasilOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_regBerhasilOkActionPerformed(evt);
-            }
-        });
+        panel.setMinimumSize(new java.awt.Dimension(578, 188));
 
         l_savedNama.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         l_savedNama.setText("Nama Lengkap");
+
+        f_savedJenisNoId1.setText("/");
 
         f_savedNama.setText("n");
         f_savedNama.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -99,17 +83,20 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
         f_savedJenisNoId.setText("n");
         f_savedJenisNoId.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        l_savedAlamat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_savedAlamat.setText("Alamat");
+
         f_savedAlamat.setText("n");
         f_savedAlamat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        l_savedAlamat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_savedAlamat.setText("Alamat");
+        l_savedNoTelp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_savedNoTelp.setText("Nomor Telepon");
 
         f_savedNoTelp.setText("n");
         f_savedNoTelp.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        l_savedNoTelp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_savedNoTelp.setText("Nomor Telepon");
+        l_frameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_frameTitle.setText("Registrasi Peminjam Berhasil");
 
         l_savedMaksPinjam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         l_savedMaksPinjam.setText("Maksimal Pinjam");
@@ -117,20 +104,26 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
         f_savedMaksPinjam.setText("n");
         f_savedMaksPinjam.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        f_savedJenisNoId1.setText("/");
+        b_regBerhasilOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        b_regBerhasilOk.setText("Ok");
+        b_regBerhasilOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_regBerhasilOkActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(l_savedNama, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_savedNama, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(f_savedNama, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(l_savedNoIdJenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(f_savedNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,55 +131,65 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
                         .addComponent(f_savedJenisNoId1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(f_savedJenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(l_savedAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_savedAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(f_savedAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(l_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(f_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(l_savedNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(f_savedNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(10, 10, 10))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(b_regBerhasilOk, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
                 .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedNama, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedNama, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedNoIdJenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedJenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedJenisNoId1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_savedMaksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(b_regBerhasilOk)
                 .addGap(10, 10, 10))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -242,7 +245,6 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_regBerhasilOk;
-    private javax.swing.JDialog dialog_regPeminjamBerhasil;
     private javax.swing.JLabel f_savedAlamat;
     private javax.swing.JLabel f_savedJenisNoId;
     private javax.swing.JLabel f_savedJenisNoId1;
@@ -256,5 +258,6 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
     private javax.swing.JLabel l_savedNama;
     private javax.swing.JLabel l_savedNoIdJenisNoId;
     private javax.swing.JLabel l_savedNoTelp;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,61 +28,25 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialog_regPeminjamBerhasil = new javax.swing.JDialog();
-        l_frameTitle = new javax.swing.JLabel();
-        b_regBerhasilOk = new javax.swing.JButton();
-        l_savedJudul = new javax.swing.JLabel();
-        f_savedJudul = new javax.swing.JLabel();
-        l_savedPenerbit = new javax.swing.JLabel();
-        f_savedIsbnIssn = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
         l_savedIsbnIssn = new javax.swing.JLabel();
         f_tipeKoleksi = new javax.swing.JLabel();
         l_savedTipeKoleksi = new javax.swing.JLabel();
         f_savedPenerbit = new javax.swing.JLabel();
         f_specific1 = new javax.swing.JLabel();
+        l_frameTitle = new javax.swing.JLabel();
         l_specific1 = new javax.swing.JLabel();
         f_specific2 = new javax.swing.JLabel();
+        l_savedJudul = new javax.swing.JLabel();
         l_specific2 = new javax.swing.JLabel();
-
-        dialog_regPeminjamBerhasil.setTitle("Registrasi berhasil");
-        dialog_regPeminjamBerhasil.setResizable(false);
-
-        javax.swing.GroupLayout dialog_regPeminjamBerhasilLayout = new javax.swing.GroupLayout(dialog_regPeminjamBerhasil.getContentPane());
-        dialog_regPeminjamBerhasil.getContentPane().setLayout(dialog_regPeminjamBerhasilLayout);
-        dialog_regPeminjamBerhasilLayout.setHorizontalGroup(
-            dialog_regPeminjamBerhasilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
-        dialog_regPeminjamBerhasilLayout.setVerticalGroup(
-            dialog_regPeminjamBerhasilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        );
+        f_savedJudul = new javax.swing.JLabel();
+        l_savedPenerbit = new javax.swing.JLabel();
+        f_savedIsbnIssn = new javax.swing.JLabel();
+        b_regBerhasilOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Registrasi Peminjam Berhasil");
-        setPreferredSize(new java.awt.Dimension(661, 180));
-        setResizable(false);
-
-        l_frameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_frameTitle.setText("Registrasi Koleksi Berhasil");
-
-        b_regBerhasilOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        b_regBerhasilOk.setText("Ok");
-        b_regBerhasilOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_regBerhasilOkActionPerformed(evt);
-            }
-        });
-
-        l_savedJudul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_savedJudul.setText("Judul");
-
-        f_savedJudul.setText("n");
-        f_savedJudul.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        l_savedPenerbit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_savedPenerbit.setText("Penerbit");
-
-        f_savedIsbnIssn.setText("n");
-        f_savedIsbnIssn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setTitle("Registrasi Koleksi Berhasil");
+        setPreferredSize(new java.awt.Dimension(578, 210));
 
         l_savedIsbnIssn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         l_savedIsbnIssn.setText("ISBN / ISSN");
@@ -99,85 +63,117 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         f_specific1.setText("n");
         f_specific1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        l_frameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_frameTitle.setText("Registrasi Koleksi Berhasil");
+
         l_specific1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         l_specific1.setText("specific1");
 
         f_specific2.setText("n");
         f_specific2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        l_savedJudul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_savedJudul.setText("Judul");
+
         l_specific2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         l_specific2.setText("specific2");
+
+        f_savedJudul.setText("n");
+        f_savedJudul.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        l_savedPenerbit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_savedPenerbit.setText("Penerbit");
+
+        f_savedIsbnIssn.setText("n");
+        f_savedIsbnIssn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        b_regBerhasilOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        b_regBerhasilOk.setText("Ok");
+        b_regBerhasilOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_regBerhasilOkActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(l_specific1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(l_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_savedTipeKoleksi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(f_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(f_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(f_savedPenerbit, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(f_savedJudul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(f_savedIsbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(b_regBerhasilOk, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_savedTipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(b_regBerhasilOk)
+                .addGap(10, 10, 10))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(l_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(l_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(b_regBerhasilOk, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(l_savedTipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(l_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(l_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(f_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(l_frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(f_savedJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(f_savedPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(l_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(f_savedIsbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(l_savedTipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(l_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(f_specific1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(l_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(f_specific2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(b_regBerhasilOk)
-                .addGap(10, 10, 10))
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(578, 210));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /** Menutup dialog. */
@@ -189,6 +185,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
+        f_tipeKoleksi.setText(tipeKoleksi);
         f_savedJudul.setText(judul);
         f_savedPenerbit.setText(penerbit);
         l_savedIsbnIssn.setText("ISBN");
@@ -205,6 +202,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
+        f_tipeKoleksi.setText(tipeKoleksi);
         f_savedJudul.setText(judul);
         f_savedPenerbit.setText(penerbit);
         l_savedIsbnIssn.setText("ISBN");
@@ -220,6 +218,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
+        f_tipeKoleksi.setText(tipeKoleksi);
         f_savedJudul.setText(judul);
         f_savedPenerbit.setText(penerbit);
         l_savedIsbnIssn.setText("ISBN");
@@ -267,7 +266,6 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_regBerhasilOk;
-    private javax.swing.JDialog dialog_regPeminjamBerhasil;
     private javax.swing.JLabel f_savedIsbnIssn;
     private javax.swing.JLabel f_savedJudul;
     private javax.swing.JLabel f_savedPenerbit;
@@ -281,5 +279,6 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
     private javax.swing.JLabel l_savedTipeKoleksi;
     private javax.swing.JLabel l_specific1;
     private javax.swing.JLabel l_specific2;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }
