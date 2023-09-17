@@ -38,6 +38,7 @@ public class HomePage extends javax.swing.JFrame {
         menuBar_informasi = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home: Sistem Manajemen Perpustakaan");
 
         loginPage.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -141,27 +142,18 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_i_usernameActionPerformed
 
     /**
+     * Metode penjalan kelas.
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+    public static void main(String[] args) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            /* Mengatur look and feels tampilan jendela menjadi Nimbus */
+            javax.swing.UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
+            /* Mengantrikan aplikasi ke event queue */
+            java.awt.EventQueue.invokeLater(() -> new HomePage().setVisible(true));
+        } catch (UnsupportedLookAndFeelException ex) {          // catch error saat look and feel tidak ditemukan
+            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomePage().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

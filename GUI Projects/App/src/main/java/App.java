@@ -5,6 +5,7 @@
 
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Enumeration;
@@ -25,8 +26,8 @@ public class App extends javax.swing.JFrame {
     public App() {
         /* Untuk tes: (tidak memiliki referensi HomePage) */
         this.homePage = null;
-        initComponents();
-        setTitle("Sistem Manajemen Perpustakaan");
+        initComponents();                                       // mengatur komponen JFrame
+        setTitle("Sistem Manajemen Perpustakaan");              // mengatur judul jendela JFrame
         /* Mengatur icon/gambar judul pada window frame */
         setIconImage(
           new ImageIcon(
@@ -44,8 +45,8 @@ public class App extends javax.swing.JFrame {
     public App(HomePage homePage) {
         /* Referensi HomePage untuk melakukan log out */
         this.homePage = homePage;
-        initComponents();
-        setTitle("Sistem Manajemen Perpustakaan");
+        initComponents();                                       // mengatur komponen JFrame
+        setTitle("Sistem Manajemen Perpustakaan");              // mengatur judul jendela JFrame
         /* Mengatur icon/gambar judul pada window frame */
         setIconImage(
           new ImageIcon(
@@ -746,14 +747,14 @@ public class App extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Mengganti frame formulir ke formulir registrasi data peminjam.
+     * Mengganti frame formulir ke formulir registrasi data peminjam menggunakan container {@link CardLayout} (formCards).
      * */
     private void b_regPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regPeminjamActionPerformed
         formCards.show(formContainer, "card1");
     }//GEN-LAST:event_b_regPeminjamActionPerformed
 
     /**
-     * Mengganti frame formulir ke formulir registrasi data koleksi.
+     * Mengganti frame formulir ke formulir registrasi data koleksi menggunakan container {@link CardLayout} (formCards).
      * */
     private void b_regKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regKoleksiActionPerformed
         formCards.show(formContainer, "card2");
@@ -763,15 +764,16 @@ public class App extends javax.swing.JFrame {
      * Mengosongkan dan mengatur nilai ke awal pada formulir registrasi data peminjam.
      * */
     private void b_kosongkanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanPeminjamActionPerformed
-        kosongkanRegPeminjam();
+        kosongkanRegPeminjam();                                 // panggil metode yang mengosongkan reg. peminjam
         
-        l_simpanPeminjamEmptyIndicator.setVisible(false);
+        l_simpanPeminjamEmptyIndicator.setVisible(false);       // mematikan indikator field masih kosong
     }//GEN-LAST:event_b_kosongkanPeminjamActionPerformed
 
     /**
-     * Mengimpan data dan menampilkan dialog dengan data yang dikirim.
+     * Mengimpan data dan menampilkan dialog {@link RegistrasiPeminjamBerhasil}  dengan data yang dikirim.
      * */
     private void b_simpanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_simpanPeminjamBaruActionPerformed
+        /* Variabel-variabel penyimpan data */
         String nama = i_nama.getText();
         String noId = i_noId.getText();
         String jenisNoId = (String) i_jenisNoId.getSelectedItem();
@@ -779,8 +781,8 @@ public class App extends javax.swing.JFrame {
         String noTelp = i_telp.getText();
         int maksPinjam = (int) i_maksPinjam.getValue();
 
-        /* mengecek apakah terdapat field yang kosong setelah ditrim */
-        for (String field : new String[]{nama, noId, jenisNoId, alamat, noTelp}) {
+        /* mengecek apakah terdapat field yang kosong setelah ditrim untuk setiap field String */
+        for (String field : new String[] {nama, noId, jenisNoId, alamat, noTelp}) {
             if (checkIsEmpty(field)) {
                 l_simpanPeminjamEmptyIndicator.setVisible(true);
                 return;
@@ -833,12 +835,16 @@ public class App extends javax.swing.JFrame {
      * Mengosongkan dan mengatur nilai ke awal pada formulir registrasi data koleksi.
      * */
     private void b_kosongkanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlKosongkanActionPerformed
-        kosongkanRegKoleksi();
+        kosongkanRegKoleksi();                              // panggil metode yang mengosongkan reg. peminjam
 
-        l_simpanKoleksiEmptyIndicator.setVisible(false);
+        l_simpanKoleksiEmptyIndicator.setVisible(false);    // mematikan indikator field masih kosong
     }//GEN-LAST:event_btlKosongkanActionPerformed
 
+    /**
+     * Mengimpan data dan menampilkan dialog {@link RegistrasiKoleksiBerhasil} dengan data yang dikirim.
+     * */
     private void b_simpanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
+        /* Variabel-variabel penyimpan data */
         String judul = i_judulKoleksi.getText();
         String penerbit = i_penerbit.getText();
         String isbnIssn = i_isbnIssn.getText();
@@ -854,6 +860,7 @@ public class App extends javax.swing.JFrame {
             }
         };
 
+        /* Variabel-variabel penyimpan data (2) */
         int jmlHalaman = (int) i_jmlHalaman.getValue();
         int volume = (int) i_volume.getValue();
         int seri = (int) i_seri.getValue();
@@ -902,7 +909,6 @@ public class App extends javax.swing.JFrame {
           }
           """,
           judul, penerbit, isbnIssn, tipeKoleksi, jmlHalaman, volume, seri, format);
-
     }//GEN-LAST:event_btnSimpanBukuActionPerformed
 
     private void i_isbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_isbnIssnActionPerformed
@@ -913,8 +919,9 @@ public class App extends javax.swing.JFrame {
      * Mengaktifkan input field disk (label dan input: FORMAT)
      * */
     private void i_jenisDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisDiskActionPerformed
-        setFalseAllTipeKoleksi();
+        setFalseAllTipeKoleksi();                               // mematikan semua fields spesifik
 
+        /* Menyalakan label dan input yang relevan dengan tipe koleksinya. l: Label, i: Input.*/
         l_format.setEnabled(true);
         i_format.setEnabled(true);
     }//GEN-LAST:event_i_jenisDiskActionPerformed
@@ -923,8 +930,9 @@ public class App extends javax.swing.JFrame {
      * Mengaktifkan input field majalah (label dan input: VOLUME, SERI).
      * */
     private void i_jenisMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisMajalahActionPerformed
-        setFalseAllTipeKoleksi();
+        setFalseAllTipeKoleksi();                               // mematikan semua fields spesifik
 
+        /* Menyalakan label dan input yang relevan dengan tipe koleksinya. l: Label, i: Input.*/
         l_volume.setEnabled(true);
         i_volume.setEnabled(true);
         l_seri.setEnabled(true);
@@ -935,8 +943,9 @@ public class App extends javax.swing.JFrame {
      * Mengaktifkan input field buku (label dan input: HALAMAN).
      * */
     private void i_jenisBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisBukuActionPerformed
-        setFalseAllTipeKoleksi();
+        setFalseAllTipeKoleksi();                               // mematikan semua fields spesifik
 
+        /* Menyalakan label dan input yang relevan dengan tipe koleksinya. l: Label, i: Input.*/
         l_jmlHalaman.setEnabled(true);
         i_jmlHalaman.setEnabled(true);
     }//GEN-LAST:event_i_jenisBukuActionPerformed
@@ -955,17 +964,26 @@ public class App extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_koleksiMajalahActionPerformed
 
+    /**
+     * Mengganti formulir ke registrasi peminjam dengan container {@link CardLayout} (formContainer).
+     * */
     private void tambahPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahPeminjamActionPerformed
         formCards.show(formContainer, "card1");
     }//GEN-LAST:event_tambahPeminjamActionPerformed
 
+    /**
+     * Mengganti formulir ke registrasi koleksi dengan container {@link CardLayout} (formContainer).
+     * */
     private void tambahKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahKoleksiActionPerformed
         formCards.show(formContainer, "card2");
     }//GEN-LAST:event_tambahKoleksiActionPerformed
 
+    /**
+     * Membuang {@link App} ini jika {@link App#homePage} sudah diatur. Membuka frame {@link App#homePage}.
+     * */
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         if (homePage != null) {
-            this.setVisible(false);
+            this.dispose();
             homePage.setVisible(true);
         } else {
             System.out.println("Home page tidak di inisialisasi.");
@@ -1022,7 +1040,7 @@ public class App extends javax.swing.JFrame {
     }
 
     /**
-     * Mengecek apakah sebuah {@link String} kosong.
+     * Mengecek apakah sebuah {@link String} kosong setelah dilakukan trimming.
      * */
     private boolean checkIsEmpty(String str) {
         return str.trim().equals("");
@@ -1033,20 +1051,14 @@ public class App extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* Mengatur look and feels tampilan jendela menjadi Nimbus */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            /* Mengatur look and feels tampilan jendela menjadi Nimbus */
+            javax.swing.UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
+            /* Mengantrikan aplikasi ke event queue */
+            java.awt.EventQueue.invokeLater(() -> new App().setVisible(true));
+        } catch (UnsupportedLookAndFeelException ex) {          // catch error saat look and feel tidak ditemukan
             java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new App().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
