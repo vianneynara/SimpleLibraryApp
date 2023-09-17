@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
-
 import javax.swing.*;
 
 /**
@@ -12,19 +7,20 @@ import javax.swing.*;
 public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
 
     /**
-     * Creates new form RegistrasiPeminjamBerhasil
+     * Creates new form RegistrasiPeminjamBerhasil (untuk test)
      */
     public RegistrasiPeminjamBerhasil(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+        super(parent, modal);                                   // mengisi constructor parent
+        initComponents();                                       // membuat dan mengatur komponen pada dialog
     }
 
     /**
      * Membuat RegistrasiPeminjamBerhasil dialog dengan isinya.
      */
-    public RegistrasiPeminjamBerhasil(java.awt.Frame parent, boolean modal, String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
-        super(parent, modal);
-        initComponents();
+    public RegistrasiPeminjamBerhasil
+    (java.awt.Frame parent, boolean modal, String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
+        super(parent, modal);                                   // mengisi constructor parent
+        initComponents();                                       // membuat dan mengatur komponen pada dialog
 
         /* Mengatur field sesuai dengan data yang dipassing */
         f_savedNama.setText(nama);

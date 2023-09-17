@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
-
 import javax.swing.*;
 
 /**
@@ -180,8 +175,11 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_b_regBerhasilOkActionPerformed
 
-    /** Mengatur field tipeKoleksi Buku. */
-    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman) {
+    /**
+     * Mengatur field tipeKoleksi Buku. Judul diubah, label dan data yang diterima diatur ke fields.
+     * */
+    public RegistrasiKoleksiBerhasil isiField
+    (String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
@@ -197,8 +195,11 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
         return this;
     }
 
-    /** Mengatur field tipeKoleksi Majalah. */
-    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri) {
+    /**
+     * Mengatur field tipeKoleksi Majalah.  Judul diubah, label dan data yang diterima diatur ke fields.
+     * */
+    public RegistrasiKoleksiBerhasil isiField
+    (String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
@@ -213,8 +214,12 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
 
         return this;
     }
-    /** Mengatur field tipeKoleksi Disk. */
-    public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
+
+    /**
+     * Mengatur field tipeKoleksi Disk. Judul diubah, label dan data yang diterima diatur ke fields.
+     * */
+    public RegistrasiKoleksiBerhasil isiField
+    (String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
