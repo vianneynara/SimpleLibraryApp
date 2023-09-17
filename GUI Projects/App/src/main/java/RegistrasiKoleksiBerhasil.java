@@ -15,8 +15,8 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
      * Creates new form RegistrasiPeminjamBerhasil
      */
     public RegistrasiKoleksiBerhasil(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+        super(parent, modal);                                   // mengisi constructor parent
+        initComponents();                                       // membuat dan mengatur komponen pada dialog
     }
 
     /**
@@ -213,7 +213,7 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
 
         return this;
     }
-    /** Mengatur field tipeKoleksi Dsik. */
+    /** Mengatur field tipeKoleksi Disk. */
     public RegistrasiKoleksiBerhasil isiField(String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
