@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -218,6 +219,11 @@ public class App extends javax.swing.JFrame {
         l_noId.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_noId.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_noId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_noIdFocusLost(evt);
+            }
+        });
         i_noId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_noIdActionPerformed(evt);
@@ -251,6 +257,11 @@ public class App extends javax.swing.JFrame {
         l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_telp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_telp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_telpFocusLost(evt);
+            }
+        });
         i_telp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_telpActionPerformed(evt);
@@ -288,7 +299,7 @@ public class App extends javax.swing.JFrame {
         l_simpanPeminjamEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
         l_simpanPeminjamEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
         l_simpanPeminjamEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_simpanPeminjamEmptyIndicator.setText("Terdapat data yang masih kosong!");
+        l_simpanPeminjamEmptyIndicator.setText("Terdapat data yang masih kosong atau tidak benar!");
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
         javax.swing.GroupLayout registrasiPeminjamLayout = new javax.swing.GroupLayout(registrasiPeminjam);
@@ -458,6 +469,11 @@ public class App extends javax.swing.JFrame {
         l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
         i_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_isbnIssn.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_isbnIssnFocusLost(evt);
+            }
+        });
         i_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_isbnIssnActionPerformed(evt);
@@ -530,7 +546,7 @@ public class App extends javax.swing.JFrame {
         l_simpanKoleksiEmptyIndicator.setBackground(new java.awt.Color(153, 153, 153));
         l_simpanKoleksiEmptyIndicator.setForeground(new java.awt.Color(255, 51, 51));
         l_simpanKoleksiEmptyIndicator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        l_simpanKoleksiEmptyIndicator.setText("Terdapat data yang masih kosong!");
+        l_simpanKoleksiEmptyIndicator.setText("Terdapat data yang masih kosong atau tidak benar!");
         l_simpanKoleksiEmptyIndicator.setVisible(false);
 
         javax.swing.GroupLayout registrasiKoleksiLayout = new javax.swing.GroupLayout(registrasiKoleksi);
@@ -768,11 +784,11 @@ public class App extends javax.swing.JFrame {
      * */
     private void b_simpanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_simpanPeminjamBaruActionPerformed
         /* Variabel-variabel penyimpan data */
-        String nama = i_nama.getText();
-        String noId = i_noId.getText();
+        String nama = i_nama.getText().trim();
+        String noId = i_noId.getText().trim();
         String jenisNoId = (String) i_jenisNoId.getSelectedItem();
-        String alamat = i_alamat.getText();
-        String noTelp = i_telp.getText();
+        String alamat = i_alamat.getText().trim();
+        String noTelp = i_telp.getText().trim();
         int maksPinjam = (int) i_maksPinjam.getValue();
 
         /* mengecek apakah terdapat field yang kosong setelah ditrim untuk setiap field String */
@@ -781,6 +797,11 @@ public class App extends javax.swing.JFrame {
                 l_simpanPeminjamEmptyIndicator.setVisible(true);
                 return;
             }
+        }
+        /* mengecek apakah format nomor identitas dan telepon sudah valid*/
+        if (!Checker.isNomor(noId) && !Checker.isNomor(noTelp)) {
+            l_simpanPeminjamEmptyIndicator.setVisible(true);
+            return;
         }
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
@@ -839,9 +860,9 @@ public class App extends javax.swing.JFrame {
      * */
     private void b_simpanRegKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanBukuActionPerformed
         /* Variabel-variabel penyimpan data */
-        String judul = i_judulKoleksi.getText();
-        String penerbit = i_penerbit.getText();
-        String isbnIssn = i_isbnIssn.getText();
+        String judul = i_judulKoleksi.getText().trim();
+        String penerbit = i_penerbit.getText().trim();
+        String isbnIssn = i_isbnIssn.getText().trim();
 
         String tipeKoleksi = "";
         /* Melakukan iterasi setiap button pada button group, mencari button yang dipilih. */
@@ -866,6 +887,11 @@ public class App extends javax.swing.JFrame {
                 l_simpanKoleksiEmptyIndicator.setVisible(true);
                 return;
             }
+        }
+        /* mengecek apakah format isbn sudah valid*/
+        if (!Checker.isNomorSpaceHyphen(isbnIssn)) {
+            l_simpanKoleksiEmptyIndicator.setVisible(true);
+            return;
         }
         l_simpanKoleksiEmptyIndicator.setVisible(false);
 
@@ -989,6 +1015,30 @@ public class App extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_i_formatActionPerformed
 
+    private void i_telpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_telpFocusLost
+        if (!Checker.isNomor(i_telp.getText())) {
+            i_telp.setBackground(new Color(0xFF5959));
+        } else {
+            i_telp.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_i_telpFocusLost
+
+    private void i_noIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_noIdFocusLost
+        if (!Checker.isNomor(i_noId.getText())) {
+            i_noId.setBackground(new Color(0xFF5959));
+        } else {
+            i_noId.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_i_noIdFocusLost
+
+    private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
+        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText())) {
+            i_isbnIssn.setBackground(new Color(0xFF5959));
+        } else {
+            i_isbnIssn.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_i_isbnIssnFocusLost
+
     /* Other functions */
 
     /**
@@ -1035,6 +1085,8 @@ public class App extends javax.swing.JFrame {
 
     /**
      * Mengecek apakah sebuah {@link String} kosong setelah dilakukan trimming.
+     *
+     * @return boolean true atau false
      * */
     private boolean checkIsEmpty(String str) {
         return str.trim().equals("");
