@@ -6,4 +6,5 @@ public interface Koleksi {
     String judul = null;
     String penerbit = null;
     String tahunTerbit = null;
+    boolean statusPinjam = false;
 }

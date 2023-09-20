@@ -7,6 +7,7 @@ public abstract class Item implements Koleksi {
     private String judul;
     private String penerbit;
     private String tahunTerbit;
+    private boolean statusPinjam;
 
     /* constructor for each class attribute */
     protected Item(String id, String judul, String penerbit, String tahunTerbit) {
@@ -48,5 +49,13 @@ public abstract class Item implements Koleksi {
 
     public void setTahunTerbit(String tahunTerbit) {
         this.tahunTerbit = tahunTerbit;
+    }
+
+    public boolean isDipinjam() {
+        return statusPinjam;
+    }
+
+    public void setStatusPinjam(boolean statusPinjam) {
+        this.statusPinjam = statusPinjam;
     }
 }
