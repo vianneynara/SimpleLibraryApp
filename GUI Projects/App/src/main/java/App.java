@@ -727,7 +727,7 @@ public class App extends javax.swing.JFrame {
 
         menuBar_keluar.setText("Keluar");
 
-        logout.setText("Log out");
+        logout.setText("Logout");
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutActionPerformed(evt);
