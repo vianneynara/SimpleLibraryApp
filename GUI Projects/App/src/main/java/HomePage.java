@@ -122,7 +122,7 @@ public class HomePage extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         JFrame app = new App(this);                         // buat objek App ke app
 
-        System.out.println("Logged as Admin");              // mencetak di terminal
+        System.out.println("Logged in as Admin");           // mencetak di terminal
 
         app.setVisible(true);                               // mengatur app menjadi terlihat
         this.setVisible(false);                             // mengatur home page mmenjadi tidak terlihat
