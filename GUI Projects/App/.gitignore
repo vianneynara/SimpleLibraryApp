@@ -1,8 +1,0 @@
-# git ignore for App GUI project
-.classpath
-.project
-.settings/
-target/
-
-# exclude .form files for NetBeans GUI builder
-#**/*.form
