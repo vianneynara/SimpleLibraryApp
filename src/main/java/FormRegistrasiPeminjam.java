@@ -3,8 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
+import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.util.Enumeration;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -13,12 +20,14 @@ import java.util.Objects;
 public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
     private final Color I_RED = new Color(0xFF5959);
+    private JFrame parent;
 
     /**
      * Creates new form FormRegistrasiPeminjam
      */
-    public FormRegistrasiPeminjam() {
+    public FormRegistrasiPeminjam(JFrame parent) {
         initComponents();
+        this.parent = parent;
     }
 
     /**
@@ -333,13 +342,88 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     }//GEN-LAST:event_i_telpActionPerformed
 
     private void b_simpanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_simpanRegPeminjamActionPerformed
-        // TODO add your handling code here:
+        /* Variabel-variabel penyimpan data DENGAN regex */
+        String nama = i_nama.getText().trim().replaceAll(" {2,}", " ");
+        String noId = i_noId.getText().trim().replaceAll(" ", "");
+        String jenisNoId = (String) i_jenisNoId.getSelectedItem();
+        String alamat = i_alamat.getText().trim().replaceAll(" {2,}", " ");
+        String noTelp = i_telp.getText().trim().replaceAll(" ", " ");
+        int maksPinjam = (int) i_maksPinjam.getValue();
+
+        /* mengecek apakah terdapat field yang kosong setelah ditrim untuk setiap field String */
+        for (TextField field : new TextField[] {i_nama, i_noId, i_alamat, i_telp}) {
+                if (Checker.stringIsEmpty(field.getText().trim())) {
+                        l_simpanPeminjamEmptyIndicator.setVisible(true);
+                        field.setBackground(I_RED);
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Terdapat field input yang masih kosong/salah! (Highlight merah)",
+                                "Warning",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+                        return;
+                }
+        }
+        /* mengecek apakah format nomor identitas dan telepon sudah valid*/
+        if (!Checker.isNomor(noId) && !Checker.isNomor(noTelp)) {
+                l_simpanPeminjamEmptyIndicator.setVisible(true);
+                return;
+        }
+        l_simpanPeminjamEmptyIndicator.setVisible(false);
+
+        /* mengeksekusi pembuatan dialog data dengan antrian event tasks */
+        java.awt.EventQueue.invokeLater(
+                () -> new RegistrasiPeminjamBerhasil(parent, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam)
+                        .setVisible(true)
+        );
+        kosongkanRegPeminjam();
+
+        /* Print data */
+        System.out.printf("""
+                        Saved peminjam baru: {
+                          nama: "%s",
+                          noId: "%s",
+                          jenisNoId: "%s",
+                          alamat: "%s",
+                          telp: "%s",
+                          maksPinjam: %1d
+                        }
+                        """,
+                nama, noId, jenisNoId, alamat, noTelp, maksPinjam);
     }//GEN-LAST:event_b_simpanRegPeminjamActionPerformed
 
     private void b_kosongkanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanRegPeminjamActionPerformed
-        // TODO add your handling code here:
+        kosongkanRegPeminjam();                                 // panggil metode yang mengosongkan reg. peminjam
+
+        l_simpanPeminjamEmptyIndicator.setVisible(false);       // mematikan indikator field masih kosong
     }//GEN-LAST:event_b_kosongkanRegPeminjamActionPerformed
 
+    /**
+     * Mengosongkan/mengatur seluruh field registrasi peminjam dengan nilai awal.
+     */
+    private void kosongkanRegPeminjam() {
+        i_nama.setText("");
+        i_noId.setText("");
+        i_jenisNoId.setSelectedIndex(0);
+        i_alamat.setText("");
+        i_telp.setText("");
+        i_maksPinjam.setValue(1);
+
+        /* Melakukan reset model sesuai dengan tipe nomor identitas yang dipilih */
+        Objects.requireNonNull(i_jenisNoId.getSelectedItem());
+        int maksPinjam = switch ((String) i_jenisNoId.getSelectedItem()) {
+                case "NIM" -> 5;
+                case "NIP" -> 7;
+                case "NIK" -> 3;
+                default -> 0;
+        };
+        i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
+
+        /* Melakukan reset warna background tiap field menjadi putih */
+        for (TextField c : new TextField[] {i_nama, i_noId, i_alamat, i_telp}) {
+                c.setBackground(Color.WHITE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_kosongkanRegPeminjam;
