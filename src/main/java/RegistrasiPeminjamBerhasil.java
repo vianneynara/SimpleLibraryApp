@@ -18,10 +18,11 @@ public class RegistrasiPeminjamBerhasil extends javax.swing.JDialog {
      * Membuat RegistrasiPeminjamBerhasil dialog dengan isinya.
      */
     public RegistrasiPeminjamBerhasil
-    (java.awt.Frame parent, boolean modal, String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
+    (java.awt.Frame parent, boolean modal, String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
         super(parent, modal);                                   // mengisi constructor parent
         initComponents();                                       // membuat dan mengatur komponen pada dialog
 
+        setTitle("Registrasi Peminjam Berhasil (" + noIdPeminjam + ")");
         /* Mengatur field sesuai dengan data yang dipassing */
         f_savedNama.setText(nama);
         f_savedNoId.setText(noId);

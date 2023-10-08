@@ -179,7 +179,8 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
      * Mengatur field tipeKoleksi Buku. Judul diubah, label dan data yang diterima diatur ke fields.
      * */
     public RegistrasiKoleksiBerhasil isiField
-    (String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman) {
+    (String tipeKoleksi, String judul, String penerbit, String isbn, int jmlHalaman, String noIdKoleksi) {
+        setTitle("Registrasi Peminjam Berhasil (" + noIdKoleksi + ")");
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
@@ -199,7 +200,8 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
      * Mengatur field tipeKoleksi Majalah.  Judul diubah, label dan data yang diterima diatur ke fields.
      * */
     public RegistrasiKoleksiBerhasil isiField
-    (String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri) {
+    (String tipeKoleksi, String judul, String penerbit, String isbn, int volume, int seri, String noIdKoleksi) {
+        setTitle("Registrasi Peminjam Berhasil (" + noIdKoleksi + ")");
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
@@ -219,7 +221,8 @@ public class RegistrasiKoleksiBerhasil extends javax.swing.JDialog {
      * Mengatur field tipeKoleksi Disk. Judul diubah, label dan data yang diterima diatur ke fields.
      * */
     public RegistrasiKoleksiBerhasil isiField
-    (String tipeKoleksi, String judul, String penerbit, String isbn, String format) {
+    (String tipeKoleksi, String judul, String penerbit, String isbn, String format, String noIdKoleksi) {
+        setTitle("Registrasi Peminjam Berhasil (" + noIdKoleksi + ")");
         l_frameTitle.setText("Registrasi " + tipeKoleksi + " Berhasil");
 
         f_tipeKoleksi.setText(tipeKoleksi);
