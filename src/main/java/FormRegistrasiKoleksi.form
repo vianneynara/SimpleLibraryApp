@@ -470,7 +470,7 @@
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Id. Koleksi (6 digit)"/>
-        <Property name="toolTipText" type="java.lang.String" value="Kode: D / B / M"/>
+        <Property name="toolTipText" type="java.lang.String" value="Kode: B / Buku; M / Majalah; D / Disk"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -478,6 +478,9 @@
           <Dimension value="[150, 25]"/>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Identifier Koleksi"/>
+      </AccessibilityProperties>
     </Component>
   </SubComponents>
 </Form>

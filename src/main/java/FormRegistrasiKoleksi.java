@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private final Color I_RED = new Color(0xFF5959);
-    private JFrame parent;
+    private final JFrame parent;
 
     /**
      * Creates new form FormRegistrasiKoleksi
@@ -238,7 +238,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
         l_noIdKoleksi.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_noIdKoleksi.setText("Id. Koleksi (6 digit)");
-        l_noIdKoleksi.setToolTipText("Kode: D / B / M");
+        l_noIdKoleksi.setToolTipText("Kode: B / Buku; M / Majalah; D / Disk");
         l_noIdKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
         l_noIdKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
 
@@ -345,15 +345,17 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                     .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
+
+        l_noIdKoleksi.getAccessibleContext().setAccessibleDescription("Identifier Koleksi");
     }// </editor-fold>//GEN-END:initComponents
 
     private void i_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksiFocusLost
         String text = i_judulKoleksi.getText().trim();
-//        if (!Checker.isAlphabetSpace(text, 3)) {
-//            i_judulKoleksi.setBackground(I_RED);
-//        } else {
-//            i_judulKoleksi.setBackground(Color.WHITE);
-//        }
+/*        if (!Checker.isAlphabetSpace(text, 3)) {
+            i_judulKoleksi.setBackground(I_RED);
+        } else {
+            i_judulKoleksi.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 1
         try {
             if (!Checker.isAlphabetSpace(text, 3)) {
@@ -371,11 +373,11 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private void i_penerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_penerbitFocusLost
         String text = i_penerbit.getText().trim();
-//        if (!Checker.isAlphabetSpace(text, 3)) {
-//            i_penerbit.setBackground(I_RED);
-//        } else {
-//            i_penerbit.setBackground(Color.WHITE);
-//        }
+/*        if (!Checker.isAlphabetSpace(text, 3)) {
+            i_penerbit.setBackground(I_RED);
+        } else {
+            i_penerbit.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 2
         try {
             if (!Checker.isAlphabetSpace(text, 3)) {
@@ -418,14 +420,14 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
-//        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
-//            i_isbnIssn.setBackground(I_RED);
-//        } else {
-//            i_isbnIssn.setBackground(Color.WHITE);
-//        }
+/*        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+            i_isbnIssn.setBackground(I_RED);
+        } else {
+            i_isbnIssn.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 3
         try {
-            if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+            if (!Checker.isNomor(i_isbnIssn.getText().trim().replaceAll("[\\s-]+", ""), 13)) {
                 throw new InputMismatchException();
             }
             i_isbnIssn.setBackground(Color.WHITE);
@@ -446,7 +448,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         /* Variabel-variabel penyimpan data */
         String judul = i_judulKoleksi.getText().trim();
         String penerbit = i_penerbit.getText().trim();
-        String isbnIssn = i_isbnIssn.getText().trim();
+        String isbnIssn = i_isbnIssn.getText().trim().replaceAll("[\\s-]+", "");
 
         String tipeKoleksi = "";
         /* Melakukan iterasi setiap button pada button group, mencari button yang dipilih. */
@@ -496,7 +498,8 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 4
         try {
-            if (!noIdKoleksi.matches("^[DBM]+[0-9]{5}$")) {
+            if (!noIdKoleksi.matches(String.format("^[%s]+[0-9]{5}$",
+            (tipeKoleksi.equals("Buku") ? "B" : (tipeKoleksi.equals("Majalah")) ? "M" : "D")))) {
                 throw new InputMismatchException("Nomor id koleksi masih belum sesuai!");
             }
         } catch (InputMismatchException ex) {
@@ -553,8 +556,19 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_b_kosongkanRegKoleksiActionPerformed
 
     private void i_noIdKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_noIdKoleksiFocusLost
+        String tipeKoleksi = "";
+        /* Melakukan iterasi setiap button pada button group, mencari button yang dipilih. */
+        for (Enumeration<AbstractButton> bg = inp_regTipeKoleksi.getElements(); bg.hasMoreElements(); ) {
+            AbstractButton b = bg.nextElement();
+
+            if (b.isSelected()) {
+                tipeKoleksi = b.getText();
+                break;
+            }
+        }
         String text = i_noIdKoleksi.getText().trim();
-        if (!text.matches("^[DBM]+[0-9]{5}$")) {
+        if (!text.matches(String.format("^[%s]+[0-9]{5}$",
+            (tipeKoleksi.equals("Buku") ? "B" : (tipeKoleksi.equals("Majalah")) ? "M" : "D")))) {
             i_noIdKoleksi.setBackground(I_RED);
         } else {
             i_noIdKoleksi.setBackground(Color.WHITE);
