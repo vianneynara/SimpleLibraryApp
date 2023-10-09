@@ -349,10 +349,19 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private void i_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksiFocusLost
         String text = i_judulKoleksi.getText().trim();
-        if (text.equals("") || !Checker.isAlphabetSpace(text, 3)) {
-            i_judulKoleksi.setBackground(I_RED);
-        } else {
+//        if (!Checker.isAlphabetSpace(text, 3)) {
+//            i_judulKoleksi.setBackground(I_RED);
+//        } else {
+//            i_judulKoleksi.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 1
+        try {
+            if (!Checker.isAlphabetSpace(text, 3)) {
+                throw new InputMismatchException();
+            }
             i_judulKoleksi.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_judulKoleksi.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_judulKoleksiFocusLost
 
@@ -362,10 +371,19 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private void i_penerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_penerbitFocusLost
         String text = i_penerbit.getText().trim();
-        if (!Checker.isAlphabetSpace(text, 3)) {
-            i_penerbit.setBackground(I_RED);
-        } else {
+//        if (!Checker.isAlphabetSpace(text, 3)) {
+//            i_penerbit.setBackground(I_RED);
+//        } else {
+//            i_penerbit.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 2
+        try {
+            if (!Checker.isAlphabetSpace(text, 3)) {
+                throw new InputMismatchException();
+            }
             i_penerbit.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_penerbit.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_penerbitFocusLost
 
@@ -400,10 +418,19 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
-        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
-            i_isbnIssn.setBackground(I_RED);
-        } else {
+//        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+//            i_isbnIssn.setBackground(I_RED);
+//        } else {
+//            i_isbnIssn.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 3
+        try {
+            if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+                throw new InputMismatchException();
+            }
             i_isbnIssn.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_isbnIssn.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_isbnIssnFocusLost
 
@@ -431,7 +458,6 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 break;
             }
         }
-        ;
 
         /* Variabel-variabel penyimpan data (2) */
         int jmlHalaman = (int) i_jmlHalaman.getValue();
@@ -447,7 +473,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 l_simpanKoleksiEmptyIndicator.setVisible(true);
                 field.getFocusListeners()[0].focusLost(eventPlaceholder);
                 JOptionPane.showMessageDialog(
-                    this,
+                    this.parent,
                     "Terdapat field input yang masih kosong/salah! (Highlight merah)",
                     "Warning",
                     JOptionPane.INFORMATION_MESSAGE
@@ -459,7 +485,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         if (!Checker.isNomor(isbnIssn, 13)) {
             l_simpanKoleksiEmptyIndicator.setVisible(true);
             JOptionPane.showMessageDialog(
-                this,
+                this.parent,
                 "Field ISBN belum sesuai! Harap masukkan 13 digit nomor ISBN!",
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE
@@ -468,13 +494,14 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         }
         l_simpanKoleksiEmptyIndicator.setVisible(false);
 
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 4
         try {
             if (!noIdKoleksi.matches("^[DBM]+[0-9]{5}$")) {
                 throw new InputMismatchException("Nomor id koleksi masih belum sesuai!");
             }
         } catch (InputMismatchException ex) {
             JOptionPane.showMessageDialog(
-                this,
+                this.parent,
                 ex.getMessage(),
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE

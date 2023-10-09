@@ -284,10 +284,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
     private void i_namaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaFocusLost
         String text = i_nama.getText().trim();
-        if (text.equals("") || !Checker.isAlphabetSpace(text, 3)) {
-            i_nama.setBackground(I_RED);
-        } else {
+//        if (!Checker.isAlphabetSpace(text, 3)) {
+//            i_nama.setBackground(I_RED);
+//        } else {
+//            i_nama.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 1
+        try {
+            if (!Checker.isAlphabetSpace(text, 3)) {
+                throw new InputMismatchException();
+            }
             i_nama.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_nama.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_namaFocusLost
 
@@ -303,10 +312,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             case "NIK" -> 16;
             default -> 0;
         };
-        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
-            i_noId.setBackground(I_RED);
-        } else {
+//        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+//            i_noId.setBackground(I_RED);
+//        } else {
+//            i_noId.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 2
+        try {
+            if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+                throw new InputMismatchException();
+            }
             i_noId.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_noId.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_noIdFocusLost
 
@@ -329,10 +347,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             default -> 0;
         };
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
-        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
-            i_noId.setBackground(I_RED);
-        } else {
+//        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+//            i_noId.setBackground(I_RED);
+//        } else {
+//            i_noId.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 3
+        try {
+            if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+                throw new InputMismatchException();
+            }
             i_noId.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_noId.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_jenisNoIdFocusLost
 
@@ -341,10 +368,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisNoIdActionPerformed
 
     private void i_alamatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_alamatFocusLost
-        if (i_alamat.getText().trim().length() < 10) {
-            i_alamat.setBackground(I_RED);
-        } else {
+//        if (i_alamat.getText().trim().length() < 10) {
+//            i_alamat.setBackground(I_RED);
+//        } else {
+//            i_alamat.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 4
+        try {
+            if (i_alamat.getText().trim().length() < 10) {
+                throw new InputMismatchException();
+            }
             i_alamat.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_alamat.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_alamatFocusLost
 
@@ -353,10 +389,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     }//GEN-LAST:event_i_alamatActionPerformed
 
     private void i_telpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_telpFocusLost
-        if (!Checker.isNomor(i_telp.getText().trim(), 10, 12)) {
-            i_telp.setBackground(I_RED);
-        } else {
+//        if (!Checker.isNomor(i_telp.getText().trim(), 10, 12)) {
+//            i_telp.setBackground(I_RED);
+//        } else {
+//            i_telp.setBackground(Color.WHITE);
+//        }
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 5
+        try {
+            if (!Checker.isNomor(i_telp.getText().trim(), 10, 12)) {
+                throw new InputMismatchException();
+            }
             i_telp.setBackground(Color.WHITE);
+        } catch (InputMismatchException ex) {
+            i_telp.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_telpFocusLost
 
@@ -380,7 +425,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 l_simpanPeminjamEmptyIndicator.setVisible(true);
                 field.setBackground(I_RED);
                 JOptionPane.showMessageDialog(
-                    this,
+                    this.parent,
                     "Terdapat field input yang masih kosong/salah! (Highlight merah)",
                     "Warning",
                     JOptionPane.INFORMATION_MESSAGE
@@ -398,6 +443,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         }
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
+        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 6
         Objects.requireNonNull(jenisNoId);
         try {
             if ((!noIdPeminjam.matches(String.format("^[%s]+[0-9]{5}$",
@@ -406,7 +452,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         } catch (InputMismatchException ex) {
             JOptionPane.showMessageDialog(
-                this,
+                this.parent,
                 ex.getMessage(),
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE
