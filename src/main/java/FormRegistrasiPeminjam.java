@@ -14,6 +14,8 @@ import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
+import static java.awt.event.FocusEvent.FOCUS_LOST;
+
 /**
  *
  * @author narwa
@@ -21,7 +23,7 @@ import java.util.regex.Pattern;
 public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
     private final Color I_RED = new Color(0xFF5959);
-    private JFrame parent;
+    private final JFrame parent;
 
     /**
      * Creates new form FormRegistrasiPeminjam
@@ -49,7 +51,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         l_alamat = new javax.swing.JLabel();
         i_alamat = new java.awt.TextField();
         l_telp = new javax.swing.JLabel();
-        i_telp = new java.awt.TextField();
+        i_noTelp = new java.awt.TextField();
         l_maksPinjam = new javax.swing.JLabel();
         i_maksPinjam = new javax.swing.JSpinner();
         b_simpanRegPeminjam = new javax.swing.JButton();
@@ -135,15 +137,15 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         l_telp.setMaximumSize(new java.awt.Dimension(150, 25));
         l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_telp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_telp.addFocusListener(new java.awt.event.FocusAdapter() {
+        i_noTelp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_noTelp.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_telpFocusLost(evt);
+                i_noTelpFocusLost(evt);
             }
         });
-        i_telp.addActionListener(new java.awt.event.ActionListener() {
+        i_noTelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_telpActionPerformed(evt);
+                i_noTelpActionPerformed(evt);
             }
         });
 
@@ -189,7 +191,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
         l_noIdPeminjam.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_noIdPeminjam.setText("Id. Peminjam (6 digit)");
-        l_noIdPeminjam.setToolTipText("Kode: NIM / M; NIP / D; NIK / U");
+        l_noIdPeminjam.setToolTipText("Kode: M / NIM ; D / NIP; U / NIK ");
         l_noIdPeminjam.setMaximumSize(new java.awt.Dimension(150, 25));
         l_noIdPeminjam.setMinimumSize(new java.awt.Dimension(150, 25));
 
@@ -228,7 +230,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_noTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(i_noIdPeminjam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,7 +266,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(l_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(i_noTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,15 +282,17 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                     .addComponent(l_simpanPeminjamEmptyIndicator))
                 .addGap(10, 10, 10))
         );
+
+        l_noIdPeminjam.getAccessibleContext().setAccessibleDescription("Identifier Peminjam");
     }// </editor-fold>//GEN-END:initComponents
 
     private void i_namaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaFocusLost
         String text = i_nama.getText().trim();
-//        if (!Checker.isAlphabetSpace(text, 3)) {
-//            i_nama.setBackground(I_RED);
-//        } else {
-//            i_nama.setBackground(Color.WHITE);
-//        }
+/*        if (!Checker.isAlphabetSpace(text, 3)) {
+            i_nama.setBackground(I_RED);
+        } else {
+            i_nama.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 1
         try {
             if (!Checker.isAlphabetSpace(text, 3)) {
@@ -312,14 +316,14 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             case "NIK" -> 16;
             default -> 0;
         };
-//        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
-//            i_noId.setBackground(I_RED);
-//        } else {
-//            i_noId.setBackground(Color.WHITE);
-//        }
+/*        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+            i_noId.setBackground(I_RED);
+        } else {
+            i_noId.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 2
         try {
-            if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+            if (!Checker.isNomor(i_noId.getText().trim(), jumlahDigit)) {
                 throw new InputMismatchException();
             }
             i_noId.setBackground(Color.WHITE);
@@ -347,11 +351,13 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             default -> 0;
         };
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
-//        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
-//            i_noId.setBackground(I_RED);
-//        } else {
-//            i_noId.setBackground(Color.WHITE);
-//        }
+        if (!Checker.stringIsEmpty(i_noIdPeminjam.getText()))
+            i_noIdPeminjamFocusLost(new FocusEvent(i_noIdPeminjam, FOCUS_LOST, true));
+/*        if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
+            i_noId.setBackground(I_RED);
+        } else {
+            i_noId.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 3
         try {
             if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
@@ -368,11 +374,11 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisNoIdActionPerformed
 
     private void i_alamatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_alamatFocusLost
-//        if (i_alamat.getText().trim().length() < 10) {
-//            i_alamat.setBackground(I_RED);
-//        } else {
-//            i_alamat.setBackground(Color.WHITE);
-//        }
+/*        if (i_alamat.getText().trim().length() < 10) {
+            i_alamat.setBackground(I_RED);
+        } else {
+            i_alamat.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 4
         try {
             if (i_alamat.getText().trim().length() < 10) {
@@ -388,26 +394,26 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_i_alamatActionPerformed
 
-    private void i_telpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_telpFocusLost
-//        if (!Checker.isNomor(i_telp.getText().trim(), 10, 12)) {
-//            i_telp.setBackground(I_RED);
-//        } else {
-//            i_telp.setBackground(Color.WHITE);
-//        }
+    private void i_noTelpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_noTelpFocusLost
+/*        if (!Checker.isNomor(i_telp.getText().trim().replaceAll("[\\s-]+", ""), 10, 12)) {
+            i_telp.setBackground(I_RED);
+        } else {
+            i_telp.setBackground(Color.WHITE);
+        }*/
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 5
         try {
-            if (!Checker.isNomor(i_telp.getText().trim(), 10, 12)) {
+            if (!Checker.isNomor(i_noTelp.getText().trim().replaceAll("[\\s-]+", ""), 10, 12)) {
                 throw new InputMismatchException();
             }
-            i_telp.setBackground(Color.WHITE);
+            i_noTelp.setBackground(Color.WHITE);
         } catch (InputMismatchException ex) {
-            i_telp.setBackground(I_RED);
+            i_noTelp.setBackground(I_RED);
         }
-    }//GEN-LAST:event_i_telpFocusLost
+    }//GEN-LAST:event_i_noTelpFocusLost
 
-    private void i_telpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_telpActionPerformed
+    private void i_noTelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_noTelpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_telpActionPerformed
+    }//GEN-LAST:event_i_noTelpActionPerformed
 
     private void b_simpanRegPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_simpanRegPeminjamActionPerformed
         /* Variabel-variabel penyimpan data DENGAN regex */
@@ -415,12 +421,12 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         String noId = i_noId.getText().trim().replaceAll(" ", "");
         String jenisNoId = (String) i_jenisNoId.getSelectedItem();
         String alamat = i_alamat.getText().trim().replaceAll(" {2,}", " ");
-        String noTelp = i_telp.getText().trim().replaceAll(" ", "");
+        String noTelp = i_noTelp.getText().trim().replaceAll("[\\s-]+", "");
         int maksPinjam = (int) i_maksPinjam.getValue();
         String noIdPeminjam = i_noIdPeminjam.getText().trim().replaceAll(" ", "");
 
         /* mengecek apakah terdapat field yang kosong setelah ditrim untuk setiap field String */
-        for (TextField field : new TextField[] {i_nama, i_noId, i_alamat, i_telp}) {
+        for (TextField field : new TextField[] {i_nama, i_noId, i_alamat, i_noTelp}) {
             if (Checker.stringIsEmpty(field.getText().trim())) {
                 l_simpanPeminjamEmptyIndicator.setVisible(true);
                 field.setBackground(I_RED);
@@ -446,8 +452,8 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 6
         Objects.requireNonNull(jenisNoId);
         try {
-            if ((!noIdPeminjam.matches(String.format("^[%s]+[0-9]{5}$",
-            (jenisNoId.equals("NIM") ? "M" : (jenisNoId.equals("NIP")) ? "D" : "U"))))) {
+            if (!noIdPeminjam.matches(String.format("^[%s]+[0-9]{5}$",
+            (jenisNoId.equals("NIM") ? "M" : (jenisNoId.equals("NIP")) ? "D" : "U")))) {
                 throw new InputMismatchException("Nomor id peminjam masih belum sesuai!");
             }
         } catch (InputMismatchException ex) {
@@ -511,7 +517,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_noId.setText("");
         i_jenisNoId.setSelectedIndex(0);
         i_alamat.setText("");
-        i_telp.setText("");
+        i_noTelp.setText("");
         i_maksPinjam.setValue(1);
         i_noIdPeminjam.setText("");
 
@@ -526,7 +532,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
 
         /* Melakukan reset warna background tiap field menjadi putih */
-        for (TextField c : new TextField[] {i_nama, i_noId, i_alamat, i_telp, i_noIdPeminjam}) {
+        for (TextField c : new TextField[] {i_nama, i_noId, i_alamat, i_noTelp, i_noIdPeminjam}) {
             c.setBackground(Color.WHITE);
         }
     }
@@ -540,7 +546,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private java.awt.TextField i_nama;
     private java.awt.TextField i_noId;
     private java.awt.TextField i_noIdPeminjam;
-    private java.awt.TextField i_telp;
+    private java.awt.TextField i_noTelp;
     private javax.swing.JLabel l_alamat;
     private javax.swing.JLabel l_maksPinjam;
     private javax.swing.JLabel l_nama;

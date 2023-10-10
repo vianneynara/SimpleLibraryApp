@@ -42,7 +42,7 @@
                               <Component id="i_jenisNoId" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="i_nama" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                          <Component id="i_telp" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Component id="i_noTelp" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                           <Component id="i_alamat" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="i_noIdPeminjam" alignment="0" max="32767" attributes="0"/>
@@ -88,7 +88,7 @@
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="l_telp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="i_telp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_noTelp" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -235,15 +235,15 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="java.awt.TextField" name="i_telp">
+    <Component class="java.awt.TextField" name="i_noTelp">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_telpFocusLost"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_telpActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_noTelpFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_noTelpActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="l_maksPinjam">
@@ -328,7 +328,7 @@
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Id. Peminjam (6 digit)"/>
-        <Property name="toolTipText" type="java.lang.String" value="Kode: NIM / M; NIP / D; NIK / U"/>
+        <Property name="toolTipText" type="java.lang.String" value="Kode: M / NIM ; D / NIP; U / NIK "/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -336,6 +336,9 @@
           <Dimension value="[150, 25]"/>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Identifier Peminjam"/>
+      </AccessibilityProperties>
     </Component>
     <Component class="java.awt.TextField" name="i_noIdPeminjam">
       <Properties>
