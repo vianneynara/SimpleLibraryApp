@@ -31,7 +31,7 @@ public class Checker {
     }
 
     /**
-     * Mengecek apakah sebuah {@link String} terdiri hanya dari huruf dan spasi.
+     * Mengecek apakah sebuah {@link String} terdiri hanya dari huruf dan spasi dengan jumlah minimal.
      *
      * @param str {@link String} yang akan dicek
      * @return boolean true atau false
