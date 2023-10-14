@@ -3,10 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
+import backend.Customer;
+import backend.Dosen;
+import backend.Mahasiswa;
+import backend.Umum;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.FocusEvent;
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Objects;
 
 import static java.awt.event.FocusEvent.FOCUS_LOST;
@@ -20,12 +28,16 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private final Color I_RED = new Color(0xFF5959);
     private final JFrame parent;
 
+	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
+	private List<Customer> listCustomer;
+
     /**
      * Creates new form FormRegistrasiPeminjam
      */
-    public FormRegistrasiPeminjam(JFrame parent) {
+    public FormRegistrasiPeminjam(JFrame parent, List<Customer> listCustomer) {
         initComponents();
         this.parent = parent;
+        this.listCustomer = listCustomer;
     }
 
     /**
@@ -55,7 +67,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         l_noIdPeminjam = new javax.swing.JLabel();
         i_noIdPeminjam = new java.awt.TextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabelCustomer = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(729, 517));
 
@@ -64,6 +76,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
         l_nama.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_nama.setText("Nama Lengkap");
+        l_nama.setToolTipText("Minimal 3 karakter, boleh spasi");
         l_nama.setMaximumSize(new java.awt.Dimension(150, 25));
         l_nama.setMinimumSize(new java.awt.Dimension(150, 25));
 
@@ -114,6 +127,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
         l_alamat.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_alamat.setText("Alamat");
+        l_alamat.setToolTipText("Minimal 10 karakter");
         l_alamat.setMaximumSize(new java.awt.Dimension(150, 25));
         l_alamat.setMinimumSize(new java.awt.Dimension(150, 25));
 
@@ -131,6 +145,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
         l_telp.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         l_telp.setText("Nomor Telepon");
+        l_telp.setToolTipText("Minimal 10 hingga 12 digit");
         l_telp.setMaximumSize(new java.awt.Dimension(150, 25));
         l_telp.setMinimumSize(new java.awt.Dimension(150, 25));
 
@@ -204,22 +219,10 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
 
-        jTable2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelCustomer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabelCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"
@@ -240,9 +243,9 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setToolTipText("Data yang sudah tercatat dalam data");
-        jTable2.setRowHeight(16);
-        jScrollPane2.setViewportView(jTable2);
+        tabelCustomer.setToolTipText("Data yang sudah tercatat dalam data");
+        tabelCustomer.setRowHeight(16);
+        jScrollPane2.setViewportView(tabelCustomer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -314,9 +317,8 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(l_noIdPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(l_noIdPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_noIdPeminjam, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,6 +513,14 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             return;
         }
 
+        listCustomer.add(
+            buatCustomer(nama, noId, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam)
+        );
+//        /* Menambahkan secara langsung ke tabel */
+//        ((DefaultTableModel) tabelCustomer.getModel())
+//            .addRow(new Object[] {noIdPeminjam, nama, alamat, noTelp, maksPinjam, noId});
+        updateTable();
+
         /* mengeksekusi pembuatan dialog data dengan antrian event tasks */
         java.awt.EventQueue.invokeLater(
             () -> new RegistrasiPeminjamBerhasil(parent, true, nama, noId, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam)
@@ -582,6 +592,72 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         }
     }
 
+    // Other functions
+
+    /**
+     * Membuat customer sesuai dengan jenis nomor identitas yang dimasukkan, menyesuaikan kelas yang akan digunakan
+     * sebagai penyimpan.
+     *
+     * @return {@link Customer}
+     * */
+    private Customer buatCustomer(String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+        Customer c = switch (jenisNoId) {
+            case "NIM" -> new Mahasiswa(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
+            case "NIP" -> new Dosen(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
+            case "NIK" -> new Umum(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
+            default ->  null;
+        };
+        System.out.println("Created: " + c);
+        return c;
+    }
+
+    private void updateTable() {
+        // <editor-fold defaultstate ="collapsed" desc="cara 1: / non-performant">
+        Object[][] data = new Object[listCustomer.size()][6];
+        String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
+        for (int i = 0; i < listCustomer.size(); i++) {
+            var currentRow = listCustomer.get(i);
+            System.out.println(currentRow);
+            data[i][0] = currentRow.getNoIdPeminjam();
+            data[i][1] = currentRow.getNama();
+            data[i][2] = currentRow.getAlamat();
+            data[i][3] = currentRow.getNoTelp();
+            data[i][4] = currentRow.getMaksPinjam();
+            data[i][5] =
+                (currentRow instanceof Mahasiswa c) ? c.getNim() :
+                    (currentRow instanceof Dosen c) ? c.getNip() :
+                        ((Umum) currentRow).getNik();
+        }
+        var newModel = new DefaultTableModel(data, columns){
+            @Override
+            public boolean isCellEditable(int rowIndex, int
+                colIndex) {
+                return false;
+            }
+        };
+        tabelCustomer.setModel(newModel);
+        // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="cara 2: more performant, cons is directly adding to table, not dependent by list / DB">
+//        var model = (DefaultTableModel) tabelCustomer.getModel();
+//        for (int i = 0; i < listCustomer.size(); i++) {
+//            var curr = listCustomer.get(i);
+//            model.addRow(
+//                new Object[] {
+//                    curr.getNoIdPeminjam(),
+//                    curr.getNama(),
+//                    curr.getAlamat(),
+//                    curr.getNoTelp(),
+//                    curr.getMaksPinjam(),
+//                    (curr instanceof Mahasiswa c) ? c.getNim() :
+//                        (curr instanceof Dosen c) ? c.getNip() :
+//                            ((Umum) curr).getNik()
+//                }
+//            );
+//        }
+//        ((DefaultTableModel) tabelCustomer.getModel()).fireTableDataChanged();
+        // </editor-fold>
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_kosongkanRegPeminjam;
     private javax.swing.JButton b_simpanRegPeminjam;
@@ -593,7 +669,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private java.awt.TextField i_noIdPeminjam;
     private java.awt.TextField i_noTelp;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel l_alamat;
     private javax.swing.JLabel l_maksPinjam;
     private javax.swing.JLabel l_nama;
@@ -602,5 +677,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private javax.swing.JLabel l_simpanPeminjamEmptyIndicator;
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel regisPeminjamTitle;
+    private javax.swing.JTable tabelCustomer;
     // End of variables declaration//GEN-END:variables
 }

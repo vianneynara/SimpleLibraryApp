@@ -102,10 +102,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="l_maksPinjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="i_maksPinjam" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="l_noIdPeminjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="l_noIdPeminjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="i_noIdPeminjam" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -136,6 +134,7 @@
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
+        <Property name="toolTipText" type="java.lang.String" value="Minimal 3 karakter, boleh spasi"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -212,6 +211,7 @@
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alamat"/>
+        <Property name="toolTipText" type="java.lang.String" value="Minimal 10 karakter"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -237,6 +237,7 @@
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nomor Telepon"/>
+        <Property name="toolTipText" type="java.lang.String" value="Minimal 10 hingga 12 digit"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -368,7 +369,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable2">
+        <Component class="javax.swing.JTable" name="tabelCustomer">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -376,7 +377,7 @@
               </Border>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="13">
+              <Table columnCount="6" rowCount="0">
                 <Column editable="false" title="id" type="java.lang.String"/>
                 <Column editable="false" title="nama lengkap" type="java.lang.String"/>
                 <Column editable="false" title="alamat" type="java.lang.String"/>
