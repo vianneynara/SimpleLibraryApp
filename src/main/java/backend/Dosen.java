@@ -1,15 +1,24 @@
 package backend;
 
-public class Dosen {
+public class Dosen extends Customer {
 
-    protected String nip;                                   // atribut kelas
+    private String nip;
 
-    public Dosen(String nip) {                              // constructor yang menerima String
-        this.nip = nip;                                     // menginisialisai nilai nip kelas
+    public Dosen(String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam, String nip) {
+        super(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam);
+        this.nip = nip;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
     }
 
     @Override
-    public String toString() {                              // metode konverter isi menjadi bentuk String
+    public String toString() {
         return "Dosen{" +
                 "nip='" + nip + '\'' +
                 '}';

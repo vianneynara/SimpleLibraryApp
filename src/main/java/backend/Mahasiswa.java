@@ -1,16 +1,25 @@
 package backend;
 
-public class Mahasiswa {
+public class Mahasiswa extends Customer {
 
-    protected String nim;                                   // atribut kelas
+    private String nim;
 
-    public Mahasiswa(String nim) {                          // constrcutor utama
-        this.nim = nim;                                     // menginisialisasi nilai nim
+    public Mahasiswa(String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam, String nim) {
+        super(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam);
+        this.nim = nim;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public void setNim(String nim) {
+        this.nim = nim;
     }
 
     @Override
-    public String toString() {                              // konverter menjadi bentuk String dari objek
-        return "Mahasiswa{" +
+    public String toString() {
+        return super.toString() + " -> Mahasiswa{" +
                 "nim='" + nim + '\'' +
                 '}';
     }
