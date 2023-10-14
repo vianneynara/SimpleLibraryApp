@@ -1,19 +1,17 @@
+import backend.Customer;
+
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.util.Enumeration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 /**
  * @author narwa
  */
 public class App extends javax.swing.JFrame {
-
-    private final Color I_RED = new Color(0xFF5959);
+	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
+	private List<Customer> listCustomer = new ArrayList<>();
 
     private final CardLayout formCards;
     private final HomePage homePage;
@@ -26,8 +24,8 @@ public class App extends javax.swing.JFrame {
 	public App() {
 		/* Untuk tes: (tidak memiliki referensi HomePage) */
 		this.homePage = null;
-		initComponents();                                       // mengatur komponen JFrame
-		setTitle("Sistem Manajemen Perpustakaan");              // mengatur judul jendela JFrame
+		initComponents();
+		setTitle("Sistem Manajemen Perpustakaan");
 		/* Mengatur icon/gambar judul pada window frame */
 		setIconImage(
 			new ImageIcon(
@@ -46,8 +44,8 @@ public class App extends javax.swing.JFrame {
 	public App(HomePage homePage) {
 		/* Referensi HomePage untuk melakukan log out */
 		this.homePage = homePage;
-		initComponents();                                       // mengatur komponen JFrame
-		setTitle("Sistem Manajemen Perpustakaan");              // mengatur judul jendela JFrame
+		initComponents();
+		setTitle("Sistem Manajemen Perpustakaan");
 		/* Mengatur icon/gambar judul pada window frame */
 		setIconImage(
 			new ImageIcon(
@@ -64,7 +62,7 @@ public class App extends javax.swing.JFrame {
      *  Melakukan insialisasi panel panel form
      * */
     private void initForms() {
-        formRegistrasiPeminjam = new FormRegistrasiPeminjam(this);
+        formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, listCustomer);
         formRegistrasiKoleksi = new FormRegistrasiKoleksi(this);
 
         formContainer.add(formRegistrasiPeminjam, "card1");
@@ -322,6 +320,16 @@ public class App extends javax.swing.JFrame {
 			// belum ada
 		}
 	}//GEN-LAST:event_logoutActionPerformed
+
+	/* Getters setters */
+
+	public List<Customer> getListCustomer() {
+		return listCustomer;
+	}
+
+	protected void setListCustomer(List<Customer> listCustomer) {
+		this.listCustomer = listCustomer;
+	}
 
 	/* Other functions */
 
