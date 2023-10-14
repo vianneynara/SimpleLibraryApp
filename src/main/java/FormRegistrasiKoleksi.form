@@ -140,13 +140,13 @@
                   <Component id="l_noIdKoleksi" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="i_noIdKoleksi" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_simpanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="b_kosongkanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="l_simpanKoleksiEmptyIndicator" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace pref="10" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
