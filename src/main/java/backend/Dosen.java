@@ -19,7 +19,7 @@ public class Dosen extends Customer {
 
     @Override
     public String toString() {
-        return "Dosen{" +
+        return super.toString() + " -> Dosen{" +
                 "nip='" + nip + '\'' +
                 '}';
     }

@@ -19,7 +19,7 @@ public class Umum extends Customer {
 
     @Override
     public String toString() {
-        return "Umum{" +
+        return super.toString() + " -> Umum{" +
                 "nik='" + nik + '\'' +
                 '}';
     }
