@@ -1,4 +1,7 @@
 import backend.Customer;
+import backend.Dosen;
+import backend.Mahasiswa;
+import backend.Umum;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +36,10 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
+		// TODO: Hapus filler
         initForms();
+		fillCustomers();
+
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
@@ -53,9 +59,25 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
+		// TODO: Hapus filler
+		fillCustomers();
         initForms();
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
+	}
+
+	protected void fillCustomers() {
+		System.out.println("Filling list of customers with test data...");
+		listCustomer.add(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
+		listCustomer.add(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
+		listCustomer.add(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
+		listCustomer.add(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
+		listCustomer.add(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
+		listCustomer.add(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
+
+		for (var c : listCustomer) {
+			System.out.println(c);
+		}
 	}
 
     /**
@@ -316,7 +338,7 @@ public class App extends javax.swing.JFrame {
 			this.dispose();
 			homePage.setVisible(true);
 		} else {
-			System.out.println("Home page tidak di inisialisasi.");
+			System.err.println("Home page tidak di inisialisasi.");
 			// belum ada
 		}
 	}//GEN-LAST:event_logoutActionPerformed
