@@ -35,7 +35,7 @@ public class App extends javax.swing.JFrame {
 			).getImage()
 		);
         initForms();
-		fillCustomers(); // TODO: Hapus filler
+		fillPeminjam(); // TODO: Hapus filler
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
@@ -55,13 +55,13 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
-		fillCustomers();
+		fillPeminjam();
         initForms(); // TODO: Hapus filler
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
 
-	protected void fillCustomers() {
+	protected void fillPeminjam() {
 		System.out.println("Filling list of customers with test data...");
 		listPeminjam.add(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
 		listPeminjam.add(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));

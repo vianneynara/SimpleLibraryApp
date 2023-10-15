@@ -25,7 +25,6 @@ public abstract class Peminjam {
 
 	// Getters setters
 
-
 	public String getNama() {
 		return nama;
 	}
