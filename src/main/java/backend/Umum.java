@@ -1,6 +1,6 @@
 package backend;
 
-public class Umum extends Customer {
+public class Umum extends Peminjam {
 
     private String nik;
 

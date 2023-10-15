@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import backend.Customer;
+import backend.Peminjam;
 import backend.Dosen;
 import backend.Mahasiswa;
 import backend.Umum;
@@ -14,7 +14,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.FocusEvent;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Objects;
@@ -31,14 +30,14 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private final JFrame parent;
 
 	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
-	private List<Customer> listCustomer;
+	private List<Peminjam> listPeminjam;
 
     /**
      * Creates new form FormRegistrasiPeminjam
      */
-    public FormRegistrasiPeminjam(JFrame parent, List<Customer> listCustomer) {
+    public FormRegistrasiPeminjam(JFrame parent, List<Peminjam> listPeminjam) {
         this.parent = parent;
-        this.listCustomer = listCustomer;
+        this.listPeminjam = listPeminjam;
         initComponents();
     }
 
@@ -522,7 +521,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             return;
         }
 
-        listCustomer.add(
+        listPeminjam.add(
             buatCustomer(nama, noId, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam)
         );
 //        /* Menambahkan secara langsung ke tabel */
@@ -641,10 +640,10 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      * Membuat customer sesuai dengan jenis nomor identitas yang dimasukkan, menyesuaikan kelas yang akan digunakan
      * sebagai penyimpan.
      *
-     * @return {@link Customer}
+     * @return {@link Peminjam}
      * */
-    private Customer buatCustomer(String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
-        Customer c = switch (jenisNoId) {
+    private Peminjam buatCustomer(String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+        Peminjam c = switch (jenisNoId) {
             case "NIM" -> new Mahasiswa(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
             case "NIP" -> new Dosen(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
             case "NIK" -> new Umum(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
@@ -656,10 +655,10 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
     private void updateTable() {
         // <editor-fold defaultstate ="collapsed" desc="cara 1: / non-performant">
-        Object[][] data = new Object[listCustomer.size()][6];
+        Object[][] data = new Object[listPeminjam.size()][6];
         String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
-        for (int i = 0; i < listCustomer.size(); i++) {
-            var currentRow = listCustomer.get(i);
+        for (int i = 0; i < listPeminjam.size(); i++) {
+            var currentRow = listPeminjam.get(i);
             data[i][0] = currentRow.getNoIdPeminjam();
             data[i][1] = currentRow.getNama();
             data[i][2] = currentRow.getAlamat();
@@ -703,7 +702,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private void retrieveData() {
         int rowIndex = tabelCustomer.getSelectedRow();
         if (rowIndex != -1) {
-            var rowData = listCustomer.get(rowIndex);
+            var rowData = listPeminjam.get(rowIndex);
 //            String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
 
             i_nama.setText(rowData.getNama());

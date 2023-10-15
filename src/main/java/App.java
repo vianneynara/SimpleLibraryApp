@@ -1,4 +1,4 @@
-import backend.Customer;
+import backend.Peminjam;
 import backend.Dosen;
 import backend.Mahasiswa;
 import backend.Umum;
@@ -14,12 +14,10 @@ import java.util.Objects;
  */
 public class App extends javax.swing.JFrame {
 	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
-	private List<Customer> listCustomer = new ArrayList<>();
+	private List<Peminjam> listPeminjam = new ArrayList<>();
 
     private final CardLayout formCards;
     private final HomePage homePage;
-    private JPanel formRegistrasiPeminjam;
-    private JPanel formRegistrasiKoleksi;
 
 	/**
 	 * Default constructor tanpa home page (landing page).
@@ -36,10 +34,8 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
-		// TODO: Hapus filler
         initForms();
-		fillCustomers();
-
+		fillCustomers(); // TODO: Hapus filler
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
@@ -59,23 +55,22 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
-		// TODO: Hapus filler
 		fillCustomers();
-        initForms();
+        initForms(); // TODO: Hapus filler
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
 
 	protected void fillCustomers() {
 		System.out.println("Filling list of customers with test data...");
-		listCustomer.add(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
-		listCustomer.add(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
-		listCustomer.add(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
-		listCustomer.add(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
-		listCustomer.add(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
-		listCustomer.add(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
+		listPeminjam.add(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
+		listPeminjam.add(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
+		listPeminjam.add(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
+		listPeminjam.add(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
+		listPeminjam.add(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
+		listPeminjam.add(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
 
-		for (var c : listCustomer) {
+		for (var c : listPeminjam) {
 			System.out.println(c);
 		}
 	}
@@ -84,8 +79,8 @@ public class App extends javax.swing.JFrame {
      *  Melakukan insialisasi panel panel form
      * */
     private void initForms() {
-        formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, listCustomer);
-        formRegistrasiKoleksi = new FormRegistrasiKoleksi(this);
+		JPanel formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, listPeminjam);
+		JPanel formRegistrasiKoleksi = new FormRegistrasiKoleksi(this);
 
         formContainer.add(formRegistrasiPeminjam, "card1");
         formContainer.add(formRegistrasiKoleksi, "card2");
@@ -345,12 +340,12 @@ public class App extends javax.swing.JFrame {
 
 	/* Getters setters */
 
-	public List<Customer> getListCustomer() {
-		return listCustomer;
+	public List<Peminjam> getListCustomer() {
+		return listPeminjam;
 	}
 
-	protected void setListCustomer(List<Customer> listCustomer) {
-		this.listCustomer = listCustomer;
+	protected void setListCustomer(List<Peminjam> listPeminjam) {
+		this.listPeminjam = listPeminjam;
 	}
 
 	/* Other functions */

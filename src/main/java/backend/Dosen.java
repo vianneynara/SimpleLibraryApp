@@ -1,6 +1,6 @@
 package backend;
 
-public class Dosen extends Customer {
+public class Dosen extends Peminjam {
 
     private String nip;
 

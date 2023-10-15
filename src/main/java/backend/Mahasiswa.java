@@ -1,6 +1,6 @@
 package backend;
 
-public class Mahasiswa extends Customer {
+public class Mahasiswa extends Peminjam {
 
     private String nim;
 
