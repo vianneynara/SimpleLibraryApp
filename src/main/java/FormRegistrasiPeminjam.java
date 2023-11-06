@@ -29,15 +29,15 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private final Color I_RED = new Color(0xFF5959);
     private final JFrame parent;
 
-	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
-	private List<Peminjam> listPeminjam;
+	/** Atribut kelas ini menyimpan seluruh data yang disimpan. */
+	private DataPerpus dataPerpus;
 
     /**
      * Creates new form FormRegistrasiPeminjam
      */
-    public FormRegistrasiPeminjam(JFrame parent, List<Peminjam> listPeminjam) {
+    public FormRegistrasiPeminjam(JFrame parent, DataPerpus dataPerpus) {
         this.parent = parent;
-        this.listPeminjam = listPeminjam;
+        this.dataPerpus = dataPerpus;
         initComponents();
     }
 
@@ -479,7 +479,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             return;
         }
 
-        listPeminjam.add(
+        dataPerpus.isiDataPeminjam(
             buatPeminjam(nama, noId, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam)
         );
         updateTable();
@@ -600,6 +600,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      * diedit isinya secara langsung.
      * */
     private void updateTable() {
+        List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
         Object[][] data = new Object[listPeminjam.size()][6];
         String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
         for (int i = 0; i < listPeminjam.size(); i++) {
@@ -653,6 +654,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      * di edit, metode ini juga mematikan input fields dan tombol simpan.
      * */
     private void retrieveData() {
+        List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
         int rowIndex = tabelPeminjam.getSelectedRow();
         if (rowIndex != -1) {
             var rowData = listPeminjam.get(rowIndex);

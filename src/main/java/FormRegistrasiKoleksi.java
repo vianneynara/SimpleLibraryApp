@@ -3,11 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
+import backend.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
+import java.time.LocalDate;
 import java.util.Enumeration;
 import java.util.InputMismatchException;
+import java.util.Random;
 
 /**
  *
@@ -18,12 +22,16 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     private final Color I_RED = new Color(0xFF5959);
     private final JFrame parent;
 
+	/** Atribut kelas ini menyimpan seluruh data yang disimpan. */
+	private DataPerpus dataPerpus;
+
     /**
      * Creates new form FormRegistrasiKoleksi
      */
-    public FormRegistrasiKoleksi(JFrame parent) {
+    public FormRegistrasiKoleksi(JFrame parent, DataPerpus dataPerpus) {
         initComponents();
         this.parent = parent;
+        this.dataPerpus = dataPerpus;
     }
 
     /**
@@ -480,6 +488,22 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
             return;
         }
 
+        final String idPrefix = (tipeKoleksi.equals("Buku") ? "B" : (tipeKoleksi.equals("Majalah")) ? "M" : "D");
+        dataPerpus.isiDataKoleksi(
+            buatKoleksi(
+                generateId(idPrefix, 5),
+                judul,
+                penerbit,
+                String.valueOf(LocalDate.now().getYear()),
+                isbnIssn,
+                tipeKoleksi,
+                jmlHalaman,
+                volume,
+                seri,
+                format
+            )
+        );
+
         final String finalTipeKoleksi = tipeKoleksi;
         switch (tipeKoleksi) {
             case "Buku" -> EventQueue.invokeLater(
@@ -546,6 +570,41 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     private void i_noIdKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_noIdKoleksiActionPerformed
         // TODO: Nothing there
     }//GEN-LAST:event_i_noIdKoleksiActionPerformed
+
+    /**
+     * Membuat koleksi sesuai dengan tipe koleksi yang dimasukkan, menyesuaikan kelas yang akan digunakan
+     * sebagai penyimpan.
+     *
+     * @return {@link Koleksi}
+     * */
+    private Koleksi buatKoleksi(String id, String judul, String penerbit, String tahunTerbit, String isbnIssn, String tipeKoleksi, int jmlHalaman, int volume, int seri, String format) {
+        Koleksi c = switch (tipeKoleksi) {
+            case "Buku" -> new Buku(id, judul, penerbit, tahunTerbit, isbnIssn, jmlHalaman);
+            case "Majalah" -> new Majalah(id, judul, penerbit, tahunTerbit, isbnIssn, volume, seri);
+            default -> new Disk(id, judul, penerbit, tahunTerbit, isbnIssn, format);
+        };
+        System.out.println("Created: " + c);
+        return c;
+    }
+
+    /**
+     * Membuat id random dengan prefix dan format yang ditentukan.
+     * */
+    public static String generateId(String prefix, int numDigits) {
+        if (numDigits < 0) {
+            throw new IllegalArgumentException("Number of digits should be non-negative.");
+        }
+
+        StringBuilder idBuilder = new StringBuilder(prefix);
+        Random random = new Random();
+
+        for (int i = 0; i < numDigits; i++) {
+            int digit = random.nextInt(10);
+            idBuilder.append(digit);
+        }
+
+        return idBuilder.toString();
+    }
 
     /**
      * Menyetel seluruh fields spesial dalam formulir registrasi koleksi ke mati (disabled).

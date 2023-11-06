@@ -1,9 +1,11 @@
 package backend;
 
+import java.io.Serializable;
+
 /**
  * Kelas ini akan menyimpan data diri yang dimiliki seorang customer / peminjam.
  * */
-public abstract class Peminjam {
+public abstract class Peminjam implements Serializable {
 
 	protected String nama;
 	protected String jenisNoId;

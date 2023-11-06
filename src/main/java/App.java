@@ -13,8 +13,10 @@ import java.util.Objects;
  * @author narwa
  */
 public class App extends javax.swing.JFrame {
-	/** Atribut kelas ini menyimpan list dari seluruh Customer yang disimpan */
-	private List<Peminjam> listPeminjam = new ArrayList<>();
+	/**
+	 * Atribut kelas ini menyimpan data dari data perpustakaan.
+	 * */
+	public DataPerpus dataPerpus;
 
     private final CardLayout formCards;
     private final HomePage homePage;
@@ -27,6 +29,7 @@ public class App extends javax.swing.JFrame {
 		this.homePage = null;
 		initComponents();
 		setTitle("Sistem Manajemen Perpustakaan");
+
 		/* Mengatur icon/gambar judul pada window frame */
 		setIconImage(
 			new ImageIcon(
@@ -36,6 +39,7 @@ public class App extends javax.swing.JFrame {
 		);
         initForms();
 		fillPeminjam(); // TODO: Hapus filler
+
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
@@ -46,8 +50,10 @@ public class App extends javax.swing.JFrame {
 	public App(HomePage homePage) {
 		/* Referensi HomePage untuk melakukan log out */
 		this.homePage = homePage;
+		this.dataPerpus = new DataPerpus();
 		initComponents();
 		setTitle("Sistem Manajemen Perpustakaan");
+
 		/* Mengatur icon/gambar judul pada window frame */
 		setIconImage(
 			new ImageIcon(
@@ -57,20 +63,21 @@ public class App extends javax.swing.JFrame {
 		);
 		fillPeminjam();
         initForms(); // TODO: Hapus filler
+
 		/* Menyimpan format CardLayout untuk berpindah card panel */
 		formCards = (CardLayout) formContainer.getLayout();
 	}
 
 	protected void fillPeminjam() {
 		System.out.println("Filling list of customers with test data...");
-		listPeminjam.add(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
-		listPeminjam.add(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
-		listPeminjam.add(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
-		listPeminjam.add(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
-		listPeminjam.add(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
-		listPeminjam.add(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
+		dataPerpus.isiDataPeminjam(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
+		dataPerpus.isiDataPeminjam(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
+		dataPerpus.isiDataPeminjam(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
+		dataPerpus.isiDataPeminjam(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
+		dataPerpus.isiDataPeminjam(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
+		dataPerpus.isiDataPeminjam(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
 
-		for (var c : listPeminjam) {
+		for (var c : dataPerpus.getListPeminjam()) {
 			System.out.println(c);
 		}
 	}
@@ -79,8 +86,8 @@ public class App extends javax.swing.JFrame {
      *  Melakukan insialisasi panel panel form
      * */
     private void initForms() {
-		JPanel formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, listPeminjam);
-		JPanel formRegistrasiKoleksi = new FormRegistrasiKoleksi(this);
+		JPanel formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, dataPerpus);
+		JPanel formRegistrasiKoleksi = new FormRegistrasiKoleksi(this, dataPerpus);
 
         formContainer.add(formRegistrasiPeminjam, "card1");
         formContainer.add(formRegistrasiKoleksi, "card2");
@@ -341,11 +348,11 @@ public class App extends javax.swing.JFrame {
 	/* Getters setters */
 
 	public List<Peminjam> getListCustomer() {
-		return listPeminjam;
+		return dataPerpus.getListPeminjam();
 	}
 
 	protected void setListCustomer(List<Peminjam> listPeminjam) {
-		this.listPeminjam = listPeminjam;
+		this.dataPerpus.setListPeminjam(listPeminjam);
 	}
 
 	/* Other functions */
