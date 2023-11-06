@@ -397,7 +397,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
-        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+        if (!Checker.isNomor(i_isbnIssn.getText().trim().replaceAll("[\\s-]", ""), 13)) {
             i_isbnIssn.setBackground(I_RED);
         } else {
             i_isbnIssn.setBackground(Color.WHITE);
