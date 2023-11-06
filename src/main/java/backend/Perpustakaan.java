@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Perpustakaan {
 
     private String nama;
-    private LinkedList<Item> list;
+    private LinkedList<Koleksi> list;
 
     public Perpustakaan(String nama) {
         this.nama = nama;
@@ -23,11 +23,11 @@ public class Perpustakaan {
         return list.add(new Majalah(id, judul, penerbit, tahunTerbit, ISBN, volume, jumlahHalaman));
     }
 
-    private Item cariJudul(String judul) {
+    private Koleksi cariJudul(String judul) {
         return new Disk(null, null, null, null, null, null);
     }
 
-    private Item cariISBN(String ISBN) {
+    private Koleksi cariISBN(String ISBN) {
         return new Buku(null, null, null, null, null, 0);
     }
 }

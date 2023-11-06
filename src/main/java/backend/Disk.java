@@ -1,6 +1,6 @@
 package backend;
 
-public class Disk extends Item {
+public class Disk extends Koleksi {
     /* atribut kelas */
     private String isbn;
     private String format;

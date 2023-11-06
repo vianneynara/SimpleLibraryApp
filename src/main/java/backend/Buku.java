@@ -1,6 +1,6 @@
 package backend;
 
-public class Buku extends Item {
+public class Buku extends Koleksi {
     /* atribut kelas */
     private String isbn;
     private int jumlahHalaman;

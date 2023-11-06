@@ -1,6 +1,6 @@
 package backend;
 
-public class Majalah extends Item {
+public class Majalah extends Koleksi {
     /* atribut kelas */
     private String issn;
     private int volume;

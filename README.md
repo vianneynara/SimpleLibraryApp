@@ -17,7 +17,7 @@ are going to be stored in a database.
 - Registration forms for both customers and items
 - Editing form to edit existing customers data and existing items
 - Transactions form to manage item loans
-- Item/collection finder
+- Koleksi/collection finder
 - Information panel
 - Logout
 - Database
@@ -27,12 +27,12 @@ are going to be stored in a database.
 The application is built with small resolution because the campus monitors does not
 provide 1080p screen size. This application explicitly built adapting to the situation.
 
-| Item         | Configuration |
-|:-------------|:--------------|
-| Overall size | 960 x 540     |
-| Forms size   | 729 x 540     |
-| -            | -             |
-| -            | -             |
+| Koleksi        | Configuration |
+|:---------------|:--------------|
+| Overall size   | 960 x 540     |
+| Forms size     | 729 x 540     |
+| -              | -             |
+| -              | -             |
 
 ### User Interface
 
