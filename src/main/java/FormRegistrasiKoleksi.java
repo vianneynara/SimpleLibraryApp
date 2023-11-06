@@ -346,19 +346,10 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private void i_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksiFocusLost
         String text = i_judulKoleksi.getText().trim();
-/*        if (!Checker.isAlphabetSpace(text, 3)) {
+        if (!Checker.isAlphabetSpace(text, 3)) {
             i_judulKoleksi.setBackground(I_RED);
         } else {
             i_judulKoleksi.setBackground(Color.WHITE);
-        }*/
-        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 1
-        try {
-            if (!Checker.isAlphabetSpace(text, 3)) {
-                throw new InputMismatchException();
-            }
-            i_judulKoleksi.setBackground(Color.WHITE);
-        } catch (InputMismatchException ex) {
-            i_judulKoleksi.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_judulKoleksiFocusLost
 
@@ -368,19 +359,10 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
     private void i_penerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_penerbitFocusLost
         String text = i_penerbit.getText().trim();
-/*        if (!Checker.isAlphabetSpace(text, 3)) {
+        if (!Checker.isAlphabetSpace(text, 3)) {
             i_penerbit.setBackground(I_RED);
         } else {
             i_penerbit.setBackground(Color.WHITE);
-        }*/
-        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 2
-        try {
-            if (!Checker.isAlphabetSpace(text, 3)) {
-                throw new InputMismatchException();
-            }
-            i_penerbit.setBackground(Color.WHITE);
-        } catch (InputMismatchException ex) {
-            i_penerbit.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_penerbitFocusLost
 
@@ -415,19 +397,10 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
-/*        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
+        if (!Checker.isNomorSpaceHyphen(i_isbnIssn.getText().trim())) {
             i_isbnIssn.setBackground(I_RED);
         } else {
             i_isbnIssn.setBackground(Color.WHITE);
-        }*/
-        // TODO: [REMOVE LATER] COUNT THIS AS TRY-CATCH: 3
-        try {
-            if (!Checker.isNomor(i_isbnIssn.getText().trim().replaceAll("[\\s-]+", ""), 13)) {
-                throw new InputMismatchException();
-            }
-            i_isbnIssn.setBackground(Color.WHITE);
-        } catch (InputMismatchException ex) {
-            i_isbnIssn.setBackground(I_RED);
         }
     }//GEN-LAST:event_i_isbnIssnFocusLost
 
