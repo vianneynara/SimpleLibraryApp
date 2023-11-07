@@ -14,21 +14,16 @@ public abstract class Peminjam implements Serializable {
 	protected String noTelp;
 	protected int maksPinjam;
 
-	// Unique identifier for each customers
-	private String noIdPeminjam;
-
-	public Peminjam(String id, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+	public Peminjam(String id, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
 		this.id = id;
 		this.nama = nama;
 		this.jenisNoId = jenisNoId;
 		this.alamat = alamat;
 		this.noTelp = noTelp;
 		this.maksPinjam = maksPinjam;
-		this.noIdPeminjam = noIdPeminjam;
 	}
 
 	// Getters setters
-
 
 	public String getId() {
 		return id;
@@ -78,23 +73,15 @@ public abstract class Peminjam implements Serializable {
 		this.maksPinjam = maksPinjam;
 	}
 
-	public String getNoIdPeminjam() {
-		return noIdPeminjam;
-	}
-
-	public void setNoIdPeminjam(String noIdPeminjam) {
-		this.noIdPeminjam = noIdPeminjam;
-	}
-
 	@Override
 	public String toString() {
-		return "Customer{" +
-			"nama='" + nama + '\'' +
+		return "Peminjam{" +
+			"id='" + id + '\'' +
+			", nama='" + nama + '\'' +
 			", jenisNoId='" + jenisNoId + '\'' +
 			", alamat='" + alamat + '\'' +
 			", noTelp='" + noTelp + '\'' +
 			", maksPinjam=" + maksPinjam +
-			", noIdPeminjam='" + noIdPeminjam + '\'' +
 			'}';
 	}
 }

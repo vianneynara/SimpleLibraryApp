@@ -70,12 +70,12 @@ public class App extends javax.swing.JFrame {
 
 	protected void fillPeminjam() {
 		System.out.println("Filling list of customers with test data...");
-		dataPerpus.isiDataPeminjam(new Dosen("Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "D00001", "123456781234567801"));
-		dataPerpus.isiDataPeminjam(new Dosen("Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "D00002", "123456781234567802"));
-		dataPerpus.isiDataPeminjam(new Dosen("Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "D00003", "123456781234567803"));
-		dataPerpus.isiDataPeminjam(new Mahasiswa("Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "M00001", "225314001"));
-		dataPerpus.isiDataPeminjam(new Mahasiswa("Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "M00002", "225314002"));
-		dataPerpus.isiDataPeminjam(new Umum("Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "U00001", "2253140021234567"));
+		dataPerpus.isiDataPeminjam(new Dosen("D00001", "Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "123456781234567801"));
+		dataPerpus.isiDataPeminjam(new Dosen("D00001", "Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "123456781234567802"));
+		dataPerpus.isiDataPeminjam(new Dosen("D00001", "Dosen3", "NIP", "Klaten Yogyakarta", "012345678913", 4, "123456781234567803"));
+		dataPerpus.isiDataPeminjam(new Mahasiswa("M00001", "Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "225314001"));
+		dataPerpus.isiDataPeminjam(new Mahasiswa("M00002", "Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "225314002"));
+		dataPerpus.isiDataPeminjam(new Umum("U00001", "Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "2253140021234567"));
 
 		for (var c : dataPerpus.getListPeminjam()) {
 			System.out.println(c);
