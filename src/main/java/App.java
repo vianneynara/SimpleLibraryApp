@@ -1,7 +1,4 @@
-import backend.Peminjam;
-import backend.Dosen;
-import backend.Mahasiswa;
-import backend.Umum;
+import backend.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,6 +59,7 @@ public class App extends javax.swing.JFrame {
 			).getImage()
 		);
 		fillPeminjam();
+		fillKoleksi();
         initForms(); // TODO: Hapus filler
 
 		/* Menyimpan format CardLayout untuk berpindah card panel */
@@ -79,6 +77,16 @@ public class App extends javax.swing.JFrame {
 
 		for (var c : dataPerpus.getListPeminjam()) {
 			System.out.println(c);
+		}
+	}
+
+	protected void fillKoleksi() {
+		System.out.println("Filling list of koleksi with test data...");
+		dataPerpus.isiDataKoleksi(new Buku("B00001", "Buku", "CORP", "1950", "1234567890001", 3));
+		dataPerpus.isiDataKoleksi(new Majalah("M00002", "Majalah", "INC", "1945", "1234567890002", 1, 2));
+
+		for (var k : dataPerpus.getListKoleksi()) {
+			System.out.println(k);
 		}
 	}
 
