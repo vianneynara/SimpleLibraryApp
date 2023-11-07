@@ -19,11 +19,11 @@ public class Disk extends Koleksi {
 
     /* getter and setters */
 
-    public String getISBN() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setISBN(String isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
