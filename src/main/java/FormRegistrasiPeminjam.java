@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import backend.Peminjam;
 import backend.Dosen;
 import backend.Mahasiswa;
+import backend.Peminjam;
 import backend.Umum;
 
 import javax.swing.*;
@@ -13,12 +13,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Objects;
-
-import static java.awt.event.FocusEvent.FOCUS_LOST;
 
 /**
  *
@@ -237,6 +233,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         });
         tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
         tabelPeminjam.setRowHeight(16);
+        tabelPeminjam.setRowSelectionAllowed(true);
         tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();

@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import backend.*;
+import backend.Buku;
+import backend.Disk;
+import backend.Koleksi;
+import backend.Majalah;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -13,7 +16,6 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.time.LocalDate;
 import java.util.Enumeration;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
 
@@ -74,7 +76,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         i_tahunTerbit = new java.awt.TextField();
         i_identifier = new java.awt.TextField();
         tableScrollPane = new javax.swing.JScrollPane();
-        tabelPeminjam = new javax.swing.JTable();
+        tabelKoleksi = new javax.swing.JTable();
         b_refresh = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(729, 517));
@@ -268,9 +270,9 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
             }
         });
 
-        tabelPeminjam.setAutoCreateRowSorter(true);
-        tabelPeminjam.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabelPeminjam.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKoleksi.setAutoCreateRowSorter(true);
+        tabelKoleksi.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabelKoleksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -293,14 +295,14 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
-        tabelPeminjam.setRowHeight(16);
-        tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+        tabelKoleksi.setToolTipText("Data yang sudah tercatat dalam data");
+        tabelKoleksi.setRowHeight(16);
+        tabelKoleksi.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();
             }
         });
-        tableScrollPane.setViewportView(tabelPeminjam);
+        tableScrollPane.setViewportView(tabelKoleksi);
 
         b_refresh.setText("Refresh table");
         b_refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -464,6 +466,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         /* Menyalakan label dan input yang relevan dengan tipe koleksinya. l: Label, i: Input.*/
         l_jmlHalaman.setEnabled(true);
         i_jmlHalaman.setEnabled(true);
+        enableGeneralInputFields();
     }//GEN-LAST:event_i_jenisBukuActionPerformed
 
     private void i_jenisMajalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisMajalahActionPerformed
@@ -474,6 +477,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         i_volume.setEnabled(true);
         l_seri.setEnabled(true);
         i_seri.setEnabled(true);
+        enableGeneralInputFields();
     }//GEN-LAST:event_i_jenisMajalahActionPerformed
 
     private void i_jenisDiskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_jenisDiskActionPerformed
@@ -482,6 +486,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         /* Menyalakan label dan input yang relevan dengan tipe koleksinya. l: Label, i: Input.*/
         l_format.setEnabled(true);
         i_format.setEnabled(true);
+        enableGeneralInputFields();
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
@@ -538,12 +543,39 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 return;
             }
         }
+
         /* mengecek apakah format isbn sudah valid*/
         if (!Checker.isNomor(isbnIssn, 13)) {
             l_simpanKoleksiEmptyIndicator.setVisible(true);
             JOptionPane.showMessageDialog(
                 this.parent,
                 "Field ISBN belum sesuai! Harap masukkan 13 digit nomor ISBN!",
+                "Warning",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+            return;
+        }
+
+        /* mengecek apakah format tahun sudah valid*/
+        if (!Checker.isNomor(i_tahunTerbit.getText().trim())) {
+            try {
+                Integer.parseInt(i_tahunTerbit.getText());
+            } catch (NumberFormatException ex) {
+                l_simpanKoleksiEmptyIndicator.setVisible(true);
+                JOptionPane.showMessageDialog(
+                    this.parent,
+                    "Field tahun terbit belum diisi!",
+                    "Warning",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+                return;
+            }
+        }
+        if (Integer.parseInt(i_tahunTerbit.getText()) > LocalDate.now().getYear()) {
+            l_simpanKoleksiEmptyIndicator.setVisible(true);
+            JOptionPane.showMessageDialog(
+                this.parent,
+                "Tahun terbit tidak melebihi tahun sekarang.",
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE
             );
@@ -597,7 +629,17 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_b_kosongkanRegKoleksiActionPerformed
 
     private void i_tahunTerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_tahunTerbitFocusLost
-        // TODO add your handling code here:
+        if (!Checker.isNomor(i_tahunTerbit.getText().trim())) {
+            try {
+                Integer.parseInt(i_tahunTerbit.getText());
+            } catch (NumberFormatException ex) {
+                i_tahunTerbit.setBackground(I_RED);
+            }
+        } else if (Integer.parseInt(i_tahunTerbit.getText()) > LocalDate.now().getYear()) {
+            i_tahunTerbit.setBackground(I_RED);
+        } else {
+            i_tahunTerbit.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_i_tahunTerbitFocusLost
 
     private void i_tahunTerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_tahunTerbitActionPerformed
@@ -633,7 +675,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }
 
     /**
-     * Melakukan pembaruan konten / isi pada {@link #tabelPeminjam} sehingga ditampilkan dengan konten yang baru
+     * Melakukan pembaruan konten / isi pada {@link #tabelKoleksi} sehingga ditampilkan dengan konten yang baru
      * kemudian menampilkan model tabel yang terbaru. Model yang diperbarui juga bersifat non-editable, tidak bisa
      * diedit isinya secara langsung.
      * */
@@ -663,7 +705,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 return false;
             }
         };
-        tabelPeminjam.setModel(newModel);
+        tabelKoleksi.setModel(newModel);
     }
 
     /**
@@ -689,22 +731,32 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
      * Menyetel seluruh fields spesial dalam formulir registrasi koleksi ke mati (disabled).
      */
     private void disableInputFields() {
-        l_judulKoleksi.setEnabled(false);
         i_judulKoleksi.setEnabled(false);
-        l_tipeKoleksi.setEnabled(false);
+        i_penerbit.setEnabled(false);
+        i_isbnIssn.setEnabled(false);
         i_jenisBuku.setEnabled(false);
         i_jenisMajalah.setEnabled(false);
         i_jenisDisk.setEnabled(false);
-        l_jmlHalaman.setEnabled(false);
         i_jmlHalaman.setEnabled(false);
-        l_volume.setEnabled(false);
         i_volume.setEnabled(false);
-        l_seri.setEnabled(false);
         i_seri.setEnabled(false);
-        l_format.setEnabled(false);
         i_format.setEnabled(false);
-        l_tahunTerbit.setEnabled(false);
         i_tahunTerbit.setEnabled(false);
+    }
+
+    /**
+     * Menyalakan input fields umum.
+     * */
+    private void enableGeneralInputFields() {
+        l_judulKoleksi.setEnabled(true);
+        i_judulKoleksi.setEnabled(true);
+        l_tahunTerbit.setEnabled(true);
+        i_tahunTerbit.setEnabled(true);
+        i_jenisBuku.setEnabled(true);
+        i_jenisMajalah.setEnabled(true);
+        i_jenisDisk.setEnabled(true);
+        i_penerbit.setEnabled(true);
+        i_isbnIssn.setEnabled(true);
     }
 
     /**
@@ -717,13 +769,13 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
         /* Memilih pilihan "Buku" dan mematikan kolom input spesifik lain kecuali jumlah halaman */
         inp_regTipeKoleksi.setSelected(i_jenisBuku.getModel(), true);
-        i_jenisDisk.setEnabled(true);
-        l_jmlHalaman.setEnabled(true);
-        i_jmlHalaman.setEnabled(true);
         disableInputFields();
-        l_jmlHalaman.setEnabled(true);
+        i_judulKoleksi.setEnabled(true);
+        i_penerbit.setEnabled(true);
+        i_isbnIssn.setEnabled(true);
+        i_tahunTerbit.setEnabled(true);
+        i_jenisDisk.setEnabled(true);
         i_jmlHalaman.setEnabled(true);
-
         i_jmlHalaman.setValue(1);
         i_volume.setValue(1);
         i_seri.setValue(1);
@@ -742,7 +794,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     private void retrieveData() {
         kosongkanRegKoleksi();
         List<Koleksi> listPeminjam = dataPerpus.getListKoleksi();
-        int rowIndex = tabelPeminjam.getSelectedRow();
+        int rowIndex = tabelKoleksi.getSelectedRow();
         if (rowIndex != -1) {
             final var koleksi = listPeminjam.get(rowIndex);
             /* Memasukkan data pada baris yang dipilih kee input fields */
@@ -806,7 +858,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     private javax.swing.JLabel l_tipeKoleksi;
     private javax.swing.JLabel l_volume;
     private javax.swing.JLabel registKoleksiTitle;
-    private javax.swing.JTable tabelPeminjam;
+    private javax.swing.JTable tabelKoleksi;
     private javax.swing.JScrollPane tableScrollPane;
     // End of variables declaration//GEN-END:variables
 }
