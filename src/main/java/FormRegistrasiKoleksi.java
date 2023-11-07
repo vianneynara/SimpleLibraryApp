@@ -766,6 +766,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         i_judulKoleksi.setText("");
         i_penerbit.setText("");
         i_isbnIssn.setText("");
+        b_simpanRegKoleksi.setEnabled(true);
 
         /* Memilih pilihan "Buku" dan mematikan kolom input spesifik lain kecuali jumlah halaman */
         inp_regTipeKoleksi.setSelected(i_jenisBuku.getModel(), true);
@@ -785,6 +786,8 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         for (TextField c : new TextField[] {i_judulKoleksi, i_penerbit, i_isbnIssn}) {
             c.setBackground(Color.WHITE);
         }
+
+        i_identifier.setText("");
     }
 
     /**
