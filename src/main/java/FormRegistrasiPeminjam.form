@@ -21,8 +21,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tableScrollPane" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="l_simpanPeminjamEmptyIndicator" max="32767" attributes="0"/>
@@ -30,10 +34,6 @@
                       <Component id="b_kosongkanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="b_simpanRegPeminjam" min="-2" pref="140" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tableScrollPane" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="l_noId" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="i_noId" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
@@ -112,24 +112,20 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="l_maksPinjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tableScrollPane" min="-2" pref="240" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="b_kosongkanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="l_simpanPeminjamEmptyIndicator" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="b_refresh" min="-2" max="-2" attributes="0"/>
+                          <Component id="l_maksPinjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="b_refresh" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="i_jenisNoId" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_jenisNoId" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tableScrollPane" pref="238" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="b_kosongkanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="l_simpanPeminjamEmptyIndicator" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
@@ -361,6 +357,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_identifierActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JButton" name="b_refresh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Refresh table"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_refreshActionPerformed"/>
+      </Events>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="tableScrollPane">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -380,18 +384,51 @@
               <Table columnCount="6" rowCount="0">
                 <Column editable="false" title="id" type="java.lang.String"/>
                 <Column editable="false" title="nama lengkap" type="java.lang.String"/>
+                <Column editable="false" title="maks pinjam" type="java.lang.Integer"/>
                 <Column editable="false" title="alamat" type="java.lang.String"/>
                 <Column editable="false" title="nomor telepon" type="java.lang.String"/>
-                <Column editable="false" title="maks pinjam" type="java.lang.Integer"/>
                 <Column editable="false" title="nomor identitas" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Data yang sudah tercatat dalam data"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="rowHeight" type="int" value="16"/>
-            <Property name="surrendersFocusOnKeystroke" type="boolean" value="true"/>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;    public void valueChanged(ListSelectionEvent event) {&#xa;        retrieveData();&#xa;    }&#xa;});"/>
@@ -399,13 +436,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="b_refresh">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Refresh table"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_refreshActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>

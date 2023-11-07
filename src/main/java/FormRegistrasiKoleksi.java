@@ -700,7 +700,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                     (currentRow instanceof Majalah m) ? m.getIssn() :
                         ((Disk) currentRow).getIsbn();
         }
-        var newModel = new DefaultTableModel(data, columns){
+        var newModel = new DefaultTableModel(data, columns) {
             @Override
             public boolean isCellEditable(int rowIndex, int
                 colIndex) {

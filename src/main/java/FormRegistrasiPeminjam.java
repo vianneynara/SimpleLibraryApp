@@ -62,9 +62,9 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         b_kosongkanRegPeminjam = new javax.swing.JButton();
         l_simpanPeminjamEmptyIndicator = new javax.swing.JLabel();
         i_identifier = new java.awt.TextField();
+        b_refresh = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         tabelPeminjam = new javax.swing.JTable();
-        b_refresh = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(729, 517));
 
@@ -206,6 +206,13 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
 
+        b_refresh.setText("Refresh table");
+        b_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_refreshActionPerformed(evt);
+            }
+        });
+
         tabelPeminjam.setAutoCreateRowSorter(true);
         tabelPeminjam.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tabelPeminjam.setModel(new javax.swing.table.DefaultTableModel(
@@ -213,11 +220,11 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
             },
             new String [] {
-                "id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"
+                "id", "nama lengkap", "maks pinjam", "alamat", "nomor telepon", "nomor identitas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -232,9 +239,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
         tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
-        tabelPeminjam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabelPeminjam.setRowHeight(16);
-        tabelPeminjam.setSurrendersFocusOnKeystroke(true);
         tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();
@@ -242,20 +247,16 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         });
         tableScrollPane.setViewportView(tabelPeminjam);
 
-        b_refresh.setText("Refresh table");
-        b_refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_refreshActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tableScrollPane))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(l_simpanPeminjamEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,9 +264,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tableScrollPane))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,19 +322,17 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                             .addComponent(i_noTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(l_simpanPeminjamEmptyIndicator)))
+                            .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(b_refresh)))
                     .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(l_simpanPeminjamEmptyIndicator))
                 .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -568,20 +564,20 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private void updateTable() {
         List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
         Object[][] data = new Object[listPeminjam.size()][6];
-        String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
+        String[] columns = {"id", "nama lengkap", "maks pinjam", "nomor telepon", "alamat", "nomor identitas"};
         for (int i = 0; i < listPeminjam.size(); i++) {
             final var currentRow = listPeminjam.get(i);
             data[i][0] = currentRow.getId();
             data[i][1] = currentRow.getNama();
-            data[i][2] = currentRow.getAlamat();
+            data[i][2] = currentRow.getMaksPinjam();
             data[i][3] = currentRow.getNoTelp();
-            data[i][4] = currentRow.getMaksPinjam();
+            data[i][4] = currentRow.getAlamat();
             data[i][5] =
                 (currentRow instanceof Mahasiswa c) ? c.getNim() :
                     (currentRow instanceof Dosen c) ? c.getNip() :
                         ((Umum) currentRow).getNik();
         }
-        var newModel = new DefaultTableModel(data, columns){
+        var newModel = new DefaultTableModel(data, columns) {
             @Override
             public boolean isCellEditable(int rowIndex, int
                 colIndex) {
