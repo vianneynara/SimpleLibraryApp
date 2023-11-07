@@ -233,7 +233,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         });
         tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
         tabelPeminjam.setRowHeight(16);
-        tabelPeminjam.setRowSelectionAllowed(true);
         tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();

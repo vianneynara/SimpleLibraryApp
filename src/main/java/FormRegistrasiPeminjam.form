@@ -386,7 +386,6 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Data yang sudah tercatat dalam data"/>
             <Property name="rowHeight" type="int" value="16"/>
-            <Property name="rowSelectionAllowed" type="boolean" value="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;    public void valueChanged(ListSelectionEvent event) {&#xa;        retrieveData();&#xa;    }&#xa;});"/>
