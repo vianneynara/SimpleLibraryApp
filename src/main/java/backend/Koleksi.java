@@ -3,11 +3,11 @@ package backend;
 /** Kelas abstrak yang mengimplementasi koleksi sebagai penyimpan atribut-atribut utama Koleksi. */
 public abstract class Koleksi {
     /* class attributes */
-    private String id;
-    private String judul;
-    private String penerbit;
-    private String tahunTerbit;
-    private boolean statusPinjam;
+    protected String id;
+    protected String judul;
+    protected String penerbit;
+    protected String tahunTerbit;
+    protected boolean statusPinjam;
 
     /* constructor for each class attribute */
     protected Koleksi(String id, String judul, String penerbit, String tahunTerbit) {
