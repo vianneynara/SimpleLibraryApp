@@ -65,8 +65,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         b_simpanRegPeminjam = new javax.swing.JButton();
         b_kosongkanRegPeminjam = new javax.swing.JButton();
         l_simpanPeminjamEmptyIndicator = new javax.swing.JLabel();
-        l_noIdPeminjam = new javax.swing.JLabel();
-        i_noIdPeminjam = new java.awt.TextField();
+        i_identifier = new java.awt.TextField();
         tableScrollPane = new javax.swing.JScrollPane();
         tabelPeminjam = new javax.swing.JTable();
         b_refresh = new javax.swing.JButton();
@@ -198,21 +197,16 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         l_simpanPeminjamEmptyIndicator.setText("Terdapat data yang masih kosong atau tidak benar!");
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
-        l_noIdPeminjam.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        l_noIdPeminjam.setText("Id. Peminjam (6 digit)");
-        l_noIdPeminjam.setToolTipText("Kode: M / NIM ; D / NIP; U / NIK ");
-        l_noIdPeminjam.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_noIdPeminjam.setMinimumSize(new java.awt.Dimension(150, 25));
-
-        i_noIdPeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_noIdPeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
+        i_identifier.setEnabled(false);
+        i_identifier.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        i_identifier.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_noIdPeminjamFocusLost(evt);
+                i_identifierFocusLost(evt);
             }
         });
-        i_noIdPeminjam.addActionListener(new java.awt.event.ActionListener() {
+        i_identifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_noIdPeminjamActionPerformed(evt);
+                i_identifierActionPerformed(evt);
             }
         });
 
@@ -281,23 +275,24 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                             .addComponent(l_nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(l_noIdPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(i_noIdPeminjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(i_noTelp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_refresh, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)))))
+                                .addComponent(b_refresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(37, 37, 37))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(i_identifier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -311,41 +306,40 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 .addComponent(regisPeminjamTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_noTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_noIdPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_noIdPeminjam, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_simpanPeminjamEmptyIndicator)))
-                    .addComponent(b_refresh))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_noId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_telp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_noTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(l_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(b_kosongkanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(l_simpanPeminjamEmptyIndicator)))
+                            .addComponent(b_refresh)))
+                    .addComponent(i_identifier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
-
-        l_noIdPeminjam.getAccessibleContext().setAccessibleDescription("Identifier Peminjam");
     }// </editor-fold>//GEN-END:initComponents
 
     private void i_namaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaFocusLost
@@ -391,8 +385,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         };
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
 
-        if (!Checker.stringIsEmpty(i_noIdPeminjam.getText()))
-            i_noIdPeminjamFocusLost(new FocusEvent(i_noIdPeminjam, FOCUS_LOST, true));
         if (!Checker.isNomor(i_noId.getText(), jumlahDigit)) {
             i_noId.setBackground(I_RED);
         } else {
@@ -436,7 +428,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         String alamat = i_alamat.getText().trim().replaceAll(" {2,}", " ");
         String noTelp = i_noTelp.getText().trim().replaceAll("[\\s-]+", "");
         int maksPinjam = (int) i_maksPinjam.getValue();
-        String noIdPeminjam = i_noIdPeminjam.getText().trim().replaceAll(" ", "");
 
         /* mengecek apakah terdapat field yang kosong setelah ditrim untuk setiap field String */
         for (TextField field : new TextField[] {i_nama, i_noId, i_alamat, i_noTelp}) {
@@ -463,24 +454,9 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         }
         l_simpanPeminjamEmptyIndicator.setVisible(false);
 
-        Objects.requireNonNull(jenisNoId);
-        try {
-            if (!noIdPeminjam.matches(String.format("^[%s]+[0-9]{5}$",
-            (jenisNoId.equals("NIM") ? "M" : (jenisNoId.equals("NIP")) ? "D" : "U")))) {
-                throw new InputMismatchException("Nomor id peminjam masih belum sesuai!");
-            }
-        } catch (InputMismatchException ex) {
-            JOptionPane.showMessageDialog(
-                this.parent,
-                ex.getMessage(),
-                "Warning",
-                JOptionPane.INFORMATION_MESSAGE
-            );
-            return;
-        }
-
+        String noIdPeminjam = DataPerpus.generatePeminjamId(jenisNoId, dataPerpus.getDataPeminjam());
         dataPerpus.isiDataPeminjam(
-            buatPeminjam(nama, noId, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam)
+            buatPeminjam(noIdPeminjam, nama, jenisNoId, alamat, noTelp, maksPinjam, noId)
         );
         updateTable();
 
@@ -498,25 +474,17 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         l_simpanPeminjamEmptyIndicator.setVisible(false);       // mematikan indikator field masih kosong
     }//GEN-LAST:event_b_kosongkanRegPeminjamActionPerformed
 
-    private void i_noIdPeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_noIdPeminjamFocusLost
-        String text = i_noIdPeminjam.getText().trim();
-        String jenisNoId = (String) i_jenisNoId.getSelectedItem();
-        Objects.requireNonNull(jenisNoId);
-        if (!text.matches(String.format("^[%s]+[0-9]{5}$",
-            (jenisNoId.equals("NIM") ? "M" : (jenisNoId.equals("NIP")) ? "D" : "U")))) {
-            i_noIdPeminjam.setBackground(I_RED);
-        } else {
-            i_noIdPeminjam.setBackground(Color.WHITE);
-        }
-    }//GEN-LAST:event_i_noIdPeminjamFocusLost
-
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
         updateTable();
     }//GEN-LAST:event_b_refreshActionPerformed
 
-    private void i_noIdPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_noIdPeminjamActionPerformed
+    private void i_identifierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_identifierFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_noIdPeminjamActionPerformed
+    }//GEN-LAST:event_i_identifierFocusLost
+
+    private void i_identifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_identifierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_identifierActionPerformed
 
     // Other functions
 
@@ -530,7 +498,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_alamat.setEnabled(true);
         i_noTelp.setEnabled(true);
         i_maksPinjam.setEnabled(true);
-        i_noIdPeminjam.setEnabled(true);
     }
 
     /**
@@ -543,7 +510,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_alamat.setEnabled(false);
         i_noTelp.setEnabled(false);
         i_maksPinjam.setEnabled(false);
-        i_noIdPeminjam.setEnabled(false);
     }
 
 
@@ -557,7 +523,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_alamat.setText("");
         i_noTelp.setText("");
         i_maksPinjam.setValue(1);
-        i_noIdPeminjam.setText("");
         enableInputFields();                                        // Menyalakan seluruh input pada form
         b_simpanRegPeminjam.setEnabled(true);                       // Menyalakan tombol Simpan
 
@@ -572,10 +537,12 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         i_maksPinjam.setModel(new javax.swing.SpinnerNumberModel(1, 0, maksPinjam, 1));
 
         /* Melakukan reset warna background tiap field menjadi putih */
-        for (TextField c : new TextField[] {i_nama, i_noId, i_alamat, i_noTelp, i_noIdPeminjam}) {
+        for (TextField c : new TextField[] {i_nama, i_noId, i_alamat, i_noTelp}) {
             c.setBackground(Color.WHITE);
         }
         tabelPeminjam.clearSelection();                             // Melepas selection pada tabel jika ada
+
+        i_identifier.setText("");
     }
 
     /**
@@ -584,11 +551,11 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      *
      * @return {@link Peminjam}
      * */
-    private Peminjam buatPeminjam(String nama, String noId, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+    private Peminjam buatPeminjam(String id, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noId) {
         Peminjam c = switch (jenisNoId) {
-            case "NIM" -> new Mahasiswa(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
-            case "NIP" -> new Dosen(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
-            default -> new Umum(nama, jenisNoId, alamat, noTelp, maksPinjam, noIdPeminjam, noId);
+            case "NIM" -> new Mahasiswa(id, nama, jenisNoId, alamat, noTelp, maksPinjam, noId);
+            case "NIP" -> new Dosen(id, nama, jenisNoId, alamat, noTelp, maksPinjam, noId);
+            default -> new Umum(id, nama, jenisNoId, alamat, noTelp, maksPinjam, noId);
         };
         System.out.println("Created: " + c);
         return c;
@@ -605,7 +572,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
         for (int i = 0; i < listPeminjam.size(); i++) {
             var currentRow = listPeminjam.get(i);
-            data[i][0] = currentRow.getNoIdPeminjam();
+            data[i][0] = currentRow.getId();
             data[i][1] = currentRow.getNama();
             data[i][2] = currentRow.getAlamat();
             data[i][3] = currentRow.getNoTelp();
@@ -623,30 +590,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         };
         tabelPeminjam.setModel(newModel);
-        // <editor-fold defaultstate="collapsed" desc="(IGNORE) cara 2: more performant, cons is directly adding to table, not dependent by list / DB">
-//        var model = (DefaultTableModel) tabelCustomer.getModel();
-//        for (int i = 0; i < listCustomer.size(); i++) {
-//            var curr = listCustomer.get(i);
-//            model.addRow(
-//                new Object[] {
-//                    curr.getNoIdPeminjam(),
-//                    curr.getNama(),
-//                    curr.getAlamat(),
-//                    curr.getNoTelp(),
-//                    curr.getMaksPinjam(),
-//                    (curr instanceof Mahasiswa c) ? c.getNim() :
-//                        (curr instanceof Dosen c) ? c.getNip() :
-//                            ((Umum) curr).getNik()
-//                }
-//            );
-//        }
-//        ((DefaultTableModel) tabelCustomer.getModel()).fireTableDataChanged();
-
-//         // PUT THIS IN b_simpanRegPeminjamActionPerformed
-//        /* Menambahkan secara langsung ke tabel */
-//        ((DefaultTableModel) tabelCustomer.getModel())
-//            .addRow(new Object[] {noIdPeminjam, nama, alamat, noTelp, maksPinjam, noId});
-        // </editor-fold>
     }
 
     /**
@@ -654,6 +597,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      * di edit, metode ini juga mematikan input fields dan tombol simpan.
      * */
     private void retrieveData() {
+        kosongkanRegPeminjam();
         List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
         int rowIndex = tabelPeminjam.getSelectedRow();
         if (rowIndex != -1) {
@@ -674,10 +618,10 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             i_alamat.setText(rowData.getAlamat());
             i_noTelp.setText(rowData.getNoTelp());
             i_maksPinjam.setValue(rowData.getMaksPinjam());
-            i_noIdPeminjam.setText(rowData.getNoIdPeminjam());
 
-            disableInputFields();                               // Menyalakan seluruh input pada form
-            b_simpanRegPeminjam.setEnabled(false);              // Menyalakan tombol Simpan
+            disableInputFields();
+            b_simpanRegPeminjam.setEnabled(false);
+            i_identifier.setText(rowData.getId());
         }
     }
 
@@ -686,17 +630,16 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private javax.swing.JButton b_refresh;
     private javax.swing.JButton b_simpanRegPeminjam;
     private java.awt.TextField i_alamat;
+    private java.awt.TextField i_identifier;
     private javax.swing.JComboBox<String> i_jenisNoId;
     private javax.swing.JSpinner i_maksPinjam;
     private java.awt.TextField i_nama;
     private java.awt.TextField i_noId;
-    private java.awt.TextField i_noIdPeminjam;
     private java.awt.TextField i_noTelp;
     private javax.swing.JLabel l_alamat;
     private javax.swing.JLabel l_maksPinjam;
     private javax.swing.JLabel l_nama;
     private javax.swing.JLabel l_noId;
-    private javax.swing.JLabel l_noIdPeminjam;
     private javax.swing.JLabel l_simpanPeminjamEmptyIndicator;
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel regisPeminjamTitle;

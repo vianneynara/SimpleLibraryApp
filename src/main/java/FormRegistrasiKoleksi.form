@@ -25,58 +25,100 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="l_simpanKoleksiEmptyIndicator" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="b_kosongkanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="b_simpanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="registKoleksiTitle" min="-2" pref="361" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="registKoleksiTitle" min="-2" pref="361" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="l_penerbit" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_isbnIssn" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_judulBuku4" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_jmlHalaman" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_volume" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_judulKoleksi" alignment="0" pref="150" max="32767" attributes="0"/>
-                              <Component id="l_format" alignment="0" max="32767" attributes="0"/>
-                              <Component id="l_seri" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="l_penerbit" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_isbnIssn" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_judulBuku4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_judulKoleksi" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="l_tahunTerbit" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="i_tahunTerbit" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="l_noIdKoleksi" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="l_format" min="-2" pref="55" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="i_format" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="i_jenisDisk" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="l_seri" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="i_seri" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="i_judulKoleksi" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="i_jenisBuku" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="i_penerbit" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
-                                  <Component id="i_jenisMajalah" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="i_jenisDisk" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="i_isbnIssn" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="i_jenisBuku" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="i_jenisMajalah" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="l_jmlHalaman" alignment="0" pref="150" max="32767" attributes="0"/>
+                                          <Component id="l_volume" alignment="0" pref="150" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="i_volume" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="i_jmlHalaman" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="i_jmlHalaman" alignment="0" max="32767" attributes="0"/>
-                              <Component id="i_volume" alignment="0" pref="120" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="i_noIdKoleksi" alignment="0" max="32767" attributes="0"/>
-                              <Component id="i_format" alignment="0" max="32767" attributes="0"/>
-                              <Component id="i_seri" alignment="0" pref="120" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="b_refresh" pref="113" max="32767" attributes="0"/>
+                  <Component id="i_identifier" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="l_simpanKoleksiEmptyIndicator" pref="409" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="b_kosongkanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="b_simpanRegKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="tableScrollPane" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,9 +128,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="registKoleksiTitle" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="i_judulKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="l_judulKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_identifier" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -101,52 +144,44 @@
                   <Component id="l_isbnIssn" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="i_jenisBuku" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="l_judulBuku4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="l_jmlHalaman" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="i_jmlHalaman" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="i_jenisBuku" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="l_judulBuku4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="i_jenisMajalah" min="-2" pref="25" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="i_jenisDisk" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="i_jmlHalaman" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_jenisMajalah" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="l_volume" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="i_volume" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="l_jmlHalaman" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="i_volume" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="l_volume" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="l_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="i_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_tahunTerbit" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="l_tahunTerbit" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="l_format" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="l_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_seri" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="i_jenisDisk" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="i_format" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="l_format" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="b_refresh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="l_noIdKoleksi" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="i_noIdKoleksi" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tableScrollPane" min="-2" pref="201" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_simpanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="b_kosongkanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="l_simpanKoleksiEmptyIndicator" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -453,24 +488,12 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="l_simpanKoleksiEmptyIndicator.setVisible(false);"/>
       </AuxValues>
     </Component>
-    <Component class="java.awt.TextField" name="i_noIdKoleksi">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_noIdKoleksiFocusLost"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_noIdKoleksiActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="l_noIdKoleksi">
+    <Component class="javax.swing.JLabel" name="l_tahunTerbit">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Id. Koleksi (6 digit)"/>
-        <Property name="toolTipText" type="java.lang.String" value="Kode: B / Buku; M / Majalah; D / Disk"/>
+        <Property name="text" type="java.lang.String" value="Tahun"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 25]"/>
         </Property>
@@ -478,9 +501,70 @@
           <Dimension value="[150, 25]"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Identifier Koleksi"/>
-      </AccessibilityProperties>
+    </Component>
+    <Component class="java.awt.TextField" name="i_tahunTerbit">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_tahunTerbitFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_tahunTerbitActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.TextField" name="i_identifier">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_identifierFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_identifierActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="tableScrollPane">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tabelPeminjam">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="6" rowCount="0">
+                <Column editable="false" title="id" type="java.lang.String"/>
+                <Column editable="false" title="nama lengkap" type="java.lang.String"/>
+                <Column editable="false" title="alamat" type="java.lang.String"/>
+                <Column editable="false" title="nomor telepon" type="java.lang.String"/>
+                <Column editable="false" title="maks pinjam" type="java.lang.Integer"/>
+                <Column editable="false" title="nomor identitas" type="java.lang.String"/>
+              </Table>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Data yang sudah tercatat dalam data"/>
+            <Property name="rowHeight" type="int" value="16"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;    public void valueChanged(ListSelectionEvent event) {&#xa;        retrieveData();&#xa;    }&#xa;});"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="b_refresh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Refresh table"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_refreshActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
