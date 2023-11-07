@@ -7,6 +7,7 @@ import java.io.Serializable;
  * */
 public abstract class Peminjam implements Serializable {
 
+	protected String id;
 	protected String nama;
 	protected String jenisNoId;
 	protected String alamat;
@@ -16,7 +17,8 @@ public abstract class Peminjam implements Serializable {
 	// Unique identifier for each customers
 	private String noIdPeminjam;
 
-	public Peminjam(String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+	public Peminjam(String id, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam, String noIdPeminjam) {
+		this.id = id;
 		this.nama = nama;
 		this.jenisNoId = jenisNoId;
 		this.alamat = alamat;
@@ -26,6 +28,15 @@ public abstract class Peminjam implements Serializable {
 	}
 
 	// Getters setters
+
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getNama() {
 		return nama;
