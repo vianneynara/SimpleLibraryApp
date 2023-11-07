@@ -116,8 +116,8 @@
                                   <Component id="i_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tableScrollPane" min="-2" pref="236" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="tableScrollPane" min="-2" pref="240" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="b_kosongkanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
