@@ -34,4 +34,12 @@ public class Disk extends Koleksi {
     public void setFormat(String format) {
         this.format = format;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "->Disk{" +
+            "isbn='" + isbn + '\'' +
+            ", format='" + format + '\'' +
+            "} ";
+    }
 }

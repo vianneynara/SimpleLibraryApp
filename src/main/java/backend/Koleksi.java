@@ -58,4 +58,15 @@ public abstract class Koleksi {
     public void setStatusPinjam(boolean statusPinjam) {
         this.statusPinjam = statusPinjam;
     }
+
+    @Override
+    public String toString() {
+        return "Koleksi{" +
+            "id='" + id + '\'' +
+            ", judul='" + judul + '\'' +
+            ", penerbit='" + penerbit + '\'' +
+            ", tahunTerbit='" + tahunTerbit + '\'' +
+            ", statusPinjam=" + statusPinjam +
+            '}';
+    }
 }

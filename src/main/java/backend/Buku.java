@@ -29,4 +29,12 @@ public class Buku extends Koleksi {
     public void setJumlahHalaman(int jumlahHalaman) {
         this.jumlahHalaman = jumlahHalaman;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "->Buku{" +
+            "isbn='" + isbn + '\'' +
+            ", jumlahHalaman=" + jumlahHalaman +
+            "} ";
+    }
 }
