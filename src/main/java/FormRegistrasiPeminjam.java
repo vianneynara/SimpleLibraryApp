@@ -32,9 +32,9 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
      * Creates new form FormRegistrasiPeminjam
      */
     public FormRegistrasiPeminjam(JFrame parent, DataPerpus dataPerpus) {
+        initComponents();
         this.parent = parent;
         this.dataPerpus = dataPerpus;
-        initComponents();
     }
 
     /**
@@ -232,7 +232,10 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
         tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
+        tabelPeminjam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabelPeminjam.setRowHeight(16);
+        tabelPeminjam.setRowSelectionAllowed(true);
+        tabelPeminjam.setSurrendersFocusOnKeystroke(true);
         tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();
