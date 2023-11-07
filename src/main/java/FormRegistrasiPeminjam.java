@@ -210,6 +210,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
 
+        tabelPeminjam.setAutoCreateRowSorter(true);
         tabelPeminjam.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tabelPeminjam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -571,7 +572,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         Object[][] data = new Object[listPeminjam.size()][6];
         String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"};
         for (int i = 0; i < listPeminjam.size(); i++) {
-            var currentRow = listPeminjam.get(i);
+            final var currentRow = listPeminjam.get(i);
             data[i][0] = currentRow.getId();
             data[i][1] = currentRow.getNama();
             data[i][2] = currentRow.getAlamat();
@@ -601,27 +602,26 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
         int rowIndex = tabelPeminjam.getSelectedRow();
         if (rowIndex != -1) {
-            var rowData = listPeminjam.get(rowIndex);
-//            String[] columns = {"id", "nama lengkap", "alamat", "nomor telepon", "maks pinjam", "nomor identitas"}
+            final var peminjam = listPeminjam.get(rowIndex);
             /* Memasukkan data pada baris yang dipilih kee input fields */
-            i_nama.setText(rowData.getNama());
+            i_nama.setText(peminjam.getNama());
             i_noId.setText(
-                (rowData instanceof Mahasiswa c) ? c.getNim() :
-                    (rowData instanceof Dosen c) ? c.getNip() :
-                        ((Umum) rowData).getNik()
+                (peminjam instanceof Mahasiswa c) ? c.getNim() :
+                    (peminjam instanceof Dosen c) ? c.getNip() :
+                        ((Umum) peminjam).getNik()
             );
-            i_jenisNoId.setSelectedIndex(switch (rowData.getJenisNoId()) {
+            i_jenisNoId.setSelectedIndex(switch (peminjam.getJenisNoId()) {
                 case "NIM" -> 0;
                 case "NIP" -> 1;
                 default -> 2;
             });
-            i_alamat.setText(rowData.getAlamat());
-            i_noTelp.setText(rowData.getNoTelp());
-            i_maksPinjam.setValue(rowData.getMaksPinjam());
+            i_alamat.setText(peminjam.getAlamat());
+            i_noTelp.setText(peminjam.getNoTelp());
+            i_maksPinjam.setValue(peminjam.getMaksPinjam());
 
             disableInputFields();
             b_simpanRegPeminjam.setEnabled(false);
-            i_identifier.setText(rowData.getId());
+            i_identifier.setText(peminjam.getId());
         }
     }
 
