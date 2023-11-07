@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="inp_regTipeKoleksi">
     </Component>
@@ -99,7 +99,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="tableScrollPane" max="32767" attributes="0"/>
+                          <Component id="tableKoleksiScrollPane" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="l_simpanKoleksiEmptyIndicator" pref="409" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -170,7 +170,7 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tableScrollPane" min="-2" pref="201" max="-2" attributes="0"/>
+              <Component id="tableKoleksiScrollPane" min="-2" pref="201" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_simpanRegKoleksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -524,7 +524,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_identifierActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="tableScrollPane">
+    <Container class="javax.swing.JScrollPane" name="tableKoleksiScrollPane">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -585,6 +585,10 @@
               </TableColumnModel>
             </Property>
             <Property name="rowHeight" type="int" value="16"/>
+            <Property name="selectionMode" type="int" value="0"/>
+            <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+              <JTableSelectionModel selectionMode="0"/>
+            </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>

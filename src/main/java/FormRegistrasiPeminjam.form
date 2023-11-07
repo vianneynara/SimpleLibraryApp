@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[729, 517]"/>
@@ -25,7 +25,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tableScrollPane" max="32767" attributes="0"/>
+                      <Component id="tablePeminjamScrollPane" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
                   <Component id="i_jenisNoId" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tableScrollPane" pref="238" max="32767" attributes="0"/>
+              <Component id="tablePeminjamScrollPane" pref="238" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_simpanRegPeminjam" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -357,15 +357,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_identifierActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="b_refresh">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Refresh table"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_refreshActionPerformed"/>
-      </Events>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="tableScrollPane">
+    <Container class="javax.swing.JScrollPane" name="tablePeminjamScrollPane">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -426,15 +418,27 @@
               </TableColumnModel>
             </Property>
             <Property name="rowHeight" type="int" value="16"/>
+            <Property name="selectionMode" type="int" value="0"/>
+            <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+              <JTableSelectionModel selectionMode="0"/>
+            </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;    public void valueChanged(ListSelectionEvent event) {&#xa;        retrieveData();&#xa;    }&#xa;});"/>
+            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="tabelPeminjam.addMouseListener(new MouseAdapter() {&#xa;    public void mouseClicked(MouseEvent e) {&#xa;        int rowIndex = tabelPeminjam.rowAtPoint(e.getPoint());&#xa;        int colIndex = tabelPeminjam.columnAtPoint(e.getPoint());&#xa;        if (rowIndex &gt;= 0 &amp;&amp; colIndex &gt;= 0) {&#xa;            // rowIndex is the index of the selected row&#xa;            retrieveData(rowIndex);&#xa;        }&#xa;    }&#xa;});"/>
           </AuxValues>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="b_refresh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Refresh table"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_refreshActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

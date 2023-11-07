@@ -75,7 +75,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         l_tahunTerbit = new javax.swing.JLabel();
         i_tahunTerbit = new java.awt.TextField();
         i_identifier = new java.awt.TextField();
-        tableScrollPane = new javax.swing.JScrollPane();
+        tableKoleksiScrollPane = new javax.swing.JScrollPane();
         tabelKoleksi = new javax.swing.JTable();
         b_refresh = new javax.swing.JButton();
 
@@ -297,12 +297,14 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         });
         tabelKoleksi.setToolTipText("Data yang sudah tercatat dalam data");
         tabelKoleksi.setRowHeight(16);
+        tabelKoleksi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelKoleksi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabelKoleksi.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();
             }
         });
-        tableScrollPane.setViewportView(tabelKoleksi);
+        tableKoleksiScrollPane.setViewportView(tabelKoleksi);
 
         b_refresh.setText("Refresh table");
         b_refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -371,7 +373,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tableScrollPane)
+                            .addComponent(tableKoleksiScrollPane)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(l_simpanKoleksiEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -426,7 +428,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(l_seri, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tableKoleksiScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_simpanRegKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -708,6 +710,8 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
             }
         };
         tabelKoleksi.setModel(newModel);
+        tabelKoleksi.repaint();
+        tabelKoleksi.revalidate();
     }
 
     /**
@@ -864,6 +868,6 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     private javax.swing.JLabel l_volume;
     private javax.swing.JLabel registKoleksiTitle;
     private javax.swing.JTable tabelKoleksi;
-    private javax.swing.JScrollPane tableScrollPane;
+    private javax.swing.JScrollPane tableKoleksiScrollPane;
     // End of variables declaration//GEN-END:variables
 }

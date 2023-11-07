@@ -13,6 +13,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,8 +27,8 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private final Color I_RED = new Color(0xFF5959);
     private final JFrame parent;
 
-	/** Atribut kelas ini menyimpan seluruh data yang disimpan. */
-	private DataPerpus dataPerpus;
+    /** Atribut kelas ini menyimpan seluruh data yang disimpan. */
+    private DataPerpus dataPerpus;
 
     /**
      * Creates new form FormRegistrasiPeminjam
@@ -62,9 +64,9 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         b_kosongkanRegPeminjam = new javax.swing.JButton();
         l_simpanPeminjamEmptyIndicator = new javax.swing.JLabel();
         i_identifier = new java.awt.TextField();
-        b_refresh = new javax.swing.JButton();
-        tableScrollPane = new javax.swing.JScrollPane();
+        tablePeminjamScrollPane = new javax.swing.JScrollPane();
         tabelPeminjam = new javax.swing.JTable();
+        b_refresh = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(729, 517));
 
@@ -206,13 +208,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         });
 
-        b_refresh.setText("Refresh table");
-        b_refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_refreshActionPerformed(evt);
-            }
-        });
-
         tabelPeminjam.setAutoCreateRowSorter(true);
         tabelPeminjam.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tabelPeminjam.setModel(new javax.swing.table.DefaultTableModel(
@@ -240,12 +235,26 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         });
         tabelPeminjam.setToolTipText("Data yang sudah tercatat dalam data");
         tabelPeminjam.setRowHeight(16);
-        tabelPeminjam.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-            public void valueChanged(ListSelectionEvent event) {
-                retrieveData();
+        tabelPeminjam.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelPeminjam.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelPeminjam.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int rowIndex = tabelPeminjam.rowAtPoint(e.getPoint());
+                int colIndex = tabelPeminjam.columnAtPoint(e.getPoint());
+                if (rowIndex >= 0 && colIndex >= 0) {
+                    // rowIndex is the index of the selected row
+                    retrieveData(rowIndex);
+                }
             }
         });
-        tableScrollPane.setViewportView(tabelPeminjam);
+        tablePeminjamScrollPane.setViewportView(tabelPeminjam);
+
+        b_refresh.setText("Refresh table");
+        b_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_refreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -255,7 +264,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tableScrollPane))
+                        .addComponent(tablePeminjamScrollPane))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(l_simpanPeminjamEmptyIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -327,7 +336,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
                             .addComponent(b_refresh)))
                     .addComponent(i_jenisNoId, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addComponent(tablePeminjamScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_simpanRegPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -585,18 +594,19 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
             }
         };
         tabelPeminjam.setModel(newModel);
+        tabelPeminjam.repaint();
+        tabelPeminjam.revalidate();
     }
 
     /**
      * Metode ini mengembalikan data yang ada pada sel yang sedang dipilih ke input fields. Untuk membautnya tidak dapat
      * di edit, metode ini juga mematikan input fields dan tombol simpan.
      * */
-    private void retrieveData() {
+    private void retrieveData(int atIndex) {
         kosongkanRegPeminjam();
         List<Peminjam> listPeminjam = dataPerpus.getListPeminjam();
-        int rowIndex = tabelPeminjam.getSelectedRow();
-        if (rowIndex != -1) {
-            final var peminjam = listPeminjam.get(rowIndex);
+        if (atIndex != -1) {
+            final var peminjam = listPeminjam.get(atIndex);
             /* Memasukkan data pada baris yang dipilih kee input fields */
             i_nama.setText(peminjam.getNama());
             i_noId.setText(
@@ -638,6 +648,6 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
     private javax.swing.JLabel l_telp;
     private javax.swing.JLabel regisPeminjamTitle;
     private javax.swing.JTable tabelPeminjam;
-    private javax.swing.JScrollPane tableScrollPane;
+    private javax.swing.JScrollPane tablePeminjamScrollPane;
     // End of variables declaration//GEN-END:variables
 }
