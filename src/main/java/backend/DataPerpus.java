@@ -107,6 +107,7 @@ public class DataPerpus {
 		try {
 			dataPeminjam.put(data.getId(), data);
 			DataIOHandler.saveDataPeminjam(dataPeminjam);
+			SimpleUtil.log("Inserted a new Peminjam with id: " + data.getId());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
@@ -119,6 +120,7 @@ public class DataPerpus {
 		try {
 			dataKoleksi.put(data.getId(), data);
 			DataIOHandler.saveDataKoleksi(dataKoleksi);
+			SimpleUtil.log("Inserted a new Koleksi with id: " + data.getId());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
@@ -131,6 +133,7 @@ public class DataPerpus {
 		try {
 			dataTransaksi.put(data.getId(), data);
 			DataIOHandler.saveDataTransaksi(dataTransaksi);
+			SimpleUtil.log("Inserted a new Transaksi with id: " + data.getId());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
