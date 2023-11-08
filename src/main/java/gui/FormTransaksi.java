@@ -1,7 +1,9 @@
-/*
+package gui;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
+import backend.DataPerpus;
 
 import javax.swing.*;
 import java.util.Objects;

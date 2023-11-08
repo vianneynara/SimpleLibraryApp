@@ -1,12 +1,9 @@
-/*
+package gui;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import backend.Buku;
-import backend.Disk;
-import backend.Koleksi;
-import backend.Majalah;
+import backend.*;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
