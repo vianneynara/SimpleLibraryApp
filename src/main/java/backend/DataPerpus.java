@@ -20,9 +20,15 @@ public class DataPerpus {
 
 	/* Konstruktor utama */
 	public DataPerpus() {
-		this.dataPeminjam = new HashMap<>();
-		this.dataKoleksi = new HashMap<>();
-		this.dataTransaksi = new HashMap<>();
+		this.dataPeminjam = (DataIOHandler.fileDataPeminjamExists() ? 
+			DataIOHandler.readDataPeminjam() : 
+			new HashMap<>());
+		this.dataKoleksi = (DataIOHandler.fileDataKoleksiExists() ? 
+			DataIOHandler.readDataKoleksi() :
+			new HashMap<>());
+		this.dataTransaksi = (DataIOHandler.fileDataTransaksiExists() ?
+			DataIOHandler.readDataTransaksi() :
+			new HashMap<>());
 	}
 
 	/* Getters / Setters */
@@ -94,25 +100,37 @@ public class DataPerpus {
 
 	/* Other Functions */
 
+	/**
+	 * Menyimpan data peminjam ke file penyimpan.
+	 * */
 	public void isiDataPeminjam(Peminjam data) {
 		try {
 			dataPeminjam.put(data.getId(), data);
+			DataIOHandler.saveDataPeminjam(dataPeminjam);
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
 	}
 
+	/**
+	 * Menyimpan data koleksi ke file penyimpan.
+	 * */
 	public void isiDataKoleksi(Koleksi data) {
 		try {
 			dataKoleksi.put(data.getId(), data);
+			DataIOHandler.saveDataKoleksi(dataKoleksi);
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
 	}
 
+	/**
+	 * Menyimpan data transaksi ke file penyimpan.
+	 * */
 	public void isiDataTransaksi(Transaksi data) {
 		try {
 			dataTransaksi.put(data.getId(), data);
+			DataIOHandler.saveDataTransaksi(dataTransaksi);
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
