@@ -6,11 +6,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataIOHandler {
-	String DB_DIRECTORY = "src/main/database/";
+	private static String DB_DIRECTORY = "src/main/database/";
 	/**
 	 * Menyimpan dan melakukan overwrite data peminjam ke data_peminjam.dat .
 	 * */
-	public boolean saveDataPeminjam(HashMap<String, Peminjam> dataPeminjam) {
+	public static boolean saveDataPeminjam(HashMap<String, Peminjam> dataPeminjam) {
 		try (FileOutputStream fout = new FileOutputStream(DB_DIRECTORY + "data_peminjam.dat");
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
@@ -25,7 +25,7 @@ public class DataIOHandler {
 	/**
 	 * Menyimpan dan melakukan overwrite data koleksi ke data_koleksi.dat .
 	 * */
-	public boolean saveDataKoleksi(HashMap<String, Koleksi> dataKoleksi) {
+	public static boolean saveDataKoleksi(HashMap<String, Koleksi> dataKoleksi) {
 		try (FileOutputStream fout = new FileOutputStream(DB_DIRECTORY + "data_koleksi.dat");
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
@@ -40,7 +40,7 @@ public class DataIOHandler {
 	/**
 	 * Menyimpan dan melakukan overwrite data transaksi ke data_transaksi.dat .
 	 * */
-	public boolean saveDataTransaksi(HashMap<String, Transaksi> dataTransaksi) {
+	public static boolean saveDataTransaksi(HashMap<String, Transaksi> dataTransaksi) {
 		try (FileOutputStream fout = new FileOutputStream(DB_DIRECTORY + "data_transaksi.dat");
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
@@ -57,11 +57,11 @@ public class DataIOHandler {
 	 * @return HashMap HashMap berisi data transaksi
 	 * */
 	@SuppressWarnings("unchecked")
-	public HashMap<String, Transaksi> readDataPeminjam() {
+	public static HashMap<String, Peminjam> readDataPeminjam() {
 		if (ensuredExists(DB_DIRECTORY + "data_peminjam.dat")) {
 			try (FileInputStream fout = new FileInputStream(DB_DIRECTORY + "data_peminjam.dat");
 				 ObjectInputStream in = new ObjectInputStream(fout)) {
-				return (HashMap<String, Transaksi>) in.readObject();
+				return (HashMap<String, Peminjam>) in.readObject();
 			} catch (IOException | ClassNotFoundException e) {
 				Logger.getLogger(DataIOHandler.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 				return null;
@@ -76,11 +76,11 @@ public class DataIOHandler {
 	 * @return HashMap<String, Transaksi> HashMap berisi data koleksi
 	 * */
 	@SuppressWarnings("unchecked")
-	public HashMap<String, Transaksi> readDataKoleksi() {
+	public static HashMap<String, Koleksi> readDataKoleksi() {
 		if (ensuredExists(DB_DIRECTORY + "data_koleksi.dat")) {
 			try (FileInputStream fout = new FileInputStream(DB_DIRECTORY + "data_koleksi.dat");
 				 ObjectInputStream in = new ObjectInputStream(fout)) {
-				return (HashMap<String, Transaksi>) in.readObject();
+				return (HashMap<String, Koleksi>) in.readObject();
 			} catch (IOException | ClassNotFoundException e) {
 				Logger.getLogger(DataIOHandler.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 				return null;
@@ -95,7 +95,7 @@ public class DataIOHandler {
 	 * @return HashMap<String, Transaksi> HashMap berisi data transaksi
 	 * */
 	@SuppressWarnings("unchecked")
-	public HashMap<String, Transaksi> readDataTransaksi() {
+	public static HashMap<String, Transaksi> readDataTransaksi() {
 		if (ensuredExists(DB_DIRECTORY + "data_transaksi.dat")) {
 			try (FileInputStream fout = new FileInputStream(DB_DIRECTORY + "data_transaksi.dat");
 				 ObjectInputStream in = new ObjectInputStream(fout)) {
@@ -112,12 +112,26 @@ public class DataIOHandler {
 	/**
 	 * Memastikan bahwa file yang tertera sungguh ada dan terbuat.
 	 * */
-	private boolean ensuredExists(String filePath) {
+	private static boolean ensuredExists(String filePath) {
 		try {
 			File file = new File(filePath);
 			return file.exists() || file.createNewFile();
 		} catch (IOException e) {
 			return false;
 		}
+	}
+	
+	/* Pengecek apakah file data ada atau tidak */
+	
+	public static boolean fileDataPeminjamExists() {
+		return (new File(DB_DIRECTORY + "data_peminjam.dat")).exists();
+	}
+	
+	public static boolean fileDataKoleksiExists() {
+		return (new File(DB_DIRECTORY + "data_koleksi.dat")).exists();
+	}
+	
+	public static boolean fileDataTransaksiExists() {
+		return (new File(DB_DIRECTORY + "data_transaksi.dat")).exists();
 	}
 }
