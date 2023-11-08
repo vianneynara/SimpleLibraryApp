@@ -20,10 +20,10 @@ public class SimpleUtil {
 	public static void log(String msg, String endLine, Object caller) {
 		final var time = LocalTime.now();
 		if (caller == null) {
-			System.out.printf("%02d:%02d:%02d | LOG : " + msg + endLine,
+			System.out.printf("%02d:%02d:%02d | LOG: " + msg + endLine,
 				time.getHour(), time.getMinute(), time.getSecond());
 		} else {
-			System.out.printf("@ " + caller.getClass().getName() + "| %02d:%02d:%02d | LOG : " + msg + endLine,
+			System.out.printf("@ " + caller.getClass().getName() + "| %02d:%02d:%02d | LOG: " + msg + endLine,
 				time.getHour(), time.getMinute(), time.getSecond());
 		}
 	}
