@@ -16,11 +16,13 @@ public class DataPerpus {
 	/* Disimpan menggunakna hash map sehingga idnya selalu unik. */
 	private HashMap<String, Peminjam> dataPeminjam;
 	private HashMap<String, Koleksi> dataKoleksi;
+	private HashMap<String, Transaksi> dataTransaksi;
 
 	/* Konstruktor utama */
 	public DataPerpus() {
 		this.dataPeminjam = new HashMap<>();
 		this.dataKoleksi = new HashMap<>();
+		this.dataTransaksi = new HashMap<>();
 	}
 
 	/* Getters / Setters */
@@ -43,6 +45,14 @@ public class DataPerpus {
 
 	public List<Peminjam> getListPeminjam() {
 		return new ArrayList<>(dataPeminjam.values());
+	}
+
+	public HashMap<String, Transaksi> getDataTransaksi() {
+		return dataTransaksi;
+	}
+
+	public void setDataTransaksi(HashMap<String, Transaksi> dataTransaksi) {
+		this.dataTransaksi = dataTransaksi;
 	}
 
 	/**
@@ -69,6 +79,19 @@ public class DataPerpus {
 				listKoleksi.stream().collect(Collectors.toMap(Koleksi::getId, Function.identity()));;
 	}
 
+	public List<Transaksi> getListTransaksi() {
+		return new ArrayList<>(dataTransaksi.values());
+	}
+
+	/**
+	 * Menerima list yang terdiri atas {@link Koleksi} kemudian dikonversi menyesuaikan Map pada kelas ini. Hasil
+	 * konversi akan masukkan sebagai nilai baru pada {@link #dataKoleksi}.
+	 * */
+	public void setListTransaksi(List<Transaksi> listTransaksi) {
+		this.dataTransaksi =
+			(HashMap<String, Transaksi>) listTransaksi.stream().collect(Collectors.toMap(Transaksi::getId, Function.identity()));
+	}
+
 	/* Other Functions */
 
 	public void isiDataPeminjam(Peminjam data) {
@@ -82,6 +105,14 @@ public class DataPerpus {
 	public void isiDataKoleksi(Koleksi data) {
 		try {
 			dataKoleksi.put(data.getId(), data);
+		} catch (Exception exception) {
+			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
+		}
+	}
+
+	public void isiDataTransaksi(Transaksi data) {
+		try {
+			dataTransaksi.put(data.getId(), data);
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
@@ -135,6 +166,23 @@ public class DataPerpus {
 				generatedId.append(digit);
 			}
 		} while (dataKoleksi.containsKey(generatedId.toString()));
+
+        return generatedId.toString();
+    }
+
+    /**
+     * Membuat id random dengan format yang ditentukan untuk objek transaksi dari sebuah Map data transaksi.
+     * */
+    public static String generateTransaksiId(String tipe, HashMap<String, Transaksi> dataTransaksi) {
+        Random random = new Random();
+		StringBuilder generatedId;
+		do {
+			generatedId = new StringBuilder("T");
+			for (int i = 0; i < ID_SUFFIX_LENGTH; i++) {
+				int digit = random.nextInt(10);
+				generatedId.append(digit);
+			}
+		} while (dataTransaksi.containsKey(generatedId.toString()));
 
         return generatedId.toString();
     }
