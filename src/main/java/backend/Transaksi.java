@@ -1,8 +1,9 @@
 package backend;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Transaksi {
+public class Transaksi implements Serializable {
     /* atribut kelas */
     private String id;
     private Peminjam peminjam;

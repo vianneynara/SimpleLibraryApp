@@ -1,7 +1,9 @@
 package backend;
 
+import java.io.Serializable;
+
 /** Kelas abstrak yang mengimplementasi koleksi sebagai penyimpan atribut-atribut utama Koleksi. */
-public abstract class Koleksi {
+public abstract class Koleksi implements Serializable {
     /* class attributes */
     protected String id;
     protected String judul;
