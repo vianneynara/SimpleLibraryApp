@@ -77,10 +77,6 @@ public class App extends javax.swing.JFrame {
 			dataPerpus.isiDataPeminjam(new Mahasiswa("M00001", "Mahasiswa1", "NIM", "Bantul Something", "012345678921", 3, "225314001"));
 			dataPerpus.isiDataPeminjam(new Mahasiswa("M00002", "Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "225314002"));
 			dataPerpus.isiDataPeminjam(new Umum("U00001", "Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "2253140021234567"));
-
-			for (var c : dataPerpus.getListPeminjam()) {
-				System.out.println(c);
-			}
 		} else {
 			System.out.println("Data peminjam exists!");
 		}
@@ -91,10 +87,6 @@ public class App extends javax.swing.JFrame {
 			System.out.println("Filling list of koleksi with test data...");
 			dataPerpus.isiDataKoleksi(new Buku("B00001", "Buku", "CORP", "1950", "1234567890001", 3));
 			dataPerpus.isiDataKoleksi(new Majalah("M00002", "Majalah", "INC", "1945", "1234567890002", 1, 2));
-
-			for (var k : dataPerpus.getListKoleksi()) {
-				System.out.println(k);
-			}
 		} else {
 			System.out.println("Data koleksi exists!");
 		}
