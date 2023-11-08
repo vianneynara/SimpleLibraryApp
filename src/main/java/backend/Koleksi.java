@@ -15,6 +15,7 @@ public abstract class Koleksi {
         this.judul = judul;
         this.penerbit = penerbit;
         this.tahunTerbit = tahunTerbit;
+        this.statusPinjam = false;
     }
 
     /* getters and setters */
