@@ -237,6 +237,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         tabelPeminjam.setRowHeight(16);
         tabelPeminjam.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabelPeminjam.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelPeminjam.getTableHeader().setReorderingAllowed(false);
         tabelPeminjam.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int rowIndex = tabelPeminjam.rowAtPoint(e.getPoint());

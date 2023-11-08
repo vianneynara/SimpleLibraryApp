@@ -299,6 +299,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         tabelKoleksi.setRowHeight(16);
         tabelKoleksi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabelKoleksi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelKoleksi.getTableHeader().setReorderingAllowed(false);
         tabelKoleksi.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 retrieveData();
