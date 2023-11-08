@@ -17,6 +17,7 @@ public class App extends javax.swing.JFrame {
 
     private final CardLayout formCards;
     private final HomePage homePage;
+    private FormTransaksi formTransaksi;
 
 	/**
 	 * Default constructor tanpa home page (landing page).
@@ -96,6 +97,7 @@ public class App extends javax.swing.JFrame {
     private void initForms() {
 		JPanel formRegistrasiPeminjam = new FormRegistrasiPeminjam(this, dataPerpus);
 		JPanel formRegistrasiKoleksi = new FormRegistrasiKoleksi(this, dataPerpus);
+		formTransaksi = new FormTransaksi(dataPerpus);
 
         formContainer.add(formRegistrasiPeminjam, "card1");
         formContainer.add(formRegistrasiKoleksi, "card2");
@@ -243,6 +245,11 @@ public class App extends javax.swing.JFrame {
         menuBar_transaksi.setText("Transaksi");
 
         transaksiPinjam.setText("Pinjam");
+        transaksiPinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transaksiPinjamActionPerformed(evt);
+            }
+        });
         menuBar_transaksi.add(transaksiPinjam);
 
         transaksiKembali.setText("Kembali");
@@ -352,6 +359,10 @@ public class App extends javax.swing.JFrame {
 			// belum ada
 		}
 	}//GEN-LAST:event_logoutActionPerformed
+
+    private void transaksiPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaksiPinjamActionPerformed
+        this.formTransaksi.setVisible(true);
+    }//GEN-LAST:event_transaksiPinjamActionPerformed
 
 	/* Getters setters */
 
