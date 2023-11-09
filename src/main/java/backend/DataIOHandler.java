@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataIOHandler {
-	private static String DB_DIRECTORY = "src/main/database/";
+	private static final String DB_DIRECTORY = "src/main/database/";
 	/**
 	 * Menyimpan dan melakukan overwrite data peminjam ke data_peminjam.dat .
 	 * */
@@ -15,11 +15,11 @@ public class DataIOHandler {
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
 			out.writeObject(dataPeminjam);
+			return true;
 		} catch (IOException e) {
 			Logger.getLogger(DataIOHandler.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 			return false;
 		}
-		return true;
 	}
 
 	/**
@@ -30,11 +30,11 @@ public class DataIOHandler {
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
 			out.writeObject(dataKoleksi);
+			return true;
 		} catch (IOException e) {
 			Logger.getLogger(DataIOHandler.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 			return false;
 		}
-		return true;
 	}
 
 	/**
@@ -45,11 +45,11 @@ public class DataIOHandler {
 			 ObjectOutputStream out = new ObjectOutputStream(fout))
 		{
 			out.writeObject(dataTransaksi);
+			return true;
 		} catch (IOException e) {
 			Logger.getLogger(DataIOHandler.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 			return false;
 		}
-		return true;
 	}
 
 	/**
