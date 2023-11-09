@@ -87,7 +87,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="l_pencarianKoleksi" min="-2" pref="230" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="230" max="32767" attributes="0"/>
+                          <EmptySpace pref="236" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="i_kodeKoleksi" min="-2" pref="80" max="-2" attributes="0"/>
@@ -95,6 +95,7 @@
                           <Component id="i_judulKoleksi" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="b_cekKoleksi" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -119,10 +120,9 @@
                                   <Component id="i_judulKoleksi4" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -378,9 +378,12 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="b_cekPeminjam" min="-2" pref="70" max="-2" attributes="0"/>
-                              <Component id="i_maksPinjam" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="i_maksPinjam" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="b_cekPeminjam" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -388,7 +391,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="b_kembali" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="b_kembali" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="b_kosongkanTransaksi" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -427,13 +430,13 @@
                           <Component id="l_namaPeminjam2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="b_konfirmasiTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="b_kosongkanTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="b_kembali" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="b_kosongkanTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
