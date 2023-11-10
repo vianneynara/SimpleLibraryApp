@@ -167,7 +167,8 @@ public class DataPerpus {
 	 * @param dataPeminjam HashMap data Peminjam.
 	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Peminjam.
      * */
-    public static String generatePeminjamId(String tipe, HashMap<String, Peminjam> dataPeminjam) throws IllegalArgumentException {
+    public static String generatePeminjamId(String tipe, HashMap<String, Peminjam> dataPeminjam)
+		throws IllegalArgumentException {
 		String prefix;
 		switch (tipe) {
 			case "NIM" -> prefix = "M";
@@ -192,7 +193,8 @@ public class DataPerpus {
 	 * @param dataKoleksi HashMap data Koleksi.
 	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Koleksi.
      * */
-    public static String generateKoleksiId(String tipe, HashMap<String, Koleksi> dataKoleksi) throws IllegalArgumentException {
+    public static String generateKoleksiId(String tipe, HashMap<String, Koleksi> dataKoleksi)
+		throws IllegalArgumentException {
 		String prefix;
 		switch (tipe) {
 			case "Buku" -> prefix = "B";
@@ -213,7 +215,6 @@ public class DataPerpus {
 	/**
      * Membuat id random dengan format yang ditentukan untuk objek Transaksi dari sebuah Map data Transaksi.
 	 * @param dataTransaksi HashMap data Transaksi.
-	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Transaksi.
      * */
     public static String generateTransaksiId(HashMap<String, Transaksi> dataTransaksi) {
 		StringBuilder generatedId;
