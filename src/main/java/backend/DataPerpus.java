@@ -91,7 +91,8 @@ public class DataPerpus {
 	 * */
 	public void setListTransaksi(List<Transaksi> listTransaksi) {
 		this.dataTransaksi =
-			(HashMap<String, Transaksi>) listTransaksi.stream().collect(Collectors.toMap(Transaksi::getId, Function.identity()));
+			(HashMap<String, Transaksi>)
+				listTransaksi.stream().collect(Collectors.toMap(Transaksi::getId, Function.identity()));
 	}
 
 	public List<Transaksi> getListTransaksi() {
@@ -139,8 +140,32 @@ public class DataPerpus {
 		}
 	}
 
+	/* Id generators */
+
+    /**
+     * Membuat id random dengan prefix dan format yang ditentukan.
+     * */
+    public static StringBuilder generateId(String prefix, int numDigits) {
+        if (numDigits < 0) {
+            throw new IllegalArgumentException("Number of digits should be non-negative.");
+        }
+
+        StringBuilder idBuilder = new StringBuilder(prefix);
+        Random random = new Random();
+
+        for (int i = 0; i < numDigits; i++) {
+            int digit = random.nextInt(10);
+            idBuilder.append(digit);
+        }
+
+        return idBuilder;
+    }
+
 	/**
-     * Membuat id random dengan format yang ditentukan untuk objek peminjam dari sebuah Map data peminjam.
+     * Membuat id random dengan format yang ditentukan untuk objek Peminjam dari sebuah Map data Peminjam.
+	 * @param tipe Tipe Peminjam.
+	 * @param dataPeminjam HashMap data Peminjam.
+	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Peminjam.
      * */
     public static String generatePeminjamId(String tipe, HashMap<String, Peminjam> dataPeminjam) throws IllegalArgumentException {
 		String prefix;
@@ -155,18 +180,17 @@ public class DataPerpus {
         Random random = new Random();
 		StringBuilder generatedId;
 		do {
-			generatedId = new StringBuilder(prefix);
-			for (int i = 0; i < ID_SUFFIX_LENGTH; i++) {
-				int digit = random.nextInt(10);
-				generatedId.append(digit);
-			}
+			generatedId = generateId(prefix, 5);
 		} while (dataPeminjam.containsKey(generatedId.toString()));
 
         return generatedId.toString();
     }
 
-    /**
-     * Membuat id random dengan format yang ditentukan untuk objek koleksi dari sebuah Map data koleksi.
+	/**
+     * Membuat id random dengan format yang ditentukan untuk objek Koleksi dari sebuah Map data Koleksi.
+	 * @param tipe Tipe Koleksi.
+	 * @param dataKoleksi HashMap data Koleksi.
+	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Koleksi.
      * */
     public static String generateKoleksiId(String tipe, HashMap<String, Koleksi> dataKoleksi) throws IllegalArgumentException {
 		String prefix;
@@ -178,31 +202,23 @@ public class DataPerpus {
 				throw new IllegalArgumentException("Tipe tidak sesuai dengan seluruh kemungkinan yang ada!");
 		}
 
-        Random random = new Random();
 		StringBuilder generatedId;
 		do {
-			generatedId = new StringBuilder(prefix);
-			for (int i = 0; i < ID_SUFFIX_LENGTH; i++) {
-				int digit = random.nextInt(10);
-				generatedId.append(digit);
-			}
+			generatedId = generateId(prefix, 5);
 		} while (dataKoleksi.containsKey(generatedId.toString()));
 
         return generatedId.toString();
     }
 
-    /**
-     * Membuat id random dengan format yang ditentukan untuk objek transaksi dari sebuah Map data transaksi.
+	/**
+     * Membuat id random dengan format yang ditentukan untuk objek Transaksi dari sebuah Map data Transaksi.
+	 * @param dataTransaksi HashMap data Transaksi.
+	 * @throws IllegalArgumentException Dilempar saat tipe tidak sesuai dengan tipe Transaksi.
      * */
-    public static String generateTransaksiId(String tipe, HashMap<String, Transaksi> dataTransaksi) {
-        Random random = new Random();
+    public static String generateTransaksiId(HashMap<String, Transaksi> dataTransaksi) {
 		StringBuilder generatedId;
 		do {
-			generatedId = new StringBuilder("T");
-			for (int i = 0; i < ID_SUFFIX_LENGTH; i++) {
-				int digit = random.nextInt(10);
-				generatedId.append(digit);
-			}
+			generatedId = generateId("T", 10);
 		} while (dataTransaksi.containsKey(generatedId.toString()));
 
         return generatedId.toString();
