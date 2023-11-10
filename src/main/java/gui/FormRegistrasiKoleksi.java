@@ -16,6 +16,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Random;
 
+import static backend.DataPerpus.generateKoleksiId;
+
 /**
  *
  * @author narwa
@@ -585,8 +587,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         }
         l_simpanKoleksiEmptyIndicator.setVisible(false);
 
-        final String noIdKoleksi = generateId(
-            (tipeKoleksi.equals("Buku") ? "B" : (tipeKoleksi.equals("Majalah")) ? "M" : "D"), 5);
+        final String noIdKoleksi = generateKoleksiId(tipeKoleksi, dataPerpus.getDataKoleksi());
         dataPerpus.isiDataKoleksi(
             buatKoleksi(
                 noIdKoleksi,
