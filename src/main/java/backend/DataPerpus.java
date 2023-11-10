@@ -49,10 +49,6 @@ public class DataPerpus {
 		this.dataKoleksi = dataKoleksi;
 	}
 
-	public List<Peminjam> getListPeminjam() {
-		return new ArrayList<>(dataPeminjam.values());
-	}
-
 	public HashMap<String, Transaksi> getDataTransaksi() {
 		return dataTransaksi;
 	}
@@ -71,8 +67,8 @@ public class DataPerpus {
 				listPeminjam.stream().collect(Collectors.toMap(Peminjam::getId, Function.identity()));
 	}
 
-	public List<Koleksi> getListKoleksi() {
-		return new ArrayList<>(dataKoleksi.values());
+	public List<Peminjam> getListPeminjam() {
+		return new ArrayList<>(dataPeminjam.values());
 	}
 
 	/**
@@ -85,8 +81,8 @@ public class DataPerpus {
 				listKoleksi.stream().collect(Collectors.toMap(Koleksi::getId, Function.identity()));;
 	}
 
-	public List<Transaksi> getListTransaksi() {
-		return new ArrayList<>(dataTransaksi.values());
+	public List<Koleksi> getListKoleksi() {
+		return new ArrayList<>(dataKoleksi.values());
 	}
 
 	/**
@@ -96,6 +92,10 @@ public class DataPerpus {
 	public void setListTransaksi(List<Transaksi> listTransaksi) {
 		this.dataTransaksi =
 			(HashMap<String, Transaksi>) listTransaksi.stream().collect(Collectors.toMap(Transaksi::getId, Function.identity()));
+	}
+
+	public List<Transaksi> getListTransaksi() {
+		return new ArrayList<>(dataTransaksi.values());
 	}
 
 	/* Other Functions */
