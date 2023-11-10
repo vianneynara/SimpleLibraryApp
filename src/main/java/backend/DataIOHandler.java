@@ -5,7 +5,17 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Kelas ini digunakan untuk melakukan handling input output stream terkhusus untuk proyek ini. Metode ini berisi metode
+ * static yang dapat diakses untuk memudahkan handling. Kelas ini melakukan handling {@link HashMap} yang berisi
+ * {@link String} dan {@link Peminjam} | {@link Koleksi} | {@link Transaksi}. Selain melakukan penyimpanan ke bentuk
+ * stream (kemudian ke file), terdapat juga metode untuk mengecek serta membaca dari file yang menyimpan data perpustakaan.
+ *
+ * */
 public class DataIOHandler {
+	/**
+	 * Alamat penyimpanan dari project source, digunakan untuk memberikan tambahan lokasi tempat menyimpan data.
+	 * */
 	private static final String DB_DIRECTORY = "src/main/database/";
 	/**
 	 * Menyimpan dan melakukan overwrite data peminjam ke data_peminjam.dat .
@@ -110,7 +120,8 @@ public class DataIOHandler {
 	}
 	
 	/**
-	 * Memastikan bahwa file yang tertera sungguh ada dan terbuat.
+	 * Memastikan bahwa file yang tertera sungguh ada dan terbuat. Jika sebuah file tidak ada, maka langsung dibuat.
+	 * @return true if file exists, or was successfully made when non-existent. False if there's an error
 	 * */
 	private static boolean ensuredExists(String filePath) {
 		try {
