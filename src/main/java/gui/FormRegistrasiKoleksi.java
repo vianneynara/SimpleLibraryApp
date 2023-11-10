@@ -714,25 +714,6 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }
 
     /**
-     * Membuat id random dengan prefix dan format yang ditentukan.
-     * */
-    public static String generateId(String prefix, int numDigits) {
-        if (numDigits < 0) {
-            throw new IllegalArgumentException("Number of digits should be non-negative.");
-        }
-
-        StringBuilder idBuilder = new StringBuilder(prefix);
-        Random random = new Random();
-
-        for (int i = 0; i < numDigits; i++) {
-            int digit = random.nextInt(10);
-            idBuilder.append(digit);
-        }
-
-        return idBuilder.toString();
-    }
-
-    /**
      * Menyetel seluruh fields spesial dalam formulir registrasi koleksi ke mati (disabled).
      */
     private void disableInputFields() {
