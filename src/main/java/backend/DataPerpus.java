@@ -178,7 +178,6 @@ public class DataPerpus {
 				throw new IllegalArgumentException("Tipe tidak sesuai dengan seluruh kemungkinan yang ada!");
 		}
 
-        Random random = new Random();
 		StringBuilder generatedId;
 		do {
 			generatedId = generateId(prefix, 5);
