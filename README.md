@@ -36,11 +36,28 @@ provide 1080p screen size. This application explicitly built adapting to the sit
 
 ### User Interface
 
-1. **Main application window** <br>
-    The main application window contains menu panel, menubars, and form container.
+1. **Login Page** <br>
+    This page contains the login form for the user to login to the application.
     <div style="text-align: center;"> 
-        <img src="images/main-window.png" alt="main window">
-        <img src="images/main-window-2.png" alt="main window">
+        <img src="images/login-page.png" alt="login page">
+    </div>
+   
+2. **Main window/customer registration** <br>
+    This window contains the customer registration form.
+    <div style="text-align: center;"> 
+        <img src="images/registrasi-peminjam.png" alt="customer registration">
+    </div>
+   
+3. **Main window/collection registration** <br>
+    This window contains the collection registration form.
+    <div style="text-align: center;"> 
+        <img src="images/registrasi-koleksi.png" alt="collection registration">
+    </div>
+
+4. **Transaction/loan** <br>
+    This frame contains the transaction form to manage item loans.
+    <div style="text-align: center;"> 
+        <img src="images/transaksi-pinjam.png" alt="loan transaction window">
     </div>
 
 ### How We Separate Forms
