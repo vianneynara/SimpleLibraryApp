@@ -145,7 +145,7 @@ public class DataPerpus {
     /**
      * Membuat id random dengan prefix dan format yang ditentukan.
      * */
-    public static StringBuilder generateId(String prefix, int numDigits) {
+    public static synchronized StringBuilder generateId(String prefix, int numDigits) {
         if (numDigits < 0) {
             throw new IllegalArgumentException("Number of digits should be non-negative.");
         }
