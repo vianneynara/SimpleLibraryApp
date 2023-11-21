@@ -60,8 +60,8 @@ public class App extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
-		fillPeminjam();
-		fillKoleksi();
+//		fillPeminjam();
+//		fillKoleksi();
         initForms(); // TODO: Hapus filler
 
 		/* Menyimpan format CardLayout untuk berpindah card panel */
@@ -69,7 +69,7 @@ public class App extends javax.swing.JFrame {
 	}
 
 	protected void fillPeminjam() {
-		if (!DataIOHandler.fileDataPeminjamExists()) {
+		if (DatabaseHandler.canConnectToDatabase()) {
 			System.out.println("Filling list of customers with test data...");
 			dataPerpus.isiDataPeminjam(new Dosen("D00001", "Dosen1", "NIP", "Paingan Yogyakarta", "012345678911", 3, "123456781234567801"));
 			dataPerpus.isiDataPeminjam(new Dosen("D00002", "Dosen2", "NIP", "Depok Yogyakarta", "012345678912", 1, "123456781234567802"));
@@ -83,7 +83,7 @@ public class App extends javax.swing.JFrame {
 	}
 
 	protected void fillKoleksi() {
-		if (!DataIOHandler.fileDataKoleksiExists()) {
+		if (DatabaseHandler.canConnectToDatabase()) {
 			System.out.println("Filling list of koleksi with test data...");
 			dataPerpus.isiDataKoleksi(new Buku("B00001", "Buku", "CORP", "1950", "1234567890001", 3));
 			dataPerpus.isiDataKoleksi(new Majalah("M00002", "Majalah", "INC", "1945", "1234567890002", 1, 2));
