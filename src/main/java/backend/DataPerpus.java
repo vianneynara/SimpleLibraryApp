@@ -1,5 +1,6 @@
 package backend;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,15 +21,22 @@ public class DataPerpus {
 
 	/* Konstruktor utama */
 	public DataPerpus() {
-		this.dataPeminjam = (DataIOHandler.fileDataPeminjamExists() ? 
-			DataIOHandler.readDataPeminjam() : 
-			new HashMap<>());
-		this.dataKoleksi = (DataIOHandler.fileDataKoleksiExists() ? 
-			DataIOHandler.readDataKoleksi() :
-			new HashMap<>());
-		this.dataTransaksi = (DataIOHandler.fileDataTransaksiExists() ?
-			DataIOHandler.readDataTransaksi() :
-			new HashMap<>());
+		this.dataPeminjam = DatabaseHandler.readDataPeminjam();
+//		this.dataKoleksi = (DataIOHandler.fileDataKoleksiExists() ?
+//			DataIOHandler.readDataKoleksi() :
+//			new HashMap<>());
+//		this.dataTransaksi = (DataIOHandler.fileDataTransaksiExists() ?
+//			DataIOHandler.readDataTransaksi() :
+//			new HashMap<>());
+	}
+
+	public boolean ensureDBConnection() {
+		try {
+			DatabaseHandler.getConnection();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
 	/* Getters / Setters */
@@ -64,7 +72,7 @@ public class DataPerpus {
 	public void setListPeminjam(List<Peminjam> listPeminjam) {
 		this.dataPeminjam =
 			(HashMap<String, Peminjam>)
-				listPeminjam.stream().collect(Collectors.toMap(Peminjam::getId, Function.identity()));
+				listPeminjam.stream().collect(Collectors.toMap(Peminjam::getIdPeminjam, Function.identity()));
 	}
 
 	public List<Peminjam> getListPeminjam() {
@@ -78,7 +86,7 @@ public class DataPerpus {
 	public void setListKoleksi(List<Koleksi> listKoleksi) {
 		this.dataKoleksi =
 			(HashMap<String, Koleksi>)
-				listKoleksi.stream().collect(Collectors.toMap(Koleksi::getId, Function.identity()));;
+				listKoleksi.stream().collect(Collectors.toMap(Koleksi::getIdKoleksi, Function.identity()));;
 	}
 
 	public List<Koleksi> getListKoleksi() {
@@ -92,7 +100,7 @@ public class DataPerpus {
 	public void setListTransaksi(List<Transaksi> listTransaksi) {
 		this.dataTransaksi =
 			(HashMap<String, Transaksi>)
-				listTransaksi.stream().collect(Collectors.toMap(Transaksi::getId, Function.identity()));
+				listTransaksi.stream().collect(Collectors.toMap(Transaksi::getIdTransaksi, Function.identity()));
 	}
 
 	public List<Transaksi> getListTransaksi() {
@@ -106,9 +114,9 @@ public class DataPerpus {
 	 * */
 	public void isiDataPeminjam(Peminjam data) {
 		try {
-			dataPeminjam.put(data.getId(), data);
-			DataIOHandler.saveDataPeminjam(dataPeminjam);
-			SimpleUtil.log("Inserted a new Peminjam with id: " + data.getId());
+			dataPeminjam.put(data.getIdPeminjam(), data);
+			DatabaseHandler.insertDataPeminjam(data);
+			SimpleUtil.log("Inserted a new Peminjam with id: " + data.getIdPeminjam());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
@@ -119,9 +127,9 @@ public class DataPerpus {
 	 * */
 	public void isiDataKoleksi(Koleksi data) {
 		try {
-			dataKoleksi.put(data.getId(), data);
-			DataIOHandler.saveDataKoleksi(dataKoleksi);
-			SimpleUtil.log("Inserted a new Koleksi with id: " + data.getId());
+			dataKoleksi.put(data.getIdKoleksi(), data);
+//			DataIOHandler.saveDataKoleksi(dataKoleksi);
+			SimpleUtil.log("Inserted a new Koleksi with id: " + data.getIdKoleksi());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
@@ -132,9 +140,9 @@ public class DataPerpus {
 	 * */
 	public void isiDataTransaksi(Transaksi data) {
 		try {
-			dataTransaksi.put(data.getId(), data);
-			DataIOHandler.saveDataTransaksi(dataTransaksi);
-			SimpleUtil.log("Inserted a new Transaksi with id: " + data.getId());
+			dataTransaksi.put(data.getIdTransaksi(), data);
+//			DataIOHandler.saveDataTransaksi(dataTransaksi);
+			SimpleUtil.log("Inserted a new Transaksi with id: " + data.getIdTransaksi());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
