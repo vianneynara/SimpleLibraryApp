@@ -28,6 +28,9 @@ public class DataPerpus {
 //		this.dataTransaksi = (DataIOHandler.fileDataTransaksiExists() ?
 //			DataIOHandler.readDataTransaksi() :
 //			new HashMap<>());
+
+		this.dataKoleksi = new HashMap<>();
+		this.dataTransaksi = new HashMap<>();
 	}
 
 	public boolean ensureDBConnection() {
