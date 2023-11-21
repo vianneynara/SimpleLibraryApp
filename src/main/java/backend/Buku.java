@@ -6,8 +6,8 @@ public class Buku extends Koleksi {
     private int jumlahHalaman;
 
     /* constructor untuk memuat seluruh atribut kelas*/
-    public Buku(String id, String judul, String penerbit, String tahunTerbit, String isbn, int jumlahHalaman) {
-        super(id, judul, penerbit, tahunTerbit);
+    public Buku(String idKoleksi, String judul, String penerbit, String tahunTerbit, String isbn, int jumlahHalaman) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, false, "BUKU");
         this.isbn = isbn;
         this.jumlahHalaman = jumlahHalaman;
     }

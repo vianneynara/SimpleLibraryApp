@@ -7,8 +7,8 @@ public class Majalah extends Koleksi {
     private int seri;
 
     /* constructor untuk memuat seluruh atribut kelas*/
-    public Majalah(String id, String judul, String penerbit, String tahunTerbit, String issn, int volume, int seri) {
-        super(id, judul, penerbit, tahunTerbit);
+    public Majalah(String idKoleksi, String judul, String penerbit, String tahunTerbit, String issn, int volume, int seri) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, false, "MAJALAH");
         this.issn = issn;
         this.volume = volume;
         this.seri = seri;

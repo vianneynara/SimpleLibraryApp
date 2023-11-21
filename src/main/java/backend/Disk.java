@@ -6,8 +6,8 @@ public class Disk extends Koleksi {
     private String format;
 
     /* constructor untuk setiap atribut kelas */
-    public Disk(String id, String judul, String penerbit, String tahunTerbit, String isbn, String format) {
-        super(id, judul, penerbit, tahunTerbit);
+    public Disk(String idKoleksi, String judul, String penerbit, String tahunTerbit, String isbn, String format) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, false, "DISK");
         this.isbn = isbn;
         /* mengecek format */
         this.format = switch (format) {
