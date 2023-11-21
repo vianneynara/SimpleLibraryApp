@@ -2,6 +2,7 @@ package backend;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.List;
 
 public class DatabaseHandler {
 	/* Database Accessor Credentials */
@@ -19,9 +20,9 @@ public class DatabaseHandler {
 	}
 
 	/**
-	 * Metode yang mengembalikan status boolean koneksi dengan database.
+	 * Metode yang mengembalikan status boolean apakah bisa terkoneksi dengan database.
 	 * */
-	public static boolean isConnectedToDatabase() {
+	public static boolean canConnectToDatabase() {
 		try {
 			getConnection();
 			return true;
@@ -32,7 +33,6 @@ public class DatabaseHandler {
 
 	/**
 	 * Membaca keseluruhan isi dari tabel Peminjam dan mengembalikkannya dalam bentuk hash map.
-	 *
 	 * @return {@link HashMap} berisi data peminjam dengan id_peminjam sebagai key dan objek {@link Peminjam}
 	 * sebagai value.
 	 */
@@ -40,7 +40,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Peminjam> dataPeminjam = new HashMap<>();
 			String query =
-				"SELECT id_peminjam, nama_lengkap, jenis_np_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas FROM Peminjam";
+				"SELECT id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas FROM \"Peminjam\"";
 
 			try (PreparedStatement ps = conn.prepareStatement(query);
 				 ResultSet rs = ps.executeQuery()) {
@@ -48,7 +48,7 @@ public class DatabaseHandler {
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
 					String id_peminjam 		= rs.getString("id_peminjam");
 					String nama_lengkap 	= rs.getString("nama_lengkap");
-					String jenis_no_id 		= rs.getString("jenis_np_id").toUpperCase();
+					String jenis_no_id 		= rs.getString("jenis_no_id").toUpperCase();
 					String alamat 			= rs.getString("alamat");
 					String nomor_telepon 	= rs.getString("nomor_telepon");
 					int maks_pinjam 		= rs.getInt("maks_pinjam");
@@ -80,7 +80,7 @@ public class DatabaseHandler {
 	public static void insertDataPeminjam(Peminjam data) {
 		String query =
 			"INSERT INTO " +
-				"Peminjam (id_peminjam, nama_lengkap, jenis_np_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas) " +
+				"\"Peminjam\" (id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas) " +
 				"VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try (Connection conn = getConnection();
 			 PreparedStatement ps = conn.prepareStatement(query)) {
@@ -104,5 +104,18 @@ public class DatabaseHandler {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static void printTest() {
+		HashMap<String, Peminjam> dataPeminjam = readDataPeminjam();
+		var arr = List.copyOf(dataPeminjam.values());
+
+		for (Peminjam p : arr) {
+			System.out.println(p);
+		}
+	}
+
+	public static void main(String[] args) {
+		printTest();
 	}
 }
