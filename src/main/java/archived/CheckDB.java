@@ -59,7 +59,7 @@ public class CheckDB {
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
 					String id_peminjam = rs.getString("id_peminjam");
 					String nama_lengkap = rs.getString("nama_lengkap");
-					String jenis_no_id = rs.getString("jenis_np_id").toUpperCase();
+					String jenis_no_id = rs.getString("jenis_no_id").toUpperCase();
 					String alamat = rs.getString("alamat");
 					String nomor_telepon = rs.getString("nomor_telepon");
 					int maks_pinjam = rs.getInt("maks_pinjam");
