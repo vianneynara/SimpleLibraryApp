@@ -572,7 +572,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         String[] columns = {"id", "nama lengkap", "maks pinjam", "nomor telepon", "alamat", "nomor identitas"};
         for (int i = 0; i < listPeminjam.size(); i++) {
             final var currentRow = listPeminjam.get(i);
-            data[i][0] = currentRow.getId();
+            data[i][0] = currentRow.getIdPeminjam();
             data[i][1] = currentRow.getNama();
             data[i][2] = currentRow.getMaksPinjam();
             data[i][3] = currentRow.getNoTelp();
@@ -621,7 +621,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
 
             disableInputFields();
             b_simpanRegPeminjam.setEnabled(false);
-            i_identifier.setText(peminjam.getId());
+            i_identifier.setText(peminjam.getIdPeminjam());
         }
     }
 

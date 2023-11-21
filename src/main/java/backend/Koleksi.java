@@ -5,15 +5,15 @@ import java.io.Serializable;
 /** Kelas abstrak yang mengimplementasi koleksi sebagai penyimpan atribut-atribut utama Koleksi. */
 public abstract class Koleksi implements Serializable {
     /* class attributes */
-    protected String id;
+    protected String idKoleksi;
     protected String judul;
     protected String penerbit;
     protected String tahunTerbit;
     protected boolean statusPinjam;
 
     /* constructor for each class attribute */
-    protected Koleksi(String id, String judul, String penerbit, String tahunTerbit) {
-        this.id = id;
+    protected Koleksi(String idKoleksi, String judul, String penerbit, String tahunTerbit) {
+        this.idKoleksi = idKoleksi;
         this.judul = judul;
         this.penerbit = penerbit;
         this.tahunTerbit = tahunTerbit;
@@ -22,12 +22,12 @@ public abstract class Koleksi implements Serializable {
 
     /* getters and setters */
 
-    public String getId() {
-        return id;
+    public String getIdKoleksi() {
+        return idKoleksi;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdKoleksi(String idKoleksi) {
+        this.idKoleksi = idKoleksi;
     }
 
     public String getJudul() {
@@ -65,7 +65,7 @@ public abstract class Koleksi implements Serializable {
     @Override
     public String toString() {
         return "Koleksi{" +
-            "id='" + id + '\'' +
+            "idKoleksi='" + idKoleksi + '\'' +
             ", judul='" + judul + '\'' +
             ", penerbit='" + penerbit + '\'' +
             ", tahunTerbit='" + tahunTerbit + '\'' +

@@ -7,15 +7,15 @@ import java.io.Serializable;
  * */
 public abstract class Peminjam implements Serializable {
 	/* class attributes */
-	protected String id;
+	protected String idPeminjam;
 	protected String nama;
 	protected String jenisNoId;
 	protected String alamat;
 	protected String noTelp;
 	protected int maksPinjam;
 
-	public Peminjam(String id, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
-		this.id = id;
+	public Peminjam(String idPeminjam, String nama, String jenisNoId, String alamat, String noTelp, int maksPinjam) {
+		this.idPeminjam = idPeminjam;
 		this.nama = nama;
 		this.jenisNoId = jenisNoId;
 		this.alamat = alamat;
@@ -25,12 +25,12 @@ public abstract class Peminjam implements Serializable {
 
 	// Getters setters
 
-	public String getId() {
-		return id;
+	public String getIdPeminjam() {
+		return idPeminjam;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setIdPeminjam(String idPeminjam) {
+		this.idPeminjam = idPeminjam;
 	}
 
 	public String getNama() {
@@ -76,7 +76,7 @@ public abstract class Peminjam implements Serializable {
 	@Override
 	public String toString() {
 		return "Peminjam{" +
-			"id='" + id + '\'' +
+			"idPeminjam='" + idPeminjam + '\'' +
 			", nama='" + nama + '\'' +
 			", jenisNoId='" + jenisNoId + '\'' +
 			", alamat='" + alamat + '\'' +

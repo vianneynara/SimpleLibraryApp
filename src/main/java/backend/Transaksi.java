@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Transaksi implements Serializable {
     /* atribut kelas */
-    private String id;
+    private String idTransaksi;
     private Peminjam peminjam;
     private Date tglPinjam;
     private Date tglKembali;
@@ -13,8 +13,8 @@ public class Transaksi implements Serializable {
     private Koleksi[] koleksi;
 
     /* constructor utama */
-    public Transaksi(String id, Peminjam peminjam, Date tglPinjam, Date tglKembali, float denda, Koleksi[] koleksi) {
-        this.id = id;
+    public Transaksi(String idTransaksi, Peminjam peminjam, Date tglPinjam, Date tglKembali, float denda, Koleksi[] koleksi) {
+        this.idTransaksi = idTransaksi;
         this.peminjam = peminjam;
         this.tglPinjam = tglPinjam;
         this.tglKembali = tglKembali;
@@ -24,12 +24,12 @@ public class Transaksi implements Serializable {
 
     /* metode kosong */
 
-    public String getId() {
-        return id;
+    public String getIdTransaksi() {
+        return idTransaksi;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdTransaksi(String idTransaksi) {
+        this.idTransaksi = idTransaksi;
     }
 
     public Peminjam getPeminjam() {

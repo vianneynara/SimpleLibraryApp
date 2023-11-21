@@ -688,7 +688,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         String[] columns = {"id", "tipe", "judul", "penerbit", "tahun terbit", "isbn/issn"};
         for (int i = 0; i < listKoleksi.size(); i++) {
             final var currentRow = listKoleksi.get(i);
-            data[i][0] = currentRow.getId();
+            data[i][0] = currentRow.getIdKoleksi();
             data[i][1] =
                 (currentRow instanceof Buku) ? "Buku" :
                     (currentRow instanceof Majalah) ? "Majalah" :
@@ -815,7 +815,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
             
             disableInputFields();
             b_simpanRegKoleksi.setEnabled(false);
-            i_identifier.setText(koleksi.getId());
+            i_identifier.setText(koleksi.getIdKoleksi());
         }
     }
 
