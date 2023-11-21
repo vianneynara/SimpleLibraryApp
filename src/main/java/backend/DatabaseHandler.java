@@ -40,11 +40,16 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Peminjam> dataPeminjam = new HashMap<>();
 			String query =
+				/* Memilih kolom atribut yang tertera dari tabel "Peminjam" */
 				"SELECT id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas FROM \"Peminjam\"";
 
+			// Try with resource disini beguna untuk menyiapkan query statement yang akan dijalankan menggunakan
+			// Prepared Statement. Disiapkan dengan koneksi yang sudah terhubung `conn`, dengan query yang sebelumnya
+			// sudah ditulis.
+			// Result Set adalah hasil pengembalian dari ekseksui prepared statement sebelumnya.
 			try (PreparedStatement ps = conn.prepareStatement(query);
 				 ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {
+				while (rs.next()) {							// Selama masih ada nilai untuk setelahnya
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
 					String id_peminjam 		= rs.getString("id_peminjam");
 					String nama_lengkap 	= rs.getString("nama_lengkap");
@@ -64,7 +69,7 @@ public class DatabaseHandler {
 						peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
 					}
 
-					dataPeminjam.put(id_peminjam, peminjam);    // Memasukkan id_peminjam dan objek peminjam ke hash Map
+					dataPeminjam.put(id_peminjam, peminjam);// Memasukkan id_peminjam dan objek peminjam ke hash Map
 				}
 			}
 			return dataPeminjam;
@@ -79,12 +84,13 @@ public class DatabaseHandler {
 	 * */
 	public static void insertDataPeminjam(Peminjam data) {
 		String query =
+			/* Memasukkan ke dalam Peminjam pada kolom (yang tertera) dengan values (sesuai dengan jumlah kolom)*/
 			"INSERT INTO " +
 				"\"Peminjam\" (id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas) " +
 				"VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try (Connection conn = getConnection();
 			 PreparedStatement ps = conn.prepareStatement(query)) {
-			/* Melakukan pengisian prepared statement dengan data yang relevan */
+			/* Melakukan pengisian template prepared statement dengan data yang relevan */
 			ps.setString(1, data.getIdPeminjam());
 			ps.setString(2, data.getNama());
 			ps.setString(3, data.getJenisNoId());
