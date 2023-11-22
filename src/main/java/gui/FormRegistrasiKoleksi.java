@@ -763,10 +763,12 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         i_tahunTerbit.setEnabled(true);
         i_jenisDisk.setEnabled(true);
         i_jmlHalaman.setEnabled(true);
+        i_tahunTerbit.setEnabled(true);
         i_jmlHalaman.setValue(1);
         i_volume.setValue(1);
         i_seri.setValue(1);
         i_format.setSelectedIndex(0);
+        i_tahunTerbit.setText("");
 
         /* Melakukan reset warna background tiap field menjadi putih */
         for (TextField c : new TextField[] {i_judulKoleksi, i_penerbit, i_isbnIssn}) {
