@@ -22,14 +22,7 @@ public class DataPerpus {
 	/* Konstruktor utama */
 	public DataPerpus() {
 		this.dataPeminjam = DatabaseHandler.readDataPeminjam();
-//		this.dataKoleksi = (DataIOHandler.fileDataKoleksiExists() ?
-//			DataIOHandler.readDataKoleksi() :
-//			new HashMap<>());
-//		this.dataTransaksi = (DataIOHandler.fileDataTransaksiExists() ?
-//			DataIOHandler.readDataTransaksi() :
-//			new HashMap<>());
-
-		this.dataKoleksi = new HashMap<>();
+		this.dataKoleksi = DatabaseHandler.readDataKoleksi();
 		this.dataTransaksi = new HashMap<>();
 	}
 
@@ -131,7 +124,7 @@ public class DataPerpus {
 	public void isiDataKoleksi(Koleksi data) {
 		try {
 			dataKoleksi.put(data.getIdKoleksi(), data);
-//			DataIOHandler.saveDataKoleksi(dataKoleksi);
+			DatabaseHandler.inserDataKoleksi(data);
 			SimpleUtil.log("Inserted a new Koleksi with id: " + data.getIdKoleksi());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
