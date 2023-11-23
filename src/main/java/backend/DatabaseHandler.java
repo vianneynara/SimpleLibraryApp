@@ -16,6 +16,11 @@ public class DatabaseHandler {
 	 * @throws SQLException error ?
 	 */
 	public static Connection getConnection() throws SQLException {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 		return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
 	}
 
