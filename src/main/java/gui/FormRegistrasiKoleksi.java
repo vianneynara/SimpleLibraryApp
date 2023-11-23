@@ -589,18 +589,8 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
         final String noIdKoleksi = generateKoleksiId(tipeKoleksi, dataPerpus.getDataKoleksi());
         dataPerpus.isiDataKoleksi(
-            buatKoleksi(
-                noIdKoleksi,
-                judul,
-                penerbit,
-                String.valueOf(LocalDate.now().getYear()),
-                isbnIssn,
-                tipeKoleksi,
-                jmlHalaman,
-                volume,
-                seri,
-                format
-            )
+            buatKoleksi(noIdKoleksi, judul, penerbit, String.valueOf(LocalDate.now().getYear()),
+                isbnIssn, tipeKoleksi, jmlHalaman, volume, seri, format)
         );
 
         final String finalTipeKoleksi = tipeKoleksi;

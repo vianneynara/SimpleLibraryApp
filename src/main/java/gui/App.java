@@ -78,7 +78,7 @@ public class App extends javax.swing.JFrame {
 			dataPerpus.isiDataPeminjam(new Mahasiswa("M00002", "Mahasiswa2", "NIM", "Bekasi Something", "012345678922", 5, "225314002"));
 			dataPerpus.isiDataPeminjam(new Umum("U00001", "Umum1", "NIK", "Kaliurang Something", "012345678930", 5, "2253140021234567"));
 		} else {
-			System.out.println("Data peminjam exists!");
+			System.out.println("Can't connect to database!");
 		}
 	}
 
@@ -88,7 +88,7 @@ public class App extends javax.swing.JFrame {
 			dataPerpus.isiDataKoleksi(new Buku("B00001", "Buku", "CORP", "1950", "1234567890001", 3));
 			dataPerpus.isiDataKoleksi(new Majalah("M00002", "Majalah", "INC", "1945", "1234567890002", 1, 2));
 		} else {
-			System.out.println("Data koleksi exists!");
+			System.out.println("Can't connect to database!");
 		}
 	}
 

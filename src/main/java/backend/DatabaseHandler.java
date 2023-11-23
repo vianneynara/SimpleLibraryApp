@@ -39,7 +39,7 @@ public class DatabaseHandler {
 	public static HashMap<String, Peminjam> readDataPeminjam() {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Peminjam> dataPeminjam = new HashMap<>();
-			/* Memilih kolom atribut yang tertera dari tabel "Peminjam" */
+			/* Memilih seluruh kolom/atribut yang tertera dari tabel "Peminjam" */
 			String query = "SELECT * FROM \"Peminjam\"";
 
 			// Try with resource disini beguna untuk menyiapkan query statement yang akan dijalankan menggunakan
@@ -85,7 +85,7 @@ public class DatabaseHandler {
 	public static HashMap<String, Koleksi> readDataKoleksi() {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Koleksi> dataKoleksi = new HashMap<>();
-			/* Memilih kolom atribut yang tertera dari tabel "Peminjam" */
+			/* Memilih seluruh kolom/atribut yang tertera dari tabel "Koleksi" */
 			String query = "SELECT * FROM \"Koleksi\"";
 
 			try (PreparedStatement ps = conn.prepareStatement(query);
