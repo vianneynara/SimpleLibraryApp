@@ -1,6 +1,8 @@
 package backend;
 
+import javax.print.DocFlavor;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,12 +38,14 @@ public class DatabaseHandler {
 		}
 	}
 
+	/* Read all records from database */
+
 	/**
-	 * Membaca keseluruhan isi dari tabel Peminjam dan mengembalikkannya dalam bentuk hash map.
+	 * Membaca keseluruhan isi dari tabel Peminjam dan mengembalikannya dalam bentuk hash map.
 	 * @return {@link HashMap} berisi data peminjam dengan id_peminjam sebagai key dan objek {@link Peminjam}
 	 * sebagai value.
 	 */
-	public static HashMap<String, Peminjam> readDataPeminjam() {
+	public static HashMap<String, Peminjam> readAllDataPeminjam() {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Peminjam> dataPeminjam = new HashMap<>();
 			/* Memilih seluruh kolom/atribut yang tertera dari tabel "Peminjam" */
@@ -83,11 +87,11 @@ public class DatabaseHandler {
 	}
 
 	/**
-	 * Membaca keseluruhan isi dari tabel Koleksi dan mengembalikkannya dalam bentuk hash map.
+	 * Membaca keseluruhan isi dari tabel Koleksi dan mengembalikannya dalam bentuk hash map.
 	 * @return {@link HashMap} berisi data koleksi dengan id_koleksi sebagai key dan objek {@link Koleksi}
 	 * sebagai value.
 	 */
-	public static HashMap<String, Koleksi> readDataKoleksi() {
+	public static HashMap<String, Koleksi> readAllDataKoleksi() {
 		try (Connection conn = getConnection()) {
 			HashMap<String, Koleksi> dataKoleksi = new HashMap<>();
 			/* Memilih seluruh kolom/atribut yang tertera dari tabel "Koleksi" */
@@ -129,6 +133,58 @@ public class DatabaseHandler {
 			throw new RuntimeException(e);
 		}
 	}
+
+	/**
+	 * Membaca keseluruhan isi dari tabel Transaksi dan mengembalikannya dalam bentuk hash map.
+	 * @return {@link HashMap} berisi data koleksi dengan id_transaksi sebagai key dan objek {@link Transaksi}
+	 * sebagai value.
+	 */
+	public static HashMap<String, Transaksi> readAllDataTransaksi() {
+		try (Connection conn = getConnection()) {
+			HashMap<String, Transaksi> dataTransaksi = new HashMap<>();
+			/* Memilih seluruh kolom/atribut yang tertera dari tabel "Koleksi" */
+			String query = "SELECT * FROM \"Transaksi\"";
+
+			try (PreparedStatement ps = conn.prepareStatement(query);
+				 ResultSet rs = ps.executeQuery()) {
+				while (rs.next()) {							// Selama masih ada nilai untuk setelahnya
+					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+					String id_transaksi 	= rs.getString("id_transaksi");
+					String id_peminjam 		= rs.getString("id_peminjam");
+					Date tanggal_pinjam 	= rs.getDate("tanggal_pinjam");
+					Date tanggal_kembali	= rs.getDate("tanggal_kembali");
+					float denda 			= rs.getFloat("denda");
+					String koleksi			= rs.getString("koleksi");
+
+					String[] listedKoleksi 	= koleksi.split(",");
+					List<Koleksi> arrKoleksi = new ArrayList<>();
+					for (String s : listedKoleksi) {
+						var result = findKoleksi(s);
+						if (result != null) {
+							arrKoleksi.add(result);
+						}
+					}
+					// TODO: SELECT * FROM "Koleksi" WHERE id_koleksi IN (koleksi.split(","))
+
+					Transaksi transaksi = new Transaksi(
+						id_transaksi,
+						findPeminjam(id_peminjam),
+						tanggal_pinjam,
+						tanggal_kembali,
+						denda,
+						arrKoleksi.toArray(new Koleksi[0])
+					);
+					/* Membuat objek inheritor Peminjam sesuai dengan tipe */
+					dataTransaksi.put(id_transaksi, transaksi);// Memasukkan id_koleksi dan objek peminjam ke hash map
+				}
+			}
+			return dataTransaksi;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/* Insert a record */
 
 	/**
 	 * Memasukkan data bertipe {@link Peminjam} dan memasukkan atribut-atribut objeknya menjadi atribut record dalam
@@ -208,8 +264,128 @@ public class DatabaseHandler {
 		}
 	}
 
+	/**
+	 * Memasukkan data bertipe {@link Transaksi} dan memasukkan atribut-atribut objeknya menjadi atribut record dalam
+	 * database.
+	 * */
+	public static void insertDataTransaksi(Transaksi data) {
+		String query =
+			/* Memasukkan ke dalam Peminjam pada kolom (yang tertera) dengan values (sesuai dengan jumlah kolom)*/
+			"INSERT INTO " +
+				"\"Transaksi\" (id_transaksi, id_peminjam, tanggal_pinjam, tanggal_kembali, denda, koleksi) " +
+				"VALUES (?, ?, ?, ?, ?, ?)";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
+			/* Melakukan pengisian template prepared statement dengan data yang relevan */
+			ps.setString(1, data.getIdTransaksi());
+			ps.setString(2, data.getPeminjam().getIdPeminjam());
+			ps.setDate(3, new java.sql.Date(data.getTglPinjam().getTime()));
+			ps.setDate(4, new java.sql.Date(data.getTglKembali().getTime()));
+			ps.setFloat(5, 0F);
+
+			/* Mengubah list koleksi menjadi list id koleksi yang dipinjam dipisah dengan koma */
+			StringBuilder strListKoleksi = new StringBuilder();
+			for (int i = 0; i < data.getKoleksi().length; i++) {
+				strListKoleksi.append(data.getKoleksi()[i].getIdKoleksi());
+				if (i != data.getKoleksi().length - 1) {
+					strListKoleksi.append(",");
+				}
+			}
+			ps.setString(6, strListKoleksi.toString());
+
+			ps.executeUpdate();									// Melakukan update menggunakan prepared statement
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/* Read / search by id records from database */
+
+	/**
+	 * Mencari data peminjam sesuai dengan id peminjam dari database.
+	 * */
+	public static Peminjam findPeminjam(String idPeminjam) {
+		try (Connection conn = getConnection()) {
+			String query = "SELECT * FROM \"Transaksi\" WHERE id_peminjam = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, idPeminjam);
+
+			try (ResultSet rs = ps.executeQuery()) {
+//				rs.first();
+				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+				String id_peminjam 		= rs.getString("id_peminjam");
+				String nama_lengkap 	= rs.getString("nama_lengkap");
+				String jenis_no_id 		= rs.getString("jenis_no_id").toUpperCase();
+				String alamat 			= rs.getString("alamat");
+				String nomor_telepon 	= rs.getString("nomor_telepon");
+				int maks_pinjam 		= rs.getInt("maks_pinjam");
+				String nomor_identitas 	= rs.getString("nomor_identitas");
+
+				Peminjam peminjam;
+				/* Membuat objek inheritor Peminjam sesuai dengan jenis_no_id */
+				if (jenis_no_id.equalsIgnoreCase("NIM")) {
+					peminjam = new Mahasiswa(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				} else if (jenis_no_id.equalsIgnoreCase("NIP")) {
+					peminjam = new Dosen(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				} else {
+					peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				}
+				return peminjam;
+			} catch (Exception e) {
+				return null;
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Mencari data koleksi sesuai dengan id koleksi dari database.
+	 * */
+	public static Koleksi findKoleksi(String idKoleksi) {
+		try (Connection conn = getConnection()) {
+			String query = "SELECT * FROM \"Transaksi\" WHERE id_koleksi = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, idKoleksi);
+
+			try (ResultSet rs = ps.executeQuery()) {
+//				rs.first();
+				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+				String id_koleksi 		= rs.getString("id_koleksi");
+				String judul 			= rs.getString("judul");
+				String penerbit 		= rs.getString("penerbit");
+				String tahunTerbit		= rs.getString("tahun_terbit");
+//					int status_pinjam  		= rs.getInt("status_pinjam");
+				String tipe 			= rs.getString("tipe");
+				String isbn_issn		= rs.getString("isbn_issn");
+
+				Koleksi koleksi;
+				/* Membuat objek inheritor Peminjam sesuai dengan tipe */
+				switch (tipe) {
+					case "BUKU" -> {
+						koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getInt("jumlah_halaman"));
+					}
+					case "MAJALAH" -> {
+						koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getInt("volume"), rs.getInt("seri"));
+					}
+					default -> {
+						koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getString("format"));
+					}
+				}
+				return koleksi;
+			} catch (Exception e) {
+				return null;
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public static void printTest() {
-		HashMap<String, Peminjam> dataPeminjam = readDataPeminjam();
+		HashMap<String, Peminjam> dataPeminjam = readAllDataPeminjam();
 		var arr = List.copyOf(dataPeminjam.values());
 
 		for (Peminjam p : arr) {
