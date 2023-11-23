@@ -493,14 +493,14 @@ public class FormTransaksi extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "title", "tipe", "included"
+                "id", "title", "tipe", "tersedia"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -702,7 +702,7 @@
                     <Column editable="false" title="id" type="java.lang.String"/>
                     <Column editable="false" title="title" type="java.lang.String"/>
                     <Column editable="false" title="tipe" type="java.lang.String"/>
-                    <Column editable="true" title="included" type="java.lang.Boolean"/>
+                    <Column editable="false" title="tersedia" type="java.lang.Boolean"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
