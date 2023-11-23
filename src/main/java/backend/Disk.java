@@ -11,9 +11,9 @@ public class Disk extends Koleksi {
         this.isbn = isbn;
         /* mengecek format */
         this.format = switch (format) {
-            case "audio" -> "audio";
-            case "tutorial" -> "tutorial";
-            default -> "multimedia";
+            case "Audio" -> "Audio";
+            case "Video" -> "Video";
+            default -> "Document";
         };
     }
 
