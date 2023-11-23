@@ -137,11 +137,32 @@ public class DataPerpus {
 	public void isiDataTransaksi(Transaksi data) {
 		try {
 			dataTransaksi.put(data.getIdTransaksi(), data);
-//			DataIOHandler.saveDataTransaksi(dataTransaksi);
+			DatabaseHandler.insertDataTransaksi(data);
 			SimpleUtil.log("Inserted a new Transaksi with id: " + data.getIdTransaksi());
 		} catch (Exception exception) {
 			Logger.getLogger(DataPerpus.class.getName()).log(Level.SEVERE, null, exception);
 		}
+	}
+
+	/**
+	 * Mencari data peminjam sesuai dengan id peminjam.
+	 * */
+	public Peminjam findPeminjam(String idPeminjam) {
+		return dataPeminjam.get(idPeminjam);
+	}
+
+	/**
+	 * Mencari data koleksi sesuai dengan id koleksi.
+	 * */
+	public Koleksi findKoleksi(String idKoleksi) {
+		return dataKoleksi.get(idKoleksi);
+	}
+
+	/**
+	 * Mencari data transaksi sesuai dengan id transaksi.
+	 * */
+	public Transaksi findTransaksi(String idTransaksi) {
+		return dataTransaksi.get(idTransaksi);
 	}
 
 	/* Id generators */
