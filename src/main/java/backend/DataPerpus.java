@@ -21,8 +21,8 @@ public class DataPerpus {
 
 	/* Konstruktor utama */
 	public DataPerpus() {
-		this.dataPeminjam = DatabaseHandler.readDataPeminjam();
-		this.dataKoleksi = DatabaseHandler.readDataKoleksi();
+		this.dataPeminjam = DatabaseHandler.readAllDataPeminjam();
+		this.dataKoleksi = DatabaseHandler.readAllDataKoleksi();
 		this.dataTransaksi = new HashMap<>();
 	}
 
