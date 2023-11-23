@@ -32,6 +32,7 @@ public class FormRegistrasiPeminjam extends javax.swing.JPanel {
         initComponents();
         this.parent = parent;
         this.dataPerpus = dataPerpus;
+        updateTable();
     }
 
     /**
