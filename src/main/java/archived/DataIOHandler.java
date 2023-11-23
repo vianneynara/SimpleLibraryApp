@@ -69,7 +69,7 @@ public class DataIOHandler {
 	 * @return HashMap HashMap berisi data transaksi
 	 * */
 	@SuppressWarnings("unchecked")
-	public static HashMap<String, Peminjam> readDataPeminjam() {
+	public static HashMap<String, Peminjam> readAllDataPeminjam() {
 		if (ensuredExists(DB_DIRECTORY + "data_peminjam.dat")) {
 			try (FileInputStream fout = new FileInputStream(DB_DIRECTORY + "data_peminjam.dat");
 				 ObjectInputStream in = new ObjectInputStream(fout)) {
@@ -88,7 +88,7 @@ public class DataIOHandler {
 	 * @return HashMap<String, Transaksi> HashMap berisi data koleksi
 	 * */
 	@SuppressWarnings("unchecked")
-	public static HashMap<String, Koleksi> readDataKoleksi() {
+	public static HashMap<String, Koleksi> readAllDataKoleksi() {
 		if (ensuredExists(DB_DIRECTORY + "data_koleksi.dat")) {
 			try (FileInputStream fout = new FileInputStream(DB_DIRECTORY + "data_koleksi.dat");
 				 ObjectInputStream in = new ObjectInputStream(fout)) {

@@ -33,7 +33,7 @@ public class CheckDB {
 	}
 
 	public static void printTest() {
-		HashMap<String, Peminjam> dataPeminjam = readDataPeminjam();
+		HashMap<String, Peminjam> dataPeminjam = readAllDataPeminjam();
 		var arr = List.copyOf(dataPeminjam.values());
 
 		for (Peminjam p : arr) {
@@ -47,7 +47,7 @@ public class CheckDB {
 	 * @return {@link HashMap} berisi data peminjam dengan id_peminjam sebagai key dan objek {@link Peminjam}
 	 * sebagai value.
 	 */
-	public static HashMap<String, Peminjam> readDataPeminjam() {
+	public static HashMap<String, Peminjam> readAllDataPeminjam() {
 		try (Connection conn = DatabaseHandler.getConnection()) {
 			HashMap<String, Peminjam> dataPeminjam = new HashMap<>();
 			String query =
