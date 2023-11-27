@@ -4,8 +4,13 @@ package gui;/*
  */
 
 import backend.DataPerpus;
+import backend.DatabaseHandler;
+import backend.Koleksi;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -13,10 +18,13 @@ import java.util.Objects;
  * @author narwa
  */
 public class FormTransaksi extends javax.swing.JFrame {
+
+    private final Color I_RED = new Color(0xFF5959);
 	/**
 	 * Atribut kelas ini menyimpan data dari data perpustakaan.
 	 * */
 	public DataPerpus dataPerpus;
+    private List<Koleksi> keranjangKoleksi = new ArrayList<>();
 
     /**
      * Creates new form FormTransaksi
@@ -49,37 +57,37 @@ public class FormTransaksi extends javax.swing.JFrame {
         i_judulKoleksi = new java.awt.TextField();
         i_kodeKoleksi = new java.awt.TextField();
         l_pencarianKoleksi = new javax.swing.JLabel();
-        i_judulKoleksi1 = new java.awt.TextField();
+        f_judulKoleksi = new java.awt.TextField();
         l_nama = new javax.swing.JLabel();
-        i_judulKoleksi2 = new java.awt.TextField();
-        l_nama1 = new javax.swing.JLabel();
-        l_nama2 = new javax.swing.JLabel();
-        i_judulKoleksi3 = new java.awt.TextField();
-        i_judulKoleksi4 = new java.awt.TextField();
-        l_nama3 = new javax.swing.JLabel();
+        f_penerbit = new java.awt.TextField();
+        l_penerbit = new javax.swing.JLabel();
+        l_isbnIssn = new javax.swing.JLabel();
+        f_isbnIssn = new java.awt.TextField();
+        f_tipeKoleksi = new java.awt.TextField();
+        l_tipeKoleksi = new javax.swing.JLabel();
         panel_PeminjamDeadline = new javax.swing.JPanel();
         l_pencarianPeminjam = new javax.swing.JLabel();
         b_cekPeminjam = new javax.swing.JButton();
         i_noIdentitasPeminjam = new java.awt.TextField();
         i_kodePeminjam = new java.awt.TextField();
         l_namaPeminjam = new javax.swing.JLabel();
-        i_namaPeminjam = new java.awt.TextField();
-        i_maksPinjam = new java.awt.TextField();
-        l_namaPeminjam1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        l_namaPeminjam2 = new javax.swing.JLabel();
-        i_namaPeminjam1 = new java.awt.TextField();
+        f_namaPeminjam = new java.awt.TextField();
+        f_maksPinjam = new java.awt.TextField();
+        l_lamaPinjam = new javax.swing.JLabel();
+        i_lamaPinjam = new javax.swing.JComboBox<>();
+        l_dari = new javax.swing.JLabel();
+        f_dari = new java.awt.TextField();
         b_kosongkanTransaksi = new javax.swing.JButton();
         b_konfirmasiTransaksi = new javax.swing.JButton();
         b_kembali = new javax.swing.JButton();
         panel_keranjangTable = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        scrollPane_tabelKeranjang = new javax.swing.JScrollPane();
+        tabelKeranjang = new javax.swing.JTable();
+        l_tabelKeranjang = new javax.swing.JLabel();
         panel_transaksiTable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        scrollPane_tabelTransaksi = new javax.swing.JScrollPane();
+        tabelTransaksi = new javax.swing.JTable();
+        l_tabelTransaksi = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(960, 540));
         setMinimumSize(new java.awt.Dimension(960, 540));
@@ -124,16 +132,16 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_pencarianKoleksi.setForeground(new java.awt.Color(0, 0, 0));
         l_pencarianKoleksi.setText("Pencarian Koleksi");
 
-        i_judulKoleksi1.setEnabled(false);
-        i_judulKoleksi1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_judulKoleksi1.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_judulKoleksi.setEnabled(false);
+        f_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_judulKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_judulKoleksi1FocusLost(evt);
+                f_judulKoleksiFocusLost(evt);
             }
         });
-        i_judulKoleksi1.addActionListener(new java.awt.event.ActionListener() {
+        f_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_judulKoleksi1ActionPerformed(evt);
+                f_judulKoleksiActionPerformed(evt);
             }
         });
 
@@ -145,68 +153,68 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_nama.setMaximumSize(new java.awt.Dimension(150, 25));
         l_nama.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_judulKoleksi2.setEnabled(false);
-        i_judulKoleksi2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_judulKoleksi2.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_penerbit.setEnabled(false);
+        f_penerbit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_penerbit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_judulKoleksi2FocusLost(evt);
+                f_penerbitFocusLost(evt);
             }
         });
-        i_judulKoleksi2.addActionListener(new java.awt.event.ActionListener() {
+        f_penerbit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_judulKoleksi2ActionPerformed(evt);
+                f_penerbitActionPerformed(evt);
             }
         });
 
-        l_nama1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        l_nama1.setForeground(new java.awt.Color(51, 51, 51));
-        l_nama1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_nama1.setText("Penerbit");
-        l_nama1.setToolTipText("");
-        l_nama1.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_nama1.setMinimumSize(new java.awt.Dimension(150, 25));
+        l_penerbit.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        l_penerbit.setForeground(new java.awt.Color(51, 51, 51));
+        l_penerbit.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_penerbit.setText("Penerbit");
+        l_penerbit.setToolTipText("");
+        l_penerbit.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_penerbit.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        l_nama2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        l_nama2.setForeground(new java.awt.Color(51, 51, 51));
-        l_nama2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_nama2.setText("ISSN/ISBN");
-        l_nama2.setToolTipText("");
-        l_nama2.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_nama2.setMinimumSize(new java.awt.Dimension(150, 25));
+        l_isbnIssn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        l_isbnIssn.setForeground(new java.awt.Color(51, 51, 51));
+        l_isbnIssn.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_isbnIssn.setText("ISSN/ISBN");
+        l_isbnIssn.setToolTipText("");
+        l_isbnIssn.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_isbnIssn.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_judulKoleksi3.setEnabled(false);
-        i_judulKoleksi3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_judulKoleksi3.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_isbnIssn.setEnabled(false);
+        f_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_isbnIssn.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_judulKoleksi3FocusLost(evt);
+                f_isbnIssnFocusLost(evt);
             }
         });
-        i_judulKoleksi3.addActionListener(new java.awt.event.ActionListener() {
+        f_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_judulKoleksi3ActionPerformed(evt);
+                f_isbnIssnActionPerformed(evt);
             }
         });
 
-        i_judulKoleksi4.setEnabled(false);
-        i_judulKoleksi4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_judulKoleksi4.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_tipeKoleksi.setEnabled(false);
+        f_tipeKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_tipeKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_judulKoleksi4FocusLost(evt);
+                f_tipeKoleksiFocusLost(evt);
             }
         });
-        i_judulKoleksi4.addActionListener(new java.awt.event.ActionListener() {
+        f_tipeKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_judulKoleksi4ActionPerformed(evt);
+                f_tipeKoleksiActionPerformed(evt);
             }
         });
 
-        l_nama3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        l_nama3.setForeground(new java.awt.Color(51, 51, 51));
-        l_nama3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_nama3.setText("Tipe Koleksi");
-        l_nama3.setToolTipText("");
-        l_nama3.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_nama3.setMinimumSize(new java.awt.Dimension(150, 25));
+        l_tipeKoleksi.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        l_tipeKoleksi.setForeground(new java.awt.Color(51, 51, 51));
+        l_tipeKoleksi.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_tipeKoleksi.setText("Tipe Koleksi");
+        l_tipeKoleksi.setToolTipText("");
+        l_tipeKoleksi.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_tipeKoleksi.setMinimumSize(new java.awt.Dimension(150, 25));
 
         javax.swing.GroupLayout panel_KoleksiLayout = new javax.swing.GroupLayout(panel_Koleksi);
         panel_Koleksi.setLayout(panel_KoleksiLayout);
@@ -230,19 +238,19 @@ public class FormTransaksi extends javax.swing.JFrame {
                             .addGroup(panel_KoleksiLayout.createSequentialGroup()
                                 .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_judulKoleksi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(f_judulKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(panel_KoleksiLayout.createSequentialGroup()
-                                .addComponent(l_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_judulKoleksi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(f_penerbit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(panel_KoleksiLayout.createSequentialGroup()
-                                .addComponent(l_nama2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_judulKoleksi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(f_isbnIssn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(panel_KoleksiLayout.createSequentialGroup()
-                                .addComponent(l_nama3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_judulKoleksi4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(86, 86, 86))))
         );
         panel_KoleksiLayout.setVerticalGroup(
@@ -260,19 +268,19 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_judulKoleksi1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(f_judulKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_judulKoleksi2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(f_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_nama2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_judulKoleksi3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(f_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_nama3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_judulKoleksi4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(l_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -323,60 +331,60 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_namaPeminjam.setMaximumSize(new java.awt.Dimension(150, 25));
         l_namaPeminjam.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_namaPeminjam.setEnabled(false);
-        i_namaPeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_namaPeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_namaPeminjam.setEnabled(false);
+        f_namaPeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_namaPeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_namaPeminjamFocusLost(evt);
+                f_namaPeminjamFocusLost(evt);
             }
         });
-        i_namaPeminjam.addActionListener(new java.awt.event.ActionListener() {
+        f_namaPeminjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_namaPeminjamActionPerformed(evt);
+                f_namaPeminjamActionPerformed(evt);
             }
         });
 
-        i_maksPinjam.setEnabled(false);
-        i_maksPinjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_maksPinjam.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_maksPinjam.setEnabled(false);
+        f_maksPinjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_maksPinjam.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_maksPinjamFocusLost(evt);
+                f_maksPinjamFocusLost(evt);
             }
         });
-        i_maksPinjam.addActionListener(new java.awt.event.ActionListener() {
+        f_maksPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_maksPinjamActionPerformed(evt);
+                f_maksPinjamActionPerformed(evt);
             }
         });
 
-        l_namaPeminjam1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        l_namaPeminjam1.setForeground(new java.awt.Color(51, 51, 51));
-        l_namaPeminjam1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_namaPeminjam1.setText("Lama Pinjam");
-        l_namaPeminjam1.setToolTipText("");
-        l_namaPeminjam1.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_namaPeminjam1.setMinimumSize(new java.awt.Dimension(150, 25));
+        l_lamaPinjam.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        l_lamaPinjam.setForeground(new java.awt.Color(51, 51, 51));
+        l_lamaPinjam.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_lamaPinjam.setText("Lama Pinjam");
+        l_lamaPinjam.setToolTipText("");
+        l_lamaPinjam.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_lamaPinjam.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Minggu", "2 Minggu", "3 Minggu", "4 Minggu" }));
+        i_lamaPinjam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Minggu", "2 Minggu", "3 Minggu", "4 Minggu" }));
 
-        l_namaPeminjam2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        l_namaPeminjam2.setForeground(new java.awt.Color(51, 51, 51));
-        l_namaPeminjam2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_namaPeminjam2.setText("Dari");
-        l_namaPeminjam2.setToolTipText("");
-        l_namaPeminjam2.setMaximumSize(new java.awt.Dimension(150, 25));
-        l_namaPeminjam2.setMinimumSize(new java.awt.Dimension(150, 25));
+        l_dari.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        l_dari.setForeground(new java.awt.Color(51, 51, 51));
+        l_dari.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_dari.setText("Dari");
+        l_dari.setToolTipText("");
+        l_dari.setMaximumSize(new java.awt.Dimension(150, 25));
+        l_dari.setMinimumSize(new java.awt.Dimension(150, 25));
 
-        i_namaPeminjam1.setEnabled(false);
-        i_namaPeminjam1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_namaPeminjam1.addFocusListener(new java.awt.event.FocusAdapter() {
+        f_dari.setEnabled(false);
+        f_dari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        f_dari.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                i_namaPeminjam1FocusLost(evt);
+                f_dariFocusLost(evt);
             }
         });
-        i_namaPeminjam1.addActionListener(new java.awt.event.ActionListener() {
+        f_dari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_namaPeminjam1ActionPerformed(evt);
+                f_dariActionPerformed(evt);
             }
         });
 
@@ -428,19 +436,19 @@ public class FormTransaksi extends javax.swing.JFrame {
                             .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
                                 .addComponent(l_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_namaPeminjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(f_namaPeminjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_PeminjamDeadlineLayout.createSequentialGroup()
-                                .addComponent(l_namaPeminjam1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(i_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(l_namaPeminjam2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(i_namaPeminjam1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(f_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
-                                .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
                             .addComponent(b_cekPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
@@ -467,16 +475,16 @@ public class FormTransaksi extends javax.swing.JFrame {
                     .addComponent(b_cekPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(i_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(i_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(l_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(i_namaPeminjam1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(l_namaPeminjam1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(l_namaPeminjam2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(l_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(i_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(l_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_konfirmasiTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -488,7 +496,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         panel_keranjangTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panel_keranjangTable.setPreferredSize(new java.awt.Dimension(480, 270));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKeranjang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -511,11 +519,11 @@ public class FormTransaksi extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
+        tabelKeranjang.getTableHeader().setReorderingAllowed(false);
+        scrollPane_tabelKeranjang.setViewportView(tabelKeranjang);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Tabel Keranjang");
+        l_tabelKeranjang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_tabelKeranjang.setText("Tabel Keranjang");
 
         javax.swing.GroupLayout panel_keranjangTableLayout = new javax.swing.GroupLayout(panel_keranjangTable);
         panel_keranjangTable.setLayout(panel_keranjangTableLayout);
@@ -524,24 +532,24 @@ public class FormTransaksi extends javax.swing.JFrame {
             .addGroup(panel_keranjangTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_keranjangTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPane_tabelKeranjang)
+                    .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         panel_keranjangTableLayout.setVerticalGroup(
             panel_keranjangTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_keranjangTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         panel_transaksiTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panel_transaksiTable.setPreferredSize(new java.awt.Dimension(480, 270));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -564,11 +572,11 @@ public class FormTransaksi extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        tabelTransaksi.getTableHeader().setReorderingAllowed(false);
+        scrollPane_tabelTransaksi.setViewportView(tabelTransaksi);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Tabel Transaksi");
+        l_tabelTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_tabelTransaksi.setText("Tabel Transaksi");
 
         javax.swing.GroupLayout panel_transaksiTableLayout = new javax.swing.GroupLayout(panel_transaksiTable);
         panel_transaksiTable.setLayout(panel_transaksiTableLayout);
@@ -577,17 +585,17 @@ public class FormTransaksi extends javax.swing.JFrame {
             .addGroup(panel_transaksiTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_transaksiTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPane_tabelTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                    .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         panel_transaksiTableLayout.setVerticalGroup(
             panel_transaksiTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_transaksiTableLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -622,8 +630,47 @@ public class FormTransaksi extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void setRedBG(Component... components) {
+        for (Component c : components) {
+            c.setBackground(I_RED);
+        }
+    }
+
+    private void setWhiteBG(Component... components) {
+        for (Component c : components) {
+            c.setBackground(new Color(0xFFFFFF));
+        }
+    }
+
     private void b_cekKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cekKoleksiActionPerformed
         // TODO add your handling code here:
+        final var kodeKoleksi = i_kodeKoleksi.getText().trim();
+        final var judulKoleksi = i_judulKoleksi.getText().trim();
+        if (kodeKoleksi.equals("") && judulKoleksi.equals("")) {
+            setRedBG(i_kodeKoleksi, i_judulKoleksi);
+        } else if(!kodeKoleksi.equals("")) {
+            /* Cari kode koleksi */
+            final Koleksi koleksi = DatabaseHandler.findKoleksi(kodeKoleksi);
+
+            if (koleksi == null) { // Guard
+                setRedBG(i_kodeKoleksi, i_judulKoleksi);
+                return;
+            }
+
+            setWhiteBG(i_kodeKoleksi);
+            keranjangKoleksi.add(koleksi);
+        } else {
+            /* Cari judul koleksi */
+            final Koleksi koleksi = DatabaseHandler.findKoleksi(kodeKoleksi);
+
+            if (koleksi == null) { // Guard
+                setRedBG(i_kodeKoleksi, i_judulKoleksi);
+                return;
+            }
+
+            setWhiteBG(i_kodeKoleksi);
+            keranjangKoleksi.add(koleksi);
+        }
     }//GEN-LAST:event_b_cekKoleksiActionPerformed
 
     private void i_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksiFocusLost
@@ -662,61 +709,61 @@ public class FormTransaksi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_i_kodePeminjamActionPerformed
 
-    private void i_judulKoleksi1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksi1FocusLost
+    private void f_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_judulKoleksiFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi1FocusLost
+    }//GEN-LAST:event_f_judulKoleksiFocusLost
 
-    private void i_judulKoleksi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksi1ActionPerformed
+    private void f_judulKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_judulKoleksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi1ActionPerformed
+    }//GEN-LAST:event_f_judulKoleksiActionPerformed
 
-    private void i_judulKoleksi2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksi2FocusLost
+    private void f_penerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_penerbitFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi2FocusLost
+    }//GEN-LAST:event_f_penerbitFocusLost
 
-    private void i_judulKoleksi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksi2ActionPerformed
+    private void f_penerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_penerbitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi2ActionPerformed
+    }//GEN-LAST:event_f_penerbitActionPerformed
 
-    private void i_judulKoleksi3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksi3FocusLost
+    private void f_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_isbnIssnFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi3FocusLost
+    }//GEN-LAST:event_f_isbnIssnFocusLost
 
-    private void i_judulKoleksi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksi3ActionPerformed
+    private void f_isbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_isbnIssnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi3ActionPerformed
+    }//GEN-LAST:event_f_isbnIssnActionPerformed
 
-    private void i_judulKoleksi4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksi4FocusLost
+    private void f_tipeKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_tipeKoleksiFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi4FocusLost
+    }//GEN-LAST:event_f_tipeKoleksiFocusLost
 
-    private void i_judulKoleksi4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksi4ActionPerformed
+    private void f_tipeKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_tipeKoleksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_judulKoleksi4ActionPerformed
+    }//GEN-LAST:event_f_tipeKoleksiActionPerformed
 
-    private void i_namaPeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaPeminjamFocusLost
+    private void f_namaPeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_namaPeminjamFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_namaPeminjamFocusLost
+    }//GEN-LAST:event_f_namaPeminjamFocusLost
 
-    private void i_namaPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_namaPeminjamActionPerformed
+    private void f_namaPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_namaPeminjamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_namaPeminjamActionPerformed
+    }//GEN-LAST:event_f_namaPeminjamActionPerformed
 
-    private void i_maksPinjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_maksPinjamFocusLost
+    private void f_maksPinjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_maksPinjamFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_maksPinjamFocusLost
+    }//GEN-LAST:event_f_maksPinjamFocusLost
 
-    private void i_maksPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_maksPinjamActionPerformed
+    private void f_maksPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_maksPinjamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_maksPinjamActionPerformed
+    }//GEN-LAST:event_f_maksPinjamActionPerformed
 
-    private void i_namaPeminjam1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaPeminjam1FocusLost
+    private void f_dariFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_dariFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_namaPeminjam1FocusLost
+    }//GEN-LAST:event_f_dariFocusLost
 
-    private void i_namaPeminjam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_namaPeminjam1ActionPerformed
+    private void f_dariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_dariActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_namaPeminjam1ActionPerformed
+    }//GEN-LAST:event_f_dariActionPerformed
 
     private void b_kosongkanTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanTransaksiActionPerformed
 
@@ -737,36 +784,36 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton b_kembali;
     private javax.swing.JButton b_konfirmasiTransaksi;
     private javax.swing.JButton b_kosongkanTransaksi;
+    private java.awt.TextField f_dari;
+    private java.awt.TextField f_isbnIssn;
+    private java.awt.TextField f_judulKoleksi;
+    private java.awt.TextField f_maksPinjam;
+    private java.awt.TextField f_namaPeminjam;
+    private java.awt.TextField f_penerbit;
+    private java.awt.TextField f_tipeKoleksi;
     private java.awt.TextField i_judulKoleksi;
-    private java.awt.TextField i_judulKoleksi1;
-    private java.awt.TextField i_judulKoleksi2;
-    private java.awt.TextField i_judulKoleksi3;
-    private java.awt.TextField i_judulKoleksi4;
     private java.awt.TextField i_kodeKoleksi;
     private java.awt.TextField i_kodePeminjam;
-    private java.awt.TextField i_maksPinjam;
-    private java.awt.TextField i_namaPeminjam;
-    private java.awt.TextField i_namaPeminjam1;
+    private javax.swing.JComboBox<String> i_lamaPinjam;
     private java.awt.TextField i_noIdentitasPeminjam;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel l_dari;
+    private javax.swing.JLabel l_isbnIssn;
+    private javax.swing.JLabel l_lamaPinjam;
     private javax.swing.JLabel l_nama;
-    private javax.swing.JLabel l_nama1;
-    private javax.swing.JLabel l_nama2;
-    private javax.swing.JLabel l_nama3;
     private javax.swing.JLabel l_namaPeminjam;
-    private javax.swing.JLabel l_namaPeminjam1;
-    private javax.swing.JLabel l_namaPeminjam2;
     private javax.swing.JLabel l_pencarianKoleksi;
     private javax.swing.JLabel l_pencarianPeminjam;
+    private javax.swing.JLabel l_penerbit;
+    private javax.swing.JLabel l_tabelKeranjang;
+    private javax.swing.JLabel l_tabelTransaksi;
+    private javax.swing.JLabel l_tipeKoleksi;
     private javax.swing.JPanel panel_Koleksi;
     private javax.swing.JPanel panel_PeminjamDeadline;
     private javax.swing.JPanel panel_keranjangTable;
     private javax.swing.JPanel panel_transaksiTable;
+    private javax.swing.JScrollPane scrollPane_tabelKeranjang;
+    private javax.swing.JScrollPane scrollPane_tabelTransaksi;
+    private javax.swing.JTable tabelKeranjang;
+    private javax.swing.JTable tabelTransaksi;
     // End of variables declaration//GEN-END:variables
 }
