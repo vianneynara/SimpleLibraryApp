@@ -307,7 +307,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Transaksi\" WHERE id_peminjam = ?";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, idPeminjam);
+			ps.setString(1, idPeminjam.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
 				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
@@ -344,7 +344,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Transaksi\" WHERE id_koleksi = ?";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, idKoleksi);
+			ps.setString(1, idKoleksi.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
 //				rs.first();
@@ -389,7 +389,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Transaksi\" WHERE id_transaksi = ?";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, idTransaksi);
+			ps.setString(1, idTransaksi.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
 				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
@@ -435,7 +435,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Peminjam\" WHERE LOWER(nama_lengkap) LIKE ?";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, "%" + substring.toLowerCase() + "%");
+			ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
 
 			try (ResultSet rs = ps.executeQuery()) {
 				if (!rs.next()) {							// Jika tidak ada data yang ditemukan
@@ -475,7 +475,7 @@ public class DatabaseHandler {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Koleksi\" WHERE LOWER(judul) LIKE ?";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, "%" + substring.toLowerCase() + "%");
+			ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
 
 			try (ResultSet rs = ps.executeQuery()) {
 				if (!rs.next()) {							// Jika tidak ada data yang ditemukan
