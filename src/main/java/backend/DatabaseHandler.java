@@ -164,7 +164,6 @@ public class DatabaseHandler {
 							arrKoleksi.add(result);
 						}
 					}
-					// TODO: SELECT * FROM "Koleksi" WHERE id_koleksi IN (koleksi.split(","))
 
 					Transaksi transaksi = new Transaksi(
 						id_transaksi,
@@ -311,7 +310,6 @@ public class DatabaseHandler {
 			ps.setString(1, idPeminjam);
 
 			try (ResultSet rs = ps.executeQuery()) {
-//				rs.first();
 				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
 				String id_peminjam 		= rs.getString("id_peminjam");
 				String nama_lengkap 	= rs.getString("nama_lengkap");
@@ -331,7 +329,7 @@ public class DatabaseHandler {
 					peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
 				}
 				return peminjam;
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				return null;
 			}
 		} catch (SQLException e) {
@@ -376,7 +374,140 @@ public class DatabaseHandler {
 					}
 				}
 				return koleksi;
-			} catch (Exception e) {
+			} catch (SQLException e) {
+				return null;
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Mencari data transaksi sesuai dengan id transaksi dari database.
+	 * */
+	public static Transaksi findTransaksi(String idTransaksi) {
+		try (Connection conn = getConnection()) {
+			String query = "SELECT * FROM \"Transaksi\" WHERE id_transaksi = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, idTransaksi);
+
+			try (ResultSet rs = ps.executeQuery()) {
+				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+				String id_transaksi = rs.getString("id_transaksi");
+				String id_peminjam = rs.getString("id_peminjam");
+				Date tanggal_pinjam = rs.getDate("tanggal_pinjam");
+				Date tanggal_kembali = rs.getDate("tanggal_kembali");
+				float denda = rs.getFloat("denda");
+				String koleksi = rs.getString("koleksi");
+
+				String[] listedKoleksi = koleksi.split(",");
+				List<Koleksi> arrKoleksi = new ArrayList<>();
+				for (String s : listedKoleksi) {
+					var result = findKoleksi(s);
+					if (result != null) {
+						arrKoleksi.add(result);
+					}
+				}
+
+				Transaksi transaksi = new Transaksi(
+					id_transaksi,
+					findPeminjam(id_peminjam),
+					tanggal_pinjam,
+					tanggal_kembali,
+					denda,
+					arrKoleksi.toArray(new Koleksi[0])
+				);
+				return transaksi;
+			} catch (SQLException e) {
+				return null;
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/* Read / search by secondary key records from database */
+
+	/**
+	* Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
+	* */
+	public static Peminjam findPeminjamByName(String substring) {
+		try (Connection conn = getConnection()) {
+			String query = "SELECT * FROM \"Peminjam\" WHERE LOWER(nama_lengkap) LIKE ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, "%" + substring.toLowerCase() + "%");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				if (!rs.next()) {							// Jika tidak ada data yang ditemukan
+					return null;
+				}
+				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+				String id_peminjam 		= rs.getString("id_peminjam");
+				String nama_lengkap 	= rs.getString("nama_lengkap");
+				String jenis_no_id 		= rs.getString("jenis_no_id").toUpperCase();
+				String alamat 			= rs.getString("alamat");
+				String nomor_telepon 	= rs.getString("nomor_telepon");
+				int maks_pinjam 		= rs.getInt("maks_pinjam");
+				String nomor_identitas 	= rs.getString("nomor_identitas");
+
+				Peminjam peminjam;
+				/* Membuat objek inheritor Peminjam sesuai dengan jenis_no_id */
+				if (jenis_no_id.equalsIgnoreCase("NIM")) {
+					peminjam = new Mahasiswa(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				} else if (jenis_no_id.equalsIgnoreCase("NIP")) {
+					peminjam = new Dosen(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				} else {
+					peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				}
+				return peminjam;
+			} catch (SQLException e) {
+				return null;
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	* Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
+	* */
+	public static Koleksi findKoleksiByTitle(String substring) {
+		try (Connection conn = getConnection()) {
+			String query = "SELECT * FROM \"Koleksi\" WHERE LOWER(judul) LIKE ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, "%" + substring.toLowerCase() + "%");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				if (!rs.next()) {							// Jika tidak ada data yang ditemukan
+					return null;
+				}
+				/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
+				String id_koleksi 		= rs.getString("id_koleksi");
+				String judul 			= rs.getString("judul");
+				String penerbit 		= rs.getString("penerbit");
+				String tahunTerbit		= rs.getString("tahun_terbit");
+//					int status_pinjam  		= rs.getInt("status_pinjam");
+				String tipe 			= rs.getString("tipe");
+				String isbn_issn		= rs.getString("isbn_issn");
+
+				Koleksi koleksi;
+				/* Membuat objek inheritor Peminjam sesuai dengan tipe */
+				switch (tipe) {
+					case "BUKU" -> {
+						koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getInt("jumlah_halaman"));
+					}
+					case "MAJALAH" -> {
+						koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getInt("volume"), rs.getInt("seri"));
+					}
+					default -> {
+						koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, isbn_issn,
+							rs.getString("format"));
+					}
+				}
+				return koleksi;
+			} catch (SQLException e) {
 				return null;
 			}
 		} catch (SQLException e) {
