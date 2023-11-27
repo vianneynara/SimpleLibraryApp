@@ -42,7 +42,7 @@ public class Majalah extends Koleksi {
 
     @Override
     public String toString() {
-        return super.toString() + "-> Majalah{" +
+        return super.toString() + " -> Majalah{" +
             "issn='" + issn + '\'' +
             ", volume=" + volume +
             ", seri=" + seri +

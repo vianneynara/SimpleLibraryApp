@@ -37,7 +37,7 @@ public class Disk extends Koleksi {
 
     @Override
     public String toString() {
-        return super.toString() + "->Disk{" +
+        return super.toString() + " -> Disk{" +
             "isbn='" + isbn + '\'' +
             ", format='" + format + '\'' +
             "} ";

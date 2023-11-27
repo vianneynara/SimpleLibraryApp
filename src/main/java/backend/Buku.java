@@ -32,7 +32,7 @@ public class Buku extends Koleksi {
 
     @Override
     public String toString() {
-        return super.toString() + "->Buku{" +
+        return super.toString() + " -> Buku{" +
             "isbn='" + isbn + '\'' +
             ", jumlahHalaman=" + jumlahHalaman +
             "} ";
