@@ -495,7 +495,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
     }//GEN-LAST:event_i_jenisDiskActionPerformed
 
     private void i_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_isbnIssnFocusLost
-        if (!Checker.isNomor(i_isbnIssn.getText().trim().replaceAll("[\\s-]", ""), 13)) {
+        if (!Checker.isNomor(i_isbnIssn.getText().trim().replaceAll("[\\s-]", ""), 10, 13)) {
             i_isbnIssn.setBackground(I_RED);
         } else {
             i_isbnIssn.setBackground(Color.WHITE);
@@ -550,11 +550,11 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
         }
 
         /* mengecek apakah format isbn sudah valid*/
-        if (!Checker.isNomor(isbnIssn, 13)) {
+        if (!Checker.isNomor(isbnIssn, 10, 13)) {
             l_simpanKoleksiEmptyIndicator.setVisible(true);
             JOptionPane.showMessageDialog(
                 this.parent,
-                "Field ISBN belum sesuai! Harap masukkan 13 digit nomor ISBN!",
+                "Field ISBN belum sesuai! Harap masukkan 10-13 digit nomor ISBN!",
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE
             );
