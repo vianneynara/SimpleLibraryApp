@@ -1,6 +1,7 @@
 package archived;
 
 import backend.*;
+import backend.koleksi.Koleksi;
 
 import java.io.*;
 import java.util.HashMap;

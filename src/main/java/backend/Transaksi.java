@@ -1,5 +1,7 @@
 package backend;
 
+import backend.koleksi.Koleksi;
+
 import java.io.Serializable;
 import java.util.Date;
 

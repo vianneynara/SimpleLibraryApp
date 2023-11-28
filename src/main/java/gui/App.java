@@ -1,6 +1,8 @@
 package gui;
 
 import backend.*;
+import backend.koleksi.Buku;
+import backend.koleksi.Majalah;
 
 import javax.swing.*;
 import java.awt.*;

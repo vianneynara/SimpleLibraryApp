@@ -4,6 +4,10 @@ package gui;/*
  */
 
 import backend.*;
+import backend.koleksi.Buku;
+import backend.koleksi.Disk;
+import backend.koleksi.Koleksi;
+import backend.koleksi.Majalah;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -14,7 +18,6 @@ import java.awt.event.FocusEvent;
 import java.time.LocalDate;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Random;
 
 import static backend.DataPerpus.generateKoleksiId;
 

@@ -1,4 +1,4 @@
-package backend;
+package backend.koleksi;
 
 public class Buku extends Koleksi {
     /* atribut kelas */

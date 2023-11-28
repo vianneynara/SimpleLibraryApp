@@ -4,6 +4,10 @@ package gui;/*
  */
 
 import backend.*;
+import backend.koleksi.Buku;
+import backend.koleksi.Disk;
+import backend.koleksi.Koleksi;
+import backend.koleksi.Majalah;
 
 import javax.swing.*;
 import java.awt.*;
@@ -709,7 +713,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     /** Mengosongkan field informasi peminjam dan current peminjam */
     private void kosongkanFieldPeminjam() {
         i_kodePeminjam.setText("");
-        i_namaPeminjam.setText("");
+        i_kodePeminjam.setText("");
         f_namaPeminjam.setText("");
         f_maksPinjam.setText("");
         f_dari.setText("");
@@ -725,30 +729,27 @@ public class FormTransaksi extends javax.swing.JFrame {
         final var judulKoleksi = i_judulKoleksi.getText().trim();
         if (kodeKoleksi.equals("") && judulKoleksi.equals("")) {
             setRedBG(i_kodeKoleksi, i_judulKoleksi);
-			return;
-        }
-
-		if(!kodeKoleksi.equals("")) {
+        } else if(!kodeKoleksi.equals("")) {
             /* Cari dengan kode koleksi */
             final Koleksi koleksi = DatabaseHandler.findKoleksi(kodeKoleksi);
+            System.out.println(koleksi);
 
             if (koleksi == null) { // Guard
                 setRedBG(i_kodeKoleksi, i_judulKoleksi);
-				return;
+                return;
             }
 
             setWhiteBG(i_kodeKoleksi);
             currentKoleksi = koleksi;
             fillFieldKoleksi(currentKoleksi);
-			return;
-        }
-
-		if (!judulKoleksi.equals("")) {
+        } else {
             /* Cari dengan judul koleksi */
             final Koleksi koleksi = DatabaseHandler.findKoleksiByTitle(judulKoleksi);
+            System.out.println(koleksi);
 
             if (koleksi == null) { // Guard
                 setRedBG(i_kodeKoleksi, i_judulKoleksi);
+                return;
             }
 
             setWhiteBG(i_kodeKoleksi);
@@ -776,20 +777,15 @@ public class FormTransaksi extends javax.swing.JFrame {
     private void b_cekPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cekPeminjamActionPerformed
         final var kodePeminjam = i_kodePeminjam.getText().trim();
         final var namaPeminjam = i_namaPeminjam.getText().trim();
-
-        // Guard jika kode peminjam dan nama peminjam kosong
         if (kodePeminjam.equals("") && namaPeminjam.equals("")) {
             setRedBG(i_kodePeminjam, i_namaPeminjam);
-            return;
-        }
-
-        // Guard jika kode peminjam dan nama peminjam terisi
-        if (!kodePeminjam.equals("")) {
+        } else if(!kodePeminjam.equals("")) {
             /* Cari kode peminjam */
             final Peminjam peminjam = DatabaseHandler.findPeminjam(kodePeminjam);
 
             if (peminjam == null) { // Guard
-                setRedBG(i_kodePeminjam);
+                setRedBG(i_kodePeminjam, i_namaPeminjam);
+                return;
             }
 
             setWhiteBG(i_kodePeminjam);
@@ -797,19 +793,16 @@ public class FormTransaksi extends javax.swing.JFrame {
             f_namaPeminjam.setText(currentPeminjam.getNama());
             f_maksPinjam.setText(String.valueOf(currentPeminjam.getMaksPinjam()));
             f_dari.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-            return;
-        }
-
-        if (!namaPeminjam.equals("")) {
+        } else {
             /* Cari nama peminjam */
-            final Peminjam peminjam = DatabaseHandler.findPeminjamByName(namaPeminjam);
+            final Peminjam peminjam = DatabaseHandler.findPeminjamByName(kodePeminjam);
 
             if (peminjam == null) { // Guard
-                setRedBG(i_namaPeminjam);
-				return;
+                setRedBG(i_kodePeminjam, i_namaPeminjam);
+                return;
             }
 
-            setWhiteBG(i_namaPeminjam);
+            setWhiteBG(i_kodePeminjam);
             currentPeminjam = peminjam;
             f_namaPeminjam.setText(currentPeminjam.getNama());
             f_maksPinjam.setText(String.valueOf(currentPeminjam.getMaksPinjam()));

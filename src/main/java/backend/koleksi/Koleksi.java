@@ -1,4 +1,4 @@
-package backend;
+package backend.koleksi;
 
 import java.io.Serializable;
 

@@ -1,5 +1,10 @@
 package backend;
 
+import backend.koleksi.Buku;
+import backend.koleksi.Disk;
+import backend.koleksi.Koleksi;
+import backend.koleksi.Majalah;
+
 import java.util.LinkedList;
 
 public class Perpustakaan {

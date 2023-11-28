@@ -1,6 +1,10 @@
 package backend;
 
-import javax.print.DocFlavor;
+import backend.koleksi.Buku;
+import backend.koleksi.Disk;
+import backend.koleksi.Koleksi;
+import backend.koleksi.Majalah;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -235,8 +239,8 @@ public class DatabaseHandler {
 			ps.setString(1, data.getIdKoleksi());
 			ps.setString(2, data.getJudul());
 			ps.setString(3, data.getPenerbit());
-			ps.setString(4, data.tahunTerbit);
-			ps.setInt	(5, data.statusPinjam ? 1 : 0);
+			ps.setString(4, data.getTahunTerbit());
+			ps.setInt	(5, data.isDipinjam() ? 1 : 0);
 			ps.setString(6, data.getTipe());
 
 			/* Handling values yang mungkin kosong sesuai tipenya */
@@ -464,12 +468,11 @@ public class DatabaseHandler {
 	public static Peminjam findPeminjamByName(String substring) {
 		try (Connection conn = getConnection()) {
 			String query = "SELECT * FROM \"Peminjam\" WHERE LOWER(nama_lengkap) LIKE ?";
-			try (PreparedStatement ps = conn.prepareStatement(query)) {
-				ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
 
-				try (ResultSet rs = ps.executeQuery()) {
-					return getPeminjam(rs);
-				}
+			try (ResultSet rs = ps.executeQuery()) {
+				return getPeminjam(rs);
 			} catch (SQLException e) {
 				throw new SQLException(e);
 			}
