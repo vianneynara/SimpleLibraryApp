@@ -2,6 +2,7 @@ package archived;
 
 import backend.*;
 import backend.koleksi.Koleksi;
+import backend.peminjam.Peminjam;
 
 import java.io.*;
 import java.util.HashMap;

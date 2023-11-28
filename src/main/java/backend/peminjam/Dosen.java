@@ -1,4 +1,4 @@
-package backend;
+package backend.peminjam;
 
 public class Dosen extends Peminjam {
 

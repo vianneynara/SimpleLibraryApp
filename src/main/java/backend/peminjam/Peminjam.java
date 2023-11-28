@@ -1,4 +1,4 @@
-package backend;
+package backend.peminjam;
 
 import java.io.Serializable;
 

@@ -3,6 +3,10 @@ package gui;
 import backend.*;
 import backend.koleksi.Buku;
 import backend.koleksi.Majalah;
+import backend.peminjam.Dosen;
+import backend.peminjam.Mahasiswa;
+import backend.peminjam.Peminjam;
+import backend.peminjam.Umum;
 
 import javax.swing.*;
 import java.awt.*;

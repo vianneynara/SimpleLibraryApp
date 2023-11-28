@@ -1,6 +1,7 @@
 package backend;
 
 import backend.koleksi.Koleksi;
+import backend.peminjam.Peminjam;
 
 import java.io.Serializable;
 import java.util.Date;

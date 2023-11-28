@@ -1,6 +1,7 @@
 package backend;
 
 import backend.koleksi.Koleksi;
+import backend.peminjam.Peminjam;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

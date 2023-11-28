@@ -1,10 +1,12 @@
 package archived;
 
 import backend.*;
+import backend.peminjam.Dosen;
+import backend.peminjam.Mahasiswa;
+import backend.peminjam.Peminjam;
+import backend.peminjam.Umum;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 

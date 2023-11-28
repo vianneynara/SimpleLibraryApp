@@ -4,6 +4,10 @@ import backend.koleksi.Buku;
 import backend.koleksi.Disk;
 import backend.koleksi.Koleksi;
 import backend.koleksi.Majalah;
+import backend.peminjam.Dosen;
+import backend.peminjam.Mahasiswa;
+import backend.peminjam.Peminjam;
+import backend.peminjam.Umum;
 
 import java.sql.*;
 import java.util.ArrayList;

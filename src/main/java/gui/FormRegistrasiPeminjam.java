@@ -4,6 +4,10 @@ package gui;/*
  */
 
 import backend.*;
+import backend.peminjam.Dosen;
+import backend.peminjam.Mahasiswa;
+import backend.peminjam.Peminjam;
+import backend.peminjam.Umum;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

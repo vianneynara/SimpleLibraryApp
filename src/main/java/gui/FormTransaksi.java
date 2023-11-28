@@ -8,6 +8,7 @@ import backend.koleksi.Buku;
 import backend.koleksi.Disk;
 import backend.koleksi.Koleksi;
 import backend.koleksi.Majalah;
+import backend.peminjam.Peminjam;
 
 import javax.swing.*;
 import java.awt.*;
