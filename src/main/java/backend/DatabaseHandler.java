@@ -50,6 +50,7 @@ public class DatabaseHandler {
 
 	/**
 	 * Membaca keseluruhan isi dari tabel Peminjam dan mengembalikannya dalam bentuk hash map.
+	 *
 	 * @return {@link HashMap} berisi data peminjam dengan id_peminjam sebagai key dan objek {@link Peminjam}
 	 * sebagai value.
 	 */
@@ -65,7 +66,8 @@ public class DatabaseHandler {
 			// Result Set adalah hasil pengembalian dari ekseksui prepared statement sebelumnya.
 			try (PreparedStatement ps = conn.prepareStatement(query);
 				 ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {							// Selama masih ada nilai untuk setelahnya
+				// Selama masih ada nilai untuk setelahnya
+				while (rs.next()) {
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
 					String id_peminjam 		= rs.getString("id_peminjam");
 					String nama_lengkap 	= rs.getString("nama_lengkap");
@@ -310,6 +312,8 @@ public class DatabaseHandler {
 
 	/**
 	 * Mendapatkan data {@link Peminjam} dari hasil pertama {@link ResultSet} yang diberikan.
+	 *
+	 * @param rs {@link ResultSet} yang akan diambil datanya.
 	 * @return {@link Peminjam} jika ada, {@code null} jika tidak ada.
 	 * */
 	private static Peminjam getPeminjam(ResultSet rs) throws SQLException {
@@ -507,8 +511,10 @@ public class DatabaseHandler {
 
 	public static void printTest() {
 		HashMap<String, Peminjam> dataPeminjam = readAllDataPeminjam();
+		// Converts the map values into a list of Peminjam
 		var arr = List.copyOf(dataPeminjam.values());
 
+		// Prints all elements of Peminjam in arr
 		for (Peminjam p : arr) {
 			System.out.println(p);
 		}
