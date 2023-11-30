@@ -3,4 +3,4 @@
 .project
 .settings/
 target/
-/src/main/java/sample/naming/
+src/main/java/sample/naming/
