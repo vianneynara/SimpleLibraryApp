@@ -10,16 +10,16 @@ public abstract class Koleksi implements Serializable, Comparable<Koleksi> {
     protected String judul;
     protected String penerbit;
     protected String tahunTerbit;
-    protected boolean ketersediaan;
+    protected boolean tersedia;
     protected String tipe;
 
     /* constructor for each class attribute */
-    protected Koleksi(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean ketersediaan, String tipe) {
+    protected Koleksi(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean tersedia, String tipe) {
         this.idKoleksi = idKoleksi;
         this.judul = judul;
         this.penerbit = penerbit;
         this.tahunTerbit = tahunTerbit;
-        this.ketersediaan = ketersediaan;
+        this.tersedia = tersedia;
         this.tipe = tipe;
     }
 
@@ -58,11 +58,15 @@ public abstract class Koleksi implements Serializable, Comparable<Koleksi> {
     }
 
     public boolean isTersedia() {
-        return ketersediaan;
+        return tersedia;
     }
 
-    public void setKetersediaan(boolean dipinjam) {
-        this.ketersediaan = dipinjam;
+    public void setDipinjam() {
+        this.tersedia = true;
+    }
+
+    public void setKembalikan() {
+        this.tersedia = false;
     }
 
     public String getTipe() {
@@ -80,7 +84,7 @@ public abstract class Koleksi implements Serializable, Comparable<Koleksi> {
             ", judul='" + judul + '\'' +
             ", penerbit='" + penerbit + '\'' +
             ", tahunTerbit='" + tahunTerbit + '\'' +
-            ", ketersediaan=" + ketersediaan +
+            ", tersedia=" + tersedia +
             ", tipe='" + tipe + '\'' +
             '}';
     }
