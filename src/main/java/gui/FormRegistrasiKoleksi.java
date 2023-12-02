@@ -280,14 +280,14 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
 
             },
             new String [] {
-                "id", "tipe", "judul", "penerbit", "tahun terbit", "isbn/issn"
+                "id", "tipe", "judul", "penerbit", "tahun terbit", "isbn/issn", "ketersediaan"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -678,8 +678,8 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
      * */
     private void updateTable() {
         List<Koleksi> listKoleksi = dataPerpus.getListKoleksi();
-        Object[][] data = new Object[listKoleksi.size()][6];
-        String[] columns = {"id", "tipe", "judul", "penerbit", "tahun terbit", "isbn/issn"};
+        Object[][] data = new Object[listKoleksi.size()][7];
+        String[] columns = {"id", "tipe", "judul", "penerbit", "tahun terbit", "isbn/issn", "ketersediaan"};
         for (int i = 0; i < listKoleksi.size(); i++) {
             final var currentRow = listKoleksi.get(i);
             data[i][0] = currentRow.getIdKoleksi();
@@ -694,6 +694,7 @@ public class FormRegistrasiKoleksi extends javax.swing.JPanel {
                 (currentRow instanceof Buku b) ? b.getIsbn() :
                     (currentRow instanceof Majalah m) ? m.getIssn() :
                         ((Disk) currentRow).getIsbn();
+            data[i][6] = currentRow.isTersedia() ? "Tersedia" : "Dipinjam";
         }
         var newModel = new DefaultTableModel(data, columns) {
             @Override
