@@ -5,7 +5,6 @@ import backend.koleksi.Disk;
 import backend.koleksi.Koleksi;
 import backend.koleksi.Majalah;
 import backend.peminjam.Peminjam;
-import backend.transaksi.Transaksi;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -80,6 +79,14 @@ public class KeranjangKoleksi {
 	 * */
 	public boolean contains(Koleksi koleksi) {
 		return arrayKoleksi.contains(koleksi);
+	}
+
+	public Koleksi[] getPreparedKoleksiArray() {
+		for (Koleksi koleksi : arrayKoleksi) {
+			koleksi.setDipinjam();
+			DatabaseHandler.setKoleksiDipinjam(koleksi.getIdKoleksi());
+		}
+		return arrayKoleksi.toArray(new Koleksi[0]);
 	}
 
 	/* Other functions */
