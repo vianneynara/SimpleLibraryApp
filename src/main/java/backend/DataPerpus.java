@@ -247,7 +247,7 @@ public class DataPerpus {
     public static String generateTransaksiId(HashMap<String, Transaksi> dataTransaksi) {
 		StringBuilder generatedId;
 		do {
-			generatedId = generateId("T", 10);
+			generatedId = generateId("T", 7);
 		} while (dataTransaksi.containsKey(generatedId.toString()));
 
         return generatedId.toString();
