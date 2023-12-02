@@ -84,15 +84,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="l_pencarianKoleksi" min="-2" pref="230" max="-2" attributes="0"/>
-                          <EmptySpace pref="236" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="230" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="i_kodeKoleksi" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="i_judulKoleksi" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="b_cekKoleksi" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="b_cariKoleksi" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -117,7 +116,7 @@
                                   <Component id="f_tipeKoleksi" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="f_ketersediaan" min="-2" pref="80" max="-2" attributes="0"/>
@@ -125,9 +124,9 @@
                           <Component id="b_hapusKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="b_tambahKoleksi" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,8 +137,8 @@
                   <Component id="l_pencarianKoleksi" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="b_cekKoleksi" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="b_cariKoleksi" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="i_judulKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="i_kodeKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
@@ -149,22 +148,22 @@
                               <Component id="l_nama" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="f_judulKoleksi" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_penerbit" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="f_penerbit" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_isbnIssn" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="f_isbnIssn" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_tipeKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="f_tipeKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="l_penerbit" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="f_penerbit" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="l_isbnIssn" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="f_isbnIssn" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="l_tipeKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="f_tipeKoleksi" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -180,12 +179,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="b_cekKoleksi">
+        <Component class="javax.swing.JButton" name="b_cariKoleksi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cari"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cekKoleksiActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cariKoleksiActionPerformed"/>
           </Events>
         </Component>
         <Component class="java.awt.TextField" name="i_judulKoleksi">
@@ -194,10 +193,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_judulKoleksiFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_judulKoleksiActionPerformed"/>
-          </Events>
         </Component>
         <Component class="java.awt.TextField" name="i_kodeKoleksi">
           <Properties>
@@ -205,10 +200,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_kodeKoleksiFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_kodeKoleksiActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_pencarianKoleksi">
           <Properties>
@@ -228,10 +219,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_judulKoleksiFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_judulKoleksiActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_nama">
           <Properties>
@@ -259,10 +246,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_penerbitFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_penerbitActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_penerbit">
           <Properties>
@@ -309,10 +292,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_isbnIssnFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_isbnIssnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="java.awt.TextField" name="f_tipeKoleksi">
           <Properties>
@@ -321,10 +300,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_tipeKoleksiFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_tipeKoleksiActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_tipeKoleksi">
           <Properties>
@@ -389,10 +364,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_ketersediaanFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_ketersediaanActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -440,13 +411,11 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="f_maksPinjam" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="b_cekPeminjam" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="f_maksPinjam" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="b_cariPeminjam" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="l_pencarianPeminjam" min="-2" pref="230" max="-2" attributes="0"/>
@@ -469,36 +438,41 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="l_pencarianPeminjam" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                          <Component id="i_namaPeminjam" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="i_kodePeminjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="b_cekPeminjam" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="f_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="f_namaPeminjam" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="l_namaPeminjam" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="f_dari" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="l_lamaPinjam" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="i_lamaPinjam" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="l_dari" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="b_konfirmasiTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="b_kembali" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="b_kosongkanTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="i_namaPeminjam" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="i_kodePeminjam" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="f_maksPinjam" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="f_namaPeminjam" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="l_namaPeminjam" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="f_dari" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="l_lamaPinjam" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="i_lamaPinjam" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="l_dari" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="b_konfirmasiTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="b_kembali" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="b_kosongkanTransaksi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="b_cariPeminjam" min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -515,24 +489,12 @@
             <Property name="text" type="java.lang.String" value="Pencarian Peminjam"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="b_cekPeminjam">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cari"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cekPeminjamActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="java.awt.TextField" name="i_namaPeminjam">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_namaPeminjamFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_namaPeminjamActionPerformed"/>
-          </Events>
         </Component>
         <Component class="java.awt.TextField" name="i_kodePeminjam">
           <Properties>
@@ -540,10 +502,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_kodePeminjamFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_kodePeminjamActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_namaPeminjam">
           <Properties>
@@ -571,10 +529,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_namaPeminjamFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_namaPeminjamActionPerformed"/>
-          </Events>
         </Component>
         <Component class="java.awt.TextField" name="f_maksPinjam">
           <Properties>
@@ -583,10 +537,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_maksPinjamFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_maksPinjamActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_lamaPinjam">
           <Properties>
@@ -648,10 +598,6 @@
               <Font name="Dialog" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="f_dariFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="f_dariActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b_kosongkanTransaksi">
           <Properties>
@@ -710,6 +656,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kembaliActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="b_cariPeminjam">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cari"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cariPeminjamActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panel_keranjangTable">
@@ -730,8 +684,12 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="scrollPane_tabelKeranjang" max="32767" attributes="0"/>
-                      <Component id="l_tabelKeranjang" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="scrollPane_tabelKeranjang" pref="464" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="l_tabelKeranjang" min="-2" pref="230" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="b_resetKeranjang" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -741,7 +699,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="l_tabelKeranjang" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="l_tabelKeranjang" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="b_resetKeranjang" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="scrollPane_tabelKeranjang" min="-2" pref="223" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -806,6 +767,14 @@
             <Property name="text" type="java.lang.String" value="Tabel Keranjang"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="b_resetKeranjang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reset"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_resetKeranjangActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panel_transaksiTable">
@@ -827,7 +796,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="scrollPane_tabelTransaksi" pref="462" max="32767" attributes="0"/>
-                      <Component id="l_tabelTransaksi" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="l_tabelTransaksi" min="-2" pref="230" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="b_updateTabelTransaksi" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -837,7 +810,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="l_tabelTransaksi" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="l_tabelTransaksi" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="b_updateTabelTransaksi" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="scrollPane_tabelTransaksi" min="-2" pref="223" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -859,9 +835,9 @@
                   <Table columnCount="5" rowCount="0">
                     <Column editable="false" title="id" type="java.lang.String"/>
                     <Column editable="false" title="customer id" type="java.lang.String"/>
-                    <Column editable="false" title="at" type="java.lang.Object"/>
-                    <Column editable="false" title="end" type="java.lang.Object"/>
-                    <Column editable="false" title="amount" type="java.lang.Integer"/>
+                    <Column editable="false" title="from" type="java.lang.Object"/>
+                    <Column editable="false" title="due" type="java.lang.Object"/>
+                    <Column editable="false" title="items" type="java.lang.Integer"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -907,6 +883,14 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Tabel Transaksi"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="b_updateTabelTransaksi">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Update Table"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_updateTabelTransaksiActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

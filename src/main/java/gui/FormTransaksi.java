@@ -64,7 +64,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_Koleksi = new javax.swing.JPanel();
-        b_cekKoleksi = new javax.swing.JButton();
+        b_cariKoleksi = new javax.swing.JButton();
         i_judulKoleksi = new java.awt.TextField();
         i_kodeKoleksi = new java.awt.TextField();
         l_pencarianKoleksi = new javax.swing.JLabel();
@@ -81,7 +81,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         f_ketersediaan = new java.awt.TextField();
         panel_PeminjamDeadline = new javax.swing.JPanel();
         l_pencarianPeminjam = new javax.swing.JLabel();
-        b_cekPeminjam = new javax.swing.JButton();
         i_namaPeminjam = new java.awt.TextField();
         i_kodePeminjam = new java.awt.TextField();
         l_namaPeminjam = new javax.swing.JLabel();
@@ -94,14 +93,17 @@ public class FormTransaksi extends javax.swing.JFrame {
         b_kosongkanTransaksi = new javax.swing.JButton();
         b_konfirmasiTransaksi = new javax.swing.JButton();
         b_kembali = new javax.swing.JButton();
+        b_cariPeminjam = new javax.swing.JButton();
         panel_keranjangTable = new javax.swing.JPanel();
         scrollPane_tabelKeranjang = new javax.swing.JScrollPane();
         tabelKeranjang = new javax.swing.JTable();
         l_tabelKeranjang = new javax.swing.JLabel();
+        b_resetKeranjang = new javax.swing.JButton();
         panel_transaksiTable = new javax.swing.JPanel();
         scrollPane_tabelTransaksi = new javax.swing.JScrollPane();
         tabelTransaksi = new javax.swing.JTable();
         l_tabelTransaksi = new javax.swing.JLabel();
+        b_updateTabelTransaksi = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(960, 540));
         setResizable(false);
@@ -110,36 +112,16 @@ public class FormTransaksi extends javax.swing.JFrame {
         panel_Koleksi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panel_Koleksi.setPreferredSize(new java.awt.Dimension(480, 270));
 
-        b_cekKoleksi.setText("Cari");
-        b_cekKoleksi.addActionListener(new java.awt.event.ActionListener() {
+        b_cariKoleksi.setText("Cari");
+        b_cariKoleksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_cekKoleksiActionPerformed(evt);
+                b_cariKoleksiActionPerformed(evt);
             }
         });
 
         i_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_judulKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_judulKoleksiFocusLost(evt);
-            }
-        });
-        i_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_judulKoleksiActionPerformed(evt);
-            }
-        });
 
         i_kodeKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_kodeKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_kodeKoleksiFocusLost(evt);
-            }
-        });
-        i_kodeKoleksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_kodeKoleksiActionPerformed(evt);
-            }
-        });
 
         l_pencarianKoleksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         l_pencarianKoleksi.setForeground(new java.awt.Color(0, 0, 0));
@@ -147,16 +129,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_judulKoleksi.setEnabled(false);
         f_judulKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_judulKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_judulKoleksiFocusLost(evt);
-            }
-        });
-        f_judulKoleksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_judulKoleksiActionPerformed(evt);
-            }
-        });
 
         l_nama.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         l_nama.setForeground(new java.awt.Color(51, 51, 51));
@@ -168,16 +140,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_penerbit.setEnabled(false);
         f_penerbit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_penerbit.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_penerbitFocusLost(evt);
-            }
-        });
-        f_penerbit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_penerbitActionPerformed(evt);
-            }
-        });
 
         l_penerbit.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         l_penerbit.setForeground(new java.awt.Color(51, 51, 51));
@@ -197,29 +159,9 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_isbnIssn.setEnabled(false);
         f_isbnIssn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_isbnIssn.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_isbnIssnFocusLost(evt);
-            }
-        });
-        f_isbnIssn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_isbnIssnActionPerformed(evt);
-            }
-        });
 
         f_tipeKoleksi.setEnabled(false);
         f_tipeKoleksi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_tipeKoleksi.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_tipeKoleksiFocusLost(evt);
-            }
-        });
-        f_tipeKoleksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_tipeKoleksiActionPerformed(evt);
-            }
-        });
 
         l_tipeKoleksi.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         l_tipeKoleksi.setForeground(new java.awt.Color(51, 51, 51));
@@ -252,16 +194,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_ketersediaan.setEditable(false);
         f_ketersediaan.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_ketersediaan.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_ketersediaanFocusLost(evt);
-            }
-        });
-        f_ketersediaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_ketersediaanActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel_KoleksiLayout = new javax.swing.GroupLayout(panel_Koleksi);
         panel_Koleksi.setLayout(panel_KoleksiLayout);
@@ -272,14 +204,13 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_KoleksiLayout.createSequentialGroup()
                         .addComponent(l_pencarianKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(236, Short.MAX_VALUE))
+                        .addGap(0, 230, Short.MAX_VALUE))
                     .addGroup(panel_KoleksiLayout.createSequentialGroup()
                         .addComponent(i_kodeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(i_judulKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(b_cekKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(b_cariKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_KoleksiLayout.createSequentialGroup()
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_KoleksiLayout.createSequentialGroup()
@@ -298,14 +229,14 @@ public class FormTransaksi extends javax.swing.JFrame {
                                 .addComponent(l_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(86, 86, 86))
+                        .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_KoleksiLayout.createSequentialGroup()
                         .addComponent(f_ketersediaan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(b_hapusKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(b_tambahKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(b_tambahKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         panel_KoleksiLayout.setVerticalGroup(
             panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,7 +245,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addComponent(l_pencarianKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_cekKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_cariKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_KoleksiLayout.createSequentialGroup()
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(i_judulKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,19 +253,19 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_judulKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(f_judulKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_isbnIssn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(l_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_tipeKoleksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_KoleksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -352,36 +283,9 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_pencarianPeminjam.setForeground(new java.awt.Color(0, 0, 0));
         l_pencarianPeminjam.setText("Pencarian Peminjam");
 
-        b_cekPeminjam.setText("Cari");
-        b_cekPeminjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_cekPeminjamActionPerformed(evt);
-            }
-        });
-
         i_namaPeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_namaPeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_namaPeminjamFocusLost(evt);
-            }
-        });
-        i_namaPeminjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_namaPeminjamActionPerformed(evt);
-            }
-        });
 
         i_kodePeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        i_kodePeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_kodePeminjamFocusLost(evt);
-            }
-        });
-        i_kodePeminjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_kodePeminjamActionPerformed(evt);
-            }
-        });
 
         l_namaPeminjam.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         l_namaPeminjam.setForeground(new java.awt.Color(51, 51, 51));
@@ -393,29 +297,9 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_namaPeminjam.setEnabled(false);
         f_namaPeminjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_namaPeminjam.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_namaPeminjamFocusLost(evt);
-            }
-        });
-        f_namaPeminjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_namaPeminjamActionPerformed(evt);
-            }
-        });
 
         f_maksPinjam.setEnabled(false);
         f_maksPinjam.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_maksPinjam.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_maksPinjamFocusLost(evt);
-            }
-        });
-        f_maksPinjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_maksPinjamActionPerformed(evt);
-            }
-        });
 
         l_lamaPinjam.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         l_lamaPinjam.setForeground(new java.awt.Color(51, 51, 51));
@@ -437,16 +321,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         f_dari.setEnabled(false);
         f_dari.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        f_dari.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                f_dariFocusLost(evt);
-            }
-        });
-        f_dari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_dariActionPerformed(evt);
-            }
-        });
 
         b_kosongkanTransaksi.setBackground(new java.awt.Color(255, 102, 102));
         b_kosongkanTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -480,6 +354,13 @@ public class FormTransaksi extends javax.swing.JFrame {
             }
         });
 
+        b_cariPeminjam.setText("Cari");
+        b_cariPeminjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cariPeminjamActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_PeminjamDeadlineLayout = new javax.swing.GroupLayout(panel_PeminjamDeadline);
         panel_PeminjamDeadline.setLayout(panel_PeminjamDeadlineLayout);
         panel_PeminjamDeadlineLayout.setHorizontalGroup(
@@ -506,11 +387,10 @@ public class FormTransaksi extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(f_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
-                                .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addComponent(b_cekPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_cariPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6))
                     .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
                         .addComponent(l_pencarianPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -527,30 +407,33 @@ public class FormTransaksi extends javax.swing.JFrame {
             .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(l_pencarianPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(i_namaPeminjam, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(i_kodePeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(b_cekPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(f_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(l_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(f_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(l_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(i_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(l_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_konfirmasiTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_kosongkanTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
+                    .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
+                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(i_namaPeminjam, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_kodePeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(f_maksPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(f_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_namaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(f_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(l_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(i_lamaPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_dari, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(panel_PeminjamDeadlineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(b_konfirmasiTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_kosongkanTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))
+                    .addGroup(panel_PeminjamDeadlineLayout.createSequentialGroup()
+                        .addComponent(b_cariPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         panel_keranjangTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -585,6 +468,13 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_tabelKeranjang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         l_tabelKeranjang.setText("Tabel Keranjang");
 
+        b_resetKeranjang.setText("Reset");
+        b_resetKeranjang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_resetKeranjangActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_keranjangTableLayout = new javax.swing.GroupLayout(panel_keranjangTable);
         panel_keranjangTable.setLayout(panel_keranjangTableLayout);
         panel_keranjangTableLayout.setHorizontalGroup(
@@ -592,15 +482,20 @@ public class FormTransaksi extends javax.swing.JFrame {
             .addGroup(panel_keranjangTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_keranjangTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPane_tabelKeranjang)
-                    .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPane_tabelKeranjang, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                    .addGroup(panel_keranjangTableLayout.createSequentialGroup()
+                        .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(b_resetKeranjang)))
                 .addContainerGap())
         );
         panel_keranjangTableLayout.setVerticalGroup(
             panel_keranjangTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_keranjangTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_keranjangTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_resetKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(scrollPane_tabelKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -614,7 +509,7 @@ public class FormTransaksi extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "customer id", "at", "end", "amount"
+                "id", "customer id", "from", "due", "items"
             }
         ) {
             Class[] types = new Class [] {
@@ -638,6 +533,13 @@ public class FormTransaksi extends javax.swing.JFrame {
         l_tabelTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         l_tabelTransaksi.setText("Tabel Transaksi");
 
+        b_updateTabelTransaksi.setText("Update Table");
+        b_updateTabelTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_updateTabelTransaksiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_transaksiTableLayout = new javax.swing.GroupLayout(panel_transaksiTable);
         panel_transaksiTable.setLayout(panel_transaksiTableLayout);
         panel_transaksiTableLayout.setHorizontalGroup(
@@ -646,14 +548,19 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel_transaksiTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrollPane_tabelTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
-                    .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_transaksiTableLayout.createSequentialGroup()
+                        .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(b_updateTabelTransaksi)))
                 .addContainerGap())
         );
         panel_transaksiTableLayout.setVerticalGroup(
             panel_transaksiTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_transaksiTableLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_transaksiTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(l_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_updateTabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane_tabelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -774,7 +681,7 @@ public class FormTransaksi extends javax.swing.JFrame {
 	/**
 	 * Tombol untuk mengecek koleksi dengan data yang dimasukkan dari database
 	 */
-	private void b_cekKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cekKoleksiActionPerformed
+	private void b_cariKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cariKoleksiActionPerformed
 		final var kodeKoleksi = i_kodeKoleksi.getText().trim();
 		final var judulKoleksi = i_judulKoleksi.getText().trim();
 
@@ -807,25 +714,9 @@ public class FormTransaksi extends javax.swing.JFrame {
                 setKoleksiFields(koleksi, i_judulKoleksi);
             }
 		}
-	}//GEN-LAST:event_b_cekKoleksiActionPerformed
+	}//GEN-LAST:event_b_cariKoleksiActionPerformed
 
-    private void i_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_judulKoleksiFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_judulKoleksiFocusLost
-
-	private void i_judulKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_judulKoleksiActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_judulKoleksiActionPerformed
-
-	private void i_kodeKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_kodeKoleksiFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_kodeKoleksiFocusLost
-
-	private void i_kodeKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_kodeKoleksiActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_kodeKoleksiActionPerformed
-
-	private void b_cekPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cekPeminjamActionPerformed
+	private void b_cariPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cariPeminjamActionPerformed
 		final var kodePeminjam = i_kodePeminjam.getText().trim();
 		final var namaPeminjam = i_namaPeminjam.getText().trim();
 
@@ -863,83 +754,13 @@ public class FormTransaksi extends javax.swing.JFrame {
 				f_dari.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 			}
 		}
-	}//GEN-LAST:event_b_cekPeminjamActionPerformed
-
-	private void i_namaPeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_namaPeminjamFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_namaPeminjamFocusLost
-
-	private void i_namaPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_namaPeminjamActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_namaPeminjamActionPerformed
-
-	private void i_kodePeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_kodePeminjamFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_kodePeminjamFocusLost
-
-	private void i_kodePeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_kodePeminjamActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_i_kodePeminjamActionPerformed
-
-	private void f_judulKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_judulKoleksiFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_judulKoleksiFocusLost
-
-	private void f_judulKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_judulKoleksiActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_judulKoleksiActionPerformed
-
-	private void f_penerbitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_penerbitFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_penerbitFocusLost
-
-	private void f_penerbitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_penerbitActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_penerbitActionPerformed
-
-	private void f_isbnIssnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_isbnIssnFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_isbnIssnFocusLost
-
-	private void f_isbnIssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_isbnIssnActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_isbnIssnActionPerformed
-
-	private void f_tipeKoleksiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_tipeKoleksiFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_tipeKoleksiFocusLost
-
-	private void f_tipeKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_tipeKoleksiActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_tipeKoleksiActionPerformed
-
-	private void f_namaPeminjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_namaPeminjamFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_namaPeminjamFocusLost
-
-	private void f_namaPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_namaPeminjamActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_namaPeminjamActionPerformed
-
-	private void f_maksPinjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_maksPinjamFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_maksPinjamFocusLost
-
-	private void f_maksPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_maksPinjamActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_maksPinjamActionPerformed
-
-	private void f_dariFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_dariFocusLost
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_dariFocusLost
-
-	private void f_dariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_dariActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_f_dariActionPerformed
+	}//GEN-LAST:event_b_cariPeminjamActionPerformed
 
 	private void b_kosongkanTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kosongkanTransaksiActionPerformed
 		kosongkanFieldKoleksi();
 		kosongkanFieldPeminjam();
+        keranjangKoleksi.reset();
+        updateTabelKeranjang();
 	}//GEN-LAST:event_b_kosongkanTransaksiActionPerformed
 
 	/**
@@ -984,16 +805,32 @@ public class FormTransaksi extends javax.swing.JFrame {
             tglPinjam,
             tglKembali,
             0f,
-            keranjangKoleksi.getArrayKoleksi().toArray(new Koleksi[0])
+            keranjangKoleksi.getPreparedKoleksiArray()
         );
 	}
 
 	private void b_konfirmasiTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_konfirmasiTransaksiActionPerformed
-		if (currentPeminjam == null) {
-			throw new IllegalArgumentException("Peminjam tidak boleh kosong!");
-		}
+       /* Mengecek apabila peminjam kosong */
+        if (keranjangKoleksi.getArrayKoleksi().isEmpty()) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Keranjang masih kosong!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
 		Transaksi transaksi = buatTransaksi(currentPeminjam);
+        System.out.println(transaksi);
+        dataPerpus.isiDataTransaksi(transaksi);
+        keranjangKoleksi.reset();
+        updateTabelKeranjang();
+        updateTabelTransaksi();
+        // Membuat JOptionPane untuk menampilkan bahwa berhasil menambahkan transaksi pinjam
+        JOptionPane.showMessageDialog(
+            this,
+            "Berhasil menambahkan transaksi pinjam dengan id: " + transaksi.getIdTransaksi() + "!",
+            "Success", JOptionPane.INFORMATION_MESSAGE
+        );
 	}//GEN-LAST:event_b_konfirmasiTransaksiActionPerformed
 
 	private void b_kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kembaliActionPerformed
@@ -1001,12 +838,9 @@ public class FormTransaksi extends javax.swing.JFrame {
 	}//GEN-LAST:event_b_kembaliActionPerformed
 
     private void updateTabelKeranjang() {
-        DefaultTableModel model = keranjangKoleksi.getTableModel();
-        if (model != null) {
-            tabelKeranjang.setModel(model);
-            tabelKeranjang.repaint();
-            tabelKeranjang.revalidate();
-        }
+        tabelKeranjang.setModel(keranjangKoleksi.getTableModel());
+        tabelKeranjang.repaint();
+        tabelKeranjang.revalidate();
     }
 
 	private void b_tambahKoleksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_tambahKoleksiActionPerformed
@@ -1044,22 +878,67 @@ public class FormTransaksi extends javax.swing.JFrame {
 		kosongkanFieldKoleksi();
 	}//GEN-LAST:event_b_hapusKoleksiActionPerformed
 
-    private void f_ketersediaanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_ketersediaanFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_ketersediaanFocusLost
+    private void b_resetKeranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetKeranjangActionPerformed
+        keranjangKoleksi.reset();
+        updateTabelKeranjang();
+    }//GEN-LAST:event_b_resetKeranjangActionPerformed
 
-    private void f_ketersediaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_ketersediaanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_ketersediaanActionPerformed
+	public DefaultTableModel getTableTransaksiModel(Transaksi[] arrayTransaksi) {
+		if (arrayTransaksi.length == 0) {
+			return new DefaultTableModel(
+                new Object[][]{},
+                new String[]{"id", "customer id", "from", "due", "items"}
+            );
+		}
+		Object[][] data = new Object[arrayTransaksi.length][5];
+		String[] columns = {"id", "customer id", "from", "due", "items"};
+		for (int i = 0; i < arrayTransaksi.length; i++) {
+            final var currentRow = arrayTransaksi[i];
+            data[i][0] = currentRow.getIdTransaksi();
+            data[i][1] = currentRow.getPeminjam().getIdPeminjam();
+            data[i][2] = currentRow.getTglPinjam();
+            data[i][3] = currentRow.getTglKembali();
+            data[i][4] = currentRow.getStringListIdKoleksi();
+        }
+		return new DefaultTableModel(data, columns) {
+			@Override
+			public boolean isCellEditable(int rowIndex, int
+				colIndex) {
+				return false;
+			}
+		};
+	}
+
+    public void updateTabelTransaksi() {
+        tabelTransaksi.setModel(
+            getTableTransaksiModel(
+                // Konversi dari hashmap ke array
+                dataPerpus.getDataTransaksi()
+                    .values()
+                    .toArray(new Transaksi[0]))
+        );
+        tabelTransaksi.repaint();
+        tabelTransaksi.revalidate();
+    }
+
+    private void b_updateTabelTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_updateTabelTransaksiActionPerformed
+        // Melakukan update tabel transaksi dari database
+        dataPerpus.setDataTransaksi(DatabaseHandler.readAllDataTransaksi());
+        updateTabelTransaksi();
+        // Reset keranjang koleksi
+        keranjangKoleksi.reset();
+    }//GEN-LAST:event_b_updateTabelTransaksiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_cekKoleksi;
-    private javax.swing.JButton b_cekPeminjam;
+    private javax.swing.JButton b_cariKoleksi;
+    private javax.swing.JButton b_cariPeminjam;
     private javax.swing.JButton b_hapusKoleksi;
     private javax.swing.JButton b_kembali;
     private javax.swing.JButton b_konfirmasiTransaksi;
     private javax.swing.JButton b_kosongkanTransaksi;
+    private javax.swing.JButton b_resetKeranjang;
     private javax.swing.JButton b_tambahKoleksi;
+    private javax.swing.JButton b_updateTabelTransaksi;
     private java.awt.TextField f_dari;
     private java.awt.TextField f_isbnIssn;
     private java.awt.TextField f_judulKoleksi;
