@@ -25,7 +25,19 @@ public class Transaksi implements Serializable {
         this.koleksi = koleksi;
     }
 
-    /* metode kosong */
+	/**
+	 * Mendapatkan list id koleksi yang ada di keranjang dipisah dengan koma.
+	 * */
+	public String getStringListIdKoleksi() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < koleksi.length; i++) {
+			sb.append(koleksi[i].getIdKoleksi());
+			if (i != koleksi.length - 1) {
+				sb.append(",");
+			}
+		}
+		return sb.toString();
+	}
 
     public String getIdTransaksi() {
         return idTransaksi;
