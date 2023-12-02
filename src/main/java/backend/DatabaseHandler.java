@@ -137,6 +137,7 @@ public class DatabaseHandler {
 						}
 					}
 					dataKoleksi.put(id_koleksi, koleksi);// Memasukkan id_koleksi dan objek peminjam ke hash map
+//					System.out.println("READING: " + koleksi);
 				}
 			}
 			return dataKoleksi;
@@ -505,6 +506,34 @@ public class DatabaseHandler {
 			} catch (SQLException e) {
 				throw new SQLException(e);
 			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Melakukan perubahan status "dipinjam" pada sebuah id koleksi.
+	 * */
+	public static void setKoleksiDipinjam(String idKoleksi) {
+		try (Connection conn = getConnection()) {
+			String query = "UPDATE \"Koleksi\" SET status_pinjam = 0 WHERE id_koleksi = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, idKoleksi.trim());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Melakukan perubahan status "tersedia" pada sebuah id koleksi.
+	 * */
+	public static void setKoleksiTersedia(String idKoleksi) {
+		try (Connection conn = getConnection()) {
+			String query = "UPDATE \"Koleksi\" SET status_pinjam = 1 WHERE id_koleksi = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, idKoleksi.trim());
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
