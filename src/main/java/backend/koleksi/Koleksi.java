@@ -1,9 +1,10 @@
 package backend.koleksi;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /** Kelas abstrak yang mengimplementasi koleksi sebagai penyimpan atribut-atribut utama Koleksi. */
-public abstract class Koleksi implements Serializable {
+public abstract class Koleksi implements Serializable, Comparable<Koleksi> {
     /* class attributes */
     protected String idKoleksi;
     protected String judul;
@@ -82,5 +83,33 @@ public abstract class Koleksi implements Serializable {
             ", ketersediaan=" + ketersediaan +
             ", tipe='" + tipe + '\'' +
             '}';
+    }
+
+    /**
+     * Hal ini penting karena kita ingin membandingkan objek Koleksi berdasarkan idKoleksi. Terutama
+     * saat mengecek apabila suatu koleksi sudah ada di keranjang (menggunakan pengecekan
+     * {@link java.util.ArrayList#contains(Object)}) yang menggunakan {@link #equals(Object)}.
+     * */
+    @Override
+    public boolean equals(Object o) {
+        // Mengecek apabila objek sama dengan dirinya sendiri.
+        if (this == o)
+            return true;
+        // Mengembalikan false apabila objek bukan merupakan anak dari Koleksi.
+        if (!(o instanceof Koleksi koleksi))
+            return false;
+        // Mengembalikan true apabila idKoleksi sama.
+        return Objects.equals(getIdKoleksi(), koleksi.getIdKoleksi());
+    }
+
+    @Override
+    public int compareTo(Koleksi o) {
+        if (Objects.equals(this.getIdKoleksi(), o.getIdKoleksi())) {
+            return 0;
+        } else if (Integer.parseInt(this.getIdKoleksi()) < Integer.parseInt(o.getIdKoleksi())) {
+            return -1;
+        } else {
+            return 1;
+        }
     }
 }
