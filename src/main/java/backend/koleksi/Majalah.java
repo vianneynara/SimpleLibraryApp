@@ -14,6 +14,14 @@ public class Majalah extends Koleksi {
         this.seri = seri;
     }
 
+    /* constructor untuk memuat status peminjaman juga */
+        public Majalah(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean statusPinjam, String issn, int volume, int seri) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, statusPinjam, "MAJALAH");
+        this.issn = issn;
+        this.volume = volume;
+        this.seri = seri;
+    }
+
     /* getters and setters */
     
     public String getIssn() {

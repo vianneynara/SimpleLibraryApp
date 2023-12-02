@@ -17,6 +17,18 @@ public class Disk extends Koleksi {
         };
     }
 
+    /* constructor untuk memuat status peminjaman juga */
+    public Disk(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean statusPinjam, String isbn, String format) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, statusPinjam, "DISK");
+        this.isbn = isbn;
+        /* mengecek format */
+        this.format = switch (format) {
+            case "Audio" -> "Audio";
+            case "Video" -> "Video";
+            default -> "Document";
+        };
+    }
+
     /* getter and setters */
 
     public String getIsbn() {

@@ -12,6 +12,13 @@ public class Buku extends Koleksi {
         this.jumlahHalaman = jumlahHalaman;
     }
 
+    /* constructor untuk memuat status peminjaman juga */
+    public Buku(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean statusPinjam, String isbn, int jumlahHalaman) {
+        super(idKoleksi, judul, penerbit, tahunTerbit, false, "BUKU");
+        this.isbn = isbn;
+        this.jumlahHalaman = jumlahHalaman;
+    }
+
     /* getters and setters */
 
     public String getIsbn() {
