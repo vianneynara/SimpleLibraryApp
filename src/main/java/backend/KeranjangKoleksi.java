@@ -33,9 +33,14 @@ public class KeranjangKoleksi {
 	 * Mendapatkan array data koleksi untuk membuat tabel sesuai dengan kolom yang ada.
 	 * */
 	public DefaultTableModel getTableModel() {
+		// Mengecek apabila tidak ada koleksi di keranjang. Mengembalikan tabel kosong
 		if (arrayKoleksi.isEmpty()) {
-			return null;
+			return new DefaultTableModel(
+                new Object[][]{},
+                new String[]{"id", "title", "isbn/issn", "tipe"}
+            );
 		}
+
 		Object[][] data = new Object[arrayKoleksi.size()][4];
 		String[] columns = {"id", "title", "isbn/issn", "tipe"};
 		for (int i = 0; i < arrayKoleksi.size(); i++) {
@@ -77,20 +82,6 @@ public class KeranjangKoleksi {
 		return arrayKoleksi.contains(koleksi);
 	}
 
-	/**
-	 * Mendapatkan list id koleksi yang ada di keranjang dipisah dengan koma.
-	 * */
-	public String getStringListIdKoleksi() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < arrayKoleksi.size(); i++) {
-			sb.append(arrayKoleksi.get(i).getIdKoleksi());
-			if (i != arrayKoleksi.size() - 1) {
-				sb.append(",");
-			}
-		}
-		return sb.toString();
-	}
-
 	/* Other functions */
 
 	/**
@@ -102,6 +93,10 @@ public class KeranjangKoleksi {
 
 	public int size() {
 		return arrayKoleksi.size();
+	}
+
+	public boolean isEmpty() {
+		return arrayKoleksi.isEmpty();
 	}
 
 	public List<Koleksi> getArrayKoleksi() {
