@@ -52,6 +52,7 @@ public class FormTransaksi extends javax.swing.JFrame {
 					getClass().getResource("/images/bookIcon.png"))
 			).getImage()
 		);
+        updateTabelTransaksi();
 	}
 
 	/**
@@ -694,7 +695,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 		/* Cari dengan kode koleksi */
 		if (!kodeKoleksi.equals("")) {
 			final Koleksi koleksi = DatabaseHandler.findKoleksi(kodeKoleksi);
-			System.out.println(koleksi);
 
 			setRedBG(i_kodeKoleksi);
 			if (koleksi != null) { // Guard
@@ -707,7 +707,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 		/* Cari dengan judul koleksi */
 		if (!judulKoleksi.equals("")) {
 			final Koleksi koleksi = DatabaseHandler.findKoleksiByTitle(judulKoleksi);
-			System.out.println(koleksi);
 
 			setRedBG(i_judulKoleksi);
 			if (koleksi != null) { // Guard
