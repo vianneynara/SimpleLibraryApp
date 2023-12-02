@@ -1,8 +1,8 @@
 package archived;
 
-import backend.*;
 import backend.koleksi.Koleksi;
 import backend.peminjam.Peminjam;
+import backend.transaksi.Transaksi;
 
 import java.io.*;
 import java.util.HashMap;

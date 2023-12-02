@@ -2,6 +2,7 @@ package backend;
 
 import backend.koleksi.Koleksi;
 import backend.peminjam.Peminjam;
+import backend.transaksi.Transaksi;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

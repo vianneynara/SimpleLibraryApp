@@ -1,4 +1,4 @@
-package backend;
+package backend.transaksi;
 
 import backend.koleksi.Koleksi;
 import backend.peminjam.Peminjam;

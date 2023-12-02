@@ -8,6 +8,7 @@ import backend.peminjam.Dosen;
 import backend.peminjam.Mahasiswa;
 import backend.peminjam.Peminjam;
 import backend.peminjam.Umum;
+import backend.transaksi.Transaksi;
 
 import java.sql.*;
 import java.util.ArrayList;
