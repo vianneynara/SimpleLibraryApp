@@ -246,7 +246,7 @@ public class DatabaseHandler {
 			ps.setString(2, data.getJudul());
 			ps.setString(3, data.getPenerbit());
 			ps.setString(4, data.getTahunTerbit());
-			ps.setInt	(5, data.isDipinjam() ? 1 : 0);
+			ps.setInt	(5, data.isTersedia() ? 1 : 0);
 			ps.setString(6, data.getTipe());
 
 			/* Handling values yang mungkin kosong sesuai tipenya */
