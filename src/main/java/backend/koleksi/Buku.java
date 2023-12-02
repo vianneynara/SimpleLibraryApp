@@ -14,7 +14,7 @@ public class Buku extends Koleksi {
 
     /* constructor untuk memuat status peminjaman juga */
     public Buku(String idKoleksi, String judul, String penerbit, String tahunTerbit, boolean statusPinjam, String isbn, int jumlahHalaman) {
-        super(idKoleksi, judul, penerbit, tahunTerbit, false, "BUKU");
+        super(idKoleksi, judul, penerbit, tahunTerbit, statusPinjam, "BUKU");
         this.isbn = isbn;
         this.jumlahHalaman = jumlahHalaman;
     }
