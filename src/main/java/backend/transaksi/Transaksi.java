@@ -4,6 +4,7 @@ import backend.koleksi.Koleksi;
 import backend.peminjam.Peminjam;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Transaksi implements Serializable {
@@ -93,5 +94,17 @@ public class Transaksi implements Serializable {
 
     public void kembali() {
         return;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaksi{" +
+                "idTransaksi='" + idTransaksi + '\'' +
+                ", peminjam=" + peminjam +
+                ", tglPinjam=" + tglPinjam +
+                ", tglKembali=" + tglKembali +
+                ", denda=" + denda +
+                ", koleksi=" + Arrays.toString(koleksi) +
+                '}';
     }
 }
