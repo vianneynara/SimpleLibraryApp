@@ -37,7 +37,7 @@ public class DatabaseHandler {
 
 	/**
 	 * Metode yang mengembalikan status boolean apakah bisa terkoneksi dengan database.
-	 * */
+	 */
 	public static boolean canConnectToDatabase() {
 		try {
 			getConnection();
@@ -70,13 +70,13 @@ public class DatabaseHandler {
 				// Selama masih ada nilai untuk setelahnya
 				while (rs.next()) {
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
-					String id_peminjam 		= rs.getString("id_peminjam");
-					String nama_lengkap 	= rs.getString("nama_lengkap");
-					String jenis_no_id 		= rs.getString("jenis_no_id").toUpperCase();
-					String alamat 			= rs.getString("alamat");
-					String nomor_telepon 	= rs.getString("nomor_telepon");
-					int maks_pinjam 		= rs.getInt("maks_pinjam");
-					String nomor_identitas 	= rs.getString("nomor_identitas");
+					String id_peminjam = rs.getString("id_peminjam");
+					String nama_lengkap = rs.getString("nama_lengkap");
+					String jenis_no_id = rs.getString("jenis_no_id").toUpperCase();
+					String alamat = rs.getString("alamat");
+					String nomor_telepon = rs.getString("nomor_telepon");
+					int maks_pinjam = rs.getInt("maks_pinjam");
+					String nomor_identitas = rs.getString("nomor_identitas");
 
 					Peminjam peminjam;
 					/* Membuat objek inheritor Peminjam sesuai dengan jenis_no_id */
@@ -99,6 +99,7 @@ public class DatabaseHandler {
 
 	/**
 	 * Membaca keseluruhan isi dari tabel Koleksi dan mengembalikannya dalam bentuk hash map.
+	 *
 	 * @return {@link HashMap} berisi data koleksi dengan id_koleksi sebagai key dan objek {@link Koleksi}
 	 * sebagai value.
 	 */
@@ -110,15 +111,15 @@ public class DatabaseHandler {
 
 			try (PreparedStatement ps = conn.prepareStatement(query);
 				 ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {							// Selama masih ada nilai untuk setelahnya
+				while (rs.next()) {                            // Selama masih ada nilai untuk setelahnya
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
-					String id_koleksi 		= rs.getString("id_koleksi");
-					String judul 			= rs.getString("judul");
-					String penerbit 		= rs.getString("penerbit");
-					String tahunTerbit		= rs.getString("tahun_terbit");
-					boolean statusPinjam  	= rs.getInt("status_pinjam") == 1;
-					String tipe 			= rs.getString("tipe");
-					String isbn_issn		= rs.getString("isbn_issn");
+					String id_koleksi = rs.getString("id_koleksi");
+					String judul = rs.getString("judul");
+					String penerbit = rs.getString("penerbit");
+					String tahunTerbit = rs.getString("tahun_terbit");
+					boolean statusPinjam = rs.getInt("status_pinjam") == 1;
+					String tipe = rs.getString("tipe");
+					String isbn_issn = rs.getString("isbn_issn");
 
 					Koleksi koleksi;
 					/* Membuat objek inheritor Peminjam sesuai dengan tipe */
@@ -148,6 +149,7 @@ public class DatabaseHandler {
 
 	/**
 	 * Membaca keseluruhan isi dari tabel Transaksi dan mengembalikannya dalam bentuk hash map.
+	 *
 	 * @return {@link HashMap} berisi data koleksi dengan id_transaksi sebagai key dan objek {@link Transaksi}
 	 * sebagai value.
 	 */
@@ -159,16 +161,16 @@ public class DatabaseHandler {
 
 			try (PreparedStatement ps = conn.prepareStatement(query);
 				 ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {							// Selama masih ada nilai untuk setelahnya
+				while (rs.next()) {                            // Selama masih ada nilai untuk setelahnya
 					/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
-					String id_transaksi 	= rs.getString("id_transaksi");
-					String id_peminjam 		= rs.getString("id_peminjam");
-					Date tanggal_pinjam 	= rs.getDate("tanggal_pinjam");
-					Date tanggal_kembali	= rs.getDate("tanggal_kembali");
-					float denda 			= rs.getFloat("denda");
-					String koleksi			= rs.getString("koleksi");
+					String id_transaksi = rs.getString("id_transaksi");
+					String id_peminjam = rs.getString("id_peminjam");
+					Date tanggal_pinjam = rs.getDate("tanggal_pinjam");
+					Date tanggal_kembali = rs.getDate("tanggal_kembali");
+					float denda = rs.getFloat("denda");
+					String koleksi = rs.getString("koleksi");
 
-					String[] listedKoleksi 	= koleksi.split(",");
+					String[] listedKoleksi = koleksi.split(",");
 					List<Koleksi> arrKoleksi = new ArrayList<>();
 					for (String s : listedKoleksi) {
 						var result = findKoleksi(s);
@@ -200,7 +202,7 @@ public class DatabaseHandler {
 	/**
 	 * Memasukkan data bertipe {@link Peminjam} dan memasukkan atribut-atribut objeknya menjadi atribut record dalam
 	 * database.
-	 * */
+	 */
 	public static void insertDataPeminjam(Peminjam data) {
 		String query =
 			/* Memasukkan ke dalam Peminjam pada kolom (yang tertera) dengan values (sesuai dengan jumlah kolom)*/
@@ -215,7 +217,7 @@ public class DatabaseHandler {
 			ps.setString(3, data.getJenisNoId());
 			ps.setString(4, data.getAlamat());
 			ps.setString(5, data.getNoTelp());
-			ps.setInt	(6, data.getMaksPinjam());
+			ps.setInt(6, data.getMaksPinjam());
 
 			if (data instanceof Mahasiswa m) {
 				ps.setString(7, m.getNim());
@@ -225,7 +227,7 @@ public class DatabaseHandler {
 				ps.setString(7, ((Umum) data).getNik());
 			}
 
-			ps.executeUpdate();									// Melakukan update menggunakan prepared statement
+			ps.executeUpdate();                                    // Melakukan update menggunakan prepared statement
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -234,7 +236,7 @@ public class DatabaseHandler {
 	/**
 	 * Memasukkan data bertipe {@link Koleksi} dan memasukkan atribut-atribut objeknya menjadi atribut record dalam
 	 * database.
-	 * */
+	 */
 	public static void inserDataKoleksi(Koleksi data) {
 		String query =
 			/* Memasukkan ke dalam Peminjam pada kolom (yang tertera) dengan values (sesuai dengan jumlah kolom)*/
@@ -248,7 +250,7 @@ public class DatabaseHandler {
 			ps.setString(2, data.getJudul());
 			ps.setString(3, data.getPenerbit());
 			ps.setString(4, data.getTahunTerbit());
-			ps.setInt	(5, data.isTersedia() ? 1 : 0);
+			ps.setInt(5, data.isTersedia() ? 1 : 0);
 			ps.setString(6, data.getTipe());
 
 			/* Handling values yang mungkin kosong sesuai tipenya */
@@ -269,7 +271,7 @@ public class DatabaseHandler {
 				ps.setString(11, ((Disk) data).getFormat());
 			}
 
-			ps.executeUpdate();									// Melakukan update menggunakan prepared statement
+			ps.executeUpdate();                                    // Melakukan update menggunakan prepared statement
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -278,7 +280,7 @@ public class DatabaseHandler {
 	/**
 	 * Memasukkan data bertipe {@link Transaksi} dan memasukkan atribut-atribut objeknya menjadi atribut record dalam
 	 * database.
-	 * */
+	 */
 	public static void insertDataTransaksi(Transaksi data) {
 		String query =
 			/* Memasukkan ke dalam Peminjam pada kolom (yang tertera) dengan values (sesuai dengan jumlah kolom)*/
@@ -304,7 +306,7 @@ public class DatabaseHandler {
 			}
 			ps.setString(6, strListKoleksi.toString());
 
-			ps.executeUpdate();									// Melakukan update menggunakan prepared statement
+			ps.executeUpdate();                                    // Melakukan update menggunakan prepared statement
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -317,7 +319,7 @@ public class DatabaseHandler {
 	 *
 	 * @param rs {@link ResultSet} yang akan diambil datanya.
 	 * @return {@link Peminjam} jika ada, {@code null} jika tidak ada.
-	 * */
+	 */
 	private static Peminjam getPeminjam(ResultSet rs) throws SQLException {
 		if (rs.next()) {
 			/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
@@ -347,8 +349,9 @@ public class DatabaseHandler {
 
 	/**
 	 * Mendapatkan data {@link Koleksi} dari hasil pertama {@link ResultSet} yang diberikan.
+	 *
 	 * @return {@link Koleksi} jika ada, {@code null} jika tidak ada.
-	 * */
+	 */
 	private static Koleksi getKoleksi(ResultSet rs) throws SQLException {
 		if (rs.next()) {
 			/* Mengambil atribut pada tabel dan menyimpannya ke variabel sementara */
@@ -356,7 +359,7 @@ public class DatabaseHandler {
 			String judul = rs.getString("judul");
 			String penerbit = rs.getString("penerbit");
 			String tahunTerbit = rs.getString("tahun_terbit");
-			boolean statusPinjam  	= rs.getInt("status_pinjam") == 1;
+			boolean statusPinjam = rs.getInt("status_pinjam") == 1;
 			String tipe = rs.getString("tipe");
 			String isbn_issn = rs.getString("isbn_issn");
 
@@ -385,11 +388,11 @@ public class DatabaseHandler {
 
 	/**
 	 * Mencari data peminjam sesuai dengan id peminjam dari database.
-	 * */
+	 */
 	public static Peminjam findPeminjam(String idPeminjam) {
-		try (Connection conn = getConnection()) {
-			String query = "SELECT * FROM \"Peminjam\" WHERE id_peminjam = ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "SELECT * FROM \"Peminjam\" WHERE id_peminjam = ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
 			ps.setString(1, idPeminjam.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
@@ -404,11 +407,12 @@ public class DatabaseHandler {
 
 	/**
 	 * Mencari data koleksi sesuai dengan id koleksi dari database.
-	 * */
+	 */
 	public static Koleksi findKoleksi(String idKoleksi) {
-		try (Connection conn = getConnection()) {
-			String query = "SELECT * FROM \"Koleksi\" WHERE id_koleksi = ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "SELECT * FROM \"Koleksi\" WHERE id_koleksi = ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query);) {
+
 			ps.setString(1, idKoleksi.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
@@ -423,11 +427,11 @@ public class DatabaseHandler {
 
 	/**
 	 * Mencari data transaksi sesuai dengan id transaksi dari database.
-	 * */
+	 */
 	public static Transaksi findTransaksi(String idTransaksi) {
-		try (Connection conn = getConnection()) {
-			String query = "SELECT * FROM \"Transaksi\" WHERE id_transaksi = ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "SELECT * FROM \"Transaksi\" WHERE id_transaksi = ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
 			ps.setString(1, idTransaksi.trim());
 
 			try (ResultSet rs = ps.executeQuery()) {
@@ -473,12 +477,13 @@ public class DatabaseHandler {
 	/* Read / search by secondary key records from database */
 
 	/**
-	* Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
-	* */
+	 * Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
+	 */
 	public static Peminjam findPeminjamByName(String substring) {
-		try (Connection conn = getConnection()) {
-			String query = "SELECT * FROM \"Peminjam\" WHERE LOWER(nama_lengkap) LIKE ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "SELECT * FROM \"Peminjam\" WHERE LOWER(nama_lengkap) LIKE ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
+
 			ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
 
 			try (ResultSet rs = ps.executeQuery()) {
@@ -493,12 +498,12 @@ public class DatabaseHandler {
 
 
 	/**
-	* Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
-	* */
+	 * Mencari data peminjam sesuai dengan potongan nama dari database (case insensitive).
+	 */
 	public static Koleksi findKoleksiByTitle(String substring) {
-		try (Connection conn = getConnection()) {
-			String query = "SELECT * FROM \"Koleksi\" WHERE LOWER(judul) LIKE ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "SELECT * FROM \"Koleksi\" WHERE LOWER(judul) LIKE ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
 			ps.setString(1, "%" + substring.trim().toLowerCase() + "%");
 
 			try (ResultSet rs = ps.executeQuery()) {
@@ -513,11 +518,11 @@ public class DatabaseHandler {
 
 	/**
 	 * Melakukan perubahan status "dipinjam" pada sebuah id koleksi.
-	 * */
+	 */
 	public static void setKoleksiDipinjam(String idKoleksi) {
-		try (Connection conn = getConnection()) {
-			String query = "UPDATE \"Koleksi\" SET status_pinjam = 0 WHERE id_koleksi = ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "UPDATE \"Koleksi\" SET status_pinjam = 0 WHERE id_koleksi = ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
 			ps.setString(1, idKoleksi.trim());
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -527,11 +532,12 @@ public class DatabaseHandler {
 
 	/**
 	 * Melakukan perubahan status "tersedia" pada sebuah id koleksi.
-	 * */
+	 */
 	public static void setKoleksiTersedia(String idKoleksi) {
-		try (Connection conn = getConnection()) {
-			String query = "UPDATE \"Koleksi\" SET status_pinjam = 1 WHERE id_koleksi = ?";
-			PreparedStatement ps = conn.prepareStatement(query);
+		String query = "UPDATE \"Koleksi\" SET status_pinjam = 1 WHERE id_koleksi = ?";
+		try (Connection conn = getConnection();
+			 PreparedStatement ps = conn.prepareStatement(query)) {
+
 			ps.setString(1, idKoleksi.trim());
 			ps.executeUpdate();
 		} catch (SQLException e) {
