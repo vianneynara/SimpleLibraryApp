@@ -441,7 +441,7 @@ public class DatabaseHandler {
 						}
 					}
 
-					Transaksi transaksi = new Transaksi(
+					return new Transaksi(
 						id_transaksi,
 						findPeminjam(id_peminjam),
 						tanggal_pinjam,
@@ -449,7 +449,6 @@ public class DatabaseHandler {
 						denda,
 						arrKoleksi.toArray(new Koleksi[0])
 					);
-					return transaksi;
 				} else {
 					// no result found
 					return null;
