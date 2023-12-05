@@ -16,6 +16,7 @@ import backend.transaksi.Transaksi;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -895,8 +896,9 @@ public class FormTransaksi extends javax.swing.JFrame {
             final var currentRow = arrayTransaksi[i];
             data[i][0] = currentRow.getIdTransaksi();
             data[i][1] = currentRow.getPeminjam().getIdPeminjam();
-            data[i][2] = currentRow.getTglPinjam();
-            data[i][3] = currentRow.getTglKembali();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            data[i][2] = formatter.format(currentRow.getTglPinjam());
+            data[i][3] = formatter.format(currentRow.getTglKembali());
             data[i][4] = currentRow.getStringListIdKoleksi();
         }
 		return new DefaultTableModel(data, columns) {
