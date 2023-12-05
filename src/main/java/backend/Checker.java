@@ -7,7 +7,7 @@ public class Checker {
      * @return boolean true atau false
      * */
     public static boolean stringIsEmpty(String str) {
-        return str.trim().equals("");
+        return str.trim().isEmpty();
     }
 
     /**
