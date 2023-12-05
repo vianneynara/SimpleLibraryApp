@@ -124,18 +124,12 @@ public class DatabaseHandler {
 					Koleksi koleksi;
 					/* Membuat objek inheritor Peminjam sesuai dengan tipe */
 					switch (tipe) {
-						case "BUKU" -> {
-							koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-								rs.getInt("jumlah_halaman"));
-						}
-						case "MAJALAH" -> {
-							koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-								rs.getInt("volume"), rs.getInt("seri"));
-						}
-						default -> {
-							koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-								rs.getString("format"));
-						}
+						case "BUKU" -> koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+							rs.getInt("jumlah_halaman"));
+						case "MAJALAH" -> koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+							rs.getInt("volume"), rs.getInt("seri"));
+						default -> koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+							rs.getString("format"));
 					}
 					dataKoleksi.put(id_koleksi, koleksi);// Memasukkan id_koleksi dan objek peminjam ke hash map
 //					System.out.println("READING: " + koleksi);
@@ -366,18 +360,12 @@ public class DatabaseHandler {
 			Koleksi koleksi;
 			/* Membuat objek inheritor Peminjam sesuai dengan tipe */
 			switch (tipe) {
-				case "BUKU" -> {
-					koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-						rs.getInt("jumlah_halaman"));
-				}
-				case "MAJALAH" -> {
-					koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-						rs.getInt("volume"), rs.getInt("seri"));
-				}
-				default -> {
-					koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
-						rs.getString("format"));
-				}
+				case "BUKU" -> koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+					rs.getInt("jumlah_halaman"));
+				case "MAJALAH" -> koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+					rs.getInt("volume"), rs.getInt("seri"));
+				default -> koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+					rs.getString("format"));
 			}
 			return koleksi;
 		} else {
