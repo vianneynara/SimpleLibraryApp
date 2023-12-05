@@ -4,7 +4,6 @@ import backend.koleksi.Buku;
 import backend.koleksi.Disk;
 import backend.koleksi.Koleksi;
 import backend.koleksi.Majalah;
-import backend.peminjam.Peminjam;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class KeranjangKoleksi {
 	
-	private List<Koleksi> arrayKoleksi;
+	private final List<Koleksi> arrayKoleksi;
 	
 	/**
 	 * Konstruktor tanpa parameter.

@@ -1,6 +1,7 @@
 package gui;
 
-import backend.*;
+import backend.DataPerpus;
+import backend.DatabaseHandler;
 import backend.koleksi.Buku;
 import backend.koleksi.Majalah;
 import backend.peminjam.Dosen;

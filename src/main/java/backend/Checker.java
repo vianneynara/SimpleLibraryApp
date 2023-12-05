@@ -1,7 +1,5 @@
 package backend;
 
-import java.util.regex.Pattern;
-
 public class Checker {
     /**
      * Mengecek apakah sebuah {@link String} kosong setelah dilakukan trimming.

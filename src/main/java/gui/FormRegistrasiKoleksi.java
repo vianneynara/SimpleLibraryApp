@@ -3,7 +3,8 @@ package gui;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import backend.*;
+import backend.Checker;
+import backend.DataPerpus;
 import backend.koleksi.Buku;
 import backend.koleksi.Disk;
 import backend.koleksi.Koleksi;
