@@ -328,11 +328,14 @@ public class DatabaseHandler {
 			Peminjam peminjam;
 			/* Membuat objek inheritor Peminjam sesuai dengan jenis_no_id */
 			if (jenis_no_id.equalsIgnoreCase("NIM")) {
-				peminjam = new Mahasiswa(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				peminjam = new Mahasiswa(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam,
+					nomor_identitas);
 			} else if (jenis_no_id.equalsIgnoreCase("NIP")) {
-				peminjam = new Dosen(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				peminjam = new Dosen(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam,
+					nomor_identitas);
 			} else {
-				peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam, nomor_identitas);
+				peminjam = new Umum(id_peminjam, nama_lengkap, jenis_no_id, alamat, nomor_telepon, maks_pinjam,
+					nomor_identitas);
 			}
 			return peminjam;
 		} else {
@@ -344,6 +347,7 @@ public class DatabaseHandler {
 	/**
 	 * Mendapatkan data {@link Koleksi} dari hasil pertama {@link ResultSet} yang diberikan.
 	 *
+	 * @param rs {@link ResultSet} yang akan diambil datanya.
 	 * @return {@link Koleksi} jika ada, {@code null} jika tidak ada.
 	 */
 	private static Koleksi getKoleksi(ResultSet rs) throws SQLException {
@@ -360,11 +364,14 @@ public class DatabaseHandler {
 			Koleksi koleksi;
 			/* Membuat objek inheritor Peminjam sesuai dengan tipe */
 			switch (tipe) {
-				case "BUKU" -> koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+				case "BUKU" -> koleksi = new Buku(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam,
+					isbn_issn,
 					rs.getInt("jumlah_halaman"));
-				case "MAJALAH" -> koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+				case "MAJALAH" -> koleksi = new Majalah(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam,
+					isbn_issn,
 					rs.getInt("volume"), rs.getInt("seri"));
-				default -> koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam, isbn_issn,
+				default -> koleksi = new Disk(id_koleksi, judul, penerbit, tahunTerbit, statusPinjam,
+					isbn_issn,
 					rs.getString("format"));
 			}
 			return koleksi;
