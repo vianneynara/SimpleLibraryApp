@@ -27,7 +27,7 @@ public class DataPerpus {
 	public DataPerpus() {
 		this.dataPeminjam = DatabaseHandler.readAllDataPeminjam();
 		this.dataKoleksi = DatabaseHandler.readAllDataKoleksi();
-		this.dataTransaksi = new HashMap<>();
+		this.dataTransaksi = DatabaseHandler.readAllDataTransaksi();
 	}
 
 	public boolean ensureDBConnection() {
