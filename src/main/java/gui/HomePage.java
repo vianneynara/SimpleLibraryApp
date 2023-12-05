@@ -1,5 +1,7 @@
 package gui;
 
+import backend.DatabaseHandler;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
@@ -122,12 +124,18 @@ public class HomePage extends javax.swing.JFrame {
      * Masuk ke aplikasi utama dengan cara membuat {@link App}. Untuk menyimpan objek {@link HomePage} ini, menggunakan argumen {@code this}.
      * */
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        JFrame app = new App(this);                         // buat objek App ke app
-
-        System.out.println("Logged in as Admin");           // mencetak di terminal
-
-        app.setVisible(true);                               // mengatur app menjadi terlihat
-        this.setVisible(false);                             // mengatur home page mmenjadi tidak terlihat
+        try {
+            JFrame app = new App(this);                         // buat objek App ke app
+            System.out.println("Logged in as Admin");           // mencetak di terminal
+            app.setVisible(true);                               // mengatur app menjadi terlihat
+            this.setVisible(false);                             // mengatur home page mmenjadi tidak terlihat
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Tidak dapat terkoneksi dengan database! Cek console untuk informasi lebih lanjut.",
+                "Error", JOptionPane.ERROR_MESSAGE);
+			throw e;
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_passwordActionPerformed
