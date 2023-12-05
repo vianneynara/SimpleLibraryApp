@@ -399,7 +399,7 @@ public class DatabaseHandler {
 	public static Koleksi findKoleksi(String idKoleksi) {
 		String query = "SELECT * FROM \"Koleksi\" WHERE id_koleksi = ?";
 		try (Connection conn = getConnection();
-			 PreparedStatement ps = conn.prepareStatement(query);) {
+			 PreparedStatement ps = conn.prepareStatement(query)) {
 
 			ps.setString(1, idKoleksi.trim());
 
